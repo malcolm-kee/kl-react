@@ -1,0 +1,10 @@
+- id: august-2019
+  meetup: 263797889
+  venue: inscale
+  schedule:
+    - time: 7.45pm
+      talk: peeking-inside-react
+    - time: 8.15pm
+      talk: boost-dx-with-graphql
+    - time: 8.45pm
+      talk: gatsby-mdx

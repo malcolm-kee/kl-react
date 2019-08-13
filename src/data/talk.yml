@@ -1,0 +1,12 @@
+- id: peeking-inside-react
+  title: 'Peeking inside React: The Background Magic'
+  speaker: abhishek
+  description: Looking into how react is rendered and what are the processes that they follow, VDom, Reconciliation, Memoization.
+- id: boost-dx-with-graphql
+  title: 'Boost your developer experience with GraphQL'
+  speaker: yongshean
+  description: Managing data fetching and UI rendering logics when dealing with API calls are the most challenging and often frustrating for most developers. This talk presents the benefits that GraphQL offers for enhancing developer experience.
+- id: gatsby-mdx
+  title: 'Using MDX in Gatsby site'
+  speaker: matt
+  description: Ever wanted to use React together with markdown in your projects? Now you can with gatsby-plugin-mdx. Write markdown for your pages while importing React components in the same file.
