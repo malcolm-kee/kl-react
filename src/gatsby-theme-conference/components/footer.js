@@ -39,6 +39,11 @@ export default function Footer() {
               </NavLink>
             </li>
             <li>
+              <NavLink as="a" href="https://github.com/malcolm-kee/kl-react">
+                GitHub
+              </NavLink>
+            </li>
+            <li>
               <NavLink as={Link} to="/code-of-conduct">
                 Code of Conduct
               </NavLink>

@@ -17,6 +17,12 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       name: 'MeetupEvent',
       interfaces: ['Node'],
       fields: {
+        isFull: {
+          type: 'Boolean',
+          resolve: source => {
+            return source.rsvp_limit - source.yes_rsvp_count === 0;
+          },
+        },
         info: {
           type: 'EventYaml',
           resolve: (source, _, context) => {
