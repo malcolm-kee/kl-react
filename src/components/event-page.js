@@ -14,10 +14,13 @@ function EventCard({
   isMeetup,
   ...props
 }) {
+  const isUpcoming = status === 'upcoming';
+
   return (
     <Card
       sx={{
-        m: 1,
+        m: 2,
+        flexGrow: 1,
       }}
       {...props}
     >
@@ -25,7 +28,7 @@ function EventCard({
         as="a"
         href={link}
         sx={{
-          color: status === 'upcoming' ? 'secondary' : 'text',
+          color: isUpcoming ? 'secondary' : 'text',
           textDecoration: 'none',
         }}
       >
@@ -48,7 +51,7 @@ export function EventPage({ events }) {
             mb: 5,
           }}
         >
-          Past Events
+          Events
         </Styled.h1>
         <FlexList
           sx={{

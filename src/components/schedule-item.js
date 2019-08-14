@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { Flex, jsx, Styled } from 'theme-ui';
+import DesktopOnly from 'gatsby-theme-conference/src/components/desktop-only';
 import { Coffee, Radio, Home } from 'react-feather';
 
 function ScheduleItemIcon({ type }) {
@@ -24,7 +25,10 @@ function ScheduleItemIcon({ type }) {
           fontSize: 3,
         }}
       >
-        {icon} {type}
+        {icon}{' '}
+        <DesktopOnly>
+          <span>{type}</span>
+        </DesktopOnly>
       </Styled.h4>
     </div>
   );

@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import Button from 'gatsby-theme-conference/src/components/button';
-import useSiteMetadata from 'gatsby-theme-conference/src/use-site-metadata';
 import IconLink from 'gatsby-theme-conference/src/components/icon-link';
-import { Container, jsx, Styled } from 'theme-ui';
+import useSiteMetadata from 'gatsby-theme-conference/src/use-site-metadata';
 import { Navigation2 } from 'react-feather';
+import { Container, jsx, Styled } from 'theme-ui';
 
 export default function Banner({ upcomingEvent, ...props }) {
   const { title, description } = useSiteMetadata();
@@ -45,7 +45,20 @@ export default function Banner({ upcomingEvent, ...props }) {
           )}
           {upcomingEvent && (
             <IconLink sx={{ p: 3, mx: 3 }} href={upcomingEvent.venue.mapURL}>
-              Getting There <Navigation2 />
+              <span
+                sx={{
+                  mx: 1,
+                }}
+                css={theme => ({
+                  display: 'inline-block',
+                  [`@media screen and (max-width: ${theme.breakpoints[0]})`]: {
+                    display: 'none',
+                  },
+                })}
+              >
+                Getting There
+              </span>
+              <Navigation2 />
             </IconLink>
           )}
         </div>
