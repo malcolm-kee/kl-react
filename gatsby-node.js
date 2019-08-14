@@ -23,15 +23,17 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
             if (source.link) {
               const match = /\/(\d+)\/$/.exec(source.link);
               const eventId = match && Number(match[1]);
-              return context.nodeModel
-                .getAllNodes({ type: 'EventYaml' })
-                .find(event => event.meetup === eventId);
+              return (
+                context.nodeModel
+                  .getAllNodes({ type: 'EventYaml' })
+                  .find(event => event.meetup === eventId) || null
+              );
             }
             return null;
-          }
-        }
-      }
-    })
+          },
+        },
+      },
+    }),
   ];
   createTypes(typeDefs);
 };

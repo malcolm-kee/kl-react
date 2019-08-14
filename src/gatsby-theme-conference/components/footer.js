@@ -11,11 +11,16 @@ export default function Footer() {
       <Flex
         sx={{
           mx: -3,
-          flexWrap: 'wrap'
+          flexWrap: 'wrap',
         }}
       >
         <div sx={{ width: ['100%', 100 / 3 + '%'] }}>
           <List>
+            <li>
+              <NavLink as={Link} to="/events">
+                Events
+              </NavLink>
+            </li>
             <li>
               <NavLink as={Link} to="/speakers">
                 Speakers
@@ -26,7 +31,10 @@ export default function Footer() {
         <div sx={{ width: ['100%', 100 / 3 + '%'] }}>
           <List>
             <li>
-              <NavLink as="a" href="https://www.meetup.com/kl-react/?action=join">
+              <NavLink
+                as="a"
+                href="https://www.meetup.com/kl-react/?action=join"
+              >
                 Join Us
               </NavLink>
             </li>
@@ -42,7 +50,7 @@ export default function Footer() {
         <Styled.p
           sx={{
             textAlign: 'right',
-            fontSize: 0
+            fontSize: 0,
           }}
         >
           © {currentYear} KL React

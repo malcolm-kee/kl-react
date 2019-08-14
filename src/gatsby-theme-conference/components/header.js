@@ -18,7 +18,10 @@ export default function Header() {
       </NavLink>
       <div sx={{ mx: 'auto' }} />
       <DesktopOnly>
-        <NavLink as={Link} to="/#speakers">
+        <NavLink as={Link} to="/events">
+          Events
+        </NavLink>
+        <NavLink as={Link} to="/speakers">
           Speakers
         </NavLink>
       </DesktopOnly>
