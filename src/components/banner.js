@@ -25,15 +25,18 @@ export default function Banner({ upcomingEvent, ...props }) {
         >
           {upcomingEvent ? upcomingEvent.name : title}
         </Styled.h1>
+        {upcomingEvent && (
+          <Styled.p sx={{ my: 1, fontSize: [3, 4, 5] }}>
+            {upcomingEvent.date} {upcomingEvent.time}
+          </Styled.p>
+        )}
         <Styled.p
           sx={{
             fontSize: [3, 4, 5],
             mb: 5,
           }}
         >
-          {upcomingEvent
-            ? `${upcomingEvent.time}@${upcomingEvent.venue.name}`
-            : description}
+          {upcomingEvent ? `@${upcomingEvent.venue.name}` : description}
         </Styled.p>
         <div sx={{ display: 'flex' }}>
           {upcomingEvent ? (

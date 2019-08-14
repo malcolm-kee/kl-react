@@ -3,7 +3,11 @@ import { Flex, jsx, Styled } from 'theme-ui';
 import DesktopOnly from 'gatsby-theme-conference/src/components/desktop-only';
 import { Coffee, Radio, Home } from 'react-feather';
 
-function ScheduleItemIcon({ type }) {
+const scheduleTypeStyle = {
+  fontSize: 3,
+};
+
+function ScheduleTypeDisplay({ type }) {
   const icon =
     type === 'food' ? (
       <Coffee />
@@ -20,16 +24,16 @@ function ScheduleItemIcon({ type }) {
         width: ['50%', 192],
       }}
     >
-      <Styled.h4
-        sx={{
-          fontSize: 3,
-        }}
-      >
-        {icon}{' '}
-        <DesktopOnly>
-          <span>{type}</span>
-        </DesktopOnly>
-      </Styled.h4>
+      {icon ? (
+        <Styled.h4 sx={scheduleTypeStyle}>
+          {icon}{' '}
+          <DesktopOnly>
+            <span>{type}</span>
+          </DesktopOnly>
+        </Styled.h4>
+      ) : (
+        <Styled.h4 sx={scheduleTypeStyle}>{type}</Styled.h4>
+      )}
     </div>
   );
 }
@@ -77,7 +81,7 @@ export function ScheduleItem({ time, type, talk, desc }) {
           </div>
         )
       ) : (
-        <ScheduleItemIcon type={type} />
+        <ScheduleTypeDisplay type={type} />
       )}
       <div sx={{ width: '100%' }}>
         <Styled.p />

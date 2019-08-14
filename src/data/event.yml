@@ -6,6 +6,9 @@
     - time: 7.00pm
       type: food
       desc: Food Consuming + Human Social Activity
+    - time: 7.40pm
+      type: intro
+      desc: Introduction to KL React + Sponsor shout-outs
     - time: 7.45pm
       type: talk
       talk: peeking-inside-react
