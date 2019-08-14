@@ -4,27 +4,41 @@ import Speakers from 'gatsby-theme-conference/src/components/speakers';
 import React from 'react';
 import Banner from '../components/banner';
 import CTA from '../components/cta';
+import { Schedule } from '../components/schedule';
 import Seo from '../components/seo';
+import { useUpcomingEvent } from '../hooks/use-upcoming-event';
 
-const Landing = ({ speakers }) => (
+const Landing = ({ speakers, upcomingEvent, schedule }) => (
   <Layout>
     <Seo />
-    <Banner />
+    <Banner upcomingEvent={upcomingEvent} />
+    {schedule && <Schedule schedule={schedule} />}
     <Speakers speakers={speakers} />
-    {/* <Venue {...venue} /> */}
-    {/* <Schedule schedule={schedule} /> */}
-    {/* <MCs mcs={mcs} /> */}
-    {/* <Sponsors sponsors={sponsors} /> */}
     <CTA />
   </Layout>
 );
 
 export default props => {
   const { data } = props;
-  const speakers = data.allSpeakersYaml.edges.map(edge => edge.node);
-  //   const schedule = data.allScheduleYaml.edges.map(edge => edge.node)
+  const upcomingEvent = useUpcomingEvent();
+  const upcomingEventSchedule = upcomingEvent && upcomingEvent.schedule;
+  const speakers = upcomingEventSchedule
+    ? upcomingEventSchedule
+        .filter(
+          item =>
+            !!(item && item.type === 'talk' && item.talk && item.talk.speaker)
+        )
+        .map(item => item.talk.speaker)
+    : data.allSpeakersYaml.edges.map(edge => edge.node);
 
-  return <Landing {...props} speakers={speakers} />;
+  return (
+    <Landing
+      {...props}
+      speakers={speakers}
+      upcomingEvent={upcomingEvent}
+      schedule={upcomingEventSchedule}
+    />
+  );
 };
 
 export const pageQuery = graphql`
@@ -39,6 +53,7 @@ export const pageQuery = graphql`
           company
           twitter
           github
+          website
         }
       }
     }

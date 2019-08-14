@@ -32,6 +32,35 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
             return null;
           },
         },
+        mapURL: {
+          type: 'String',
+          resolve: source => {
+            if (source.venue && source.venue.lon) {
+              return `https://maps.google.com/?q=${source.venue.lat},${
+                source.venue.lon
+              }`;
+            }
+            return null;
+          },
+        },
+      },
+    }),
+    schema.buildObjectType({
+      name: 'SpeakersYaml',
+      interfaces: ['Node'],
+      fields: {
+        image: {
+          type: 'String',
+          resolve: source => {
+            return source.image
+              ? source.image
+              : source.github
+              ? `https://github.com/${source.github}.png`
+              : source.twitter
+              ? `https://avatars.io/twitter/${source.twitter}`
+              : null;
+          },
+        },
       },
     }),
   ];
