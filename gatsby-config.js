@@ -28,7 +28,7 @@ module.exports = {
         short_name: `KL React`,
         background_color: `#33e`,
         theme_color: `#33e`,
-        icon: `og-image/react_kl_icon.png`,
+        icon: `og-image/reactkl-logo-circle.png`,
       },
     },
     `gatsby-plugin-netlify`,
