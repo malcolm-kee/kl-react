@@ -9,7 +9,7 @@ export default function SpeakersPage({ data }) {
     <>
       <Seo title="Speakers" />
       <Layout>
-        <Speakers speakers={data.allSpeakersYaml.nodes} />
+        <Speakers speakers={data.allSpeakerYaml.nodes} />
       </Layout>
     </>
   );
@@ -17,7 +17,7 @@ export default function SpeakersPage({ data }) {
 
 export const pageQuery = graphql`
   query {
-    allSpeakersYaml {
+    allSpeakerYaml {
       nodes {
         ...SpeakerCard
       }

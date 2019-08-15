@@ -14,7 +14,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions;
   const typeDefs = [
     `type EventYaml implements Node { 
-      venue: VenuesYaml @link 
+      venue: VenueYaml @link 
       schedule: [EventYamlSchedule]
     }
     
@@ -23,7 +23,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     }
     `,
     `type TalkYaml implements Node {
-        speaker: SpeakersYaml @link
+        speaker: SpeakerYaml @link
     }`,
     schema.buildObjectType({
       name: 'TalkYaml',
@@ -93,7 +93,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       },
     }),
     schema.buildObjectType({
-      name: 'SpeakersYaml',
+      name: 'SpeakerYaml',
       interfaces: ['Node'],
       fields: {
         image: {
@@ -147,7 +147,7 @@ exports.createResolvers = ({
 }) => {
   const { createNode } = actions;
   createResolvers({
-    SpeakersYaml: {
+    SpeakerYaml: {
       imageFile: {
         type: `File`,
         resolve(source) {

@@ -70,7 +70,7 @@ export function SpeakerCard({
 }
 
 export const query = graphql`
-  fragment SpeakerCard on SpeakersYaml {
+  fragment SpeakerCard on SpeakerYaml {
     id
     name
     bio

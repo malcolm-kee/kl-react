@@ -20,7 +20,7 @@ export default function HomePage({ data }) {
             !!(item && item.type === 'talk' && item.talk && item.talk.speaker)
         )
         .map(item => item.talk.speaker)
-    : data.allSpeakersYaml.edges.map(edge => edge.node);
+    : data.allSpeakerYaml.edges.map(edge => edge.node);
 
   return (
     <>
@@ -37,7 +37,7 @@ export default function HomePage({ data }) {
 
 export const pageQuery = graphql`
   query {
-    allSpeakersYaml(limit: 6) {
+    allSpeakerYaml(limit: 6) {
       edges {
         node {
           ...SpeakerCard
