@@ -30,7 +30,7 @@ export const pageQuery = graphql`
         name
         status
         link
-        date: local_date(formatString: "ddd, DD MMM YYYY")
+        dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
         info {
           type
           venue {

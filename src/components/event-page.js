@@ -7,10 +7,10 @@ import Card from 'gatsby-theme-conference/src/components/card';
 function EventCard({
   id,
   name,
-  date,
   venueName,
   status,
   link,
+  dateTime,
   isMeetup,
   ...props
 }) {
@@ -35,7 +35,7 @@ function EventCard({
         {name}
       </Styled.h3>
       <Styled.ul sx={{ listStyle: 'none', p: 0 }}>
-        <Styled.li sx={{ fontWeight: 'bold' }}>{date}</Styled.li>
+        <Styled.li sx={{ fontWeight: 'bold' }}>{dateTime}</Styled.li>
         <Styled.li>{venueName}</Styled.li>
       </Styled.ul>
     </Card>

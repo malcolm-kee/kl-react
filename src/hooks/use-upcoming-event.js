@@ -12,8 +12,7 @@ export function useUpcomingEvent() {
         name
         link
         isFull
-        time: local_time
-        date: local_date(formatString: "ddd, DD MMM YYYY")
+        dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
         info {
           schedule {
             time
@@ -50,15 +49,14 @@ export function useUpcomingEvent() {
     return null;
   }
 
-  const { name, link, date, info, mapURL, venue, time, isFull } = meetupEvent;
+  const { name, link, info, mapURL, venue, isFull, dateTime } = meetupEvent;
   const venueInfo = info && info.venue;
 
   return {
     name,
+    dateTime,
     link,
     isFull,
-    time,
-    date,
     venue: {
       name: (venueInfo && venueInfo.name) || (venue && venue.name),
       mapURL: (venueInfo && venueInfo.mapURL) || mapURL,

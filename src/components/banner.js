@@ -27,7 +27,7 @@ export default function Banner({ upcomingEvent, ...props }) {
         </Styled.h1>
         {upcomingEvent && (
           <Styled.p sx={{ my: 1, fontSize: [3, 4, 5] }}>
-            {upcomingEvent.date} {upcomingEvent.time}
+            {upcomingEvent.dateTime}
           </Styled.p>
         )}
         <Styled.p
