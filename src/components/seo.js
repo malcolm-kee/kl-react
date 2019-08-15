@@ -35,7 +35,7 @@ export const Seo = ({ title, description, pathname, image, keywords }) => {
     title: title || defaultTitle,
     description: description || defaultDescription,
     url: `${siteUrl}${pathname || '/'}`,
-    image: image || publicURL,
+    image: `${siteUrl}${image || publicURL}`,
     keywords: keywords
       ? Array.isArray(keywords)
         ? keywords.join(',')
