@@ -33,6 +33,25 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-twitter`,
+      options: {
+        credentials: {
+          consumer_key: process.env.TWITTER_CONSUMER_KEY,
+          consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+          bearer_token: process.env.TWITTER_BEARER_TOKEN,
+        },
+        queries: {
+          reacttweets: {
+            endpoint: 'favorites/list',
+            params: {
+              screen_name: 'KlReact',
+              count: 50,
+            },
+          },
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `image`,
