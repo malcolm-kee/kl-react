@@ -28,13 +28,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
           extensions: {
             dateformat: {},
           },
-          resolve: source => {
-            // blind fix, cause Malcolm dont understand datetime concepts, so he just simply do this as long as it give the result he want
-            const dateTimeInUtc = new Date(source.time);
-            const offsetHours = dateTimeInUtc.getTimezoneOffset() / 60;
-            dateTimeInUtc.setHours(dateTimeInUtc.getHours() - offsetHours);
-            return dateTimeInUtc;
-          },
+          resolve: source => new Date(source.time + source.utc_offset),
         },
         info: {
           type: 'EventYaml',
