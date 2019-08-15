@@ -6,7 +6,7 @@ function getSpeakerImageUrl(speakerNode) {
     : speakerNode.github
     ? `https://github.com/${speakerNode.github}.png`
     : speakerNode.twitter
-    ? `https://avatars.io/twitter/${speakerNode.twitter}`
+    ? `https://avatars.io/twitter/${speakerNode.twitter}/Large`
     : null;
 }
 
