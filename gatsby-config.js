@@ -10,6 +10,7 @@ module.exports = {
     description: `Reacting in Kuala Lumpur, Malaysia`,
     url: `https://kl-react.netlify.com`,
     twitter: `@KlReact`,
+    keywords: [`reactjs`, `react developer`, `kuala lumpur`, `meetup`],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

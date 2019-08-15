@@ -3,13 +3,17 @@ import { Container } from 'theme-ui';
 import { Seo } from '../components/seo';
 import { Layout } from '../components/layout';
 
-const Note = ({ children }) => (
-  <>
-    <Seo />
-    <Layout>
-      <Container>{children}</Container>
-    </Layout>
-  </>
-);
+const Note = ({ children, pageContext = {} }) => {
+  const { frontmatter } = pageContext;
+
+  return (
+    <>
+      <Seo title={frontmatter && frontmatter.title} />
+      <Layout>
+        <Container>{children}</Container>
+      </Layout>
+    </>
+  );
+};
 
 export default Note;
