@@ -1,12 +1,12 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
 
 const Seo = ({ title, description, pathname }) => {
   const {
     site: {
-      siteMetadata: { defaultTitle, defaultDescription, siteUrl }
-    }
+      siteMetadata: { defaultTitle, defaultDescription, siteUrl, twitter },
+    },
   } = useStaticQuery(graphql`
     {
       site {
@@ -14,6 +14,7 @@ const Seo = ({ title, description, pathname }) => {
           defaultTitle: title
           defaultDescription: description
           siteUrl: url
+          twitter
         }
       }
     }
@@ -22,7 +23,7 @@ const Seo = ({ title, description, pathname }) => {
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    url: `${siteUrl}${pathname || '/'}`
+    url: `${siteUrl}${pathname || '/'}`,
   };
 
   return (
@@ -31,6 +32,10 @@ const Seo = ({ title, description, pathname }) => {
       <meta property="og:url" content={seo.url} />
       <meta property="og:title" content={seo.title} />
       <meta property="og:description" content={seo.description} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:creator" content={twitter} />
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:description" content={seo.description} />
     </Helmet>
   );
 };

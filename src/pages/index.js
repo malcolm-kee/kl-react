@@ -8,20 +8,11 @@ import { Schedule } from '../components/schedule';
 import Seo from '../components/seo';
 import { useUpcomingEvent } from '../hooks/use-upcoming-event';
 
-const Landing = ({ speakers, upcomingEvent, schedule }) => (
-  <Layout>
-    <Seo />
-    <Banner upcomingEvent={upcomingEvent} />
-    {schedule && <Schedule schedule={schedule} />}
-    <Speakers speakers={speakers} />
-    <CTA />
-  </Layout>
-);
-
-export default props => {
-  const { data } = props;
+export default function HomePage({ data }) {
   const upcomingEvent = useUpcomingEvent();
   const upcomingEventSchedule = upcomingEvent && upcomingEvent.schedule;
+  // get speakers for the upcoming event if there is any,
+  // else just load 6 speakers from speaker list
   const speakers = upcomingEventSchedule
     ? upcomingEventSchedule
         .filter(
@@ -32,14 +23,17 @@ export default props => {
     : data.allSpeakersYaml.edges.map(edge => edge.node);
 
   return (
-    <Landing
-      {...props}
-      speakers={speakers}
-      upcomingEvent={upcomingEvent}
-      schedule={upcomingEventSchedule}
-    />
+    <>
+      <Seo />
+      <Layout>
+        <Banner upcomingEvent={upcomingEvent} />
+        {upcomingEventSchedule && <Schedule schedule={upcomingEventSchedule} />}
+        <Speakers speakers={speakers} />
+        <CTA />
+      </Layout>
+    </>
   );
-};
+}
 
 export const pageQuery = graphql`
   query {

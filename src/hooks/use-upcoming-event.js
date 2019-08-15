@@ -1,5 +1,10 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
+/**
+ * Get the data for next upcoming event from the meetup group.
+ *
+ * Returns `null` when no upcoming event.
+ */
 export function useUpcomingEvent() {
   const { meetupEvent } = useStaticQuery(graphql`
     {

@@ -7,6 +7,7 @@ module.exports = {
     title: `KL React Meetup`,
     description: `Reacting in Kuala Lumpur, Malaysia`,
     url: `https://kl-react.netlify.com`,
+    twitter: `@KlReact`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -29,6 +30,7 @@ module.exports = {
         background_color: `#33e`,
         theme_color: `#33e`,
         icon: `og-image/reactkl-logo-circle.png`,
+        display: `standalone`,
       },
     },
     `gatsby-plugin-netlify`,
