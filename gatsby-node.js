@@ -26,6 +26,28 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         speaker: SpeakersYaml @link
     }`,
     schema.buildObjectType({
+      name: 'TalkYaml',
+      interfaces: ['Node'],
+      fields: {
+        event: {
+          type: 'EventYaml',
+          resolve: (source, _, context) => {
+            return (
+              context.nodeModel
+                .getAllNodes({ type: 'EventYaml' })
+                .find(
+                  event =>
+                    Array.isArray(event.schedule) &&
+                    event.schedule.some(
+                      sc => sc.type === 'talk' && sc.talk === source.id
+                    )
+                ) || null
+            );
+          },
+        },
+      },
+    }),
+    schema.buildObjectType({
       name: 'MeetupEvent',
       interfaces: ['Node'],
       fields: {
@@ -77,6 +99,37 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         image: {
           type: 'String',
           resolve: getSpeakerImageUrl,
+        },
+        talk: {
+          type: '[TalkYaml]',
+          resolve: (source, _, context) => {
+            return context.nodeModel
+              .getAllNodes({ type: 'TalkYaml' })
+              .filter(talk => talk.speaker === source.id);
+          },
+        },
+      },
+    }),
+    schema.buildObjectType({
+      name: 'EventYaml',
+      interfaces: ['Node'],
+      fields: {
+        meetup: {
+          type: 'MeetupEvent',
+          resolve: (source, _, context) => {
+            return (
+              context.nodeModel
+                .getAllNodes({ type: 'MeetupEvent' })
+                .find(meetup => {
+                  if (!meetup.link) {
+                    return false;
+                  }
+                  const match = /\/(\d+)\/$/.exec(meetup.link);
+                  const eventId = match && Number(match[1]);
+                  return eventId === source.meetup;
+                }) || null
+            );
+          },
         },
       },
     }),
