@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { Link } from 'gatsby';
 import { Container, Flex, jsx, Styled } from 'theme-ui';
-import List from 'gatsby-theme-conference/src/components/list';
-import NavLink from 'gatsby-theme-conference/src/components/nav-link';
-import { currentYear } from '../../lib';
+import { currentYear } from '../lib';
+import { List } from './list';
+import { NavLink } from './nav-link';
 
-export default function Footer() {
+export function Footer() {
   return (
     <Container>
       <Flex

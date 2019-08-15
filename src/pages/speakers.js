@@ -1,22 +1,25 @@
 import { graphql } from 'gatsby';
-import Speakers from 'gatsby-theme-conference/src/layouts/speakers';
+import React from 'react';
+import { Seo } from '../components/seo';
+import { Speakers } from '../components/speakers';
+import { Layout } from '../components/layout';
 
-export default Speakers;
+export default function SpeakersPage({ data }) {
+  return (
+    <>
+      <Seo title="Speakers" />
+      <Layout>
+        <Speakers speakers={data.allSpeakersYaml.nodes} />
+      </Layout>
+    </>
+  );
+}
 
 export const pageQuery = graphql`
   query {
     allSpeakersYaml {
-      edges {
-        node {
-          id
-          name
-          bio
-          image
-          company
-          twitter
-          github
-          website
-        }
+      nodes {
+        ...SpeakerCard
       }
     }
   }

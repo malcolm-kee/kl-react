@@ -1,3 +1,5 @@
+const path = require('path');
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -11,6 +13,15 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-theme-ui`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/templates/note-template.js'),
+        },
+      },
+    },
     {
       resolve: `gatsby-source-meetup`,
       options: {
@@ -20,8 +31,30 @@ module.exports = {
         desc: 'true',
       },
     },
-    `gatsby-theme-notes`,
-    `gatsby-theme-conference`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `image`,
+        path: path.resolve(__dirname, 'og-image'),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: path.resolve(__dirname, 'src', 'pages'),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: 'src/data',
+        name: 'data',
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-yaml`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

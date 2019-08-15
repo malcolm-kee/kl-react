@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const Seo = ({ title, description, pathname }) => {
+export const Seo = ({ title, description, pathname }) => {
   const {
     site: {
       siteMetadata: { defaultTitle, defaultDescription, siteUrl, twitter },

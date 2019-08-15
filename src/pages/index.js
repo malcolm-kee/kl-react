@@ -1,11 +1,11 @@
 import { graphql } from 'gatsby';
-import Layout from 'gatsby-theme-conference/src/components/layout';
-import Speakers from 'gatsby-theme-conference/src/components/speakers';
 import React from 'react';
-import Banner from '../components/banner';
-import CTA from '../components/cta';
+import { Banner } from '../components/banner';
+import { CTA } from '../components/cta';
+import { Layout } from '../components/layout';
 import { Schedule } from '../components/schedule';
-import Seo from '../components/seo';
+import { Seo } from '../components/seo';
+import { Speakers } from '../components/speakers';
 import { useUpcomingEvent } from '../hooks/use-upcoming-event';
 
 export default function HomePage({ data }) {
@@ -40,14 +40,7 @@ export const pageQuery = graphql`
     allSpeakersYaml(limit: 6) {
       edges {
         node {
-          id
-          name
-          bio
-          image
-          company
-          twitter
-          github
-          website
+          ...SpeakerCard
         }
       }
     }

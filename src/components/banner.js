@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import Button from 'gatsby-theme-conference/src/components/button';
-import IconLink from 'gatsby-theme-conference/src/components/icon-link';
-import useSiteMetadata from 'gatsby-theme-conference/src/use-site-metadata';
 import { Navigation2 } from 'react-feather';
 import { Container, jsx, Styled } from 'theme-ui';
+import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { Button } from './button';
+import { IconLink } from './icon-link';
 
-export default function Banner({ upcomingEvent, ...props }) {
+export function Banner({ upcomingEvent, ...props }) {
   const { title, description } = useSiteMetadata();
 
   return (

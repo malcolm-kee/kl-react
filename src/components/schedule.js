@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import List from 'gatsby-theme-conference/src/components/list';
-import SectionHeading from 'gatsby-theme-conference/src/components/section-heading';
 import { Container, jsx } from 'theme-ui';
+import { List } from './list';
 import { ScheduleItem } from './schedule-item';
+import { SectionHeading } from './section-heading';
 
 export function Schedule({ schedule }) {
   return (

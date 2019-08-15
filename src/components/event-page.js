@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { Styled, jsx, Container } from 'theme-ui';
-import Layout from 'gatsby-theme-conference/src/components/layout';
-import FlexList from 'gatsby-theme-conference/src/components/flex-list';
-import Card from 'gatsby-theme-conference/src/components/card';
+import { Layout } from './layout';
+import { FlexList } from './flex-list';
+import { Card } from './card';
 
 function EventCard({
   id,

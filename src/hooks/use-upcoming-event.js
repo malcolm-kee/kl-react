@@ -22,13 +22,7 @@ export function useUpcomingEvent() {
               title
               description
               speaker {
-                id
-                name
-                bio
-                image
-                company
-                twitter
-                github
+                ...SpeakerCard
               }
             }
           }

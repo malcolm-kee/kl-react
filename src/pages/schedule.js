@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
-import Layout from 'gatsby-theme-conference/src/components/layout';
 import React from 'react';
 import { Styled } from 'theme-ui';
+import { Layout } from '../components/layout';
 import { Schedule } from '../components/schedule';
 import Seo from '../components/seo';
 

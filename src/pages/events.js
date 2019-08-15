@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import { EventPage } from '../components/event-page';
-import Seo from '../components/seo';
+import { Seo } from '../components/seo';
 
 function Events(props) {
   const events = props.data.allMeetupEvent.nodes.map(node => ({

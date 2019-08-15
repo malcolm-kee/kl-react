@@ -1,3 +1,15 @@
+const { createRemoteFileNode } = require('gatsby-source-filesystem');
+
+function getSpeakerImageUrl(speakerNode) {
+  return speakerNode.image
+    ? speakerNode.image
+    : speakerNode.github
+    ? `https://github.com/${speakerNode.github}.png`
+    : speakerNode.twitter
+    ? `https://avatars.io/twitter/${speakerNode.twitter}`
+    : null;
+}
+
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions;
   const typeDefs = [
@@ -64,18 +76,43 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       fields: {
         image: {
           type: 'String',
-          resolve: source => {
-            return source.image
-              ? source.image
-              : source.github
-              ? `https://github.com/${source.github}.png`
-              : source.twitter
-              ? `https://avatars.io/twitter/${source.twitter}`
-              : null;
-          },
+          resolve: getSpeakerImageUrl,
         },
       },
     }),
   ];
   createTypes(typeDefs);
+};
+
+exports.createResolvers = ({
+  actions,
+  cache,
+  createNodeId,
+  createResolvers,
+  store,
+  reporter,
+}) => {
+  const { createNode } = actions;
+  createResolvers({
+    SpeakersYaml: {
+      imageFile: {
+        type: `File`,
+        resolve(source) {
+          const imageUrl = getSpeakerImageUrl(source);
+
+          return (
+            imageUrl &&
+            createRemoteFileNode({
+              url: imageUrl,
+              store,
+              cache,
+              createNode,
+              createNodeId,
+              reporter,
+            })
+          );
+        },
+      },
+    },
+  });
 };

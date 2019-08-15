@@ -1,7 +1,7 @@
 /** @jsx jsx */
+import { Coffee, Home, Radio } from 'react-feather';
 import { Flex, jsx, Styled } from 'theme-ui';
-import DesktopOnly from 'gatsby-theme-conference/src/components/desktop-only';
-import { Coffee, Radio, Home } from 'react-feather';
+import { DesktopOnly } from './desktop-only';
 
 const scheduleTypeStyle = {
   fontSize: 3,
