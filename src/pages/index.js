@@ -28,7 +28,7 @@ export default function HomePage({ data }) {
       <Layout>
         <Banner upcomingEvent={upcomingEvent} />
         {upcomingEventSchedule && <Schedule schedule={upcomingEventSchedule} />}
-        <Speakers speakers={speakers} />
+        <Speakers speakers={speakers} showMore />
         <CTA />
       </Layout>
     </>

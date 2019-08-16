@@ -5,7 +5,7 @@ import { FlexList } from './flex-list';
 import { SectionHeading } from './section-heading';
 import { SpeakerCard } from './speaker-card';
 
-export const Speakers = ({ speakers = [] }) => (
+export const Speakers = ({ speakers = [], showMore }) => (
   <div
     id="speakers"
     sx={{
@@ -23,15 +23,17 @@ export const Speakers = ({ speakers = [] }) => (
           <SpeakerCard key={speaker.id} as="li" {...speaker} />
         ))}
       </FlexList>
-      <div
-        sx={{
-          textAlign: 'center',
-        }}
-      >
-        <Styled.a as={Link} to="/speakers">
-          View all speakers
-        </Styled.a>
-      </div>
+      {showMore && (
+        <div
+          sx={{
+            textAlign: 'center',
+          }}
+        >
+          <Styled.a as={Link} to="/speakers">
+            View all speakers for this meetup
+          </Styled.a>
+        </div>
+      )}
     </Container>
   </div>
 );

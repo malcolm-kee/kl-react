@@ -169,7 +169,7 @@ function TweetItem({ setDelay, displayedText, entities, ...props }) {
       displayedText={displayedText}
       onVideoPlay={setVideoDuration}
       sx={{
-        height: `calc(100vh - 300px)`,
+        height: `calc(100vh - 220px)`,
       }}
     />
   );

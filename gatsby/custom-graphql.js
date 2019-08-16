@@ -57,7 +57,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
         isFull: {
           type: 'Boolean',
           resolve: source => {
-            return source.rsvp_limit - source.yes_rsvp_count === 0;
+            return source.rsvp_limit - source.yes_rsvp_count <= 0;
           },
         },
         dateTime: {

@@ -7,7 +7,7 @@ import { NavLink } from './nav-link';
 
 export function Footer() {
   return (
-    <Container>
+    <Container sx={{ py: 1 }}>
       <Flex
         sx={{
           mx: -3,
@@ -15,7 +15,7 @@ export function Footer() {
         }}
       >
         <div sx={{ width: ['100%', 100 / 3 + '%'] }}>
-          <List>
+          <List sx={{ my: 1 }}>
             <li>
               <NavLink as={Link} to="/events">
                 Events
@@ -29,7 +29,7 @@ export function Footer() {
           </List>
         </div>
         <div sx={{ width: ['100%', 100 / 3 + '%'] }}>
-          <List>
+          <List sx={{ my: 1 }}>
             <li>
               <NavLink
                 as="a"
