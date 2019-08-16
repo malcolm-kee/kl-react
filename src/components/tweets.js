@@ -51,6 +51,38 @@ export const Tweets = ({ tweets = [] }) => {
     dispatch({ type: 'next' });
   }, state.interval);
 
+  const controls =
+    process.env.NODE_ENV === 'development' ? (
+      <div
+        sx={{
+          position: 'fixed',
+          right: 2,
+          bottom: 2,
+          zIndex: 1,
+        }}
+      >
+        <button
+          onClick={() => {
+            reset();
+            dispatch({ type: 'prev' });
+          }}
+        >
+          {'<'}
+        </button>
+        <button onClick={() => dispatch({ type: 'toggle' })}>
+          {state.interval === null ? 'Play' : 'Pause'} timeout: {state.interval}
+        </button>
+        <button
+          onClick={() => {
+            reset();
+            dispatch({ type: 'next' });
+          }}
+        >
+          {'>'}
+        </button>
+      </div>
+    ) : null;
+
   return (
     <div
       id="tweets"
@@ -59,35 +91,7 @@ export const Tweets = ({ tweets = [] }) => {
       }}
     >
       <Container sx={{ py: 0 }}>
-        <div
-          sx={{
-            position: 'fixed',
-            right: 2,
-            bottom: 2,
-            zIndex: 1,
-          }}
-        >
-          <button
-            onClick={() => {
-              reset();
-              dispatch({ type: 'prev' });
-            }}
-          >
-            Prev
-          </button>
-          <button onClick={() => dispatch({ type: 'toggle' })}>
-            {state.interval === null ? 'Play' : 'Pause'} timeout:{' '}
-            {state.interval}
-          </button>
-          <button
-            onClick={() => {
-              reset();
-              dispatch({ type: 'next' });
-            }}
-          >
-            Next
-          </button>
-        </div>
+        {controls}
         <div>
           {tweets
             .filter((_, index) => index === state.index)
