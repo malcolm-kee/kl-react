@@ -144,7 +144,8 @@ exports.createSchemaCustomization = function createSchemaCustomization({
           type: 'String',
           resolve: source => {
             const oriText =
-              source.full_text && source.full_text.replace(/&gt;/g, '>');
+              source.full_text &&
+              source.full_text.replace(/&gt;/g, '>').replace(/&amp;/g, '&');
             const indexOfTweetLink =
               oriText &&
               Math.max(

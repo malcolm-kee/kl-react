@@ -1,10 +1,11 @@
 /** @jsx jsx */
-import { useState, useEffect, useReducer } from 'react';
+import { useState, useEffect, useReducer, useMemo } from 'react';
 import { Container, jsx } from 'theme-ui';
 import { useInterval } from '../hooks/use-interval';
 import { Tweet } from './tweet';
+import { ProgressBar } from './progress-bar';
 
-const DEFAULT_INTERVAL = 4000;
+const DEFAULT_INTERVAL = 4500;
 
 export const Tweets = ({ tweets = [] }) => {
   const [state, dispatch] = useReducer(
@@ -101,18 +102,55 @@ export const Tweets = ({ tweets = [] }) => {
             ))}
         </div>
       </Container>
+      <ProgressBar
+        sx={{
+          position: 'fixed',
+          bottom: 0,
+        }}
+        duration={state.interval}
+        key={state.index}
+      />
     </div>
   );
 };
 
-function TweetItem({ setDelay, displayedText, ...props }) {
+/**
+ *
+ * @param {string} displayedText
+ * @param {*} entities
+ * @returns {number}
+ */
+function calculateReadtime(displayedText, entities) {
+  const textReadtime =
+    displayedText && displayedText.length > 80
+      ? (displayedText.length / 80) * DEFAULT_INTERVAL
+      : DEFAULT_INTERVAL;
+  const imageReadtime = entities
+    ? entities.media.reduce(
+        (total, medium) =>
+          medium.alt
+            ? total + (medium.alt.length / 80) * DEFAULT_INTERVAL
+            : total + 1000,
+        0
+      )
+    : 0;
+
+  return textReadtime + imageReadtime;
+}
+
+function TweetItem({ setDelay, displayedText, entities, ...props }) {
   const [videoDuration, setVideoDuration] = useState(null);
 
+  const readTime = useMemo(() => calculateReadtime(displayedText, entities), [
+    displayedText,
+    entities,
+  ]);
+
   useEffect(() => {
-    if (displayedText && displayedText.length > 80) {
-      setDelay((displayedText.length / 80) * DEFAULT_INTERVAL);
+    if (readTime !== DEFAULT_INTERVAL) {
+      setDelay(readTime);
     }
-  }, [displayedText]);
+  }, [readTime]);
 
   useEffect(() => {
     if (videoDuration) {
@@ -123,6 +161,7 @@ function TweetItem({ setDelay, displayedText, ...props }) {
   return (
     <Tweet
       {...props}
+      entities={entities}
       displayedText={displayedText}
       onVideoPlay={setVideoDuration}
       sx={{
