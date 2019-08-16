@@ -46,6 +46,8 @@ module.exports = {
             params: {
               screen_name: 'KlReact',
               count: 50,
+              tweet_mode: 'extended',
+              include_ext_alt_text: true,
             },
           },
         },

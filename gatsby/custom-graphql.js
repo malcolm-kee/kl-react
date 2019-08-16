@@ -136,6 +136,35 @@ exports.createSchemaCustomization = function createSchemaCustomization({
         },
       },
     }),
+    schema.buildObjectType({
+      name: 'twitterFavoritesListReacttweets',
+      interfaces: ['Node'],
+      fields: {
+        displayedText: {
+          type: 'String',
+          resolve: source => {
+            const oriText = source.full_text;
+            const indexOfTweetLink =
+              oriText &&
+              Math.max(
+                oriText.lastIndexOf('https://t.co'),
+                oriText.lastIndexOf('http://t.co')
+              );
+
+            return oriText && indexOfTweetLink > -1
+              ? oriText.substring(0, indexOfTweetLink)
+              : oriText;
+          },
+        },
+        url: {
+          type: 'String',
+          resolve: source =>
+            `https://twitter.com/${source.user.screen_name}/status/${
+              source.id_str
+            }`,
+        },
+      },
+    }),
   ];
   createTypes(typeDefs);
 };
