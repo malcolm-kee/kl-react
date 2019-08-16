@@ -9,7 +9,10 @@ function ReactOnTwitter({ data }) {
 
   return (
     <>
-      <Seo title="React in Twitter" />
+      <Seo
+        title="React on Twitter"
+        description="Curated non-educational tweets for React developers"
+      />
       <Layout>
         <Tweets tweets={tweets} />
       </Layout>
