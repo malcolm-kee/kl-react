@@ -15,127 +15,93 @@ export function Tweet({
 }) {
   return (
     <Card sx={{ position: 'relative' }} {...props}>
-      <div
-        sx={{
-          position: 'absolute',
-          right: 1,
-          top: 1,
-          textAlign: 'right',
-        }}
-      >
-        <img
+      <AuthorAvatar user={user} url={url} />
+      <div sx={{ display: 'flex', flexFlow: 'column', height: '100%' }}>
+        {displayedText && (
+          <Styled.p
+            sx={{
+              fontSize: [2, 3, 4],
+              whiteSpace: 'pre-wrap',
+              pr: '50px',
+            }}
+          >
+            {displayedText}
+          </Styled.p>
+        )}
+        <div
           sx={{
-            borderRadius: '50%',
-            mr: 2,
-          }}
-          src={user.profileImage}
-          alt=""
-        />
-        <Styled.a
-          sx={{
-            fontSize: 3,
-            textDecoration: 'none',
-            display: 'block',
-          }}
-          href={url}
-        >
-          {user.name}
-        </Styled.a>
-      </div>
-      {displayedText && (
-        <Styled.p
-          sx={{
-            fontSize: [2, 3, 4],
-            whiteSpace: 'pre-wrap',
-            pr: '50px',
+            margin: `0 auto`,
+            maxWidth: 600,
+            flex: 1,
+            minHeight: 0,
           }}
         >
-          {displayedText}
-        </Styled.p>
-      )}
-      <div
-        sx={{
-          margin: `0 auto`,
-          maxWidth: 600,
-          height: '100%',
-        }}
-      >
-        {entities &&
-          entities.media.map((medium, i) => {
-            switch (medium.type) {
-              case 'photo':
-                return (
-                  <img
-                    src={medium.url}
-                    sx={{
-                      display: 'inline-block',
-                      maxWidth: '100%',
-                      maxHeight: 'calc(100vh - 200px)',
-                    }}
-                    alt={medium.alt || ''}
-                    key={i}
-                  />
-                );
-
-              case 'animated_gif':
-                return (
-                  Array.isArray(medium.video && medium.video.variants) &&
-                  medium.video.variants.length > 0 && (
-                    <div
+          {entities &&
+            entities.media.map((medium, i) => {
+              switch (medium.type) {
+                case 'photo':
+                  return (
+                    <img
+                      src={medium.url}
                       sx={{
-                        position: 'relative',
-                        paddingBottom: '56.25%',
-                        paddingTop: '25px',
-                        height: 0,
+                        display: 'inline-block',
+                        maxWidth: '100%',
+                        maxHeight: '100%',
                       }}
-                    >
+                      alt={medium.alt || ''}
+                      key={i}
+                    />
+                  );
+
+                case 'animated_gif':
+                  return (
+                    Array.isArray(medium.video && medium.video.variants) &&
+                    medium.video.variants.length > 0 && (
                       <video
                         src={medium.video.variants[0].url}
                         autoPlay
                         muted
                         loop
-                        sx={{
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          width: '100%',
-                          height: '100%',
-                        }}
                         key={i}
+                        sx={{
+                          display: 'inline-block',
+                          maxWidth: '100%',
+                          maxHeight: '100%',
+                          height: '700px',
+                        }}
                       />
-                    </div>
-                  )
-                );
+                    )
+                  );
 
-              case 'video':
-                return (
-                  Array.isArray(medium.video && medium.video.variants) && (
-                    <video
-                      autoPlay
-                      muted
-                      onPlay={() => onVideoPlay(medium.video.duration_millis)}
-                      sx={{
-                        mb: 3,
-                        display: 'inline-block',
-                        width: '100%',
-                      }}
-                      key={i}
-                    >
-                      {medium.video.variants.map((variant, i) => (
-                        <source
-                          src={variant.url}
-                          type={variant.content_type}
-                          key={i}
-                        />
-                      ))}
-                    </video>
-                  )
-                );
+                case 'video':
+                  return (
+                    Array.isArray(medium.video && medium.video.variants) && (
+                      <video
+                        autoPlay
+                        muted
+                        onPlay={() => onVideoPlay(medium.video.duration_millis)}
+                        key={i}
+                        sx={{
+                          maxWidth: '100%',
+                          maxHeight: '100%',
+                        }}
+                      >
+                        {medium.video.variants.map((variant, i) => (
+                          <source
+                            src={variant.url}
+                            type={variant.content_type}
+                            key={i}
+                          />
+                        ))}
+                      </video>
+                    )
+                  );
 
-              default:
-                return null;
-            }
-          })}
+                default:
+                  return null;
+              }
+            })}
+        </div>
       </div>
     </Card>
   );
@@ -152,12 +118,12 @@ export const query = graphql`
         url: media_url_https
         alt: ext_alt_text
         video: video_info {
+          duration_millis
           variants {
             url
             content_type
             bitrate
           }
-          duration_millis
         }
       }
     }
@@ -167,3 +133,45 @@ export const query = graphql`
     }
   }
 `;
+
+function AuthorAvatar({ user, url }) {
+  return (
+    <Styled.div
+      sx={{
+        position: 'absolute',
+        right: 1,
+        top: 1,
+        textAlign: 'right',
+      }}
+    >
+      <Styled.a
+        sx={{
+          fontSize: 3,
+          textDecoration: 'none',
+        }}
+        css={{
+          '& div': {
+            opacity: 0,
+            transition: `opacity 500ms ease`,
+          },
+          ':hover, :focus': {
+            div: {
+              opacity: 1,
+            },
+          },
+        }}
+        href={url}
+      >
+        <img
+          sx={{
+            borderRadius: '50%',
+            mr: 2,
+          }}
+          src={user.profileImage}
+          alt={user.name}
+        />
+        <div>{user.name}</div>
+      </Styled.a>
+    </Styled.div>
+  );
+}
