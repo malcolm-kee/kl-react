@@ -32,6 +32,7 @@ export const pageQuery = graphql`
         link
         dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
         info {
+          id
           type
           venue {
             name

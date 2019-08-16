@@ -3,7 +3,7 @@ import { Container } from 'theme-ui';
 import { Seo } from '../components/seo';
 import { Layout } from '../components/layout';
 
-const Note = ({ children, pageContext = {} }) => {
+const NoteTemplate = ({ children, pageContext = {} }) => {
   const { frontmatter } = pageContext;
 
   return (
@@ -16,4 +16,4 @@ const Note = ({ children, pageContext = {} }) => {
   );
 };
 
-export default Note;
+export default NoteTemplate;

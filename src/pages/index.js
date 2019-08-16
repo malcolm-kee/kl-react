@@ -27,8 +27,19 @@ export default function HomePage({ data }) {
       <Seo />
       <Layout>
         <Banner upcomingEvent={upcomingEvent} />
-        {upcomingEventSchedule && <Schedule schedule={upcomingEventSchedule} />}
-        <Speakers speakers={speakers} showMore />
+        {upcomingEventSchedule && (
+          <div id="schedule" sx={{ py: 5 }}>
+            <Schedule schedule={upcomingEventSchedule} />
+          </div>
+        )}
+        <div
+          id="speakers"
+          sx={{
+            py: 5,
+          }}
+        >
+          <Speakers speakers={speakers} showMore />
+        </div>
         <CTA />
       </Layout>
     </>
