@@ -1,20 +1,54 @@
 /** @jsx jsx */
-import { useState } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import { Container, jsx } from 'theme-ui';
 import { useInterval } from '../hooks/use-interval';
 import { Tweet } from './tweet';
 
+const DEFAULT_INTERVAL = 4000;
+
 export const Tweets = ({ tweets = [] }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [delay, setDelay] = useState(3000);
+  const [state, dispatch] = useReducer(
+    (state, action) => {
+      switch (action.type) {
+        case 'next':
+          return {
+            ...state,
+            index: tweets.length - 1 === state.index ? 0 : state.index + 1,
+            interval: state.interval === null ? null : DEFAULT_INTERVAL,
+          };
+
+        case 'prev':
+          return {
+            ...state,
+            index: state.index === 0 ? tweets.length - 1 : state.index - 1,
+            interval: state.interval === null ? null : DEFAULT_INTERVAL,
+          };
+
+        case 'setInterval':
+          return {
+            ...state,
+            interval: state.interval === null ? null : action.payload,
+          };
+
+        case 'toggle':
+          return {
+            ...state,
+            interval: state.interval === null ? DEFAULT_INTERVAL : null,
+          };
+
+        default:
+          throw new Error(`Action not defined: ${action.type}`);
+      }
+    },
+    {
+      index: 0,
+      interval: DEFAULT_INTERVAL,
+    }
+  );
 
   const reset = useInterval(() => {
-    next();
-  }, delay);
-
-  function next() {
-    setActiveIndex(cur => (tweets.length - 1 === cur ? 0 : cur + 1));
-  }
+    dispatch({ type: 'next' });
+  }, state.interval);
 
   return (
     <div
@@ -29,23 +63,25 @@ export const Tweets = ({ tweets = [] }) => {
             position: 'fixed',
             right: 2,
             bottom: 2,
+            zIndex: 1,
           }}
         >
           <button
             onClick={() => {
               reset();
-              setActiveIndex(i => i - 1);
+              dispatch({ type: 'prev' });
             }}
           >
             Prev
           </button>
-          <button onClick={() => setDelay(d => (d === null ? 3000 : null))}>
-            {delay === null ? 'Play' : 'Pause'}
+          <button onClick={() => dispatch({ type: 'toggle' })}>
+            {state.interval === null ? 'Play' : 'Pause'} timeout:{' '}
+            {state.interval}
           </button>
           <button
             onClick={() => {
               reset();
-              next();
+              dispatch({ type: 'next' });
             }}
           >
             Next
@@ -53,13 +89,13 @@ export const Tweets = ({ tweets = [] }) => {
         </div>
         <div>
           {tweets
-            .filter((_, index) => index === activeIndex)
+            .filter((_, index) => index === state.index)
             .map(tweet => (
-              <Tweet
+              <TweetItem
+                setDelay={int =>
+                  dispatch({ type: 'setInterval', payload: int })
+                }
                 {...tweet}
-                sx={{
-                  height: `calc(100vh - 100px)`,
-                }}
                 key={tweet.id}
               />
             ))}
@@ -68,3 +104,30 @@ export const Tweets = ({ tweets = [] }) => {
     </div>
   );
 };
+
+function TweetItem({ setDelay, displayedText, ...props }) {
+  const [videoDuration, setVideoDuration] = useState(null);
+
+  useEffect(() => {
+    if (displayedText && displayedText.length > 80) {
+      setDelay((displayedText.length / 80) * DEFAULT_INTERVAL);
+    }
+  }, [displayedText]);
+
+  useEffect(() => {
+    if (videoDuration) {
+      setDelay(videoDuration + 1000);
+    }
+  }, [videoDuration]);
+
+  return (
+    <Tweet
+      {...props}
+      displayedText={displayedText}
+      onVideoPlay={setVideoDuration}
+      sx={{
+        height: `calc(100vh - 100px)`,
+      }}
+    />
+  );
+}

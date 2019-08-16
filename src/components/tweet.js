@@ -1,9 +1,18 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby';
 import { jsx, Styled } from 'theme-ui';
+import { noop } from '../lib';
 import { Card } from './card';
 
-export function Tweet({ id, displayedText, entities, user, url, ...props }) {
+export function Tweet({
+  id,
+  displayedText,
+  entities,
+  user,
+  url,
+  onVideoPlay = noop,
+  ...props
+}) {
   return (
     <Card sx={{ position: 'relative' }} {...props}>
       <div
@@ -72,18 +81,54 @@ export function Tweet({ id, displayedText, entities, user, url, ...props }) {
                 return (
                   Array.isArray(medium.video && medium.video.variants) &&
                   medium.video.variants.length > 0 && (
+                    <div
+                      sx={{
+                        position: 'relative',
+                        paddingBottom: '56.25%',
+                        paddingTop: '25px',
+                        height: 0,
+                      }}
+                    >
+                      <video
+                        src={medium.video.variants[0].url}
+                        autoPlay
+                        muted
+                        loop
+                        sx={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                        }}
+                        key={i}
+                      />
+                    </div>
+                  )
+                );
+
+              case 'video':
+                return (
+                  Array.isArray(medium.video && medium.video.variants) && (
                     <video
-                      src={medium.video.variants[0].url}
                       autoPlay
                       muted
-                      loop
+                      onPlay={() => onVideoPlay(medium.video.duration_millis)}
                       sx={{
                         mb: 3,
                         display: 'inline-block',
                         width: '100%',
                       }}
                       key={i}
-                    />
+                    >
+                      {medium.video.variants.map((variant, i) => (
+                        <source
+                          src={variant.url}
+                          type={variant.content_type}
+                          key={i}
+                        />
+                      ))}
+                    </video>
                   )
                 );
 
@@ -112,6 +157,7 @@ export const query = graphql`
             content_type
             bitrate
           }
+          duration_millis
         }
       }
     }
