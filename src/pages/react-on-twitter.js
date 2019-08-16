@@ -4,7 +4,7 @@ import { Layout } from '../components/layout';
 import { Seo } from '../components/seo';
 import { Tweets } from '../components/tweets';
 
-function ReactOnTwitter({ data }) {
+function ReactOnTwitter({ data, location }) {
   const tweets = data.tweets.nodes;
 
   return (
@@ -12,6 +12,7 @@ function ReactOnTwitter({ data }) {
       <Seo
         title="React on Twitter"
         description="Curated non-educational tweets for React developers"
+        pathname={location.pathname}
       />
       <Layout>
         <Tweets tweets={tweets} />
