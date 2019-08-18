@@ -38,10 +38,6 @@ export const pageQuery = graphql`
           }
         }
       }
-      venue {
-        name
-        mapURL
-      }
     }
   }
 `;

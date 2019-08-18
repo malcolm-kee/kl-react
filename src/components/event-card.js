@@ -61,18 +61,13 @@ export const query = graphql`
   fragment EventCard on MeetupEvent {
     id
     name
+    venueName
     status
     link
     dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
+    isMeetup
     info {
       id
-      type
-      venue {
-        name
-      }
-    }
-    venue {
-      name
     }
   }
 `;

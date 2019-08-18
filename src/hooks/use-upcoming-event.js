@@ -13,6 +13,8 @@ export function useUpcomingEvent() {
         link
         isFull
         dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
+        mapURL
+        venueName
         info {
           schedule {
             time
@@ -26,14 +28,6 @@ export function useUpcomingEvent() {
               }
             }
           }
-          venue {
-            name
-            mapURL
-          }
-        }
-        mapURL
-        venue {
-          name
         }
       }
     }
@@ -43,8 +37,7 @@ export function useUpcomingEvent() {
     return null;
   }
 
-  const { name, link, info, mapURL, venue, isFull, dateTime } = meetupEvent;
-  const venueInfo = info && info.venue;
+  const { name, link, info, mapURL, venueName, isFull, dateTime } = meetupEvent;
 
   return {
     name,
@@ -52,8 +45,8 @@ export function useUpcomingEvent() {
     link,
     isFull,
     venue: {
-      name: (venueInfo && venueInfo.name) || (venue && venue.name),
-      mapURL: (venueInfo && venueInfo.mapURL) || mapURL,
+      name: venueName,
+      mapURL,
     },
     schedule: info && info.schedule,
   };

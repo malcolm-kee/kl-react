@@ -10,6 +10,35 @@ function getSpeakerImageUrl(speakerNode) {
     : null;
 }
 
+function getMeetupInfo(source, _, context) {
+  if (source.link) {
+    const match = /\/(\d+)\/$/.exec(source.link);
+    const eventId = match && Number(match[1]);
+    return (
+      context.nodeModel
+        .getAllNodes({ type: 'EventYaml' })
+        .find(event => event.meetup === eventId) || null
+    );
+  }
+  return null;
+}
+
+function getMeetupVenue(source, _, context) {
+  const info = getMeetupInfo(source, _, context);
+
+  if (info) {
+    return (
+      context.nodeModel
+        .getAllNodes({
+          type: 'VenueYaml',
+        })
+        .find(venue => venue.id === info.venue) || null
+    );
+  }
+
+  return null;
+}
+
 exports.createSchemaCustomization = function createSchemaCustomization({
   actions,
   schema,
@@ -70,22 +99,29 @@ exports.createSchemaCustomization = function createSchemaCustomization({
         },
         info: {
           type: 'EventYaml',
+          resolve: getMeetupInfo,
+        },
+        isMeetup: {
+          type: 'Boolean',
           resolve: (source, _, context) => {
-            if (source.link) {
-              const match = /\/(\d+)\/$/.exec(source.link);
-              const eventId = match && Number(match[1]);
-              return (
-                context.nodeModel
-                  .getAllNodes({ type: 'EventYaml' })
-                  .find(event => event.meetup === eventId) || null
-              );
-            }
-            return null;
+            const info = getMeetupInfo(source, _, context);
+            return !!info && info.type === 'meetup';
+          },
+        },
+        venueName: {
+          type: 'String',
+          resolve: (source, _, context) => {
+            const venue = getMeetupVenue(source, _, context);
+            return (venue && venue.name) || (source.venue && source.venue.name);
           },
         },
         mapURL: {
           type: 'String',
-          resolve: source => {
+          resolve: (source, _, context) => {
+            const venue = getMeetupVenue(source, _, context);
+            if (venue && venue.mapURL) {
+              return venue.mapURL;
+            }
             if (source.venue && source.venue.lon) {
               return `https://maps.google.com/?q=${source.venue.lat},${
                 source.venue.lon
