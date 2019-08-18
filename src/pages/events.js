@@ -26,21 +26,7 @@ export const pageQuery = graphql`
   {
     allMeetupEvent(sort: { fields: local_date, order: DESC }) {
       nodes {
-        id
-        name
-        status
-        link
-        dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
-        info {
-          id
-          type
-          venue {
-            name
-          }
-        }
-        venue {
-          name
-        }
+        ...EventCard
       }
     }
   }
