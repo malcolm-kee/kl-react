@@ -38,6 +38,16 @@ export const SubmitTalkForm = () => (
       required
     />
     <Field
+      label="Contact Details"
+      helpText="Contact details for others to contact you. Can be github account, Twitter handle, personal website etc."
+      placeholder={`e.g.
+github: malcolm-kee
+twitter: Malcolm_Kee`}
+      name="speaker-contacts"
+      InputComponent="textarea"
+      rows={3}
+    />
+    <Field
       label="Email"
       helpText="Used to communicate with you, will be kept private."
       name="email"
