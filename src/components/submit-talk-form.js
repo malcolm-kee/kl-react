@@ -25,9 +25,9 @@ export const SubmitTalkForm = () => (
       required
     >
       <option value="" />
-      <option value="15">15 mins</option>
-      <option value="30">30 mins</option>
-      <option value="40">40 mins</option>
+      <option value="15 mins">15 mins</option>
+      <option value="30 mins">30 mins</option>
+      <option value="40 mins">40 mins</option>
     </Field>
     <Field label="Your Name" name="speaker-name" required />
     <Field
