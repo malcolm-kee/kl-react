@@ -20,6 +20,9 @@ export const Layout = props => (
       styles={{
         '*': { boxSizing: 'border-box' },
         body: { margin: 0 },
+        textarea: {
+          resize: 'vertical',
+        },
       }}
     />
     <UI.Header

@@ -12,6 +12,7 @@ export const Button = props => (
       fontWeight: 'bold',
       px: 3,
       py: 3,
+      border: 0,
       color: 'background',
       bg: 'primary',
       borderRadius: 4,

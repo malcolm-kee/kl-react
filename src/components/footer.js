@@ -31,6 +31,11 @@ export function Footer() {
         <div sx={{ width: ['100%', 100 / 3 + '%'] }}>
           <List sx={{ my: [2, 1] }}>
             <li>
+              <NavLink as={Link} to="/submit-a-talk">
+                Submit A Talk
+              </NavLink>
+            </li>
+            <li>
               <NavLink
                 as="a"
                 href="https://www.meetup.com/kl-react/?action=join"
@@ -43,15 +48,15 @@ export function Footer() {
                 GitHub
               </NavLink>
             </li>
+          </List>
+        </div>
+        <div sx={{ width: ['100%', 100 / 3 + '%'] }}>
+          <List sx={{ my: [2, 1] }}>
             <li>
               <NavLink as={Link} to="/code-of-conduct">
                 Code of Conduct
               </NavLink>
             </li>
-          </List>
-        </div>
-        <div sx={{ width: ['100%', 100 / 3 + '%'] }}>
-          <List sx={{ my: [2, 1] }}>
             <li>
               <NavLink as={Link} to="/react-on-twitter">
                 Nothing interesting
