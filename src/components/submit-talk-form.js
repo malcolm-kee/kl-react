@@ -7,7 +7,7 @@ export const SubmitTalkForm = () => (
   <form
     name="talk-form"
     method="POST"
-    action="/talk-received"
+    action="/talk-submitted"
     netlify-honeypot="trap"
     data-netlify="true"
   >
