@@ -3,10 +3,17 @@ import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import { GitHub, Globe, Twitter } from 'react-feather';
 import { Flex, jsx, Styled } from 'theme-ui';
+import { isFilledArray } from '../lib';
 import { BackgroundImage } from './background-image';
 import { Card } from './card';
 import { IconLink } from './icon-link';
+import { BulletedList } from './bulleted-list';
 
+/**
+ *
+ * @param {Object} props
+ * @param {boolean} showPastEvents should show previous talks and workshops in React KL
+ */
 export function SpeakerCard({
   id,
   name,
@@ -17,6 +24,9 @@ export function SpeakerCard({
   twitter,
   github,
   website,
+  talk,
+  workshop,
+  showPastEvents,
   ...props
 }) {
   return (
@@ -44,10 +54,13 @@ export function SpeakerCard({
       <Styled.p
         sx={{
           mb: 0,
+          textAlign: 'justify',
+          whiteSpace: 'pre-wrap',
         }}
       >
         {bio}
       </Styled.p>
+
       <Flex mx={-2}>
         {twitter && (
           <IconLink href={`https://twitter.com/${twitter}`}>
@@ -65,6 +78,26 @@ export function SpeakerCard({
           </IconLink>
         )}
       </Flex>
+      {showPastEvents && isFilledArray(talk) && (
+        <div>
+          <Styled.h4 sx={{ pt: 2, pb: 1 }}>Talk(s) in React KL</Styled.h4>
+          <BulletedList>
+            {talk.map(t => (
+              <li key={t.id}>{t.title}</li>
+            ))}
+          </BulletedList>
+        </div>
+      )}
+      {showPastEvents && isFilledArray(workshop) && (
+        <div>
+          <Styled.h4 sx={{ pt: 2, pb: 1 }}>Workshop(s) in React KL</Styled.h4>
+          <BulletedList>
+            {workshop.map(w => (
+              <li key={w.id}>{w.meetup.name}</li>
+            ))}
+          </BulletedList>
+        </div>
+      )}
     </Card>
   );
 }
@@ -86,5 +119,15 @@ export const query = graphql`
     twitter
     github
     website
+    talk {
+      id
+      title
+    }
+    workshop {
+      id
+      meetup {
+        name
+      }
+    }
   }
 `;

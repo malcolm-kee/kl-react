@@ -24,3 +24,39 @@
     - time: 9.30pm
       type: home
       desc: Nothing else to see here. Aren't you busy?
+- id: fast-site-with-gatsbyjs
+  type: workshop
+  meetup: 261886708
+  instructor:
+    - malcolm
+- id: how-to-react
+  type: workshop
+  meetup: 262361421
+  instructor:
+    - malcolm
+- id: js-the-react-parts
+  type: workshop
+  meetup: 261500896
+  instructor:
+    - malcolm
+- id: intro-to-web-dev
+  type: workshop
+  meetup: 259839134
+  instructor:
+    - malcolm
+    - matt
+- id: project-component
+  type: workshop
+  meetup: 259665881
+  instructor:
+    - malcolm
+- id: intro-to-react-v2
+  type: workshop
+  meetup: 258755070
+  instructor:
+    - malcolm
+- id: intro-to-react
+  type: workshop
+  meetup: 257458735
+  instructor:
+    - malcolm

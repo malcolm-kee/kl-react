@@ -19,6 +19,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
     `type EventYaml implements Node { 
       venue: VenueYaml @link 
       schedule: [EventYamlSchedule]
+      instructor: [SpeakerYaml] @link
     }
     
     type EventYamlSchedule {
@@ -109,6 +110,18 @@ exports.createSchemaCustomization = function createSchemaCustomization({
             return context.nodeModel
               .getAllNodes({ type: 'TalkYaml' })
               .filter(talk => talk.speaker === source.id);
+          },
+        },
+        workshop: {
+          type: '[EventYaml]',
+          resolve: (source, _, context) => {
+            return context.nodeModel
+              .getAllNodes({ type: 'EventYaml' })
+              .filter(
+                event =>
+                  Array.isArray(event.instructor) &&
+                  event.instructor.includes(source.id)
+              );
           },
         },
       },

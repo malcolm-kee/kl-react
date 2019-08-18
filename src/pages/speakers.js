@@ -9,7 +9,7 @@ export default function SpeakersPage({ data }) {
     <>
       <Seo title="Speakers" />
       <Layout>
-        <Speakers speakers={data.allSpeakerYaml.nodes} />
+        <Speakers speakers={data.allSpeakerYaml.nodes} showPastEvents />
       </Layout>
     </>
   );

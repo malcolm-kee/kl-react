@@ -5,7 +5,7 @@ import { FlexList } from './flex-list';
 import { SectionHeading } from './section-heading';
 import { SpeakerCard } from './speaker-card';
 
-export const Speakers = ({ speakers = [], showMore }) => (
+export const Speakers = ({ speakers = [], showMore, showPastEvents }) => (
   <Container>
     <SectionHeading>Speakers</SectionHeading>
     <FlexList
@@ -14,7 +14,12 @@ export const Speakers = ({ speakers = [], showMore }) => (
       }}
     >
       {speakers.map(speaker => (
-        <SpeakerCard key={speaker.id} as="li" {...speaker} />
+        <SpeakerCard
+          key={speaker.id}
+          as="li"
+          showPastEvents={showPastEvents}
+          {...speaker}
+        />
       ))}
     </FlexList>
     {showMore && (
