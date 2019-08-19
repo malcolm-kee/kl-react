@@ -1,5 +1,7 @@
+import { Link } from 'gatsby';
 import React from 'react';
 import { Container, Styled } from 'theme-ui';
+import { Aside } from '../components/aside';
 import { Layout } from '../components/layout';
 import { Seo } from '../components/seo';
 import { SubmitTalkForm } from '../components/submit-talk-form';
@@ -16,7 +18,9 @@ function SubmitATalk() {
           <Styled.h2 as="h1">Submit A Talk</Styled.h2>
           <Styled.p />
           <Styled.p>
-            Register your interest to give a talk at React KL Meetup!
+            Register your interest to give a talk at React KL Meetup! If you
+            doesn't want to give talk but interested to hear about a topic,{' '}
+            <Link to="/submit-topic">submit a topic</Link> instead.
           </Styled.p>
           <Styled.p>
             The topic of your talk does not necessarily be related to React JS
@@ -25,6 +29,14 @@ function SubmitATalk() {
             should make it relevant, e.g. compare it with React, or how it could
             be applied when writing React code.
           </Styled.p>
+          <Aside>
+            <Styled.p>
+              If you interested to give a talk but doesn't have a topic in mind,
+              just put "Need suggestion" in the "Talk Title" and "Talk
+              Description" fields. We'll contact you to brainstorm on the topic
+              together.
+            </Styled.p>
+          </Aside>
           <SubmitTalkForm />
         </Container>
       </Layout>

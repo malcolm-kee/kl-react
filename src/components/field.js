@@ -33,7 +33,7 @@ export function Field({
       {helpText && (
         <small
           sx={{
-            fontStyle: 'italic',
+            fontSize: 1,
           }}
           id={`help-${id}`}
         >
