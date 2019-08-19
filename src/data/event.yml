@@ -29,6 +29,7 @@
   meetup: 261886708
   instructor:
     - malcolm
+  site: https://malcolmkee.com/fast-site-with-gatsby-js
 - id: how-to-react
   type: workshop
   meetup: 262361421
@@ -39,24 +40,29 @@
   meetup: 261500896
   instructor:
     - malcolm
+  site: https://malcolmkee.com/js-the-react-parts
 - id: intro-to-web-dev
   type: workshop
   meetup: 259839134
   instructor:
     - malcolm
     - matt
+  site: https://intro-to-web-dev.netlify.com
 - id: project-component
   type: workshop
   meetup: 259665881
   instructor:
     - malcolm
+  site: https://react-component-lib.netlify.com/14
 - id: intro-to-react-v2
   type: workshop
   meetup: 258755070
   instructor:
     - malcolm
+  site: https://malcolmkee.com/intro-to-react-js-v2
 - id: intro-to-react
   type: workshop
   meetup: 257458735
   instructor:
     - malcolm
+  site: https://malcolmkee.com/intro-to-react-js

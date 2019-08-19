@@ -8,7 +8,7 @@ function Events(props) {
 
   return (
     <>
-      <Seo pathname={props.location.pathname} />
+      <Seo title="Events - KL React" pathname={props.location.pathname} />
       <EventPage events={events} />
     </>
   );

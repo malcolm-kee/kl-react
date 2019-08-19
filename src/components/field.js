@@ -51,6 +51,7 @@ export function Field({
           fontFamily: 'inherit',
           fontSize: [2, 3, 3],
           outline: 'none',
+          bg: 'background',
           border: 0,
           m: 0,
           p: `6px 0 7px`,

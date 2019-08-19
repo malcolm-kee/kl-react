@@ -5,10 +5,11 @@ export const Aside = props => (
   <aside
     {...props}
     sx={{
-      bg: '#ddd',
+      bg: '#eee',
       borderRadius: 4,
-      px: 2,
-      py: 1,
+      px: 3,
+      py: 2,
+      textAlign: 'justify',
       '> :last-child': {
         mb: 0,
       },

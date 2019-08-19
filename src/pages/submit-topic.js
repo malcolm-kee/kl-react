@@ -23,7 +23,10 @@ function SubmitTopic() {
           </Styled.p>
           <Styled.p>
             If you would like to give the talk yourself,{' '}
-            <Link to="/submit-a-talk">submit a talk</Link> instead.
+            <Styled.a as={Link} to="/submit-a-talk">
+              submit a talk
+            </Styled.a>{' '}
+            instead.
           </Styled.p>
           <TalkTopicForm />
         </Container>

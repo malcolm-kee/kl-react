@@ -6,7 +6,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `KL React Meetup`,
+    title: `KL React`,
     description: `Reacting in Kuala Lumpur, Malaysia`,
     url: `https://kl-react.netlify.com`,
     twitter: `@KlReact`,

@@ -26,6 +26,11 @@ export function Footer() {
                 Speakers
               </NavLink>
             </li>
+            <li>
+              <NavLink as={Link} to="/react-on-twitter">
+                Nothing interesting
+              </NavLink>
+            </li>
           </List>
         </div>
         <div sx={{ width: ['100%', 100 / 3 + '%'] }}>
@@ -60,11 +65,6 @@ export function Footer() {
             <li>
               <NavLink as={Link} to="/code-of-conduct">
                 Code of Conduct
-              </NavLink>
-            </li>
-            <li>
-              <NavLink as={Link} to="/react-on-twitter">
-                Nothing interesting
               </NavLink>
             </li>
           </List>

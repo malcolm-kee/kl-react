@@ -44,11 +44,8 @@ export function Header() {
           Speakers
         </NavLink>
       </DesktopOnly>
-      <Button as={Link} to="/#cta">
-        Join{' '}
-        <DesktopOnly>
-          <span>Meetup</span>
-        </DesktopOnly>
+      <Button as={Link} to="/submit-a-talk">
+        Submit a Talk
       </Button>
     </>
   );

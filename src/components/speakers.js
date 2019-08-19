@@ -29,7 +29,7 @@ export const Speakers = ({ speakers = [], showMore, showPastEvents }) => (
         }}
       >
         <Styled.a as={Link} to="/speakers">
-          View all speakers for previous meetups/workshops
+          View speakers for previous meetups/workshops
         </Styled.a>
       </div>
     )}
