@@ -1,3 +1,4 @@
+const moment = require('moment');
 const { createRemoteFileNode } = require('gatsby-source-filesystem');
 
 function getSpeakerImageUrl(speakerNode) {
@@ -88,6 +89,20 @@ exports.createSchemaCustomization = function createSchemaCustomization({
           type: 'Boolean',
           resolve: source => {
             return source.rsvp_limit - source.yes_rsvp_count <= 0;
+          },
+        },
+        shouldClose: {
+          type: 'Boolean',
+          resolve: source => {
+            // hard-code to should close if it is full and less than 3 days (unless found a way to get it from Meetup API)
+            if (source.rsvp_limit - source.yes_rsvp_count > 0) {
+              return false;
+            }
+
+            const now = moment(new Date());
+            const eventDate = moment(new Date(source.time));
+
+            return moment.duration(now.diff(eventDate)).asDays() > -3;
           },
         },
         dateTime: {

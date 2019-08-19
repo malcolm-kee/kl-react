@@ -40,8 +40,15 @@ export function Banner({ upcomingEvent, ...props }) {
         </Styled.p>
         <div sx={{ display: 'flex' }}>
           {upcomingEvent ? (
-            <Button href={upcomingEvent.link}>
-              RSVP {upcomingEvent.isFull && '(Waitlist)'}
+            <Button
+              disabled={upcomingEvent.shouldClose}
+              href={upcomingEvent.link}
+            >
+              {upcomingEvent.shouldClose
+                ? 'Closed for RSVP'
+                : upcomingEvent.isFull
+                ? 'Add to Waitlist (Full)'
+                : 'RSVP'}
             </Button>
           ) : (
             <Button href="#cta">Join Meetup</Button>
