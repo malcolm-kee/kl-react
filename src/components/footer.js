@@ -36,6 +36,11 @@ export function Footer() {
               </NavLink>
             </li>
             <li>
+              <NavLink as={Link} to="/submit-topic">
+                Submit Topic
+              </NavLink>
+            </li>
+            <li>
               <NavLink
                 as="a"
                 href="https://www.meetup.com/kl-react/?action=join"
