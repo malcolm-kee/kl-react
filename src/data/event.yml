@@ -8,21 +8,27 @@
       desc: Food Consuming + Human Social Activity
     - time: 7.40pm
       type: intro
-      desc: Introduction to KL React + Sponsor shout-outs
+      desc: Introduction to KL React
     - time: 7.45pm
       type: talk
       talk: peeking-inside-react
     - time: 8.15pm
+      type: announcement
+      desc: Sponsor shout-out
+    - time: 8.20pm
       type: talk
       talk: boost-dx-with-graphql
-    - time: 8.45pm
+    - time: 8.50pm
       type: talk
       talk: gatsby-mdx
     - time: 9.15pm
       type: announcement
-      desc: Shout-outs and announcements (hiring/events)
+      desc: >
+        Shout-outs and announcements (hiring/events)
+
+        You're welcome to give a shout-out if you're hiring or hosting an event. Each shout-out should not be longer than 2 minutes.
     - time: 9.30pm
-      type: home
+      type: wrap up
       desc: Nothing else to see here. Aren't you busy?
 - id: fast-site-with-gatsbyjs
   type: workshop

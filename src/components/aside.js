@@ -5,7 +5,7 @@ export const Aside = props => (
   <aside
     {...props}
     sx={{
-      bg: '#eee',
+      bg: 'accent',
       borderRadius: 4,
       px: 3,
       py: 2,

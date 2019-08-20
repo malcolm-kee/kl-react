@@ -86,9 +86,13 @@ export function ScheduleItem({ time, type, talk, desc }) {
       <div sx={{ width: '100%' }}>
         <Styled.p />
         {isTalk ? (
-          talk && <Styled.p>{talk.description}</Styled.p>
+          talk && (
+            <Styled.p sx={{ whiteSpace: 'pre-wrap' }}>
+              {talk.description}
+            </Styled.p>
+          )
         ) : (
-          <Styled.p>{desc}</Styled.p>
+          <Styled.p sx={{ whiteSpace: 'pre-wrap' }}>{desc}</Styled.p>
         )}
       </div>
     </Flex>

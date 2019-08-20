@@ -8,10 +8,12 @@ const heading = {
 export default {
   breakpoints: ['40em', '52em', '64em'],
   colors: {
-    text: '#000',
-    background: '#fff',
+    text: 'rgba(0, 0, 0, 0.87)',
+    background: '#f8f8f8',
     primary: '#33e',
     secondary: '#11a',
+    accent: '#61dafb',
+    muted: '#9e9e9e',
   },
   fonts: {
     body: 'system-ui, sans-serif',

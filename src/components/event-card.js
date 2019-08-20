@@ -13,8 +13,8 @@ function UpcomingLabel() {
         lineHeight: 2,
         verticalAlign: 'top',
         borderRadius: 4,
-        backgroundColor: 'green',
-        color: '#fff',
+        backgroundColor: 'accent',
+        color: 'text',
         p: 1,
       }}
     >
