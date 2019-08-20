@@ -30,7 +30,7 @@ export function Header() {
       >
         <Icon
           sx={{
-            marginRight: 1,
+            mr: 2,
           }}
         />
         {title}
