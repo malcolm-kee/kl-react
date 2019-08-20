@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://kl-react.netlify.com/* https://kl-react.com/:splat 301!
