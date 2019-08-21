@@ -18,7 +18,7 @@ export default Events;
 
 export const pageQuery = graphql`
   {
-    allMeetupEvent(sort: { fields: local_date, order: DESC }) {
+    allMeetupEvent(sort: { fields: [local_date], order: DESC }) {
       nodes {
         ...EventCard
       }
