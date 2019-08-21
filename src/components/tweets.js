@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { useState, useEffect, useReducer, useMemo } from 'react';
+import { useEffect, useMemo, useReducer } from 'react';
 import { Container, jsx } from 'theme-ui';
 import { useInterval } from '../hooks/use-interval';
-import { Tweet } from './tweet';
 import { ProgressBar } from './progress-bar';
+import { Tweet } from './tweet';
 
 const DEFAULT_INTERVAL = 4500;
 
@@ -143,8 +143,6 @@ function calculateReadtime(displayedText, entities) {
 }
 
 function TweetItem({ setDelay, displayedText, entities, ...props }) {
-  const [videoDuration, setVideoDuration] = useState(null);
-
   const readTime = useMemo(() => calculateReadtime(displayedText, entities), [
     displayedText,
     entities,
@@ -156,18 +154,12 @@ function TweetItem({ setDelay, displayedText, entities, ...props }) {
     }
   }, [readTime]);
 
-  useEffect(() => {
-    if (videoDuration) {
-      setDelay(videoDuration + 1000);
-    }
-  }, [videoDuration]);
-
   return (
     <Tweet
       {...props}
       entities={entities}
       displayedText={displayedText}
-      onVideoPlay={setVideoDuration}
+      onVideoPlay={vidDuration => setDelay(vidDuration + 1000)}
       sx={{
         height: `calc(100vh - 220px)`,
       }}

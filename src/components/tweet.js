@@ -22,7 +22,7 @@ export function Tweet({
             sx={{
               fontSize: [2, 3, 4],
               whiteSpace: 'pre-wrap',
-              pr: '50px',
+              pr: '60px',
             }}
           >
             {displayedText}
