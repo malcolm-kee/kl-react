@@ -4,7 +4,7 @@ import { ExternalLink } from 'react-feather';
 import { Container, jsx, Styled } from 'theme-ui';
 import { Link } from './link';
 
-export const MeetupOverview = ({ name, dateTime, venue, link }) => (
+export const MeetupOverview = ({ name, dateTime, venueName, link }) => (
   <div id="meetup-overview">
     <Container>
       <Styled.h2 sx={{ color: 'secondary' }}>{name}</Styled.h2>
@@ -14,7 +14,7 @@ export const MeetupOverview = ({ name, dateTime, venue, link }) => (
           fontSize: [3, 4, 5],
         }}
       >
-        @{venue.name}{' '}
+        @{venueName}{' '}
       </Styled.p>
       <Styled.p>
         <Link
@@ -38,8 +38,6 @@ export const query = graphql`
     isFull
     dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
     mapURL
-    venue {
-      name
-    }
+    venueName
   }
 `;

@@ -27,16 +27,7 @@ export const pageQuery = graphql`
         ...MeetupOverview
       }
       schedule {
-        time
-        type
-        desc
-        talk {
-          title
-          description
-          speaker {
-            ...SpeakerCard
-          }
-        }
+        ...ScheduleItem
       }
     }
   }

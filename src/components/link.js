@@ -4,7 +4,7 @@ import { Styled } from 'theme-ui';
 
 export const Link = ({ to, isExternal, ...props }) => {
   return isExternal ? (
-    <Styled.a href={to} target="_BLANK" {...props} />
+    <Styled.a href={to} target="_BLANK" rel="noopener noreferrer" {...props} />
   ) : (
     <Styled.a as={GatsbyLink} to={to} {...props} />
   );

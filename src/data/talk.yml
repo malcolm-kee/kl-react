@@ -6,7 +6,15 @@
   title: 'Boost your developer experience with GraphQL'
   speaker: yongshean
   description: Managing data fetching and UI rendering logics when dealing with API calls are the most challenging and often frustrating for most developers. This talk presents the benefits that GraphQL offers for enhancing developer experience.
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/18Jrz9drlAcPG-XrZ2AOtqB-wnELc0Wj9uJbMrcpWV8M/edit?usp=sharing
 - id: gatsby-mdx
   title: 'Using MDX in Gatsby site'
   speaker: matt
   description: Ever wanted to use React together with markdown in your projects? Now you can with gatsby-plugin-mdx. Write markdown for your pages while importing React components in the same file.
+  materials:
+    - type: repo
+      url: https://github.com/matt-writes-code/gatsby-plugin-mdx
+    - type: demo
+      url: https://gatsby-plugin-mdx.netlify.com/
