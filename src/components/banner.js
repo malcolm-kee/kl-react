@@ -36,7 +36,11 @@ export function Banner({ upcomingEvent, ...props }) {
             mb: 5,
           }}
         >
-          {upcomingEvent ? `@${upcomingEvent.venue.name}` : description}
+          {upcomingEvent
+            ? upcomingEvent.venue.name
+              ? `@${upcomingEvent.venue.name}`
+              : '(Needs a location)'
+            : description}
         </Styled.p>
         <div sx={{ display: 'flex' }}>
           {upcomingEvent ? (
@@ -53,7 +57,7 @@ export function Banner({ upcomingEvent, ...props }) {
           ) : (
             <Button href="#cta">Join Meetup</Button>
           )}
-          {upcomingEvent && (
+          {upcomingEvent && upcomingEvent.venue.mapURL && (
             <IconLink sx={{ p: 3, mx: 3 }} href={upcomingEvent.venue.mapURL}>
               <span
                 sx={{

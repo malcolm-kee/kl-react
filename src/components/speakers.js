@@ -5,23 +5,29 @@ import { FlexList } from './flex-list';
 import { SectionHeading } from './section-heading';
 import { SpeakerCard } from './speaker-card';
 
-export const Speakers = ({ speakers = [], showMore, showPastEvents }) => (
+export const Speakers = ({ speakers, showMore, showPastEvents }) => (
   <Container>
     <SectionHeading>Speakers</SectionHeading>
-    <FlexList
-      sx={{
-        justifyContent: 'center',
-      }}
-    >
-      {speakers.map(speaker => (
-        <SpeakerCard
-          key={speaker.id}
-          as="li"
-          showPastEvents={showPastEvents}
-          {...speaker}
-        />
-      ))}
-    </FlexList>
+    {speakers && speakers.length > 0 ? (
+      <FlexList
+        sx={{
+          justifyContent: 'center',
+        }}
+      >
+        {speakers.map(speaker => (
+          <SpeakerCard
+            key={speaker.id}
+            as="li"
+            showPastEvents={showPastEvents}
+            {...speaker}
+          />
+        ))}
+      </FlexList>
+    ) : (
+      <Styled.h3 as="p" sx={{ textAlign: 'center', m: 3 }}>
+        To be announced
+      </Styled.h3>
+    )}
     {showMore && (
       <div
         sx={{
