@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { useEffect, useMemo, useReducer } from 'react';
+import { useEffect, useCallback, useMemo, useReducer } from 'react';
 import { Container, jsx } from 'theme-ui';
 import { useInterval } from '../hooks/use-interval';
 import { ProgressBar } from './progress-bar';
@@ -83,6 +83,11 @@ export const Tweets = ({ tweets = [] }) => {
       </div>
     ) : null;
 
+  const setDelay = useCallback(
+    int => dispatch({ type: 'setInterval', payload: int }),
+    []
+  );
+
   return (
     <div
       id="tweets"
@@ -96,13 +101,7 @@ export const Tweets = ({ tweets = [] }) => {
           {tweets
             .filter((_, index) => index === state.index)
             .map(tweet => (
-              <TweetItem
-                setDelay={int =>
-                  dispatch({ type: 'setInterval', payload: int })
-                }
-                {...tweet}
-                key={tweet.id}
-              />
+              <TweetItem setDelay={setDelay} {...tweet} key={tweet.id} />
             ))}
         </div>
       </Container>
@@ -152,7 +151,7 @@ function TweetItem({ setDelay, displayedText, entities, ...props }) {
     if (readTime !== DEFAULT_INTERVAL) {
       setDelay(readTime);
     }
-  }, [readTime]);
+  }, [readTime, setDelay]);
 
   return (
     <Tweet

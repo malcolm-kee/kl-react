@@ -2,15 +2,18 @@
   title: 'Peeking inside React: The Background Magic'
   speaker: abhishek
   description: Looking into how react is rendered and what are the processes that they follow, VDom, Reconciliation, Memoization.
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/1TcUEQYqkggdBamR2iYe6Y82Zfs63mkeoC-fgrDKKFlM/edit?usp=sharing
 - id: boost-dx-with-graphql
-  title: 'Boost your developer experience with GraphQL'
+  title: Boost your developer experience with GraphQL
   speaker: yongshean
   description: Managing data fetching and UI rendering logics when dealing with API calls are the most challenging and often frustrating for most developers. This talk presents the benefits that GraphQL offers for enhancing developer experience.
   materials:
     - type: slide
       url: https://docs.google.com/presentation/d/18Jrz9drlAcPG-XrZ2AOtqB-wnELc0Wj9uJbMrcpWV8M/edit?usp=sharing
 - id: gatsby-mdx
-  title: 'Using MDX in Gatsby site'
+  title: Using MDX in Gatsby site
   speaker: matt
   description: Ever wanted to use React together with markdown in your projects? Now you can with gatsby-plugin-mdx. Write markdown for your pages while importing React components in the same file.
   materials:
