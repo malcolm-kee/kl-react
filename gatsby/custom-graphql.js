@@ -91,6 +91,16 @@ exports.createSchemaCustomization = function createSchemaCustomization({
             return source.rsvp_limit - source.yes_rsvp_count <= 0;
           },
         },
+        isRsvpOpen: {
+          type: 'Boolean',
+          resolve: source => {
+            return (
+              !source.rsvp_rules.closed &&
+              (!source.rsvp_rules.open_time ||
+                source.rsvp_rules.open_time < new Date().getTime())
+            );
+          },
+        },
         shouldClose: {
           type: 'Boolean',
           resolve: source => {

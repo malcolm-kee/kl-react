@@ -57,7 +57,7 @@ export function EventCard({
           </Styled.li>
         )}
         <Styled.li>
-          {dateTime} @{venueName}
+          {dateTime} {venueName && `@${venueName}`}
         </Styled.li>
         {info && info.site && (
           <Styled.li>

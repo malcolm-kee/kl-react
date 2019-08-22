@@ -13,8 +13,10 @@ export default function HomePage({ data }) {
   const upcomingEventSchedule = upcomingEvent && upcomingEvent.schedule;
   // get speakers for the upcoming event if there is any,
   // else just load 6 speakers from speaker list
-  const speakers = upcomingEventSchedule
-    ? upcomingEventSchedule
+  const speakers = upcomingEvent
+    ? upcomingEvent &&
+      upcomingEventSchedule &&
+      upcomingEventSchedule
         .filter(
           item =>
             !!(item && item.type === 'talk' && item.talk && item.talk.speaker)

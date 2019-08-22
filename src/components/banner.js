@@ -36,24 +36,30 @@ export function Banner({ upcomingEvent, ...props }) {
             mb: 5,
           }}
         >
-          {upcomingEvent ? `@${upcomingEvent.venue.name}` : description}
+          {upcomingEvent
+            ? upcomingEvent.venue.name
+              ? `@${upcomingEvent.venue.name}`
+              : '(Needs a location)'
+            : description}
         </Styled.p>
         <div sx={{ display: 'flex' }}>
           {upcomingEvent ? (
             <Button
-              disabled={upcomingEvent.shouldClose}
+              disabled={upcomingEvent.shouldClose || !upcomingEvent.isRsvpOpen}
               href={upcomingEvent.link}
             >
               {upcomingEvent.shouldClose
                 ? 'Closed for RSVP'
                 : upcomingEvent.isFull
                 ? 'Add to Waitlist (Full)'
-                : 'RSVP'}
+                : upcomingEvent.isRsvpOpen
+                ? 'RSVP Now'
+                : 'Coming Soon'}
             </Button>
           ) : (
             <Button href="#cta">Join Meetup</Button>
           )}
-          {upcomingEvent && (
+          {upcomingEvent && upcomingEvent.venue.mapURL && (
             <IconLink sx={{ p: 3, mx: 3 }} href={upcomingEvent.venue.mapURL}>
               <span
                 sx={{

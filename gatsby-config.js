@@ -30,6 +30,7 @@ module.exports = {
         groupUrlName: 'kl-react',
         status: 'upcoming,past',
         desc: 'true',
+        fields: 'rsvp_rules',
       },
     },
     {

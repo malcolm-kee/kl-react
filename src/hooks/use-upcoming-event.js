@@ -12,6 +12,7 @@ export function useUpcomingEvent() {
         name
         link
         isFull
+        isRsvpOpen
         shouldClose
         dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
         mapURL
@@ -45,6 +46,7 @@ export function useUpcomingEvent() {
     mapURL,
     venueName,
     isFull,
+    isRsvpOpen,
     shouldClose,
     dateTime,
   } = meetupEvent;
@@ -55,6 +57,7 @@ export function useUpcomingEvent() {
     link,
     shouldClose,
     isFull,
+    isRsvpOpen,
     venue: {
       name: venueName,
       mapURL,
