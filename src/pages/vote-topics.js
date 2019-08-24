@@ -28,6 +28,7 @@ export const pageQuery = graphql`
         issue(number: 5) {
           comments(first: 100) {
             nodes {
+              databaseId
               bodyHTML
               author {
                 avatarUrl
