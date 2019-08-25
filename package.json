@@ -41,6 +41,7 @@
     "babel-preset-gatsby": "^0.2.11",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
-    "jest-junit": "^7.0.0"
+    "jest-junit": "^7.0.0",
+    "jest-junit-reporter": "^1.1.0"
   }
 }
