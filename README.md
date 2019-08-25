@@ -1,5 +1,7 @@
 # kl-react
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/17874651-226e-4dc5-9af8-a3a6fd62c08b/deploy-status)](https://app.netlify.com/sites/kl-react/deploys)
+
 Repo for website of [KL React Meetup][kl-react-meetup].
 
 ## Key features
