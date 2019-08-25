@@ -24,6 +24,7 @@ jobs:
     docker:
       - image: circleci/node:10.16.3 # the primary container, where your job's commands are run
     steps:
+      - checkout
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "yarn.lock" }}
@@ -43,6 +44,7 @@ jobs:
     docker:
       - image: circleci/node:10.16.3 # the primary container, where your job's commands are run
     steps:
+      - checkout
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "yarn.lock" }}
