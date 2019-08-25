@@ -19,6 +19,10 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
 
+      - run:
+          name: Unit test
+          command: yarn test
+
       # build
       - run:
           name: Build site
