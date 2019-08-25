@@ -20,8 +20,20 @@ jobs:
           key: v1-dependencies-{{ checksum "yarn.lock" }}
 
       - run:
+          name: Install JUnit coverage reporter
+          command: yarn add --dev jest-junit
+
+      - run:
           name: Unit test
-          command: yarn test
+          command: yarn test -- --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
+
+      - store_test_results:
+          path: reports/junit
+
+      - store_artifacts:
+          path: reports/junit
 
       # build
       - run:
