@@ -1,5 +1,6 @@
 const moment = require('moment');
 const { createRemoteFileNode } = require('gatsby-source-filesystem');
+const { createMockTwitterSchema } = require('./mock-graphql');
 
 function getSpeakerImageUrl(speakerNode) {
   return speakerNode.image
@@ -43,9 +44,10 @@ function getMeetupVenue(source, _, context) {
 exports.createSchemaCustomization = function createSchemaCustomization({
   actions,
   schema,
+  reporter,
 }) {
   const { createTypes } = actions;
-  const typeDefs = [
+  let typeDefs = [
     `type EventYaml implements Node { 
       venue: VenueYaml @link 
       schedule: [EventYamlSchedule]
@@ -148,9 +150,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
               return venue.mapURL;
             }
             if (source.venue && source.venue.lon) {
-              return `https://maps.google.com/?q=${source.venue.lat},${
-                source.venue.lon
-              }`;
+              return `https://maps.google.com/?q=${source.venue.lat},${source.venue.lon}`;
             }
             return null;
           },
@@ -235,13 +235,17 @@ exports.createSchemaCustomization = function createSchemaCustomization({
         url: {
           type: 'String',
           resolve: source =>
-            `https://twitter.com/${source.user.screen_name}/status/${
-              source.id_str
-            }`,
+            `https://twitter.com/${source.user.screen_name}/status/${source.id_str}`,
         },
       },
     }),
   ];
+
+  if (!process.env.TWITTER_CONSUMER_KEY) {
+    reporter.info(`Using mock twitter graphql schema`);
+    typeDefs = typeDefs.concat(createMockTwitterSchema());
+  }
+
   createTypes(typeDefs);
 };
 

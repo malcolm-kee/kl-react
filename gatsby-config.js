@@ -33,7 +33,7 @@ module.exports = {
         fields: 'rsvp_rules',
       },
     },
-    {
+    process.env.TWITTER_CONSUMER_KEY && {
       resolve: `gatsby-source-twitter`,
       options: {
         credentials: {
@@ -101,5 +101,5 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
-  ],
+  ].filter(Boolean),
 };
