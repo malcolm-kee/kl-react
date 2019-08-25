@@ -18,3 +18,13 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
+
+      # build
+      - run:
+          name: Build site
+          command: yarn build
+
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - public
