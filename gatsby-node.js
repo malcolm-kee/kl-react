@@ -14,6 +14,12 @@ const meetupTemplate = path.resolve(
   'templates',
   'meetup-template.js'
 );
+const reactOnTwitterTemplate = path.resolve(
+  __dirname,
+  'src',
+  'templates',
+  'react-on-twitter-template.js'
+);
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
@@ -44,4 +50,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     });
   });
+
+  if (process.env.TWITTER_CONSUMER_KEY) {
+    reporter.info(
+      `Detected twitter consumer key, /react-on-twitter page will be created`
+    );
+    createPage({
+      path: `/react-on-twitter`,
+      component: reactOnTwitterTemplate,
+    });
+  } else {
+    reporter.info(
+      `No twitter consumer key detected, /react-on-twitter page will not be created`
+    );
+  }
 };
