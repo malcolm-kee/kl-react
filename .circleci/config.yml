@@ -52,10 +52,9 @@ jobs:
 
       - run:
           name: Unit test
-          command: yarn test --ci --runInBand --testResultsProcessor=jest-junit-reporter
+          command: yarn test --ci --runInBand --testResultsProcessor=jest-junit
           environment:
-            TEST_REPORT_PATH: 'reports/junit'
-            TEST_REPORT_FILENAME: 'js-test-results.xml'
+            JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
 
       - store_test_results:
           path: reports/junit
