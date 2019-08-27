@@ -208,6 +208,19 @@ exports.createSchemaCustomization = function createSchemaCustomization({
             );
           },
         },
+        photos: {
+          type: '[File]',
+          resolve: (source, _, context) => {
+            return context.nodeModel
+              .getAllNodes({ type: 'File' })
+              .filter(
+                file =>
+                  file.sourceInstanceName === 'event-photos' &&
+                  file.relativeDirectory === source.id
+              )
+              .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
+          },
+        },
       },
     }),
     schema.buildObjectType({

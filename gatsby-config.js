@@ -64,6 +64,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `event-photos`,
+        path: path.resolve(__dirname, 'photos'),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `pages`,
         path: path.resolve(__dirname, 'src', 'pages'),
       },
