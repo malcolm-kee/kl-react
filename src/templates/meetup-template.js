@@ -4,15 +4,17 @@ import { Layout } from '../components/layout';
 import { MeetupOverview } from '../components/meetup-overview';
 import { Schedule } from '../components/schedule';
 import { Seo } from '../components/seo';
+import { Photos } from '../components/photos';
 
-const MeetupTemplate = ({ data }) => {
-  const { schedule, meetup } = data.eventYaml;
+const MeetupTemplate = ({ data, location }) => {
+  const { schedule, meetup, photos } = data.eventYaml;
   return (
     <>
-      <Seo />
+      <Seo title={meetup && meetup.name} pathname={location.pathname} />
       <Layout>
         <MeetupOverview {...meetup} />
         <Schedule schedule={schedule} />
+        <Photos photos={photos} />
       </Layout>
     </>
   );
@@ -28,6 +30,9 @@ export const pageQuery = graphql`
       }
       schedule {
         ...ScheduleItem
+      }
+      photos {
+        ...EventPhoto
       }
     }
   }
