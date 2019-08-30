@@ -7,6 +7,7 @@ import { Seo } from '../components/seo';
 import { Layout } from '../components/layout';
 import { Cast, Code, PlayCircle } from 'react-feather';
 import { IconLink } from '../components/icon-link';
+import { TalkMaterialIcons } from '../components/talk-material-icons';
 
 // Materials component
 function TalkMaterial({ type, url }) {
@@ -51,7 +52,7 @@ export default function TalkPage({ data }) {
               <Styled.p sx={{ mb: 2 }}>{node.description}</Styled.p>
               <div sx={{ mb: 5 }}>
                 {node.materials.map(material => (
-                  <TalkMaterial
+                  <TalkMaterialIcons
                     type={material.type}
                     url={material.url}
                     key={node.id}
