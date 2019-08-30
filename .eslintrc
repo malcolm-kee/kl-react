@@ -1,0 +1,22 @@
+{
+  "globals": {
+    "__PATH_PREFIX__": true
+  },
+  "extends": "react-app",
+  "plugins": ["import"],
+  "rules": {
+    "import/no-default-export": "warn"
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/pages/*.js",
+        "src/templates/*.js",
+        "src/gatsby-plugin-theme-ui/*.js"
+      ],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ]
+}

@@ -20,9 +20,24 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
 
+  lint:
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+
+      # build
+      - run:
+          name: Lint code
+          command: yarn lint
+
   build:
     docker:
-      - image: circleci/node:10.16.3 # the primary container, where your job's commands are run
+      - image: circleci/node:10.16.3
     steps:
       - checkout
       - restore_cache:
@@ -42,7 +57,7 @@ jobs:
 
   test:
     docker:
-      - image: circleci/node:10.16.3 # the primary container, where your job's commands are run
+      - image: circleci/node:10.16.3
     steps:
       - checkout
       - restore_cache:
