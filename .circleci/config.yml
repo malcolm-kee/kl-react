@@ -1,0 +1,75 @@
+version: 2.0
+
+jobs:
+  setup:
+    docker:
+      - image: circleci/node:10.16.3 # the primary container, where your job's commands are run
+    steps:
+      - checkout # check out the code in the project directory
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
+
+  build:
+    docker:
+      - image: circleci/node:10.16.3 # the primary container, where your job's commands are run
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+
+      # build
+      - run:
+          name: Build site
+          command: yarn build
+
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - public
+
+  test:
+    docker:
+      - image: circleci/node:10.16.3 # the primary container, where your job's commands are run
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+
+      - run:
+          name: Unit test
+          command: yarn test --ci --runInBand --testResultsProcessor=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
+
+      - store_test_results:
+          path: reports/junit
+
+      - store_artifacts:
+          path: reports/junit
+
+workflows:
+  version: 2
+  install-build-and-test:
+    jobs:
+      - setup
+      - build:
+          requires:
+            - setup
+      - test:
+          requires:
+            - setup

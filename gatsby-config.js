@@ -33,7 +33,7 @@ module.exports = {
         fields: 'rsvp_rules',
       },
     },
-    {
+    process.env.TWITTER_CONSUMER_KEY && {
       resolve: `gatsby-source-twitter`,
       options: {
         credentials: {
@@ -59,6 +59,13 @@ module.exports = {
       options: {
         name: `image`,
         path: path.resolve(__dirname, 'og-image'),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `event-photos`,
+        path: path.resolve(__dirname, 'photos'),
       },
     },
     {
@@ -90,5 +97,5 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
-  ],
+  ].filter(Boolean),
 };
