@@ -89,5 +89,5 @@ workflows:
           requires:
             - setup
       - lint:
-          reequires:
+          requires:
             - setup
