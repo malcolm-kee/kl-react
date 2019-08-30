@@ -2,7 +2,7 @@ import React from 'react';
 import { IconLink } from './icon-link';
 import { Cast, Code, PlayCircle } from 'react-feather';
 
-function TalkMaterialIcons({ type, url }) {
+export function TalkMaterialIcons({ type, url }) {
   switch (type) {
     case 'repo':
       return (
@@ -29,5 +29,3 @@ function TalkMaterialIcons({ type, url }) {
       return null;
   }
 }
-
-export default TalkMaterialIcons;
