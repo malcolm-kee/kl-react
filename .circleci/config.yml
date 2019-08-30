@@ -88,3 +88,6 @@ workflows:
       - test:
           requires:
             - setup
+      - lint:
+          reequires:
+            - setup
