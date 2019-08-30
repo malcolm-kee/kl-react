@@ -1,5 +1,3 @@
-// By Matt
-
 /** @jsx jsx */
 
 import { Container, jsx, Styled } from 'theme-ui';
