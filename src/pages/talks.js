@@ -5,38 +5,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Seo } from '../components/seo';
 import { Layout } from '../components/layout';
-import { Cast, Code, PlayCircle } from 'react-feather';
-import { IconLink } from '../components/icon-link';
 import { TalkMaterialIcons } from '../components/talk-material-icons';
-
-// Materials component
-function TalkMaterial({ type, url }) {
-  switch (type) {
-    case 'repo':
-      return (
-        <IconLink to={url} aria-label="See source code" title="See source code">
-          <Code />
-        </IconLink>
-      );
-
-    case 'demo':
-      return (
-        <IconLink to={url} aria-label="See live demo" title="See live demo">
-          <PlayCircle />
-        </IconLink>
-      );
-
-    case 'slide':
-      return (
-        <IconLink to={url} aria-label="See slides" title="See slides">
-          <Cast />
-        </IconLink>
-      );
-
-    default:
-      return null;
-  }
-}
 
 export default function TalkPage({ data }) {
   return (
