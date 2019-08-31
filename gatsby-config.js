@@ -47,7 +47,7 @@ module.exports = {
       options:
         process.env.NODE_ENV === 'production'
           ? {
-              bucketName: 'kl-react-photos',
+              bucketName: 'kl-react-meetup',
               protocol: 'https',
               region: 'us-east-2',
             }
@@ -83,13 +83,6 @@ module.exports = {
       options: {
         name: `image`,
         path: path.resolve(__dirname, 'og-image'),
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `event-photos`,
-        path: path.resolve(__dirname, 'photos'),
       },
     },
     {
