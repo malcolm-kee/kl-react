@@ -7,14 +7,14 @@ import { Seo } from '../components/seo';
 import { Photos } from '../components/photos';
 
 const MeetupTemplate = ({ data, location }) => {
-  const { schedule, meetup, s3Photos } = data.eventYaml;
+  const { schedule, meetup, photos } = data.eventYaml;
   return (
     <>
       <Seo title={meetup && meetup.name} pathname={location.pathname} />
       <Layout>
         <MeetupOverview {...meetup} />
         <Schedule schedule={schedule} />
-        <Photos photos={s3Photos} />
+        <Photos photos={photos} />
       </Layout>
     </>
   );
@@ -31,7 +31,7 @@ export const pageQuery = graphql`
       schedule {
         ...ScheduleItem
       }
-      s3Photos {
+      photos {
         ...EventPhoto
       }
     }

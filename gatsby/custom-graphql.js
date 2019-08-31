@@ -211,7 +211,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
             );
           },
         },
-        s3Photos: {
+        photos: {
           type: '[S3ImageAsset]',
           resolve: (source, _, context) => {
             return context.nodeModel
