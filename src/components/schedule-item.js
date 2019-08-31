@@ -2,10 +2,10 @@
 import { graphql } from 'gatsby';
 // eslint-disable-next-line
 import React from 'react';
-import { Cast, Coffee, Code, Home, PlayCircle, Radio } from 'react-feather';
+import { Coffee, Home, Radio } from 'react-feather';
 import { Flex, jsx, Styled } from 'theme-ui';
 import { DesktopOnly } from './desktop-only';
-import { IconLink } from './icon-link';
+import { TalkMaterialIcons } from './talk-material-icons';
 
 const scheduleTypeStyle = {
   fontSize: 3,
@@ -40,34 +40,6 @@ function ScheduleTypeDisplay({ type }) {
       )}
     </div>
   );
-}
-
-function TalkMaterial({ type, url }) {
-  switch (type) {
-    case 'repo':
-      return (
-        <IconLink to={url} aria-label="See source code" title="See source code">
-          <Code />
-        </IconLink>
-      );
-
-    case 'demo':
-      return (
-        <IconLink to={url} aria-label="See live demo" title="See live demo">
-          <PlayCircle />
-        </IconLink>
-      );
-
-    case 'slide':
-      return (
-        <IconLink to={url} aria-label="See slides" title="See slides">
-          <Cast />
-        </IconLink>
-      );
-
-    default:
-      return null;
-  }
 }
 
 export function ScheduleItem({ time, type, talk, desc }) {
@@ -126,7 +98,7 @@ export function ScheduleItem({ time, type, talk, desc }) {
               {talk &&
                 talk.materials &&
                 talk.materials.map((material, i) => (
-                  <TalkMaterial
+                  <TalkMaterialIcons
                     type={material.type}
                     url={material.url}
                     key={i}
