@@ -47,7 +47,7 @@ module.exports = {
       options:
         process.env.NODE_ENV === 'production'
           ? {
-              bucketName: 'kl-react-meetup',
+              bucketName: 'kl-react-photos',
               protocol: 'https',
               region: 'us-east-2',
             }
