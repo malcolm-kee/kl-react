@@ -6,7 +6,7 @@ import { List } from './list';
 import { SectionHeading } from './section-heading';
 
 export function Photos({ photos }) {
-  return (
+  return !photos.length ? null : (
     <Container>
       <SectionHeading>Photos</SectionHeading>
       <div>
@@ -38,7 +38,7 @@ export function Photos({ photos }) {
 }
 
 export const query = graphql`
-  fragment EventPhoto on File {
+  fragment EventPhoto on S3ImageAsset {
     id
     childImageSharp {
       fluid(maxWidth: 800) {
