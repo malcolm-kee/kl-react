@@ -28,5 +28,3 @@ export const Button = ({ disabled, ...props }) => (
     }}
   />
 );
-
-export default Button;

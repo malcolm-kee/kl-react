@@ -60,5 +60,3 @@ export const Seo = ({ title, description, pathname, image, keywords }) => {
     </Helmet>
   );
 };
-
-export default Seo;
