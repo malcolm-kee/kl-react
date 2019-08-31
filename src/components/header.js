@@ -43,6 +43,9 @@ export function Header() {
         <NavLink as={Link} to="/speakers">
           Speakers
         </NavLink>
+        <NavLink as={Link} to="/talks">
+          Talks
+        </NavLink>
       </DesktopOnly>
       <Button as={Link} to="/submit-a-talk">
         Submit a Talk
