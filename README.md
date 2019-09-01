@@ -6,17 +6,17 @@ Repo for website of [KL React Meetup][kl-react-meetup].
 
 ## Key features
 
-- Page contains all the speakers and past events and CTA to join the meetup group
-- Customize landing page if there is upcoming events
-- Submit to talk in future meetup
+- Information about talks, speakers, past events and meetup links
+- Landing page for upcoming events
+- Submit a talk for future meetups
 - List of previous talks
-- TODO: Allow voting on topics
+- TODO: Allow voting on topics of interest
 
-## Changing details
+## Updating speaker details
 
 ### Speaker Profile
 
-The image of speaker is retrieved from GitHub/Twitter account if it is provided.
+The image of the speaker is retrieved from the speaker's existing GitHub/Twitter accounts.
 
 To update your image/details, make a PR to update [speakers.yml](src/data/speakers.yml)
 
@@ -27,7 +27,7 @@ To update your image/details, make a PR to update [speakers.yml](src/data/speake
 To run the site locally,
 
 1. clone the repo
-2. add a `env.development` file in project root with the following keys:
+2. add a `.env.development` file in project root with the following keys:
 
 ```
 GITHUB_TOKEN=<Github_Token>
@@ -37,7 +37,7 @@ GITHUB_TOKEN=<Github_Token>
 
 #### Getting Data from Twitter
 
-If the features you're developing involves `gatsby-source-twitter`, you need to add additional 3 keys in `env.development`:
+If the features you're developing involves `gatsby-source-twitter`, you need to add additional 3 keys in `.env.development`:
 
 ```
 TWITTER_BEARER_TOKEN=<Twitter_Bearer_Token>
@@ -49,7 +49,7 @@ TWITTER_CONSUMER_SECRET=<Twitter_Consumer_Secret>
 
 #### Getting Event Photos
 
-Currently we host the meetup photos in a s3 bucket, and it requires AWS credentials to access them. Therefore if you build locally, no meetup photos will be visible but they will be shown in Netlify preview. If you need to preview the photos, [request the following details from me](mailto:malcolm.keeweesiong@gmail.com) and add them to `env.development` file.
+Currently we host the meetup photos in a s3 bucket, and it requires AWS credentials to access them. Therefore if you build locally, no meetup photos will be visible but they will be shown in Netlify preview. If you need to preview the photos, [request the following details from me](mailto:malcolm.keeweesiong@gmail.com) and add them to `.env.development` file.
 
 ```
 AWS_ACCESS_KEY=<Aws_Access_Key_Id>
