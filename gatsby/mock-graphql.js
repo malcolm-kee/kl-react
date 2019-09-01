@@ -37,3 +37,12 @@ exports.createMockTwitterSchema = function createMockTwitterSchema() {
       }`,
   ];
 };
+
+exports.createMockS3ImageSchema = function createMockS3ImageSchema() {
+  return [
+    `type S3ImageAsset {
+        id: ID!
+        childImageSharp: ImageSharp
+      }`,
+  ];
+};
