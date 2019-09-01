@@ -13,6 +13,7 @@ module.exports = {
     keywords: [`reactjs`, `react developer`, `kuala lumpur`, `meetup`],
   },
   plugins: [
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-theme-ui`,
     {
@@ -84,7 +85,6 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-yaml`,
-    `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
