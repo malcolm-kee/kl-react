@@ -3,42 +3,77 @@ import { jsx } from 'theme-ui';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-const Type = {
-    Patient: 'patient',
-    Doctor: 'doctor'
-}
-
 //#region CSS
-const doctorCss = css`
+const personStyle = css`
+    .head {
+        padding: 60px;
+        background-color: #9dd8ff;
+        border-radius: 50%;
+        &::after {
+            content: "";
+            position: absolute;
+            padding: 20px;
+            background-color: #9dd8ff;
+            margin: 51px -20px;
+        }
+    }
+    .eyes {
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        background-color: black;
+        border-radius: 50%;
+        box-shadow: 50px 0px black;
+        animation: blink 3s infinite;
+    }
+    @keyframes blink {
+        0%, 17%, 23%, 100% {
+            height: 10px;
+        }
+        20% {
+            height: 5px;
+        }
+    }
+    .body {
+        background-color: #9dd8ff;
+        padding: 60px;
+        border-radius: 40% 40% 0% 0%;
+        margin-top: 10px;
+    }
+`
+
+const doctorStyle = css`
     margin: -100px 60px;
     .eyes {
         margin: -70px 15px;
         animation-delay: 1s;
     }
-    .eyebrows::before, .eyebrows::after {
-        content: "";
-        position: absolute;
-        padding: 10px;
-        background: transparent;
-        border-radius: 50%;
-        border: 3px solid transparent;
-        border-top-color: black;
-    }
-    .eyebrows::before {
-        margin: -85px 57px;
-        animation: up 3s infinite;
-    }
-    @keyframes up {
-        0%, 100% {
-            transform: translateY(0px);
+    .eyebrows {
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            padding: 10px;
+            background: transparent;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: black;
         }
-        50% {
-            transform: translateY(6px);
+        &::before {
+            margin: -85px 57px;
+            animation: up 3s infinite;
         }
-    }
-    S.eyebrows::after {
-        margin: -98px 0px;
-        transform: rotate(160deg);
+        @keyframes up {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(6px);
+            }
+        }
+        &::after {
+            margin: -98px 0px;
+            transform: rotate(160deg);
+        }
     }
     .arm-right {
         position: absolute;
@@ -47,29 +82,29 @@ const doctorCss = css`
         background: #65a9d6;
         margin: -130px 61px;
         transform: skewX(10deg);
-    }
-    .arm-right::after, .arm-right::before {
-        content: "";
-        position: absolute;
-        background: #65a9d6;
-    }
-    .arm-right::before {
-        padding: 15px 6px;
-        margin: -20px 27px;
-        border-radius: 50px;
-    }
-    .arm-right::after {
-        padding: 9px 23px;
-        margin: -11px -11px;
-        border-radius: 50px;
-        animation: pondering 3s infinite;
-    }
-    @keyframes pondering {
-        0%, 60%, 100% {
-            margin: -11px -8px;
+        &::after, &::before {
+            content: '';
+            position: absolute;
+            background: #65a9d6;
         }
-        40%, 80% {
-            margin: -11px -14px;
+        &::before {
+            padding: 15px 6px;
+            margin: -20px 27px;
+            border-radius: 50px;
+        }
+        &::after {
+            padding: 9px 23px;
+            margin: -11px -11px;
+            border-radius: 50px;
+            animation: pondering 3s infinite;
+        }
+        @keyframes pondering {
+            0%, 60%, 100% {
+                margin: -11px -8px;
+            }
+            40%, 80% {
+                margin: -11px -14px;
+            }
         }
     }
     .arm-left {
@@ -81,40 +116,40 @@ const doctorCss = css`
         margin: -120px -35px;
         transform: skewX(10deg);
         animation: handmove 3s infinite;
-    }
-    .arm-left::after, .arm-left::before {
-        position: absolute;
-        content: "";
-        background: #65a9d6;
-    }
-    .arm-left::after {
-        margin: -39px 1px;
-        border-radius: 30px 100px 70px 10px;
-        transform: rotate(-14deg);
-        padding: 21px 13px;
-    }
-    .arm-left::before {
-        padding: 14px 6px;
-        margin: -22px -6px;
-        border-radius: 50px 50px 0px 0px;
-        transform: rotate(-31deg);
-    }
-    @keyframes handmove {
-        0%, 100% {
-            height: 120px;
-            margin: -120px -35px;
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            background: #65a9d6;
         }
-        30% {
-            height: 105px;
-            margin: -105px -51px;
-            transform: skewX(24deg);
+        &::after {
+            margin: -39px 1px;
+            border-radius: 30px 100px 70px 10px;
+            transform: rotate(-14deg);
+            padding: 21px 13px;
         }
-        58% {
-            transform: skewX(10deg);
+        &::before {
+            padding: 14px 6px;
+            margin: -22px -6px;
+            border-radius: 50px 50px 0px 0px;
+            transform: rotate(-31deg);
         }
-        60% {
-            height: 95px;
-            margin: -95px -43px;
+        @keyframes handmove {
+            0%, 100% {
+                height: 120px;
+                margin: -120px -35px;
+            }
+            30% {
+                height: 105px;
+                margin: -105px -51px;
+                transform: skewX(24deg);
+            }
+            58% {
+                transform: skewX(10deg);
+            }
+            60% {
+                height: 95px;
+                margin: -95px -43px;
+            }
         }
     }
     .stethoscope {
@@ -125,36 +160,36 @@ const doctorCss = css`
         border-radius: 50% 50% 50% 50%/10% 10% 90% 90%;
         margin: -212px 0px;
         box-shadow: 0px 6px 0px 3px #3f3f3f;
-    }
-    .stethoscope::after {
-        content: '';
-        position: absolute;
-        background: transparent;
-        border: 6px solid #3f3f3f;
-        border-radius: 0px 0px 100px 100px;
-        border-top: none;
-        border-left-color: transparent;
-        height: 79px;
-        width: 118px;
-        margin: 65px -74px;
-        transform: skewY(-137deg);
-        animation: stethomove 3s infinite;
-    }
-    @keyframes stethomove {
-        0%, 100% {
+        &::after {
+            content: '';
+            position: absolute;
+            background: transparent;
+            border: 6px solid #3f3f3f;
+            border-radius: 0px 0px 100px 100px;
+            border-top: none;
+            border-left-color: transparent;
+            height: 79px;
             width: 118px;
             margin: 65px -74px;
             transform: skewY(-137deg);
+            animation: stethomove 3s infinite;
         }
-        30% {
-            width: 167px;
-            margin: 76px -121px;
-            transform: skewY(-150deg);
-        }
-        60% {
-            width: 129px;
-            margin: 79px -86px;
-            transform: skewY(-145deg);
+        @keyframes stethomove {
+            0%, 100% {
+                width: 118px;
+                margin: 65px -74px;
+                transform: skewY(-137deg);
+            }
+            30% {
+                width: 167px;
+                margin: 76px -121px;
+                transform: skewY(-150deg);
+            }
+            60% {
+                width: 129px;
+                margin: 79px -86px;
+                transform: skewY(-145deg);
+            }
         }
     }
     .scan {
@@ -186,7 +221,7 @@ const doctorCss = css`
     }
 `;
 
-const patientCss = css`
+const patientStyle = css`
     margin: -100px -180px;
     .eyes {
         margin: -70px 41px;
@@ -198,15 +233,15 @@ const patientCss = css`
         background: #65a9d6;
         margin: -112px 26px;
         transform: skewX(-14deg);
-    }
-    .arm-left::after {
-        content: '';
-        padding: 15px 32px;
-        background: #65a9d6;
-        position: absolute;
-        border-radius: 40%;
-        margin: 4px -3px;
-        transform: rotate(23deg);
+        &::after {
+            content: '';
+            padding: 15px 32px;
+            background: #65a9d6;
+            position: absolute;
+            border-radius: 40%;
+            margin: 4px -3px;
+            transform: rotate(23deg);
+        }
     }
     .thumb {
         padding: 7px 6px;
@@ -226,7 +261,6 @@ const Laptop = styled.div`
     border-radius: 10px 0px;
     margin: 35px -132px;
     box-shadow: inset 10px -6px #646464;
-
     &::before {
         content: '';
         position: absolute;
@@ -243,59 +277,13 @@ const Laptop = styled.div`
 const Scene = styled.div`
     display: flex;
     padding: 150px 220px;
-
     @media only screen and (max-width: 500px) {
         transform: scale(0.5);
         padding: 108px 0px;
     }
-
     & > * {
         position: absolute;
     }
-
-    
-  .patient .head, .doctor .head {
-    padding: 60px;
-    background-color: #9dd8ff;
-    border-radius: 50%;
-  }
-
-  .patient .head::after, .doctor .head::after {
-    content: "";
-    position: absolute;
-    padding: 20px;
-    background-color: #9dd8ff;
-    margin: 51px -20px;
-  }
-
-  .patient .eyes, .doctor .eyes {
-    position: absolute;
-    height: 10px;
-    width: 10px;
-    background-color: black;
-    border-radius: 50%;
-    box-shadow: 50px 0px black;
-    animation: blink 3s infinite;
-  }
-
-  @keyframes blink {
-    0%, 17%, 23%, 100% {
-      height: 10px;
-    }
-    20% {
-      height: 5px;
-    }
-  }
-  .patient .body, .doctor .body {
-    background-color: #9dd8ff;
-    padding: 60px;
-    border-radius: 40% 40% 0% 0%;
-    margin-top: 10px;
-  }
-  
-  
-  
-  
 `
 
 const Drawing = styled.div`
@@ -304,13 +292,13 @@ const Drawing = styled.div`
     margin-top: -70px;
     margin-bottom: 20px;
 `
-
 //#endregion
 
 //#region Components
-const Person = ({ type, parts, doctor }) => {
+const Person = ({ parts, doctor }) => {
     return (
-        <div className={type} css={doctor ? doctorCss : patientCss}>
+        <div className={doctor ? 'doctor' : 'patient'}
+            css={[personStyle, doctor ? doctorStyle : patientStyle]}>
             {parts.map((part, i) => (<div key={i} className={part}></div>))}
         </div>
     )
@@ -320,19 +308,12 @@ const Person = ({ type, parts, doctor }) => {
 export const ReactClinicDrawing = () => (
     <Drawing>
         <Scene>
-            <Person
-                patient
-                type={Type.Patient}
-                parts={['head', 'eyes', 'body', 'arm-left']} />
+            <Person parts={['head', 'eyes', 'body', 'arm-left']} />
             <Laptop />
-            <Person
-                patient
-                type={Type.Patient}
-                parts={['thumb']} />
-            <Person
-                doctor
-                type={Type.Doctor}
-                parts={['head', 'eyes', 'eyebrows', 'body', 'scan', 'arm-left', 'stethoscope', 'arm-right']} />
+            <Person parts={['thumb']} />
+            <Person doctor
+                parts={['head', 'eyes', 'eyebrows', 'body', 'scan',
+                    'arm-left', 'stethoscope', 'arm-right']} />
         </Scene>
     </Drawing>
 );
