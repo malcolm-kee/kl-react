@@ -84,6 +84,7 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-yaml`,
+    `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
