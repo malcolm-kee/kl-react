@@ -1,8 +1,17 @@
 const path = require('path');
 
+const AWS = require('aws-sdk');
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
+
+if (process.env.AWS_ACCESS_KEY) {
+  AWS.config.update({
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS,
+  });
+}
 
 module.exports = {
   siteMetadata: {
@@ -33,6 +42,21 @@ module.exports = {
         desc: 'true',
         fields: 'rsvp_rules',
       },
+    },
+    process.env.AWS_ACCESS_KEY && {
+      resolve: `gatsby-source-s3-image`,
+      options:
+        process.env.NODE_ENV === 'production'
+          ? {
+              bucketName: 'kl-react-photos',
+              protocol: 'https',
+              region: 'us-east-2',
+            }
+          : {
+              bucketName: 'kl-react-meetup-dev',
+              protocol: 'https',
+              region: 'ap-southeast-1',
+            },
     },
     process.env.TWITTER_CONSUMER_KEY && {
       resolve: `gatsby-source-twitter`,
@@ -65,15 +89,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `event-photos`,
-        path: path.resolve(__dirname, 'photos'),
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: path.resolve(__dirname, 'src', 'pages'),
+        name: `contents`,
+        path: path.resolve(__dirname, 'src', 'contents'),
       },
     },
     {
