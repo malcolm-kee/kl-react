@@ -32,6 +32,11 @@ export function Footer() {
               </NavLink>
             </li>
             <li>
+              <NavLink as={Link} to="/react-clinic">
+                React Clinic
+              </NavLink>
+            </li>
+            <li>
               <NavLink as={Link} to="/react-on-twitter">
                 Nothing interesting
               </NavLink>
