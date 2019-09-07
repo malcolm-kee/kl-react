@@ -29,10 +29,10 @@ jobs:
       uses: nuxt/actions-yarn@master
       with:
         args: build
-        env:
-          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
-          TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
-          TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
-          AWS_SECRET_ACCESS: ${{ secrets.AWS_SECRET_ACCESS }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+        TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+        TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+        AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+        AWS_SECRET_ACCESS: ${{ secrets.AWS_SECRET_ACCESS }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
