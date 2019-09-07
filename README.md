@@ -22,6 +22,16 @@ To update your image/details, make a PR to update [speakers.yml](src/data/speake
 
 ## Contributing
 
+### Add page
+
+To create a new page in this site, there are two options:
+
+- write React components in `src/pages` folder. This is Gatsby JS default behavior.
+- write MDX in `src/contents` folder. This is a custom behavior of this site.
+  - add frontmatter to your mdx, at least the title is required.
+  - file name will be used as the url of the page, e.g. `code-of-conduct.mdx` will be available at url `/code-of-conduct`.
+  - the contents will be rendered with [`NoteTemplate`](src/templates/note-template.js) component.
+
 ### Run site locally
 
 To run the site locally,

@@ -2,6 +2,9 @@ const {
   createSchemaCustomization,
   createResolvers,
 } = require('./gatsby/custom-graphql');
+const { onCreateMdxNode, createMdxPages } = require('./gatsby/custom-mdx');
+
+exports.onCreateNode = onCreateMdxNode;
 
 exports.createSchemaCustomization = createSchemaCustomization;
 
@@ -24,15 +27,18 @@ const reactOnTwitterTemplate = path.resolve(
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
 
-  const result = await graphql(`
-    {
-      allEventYaml(filter: { type: { eq: "meetup" } }) {
-        nodes {
-          id
+  const [result] = await Promise.all([
+    graphql(`
+      {
+        allEventYaml(filter: { type: { eq: "meetup" } }) {
+          nodes {
+            id
+          }
         }
       }
-    }
-  `);
+    `),
+    createMdxPages({ actions, graphql, reporter }),
+  ]);
 
   if (result.errors) {
     reporter.error(result.errors);

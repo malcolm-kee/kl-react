@@ -22,6 +22,7 @@ module.exports = {
     keywords: [`reactjs`, `react developer`, `kuala lumpur`, `meetup`],
   },
   plugins: [
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-theme-ui`,
     {
@@ -88,8 +89,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
-        path: path.resolve(__dirname, 'src', 'pages'),
+        name: `contents`,
+        path: path.resolve(__dirname, 'src', 'contents'),
       },
     },
     {
