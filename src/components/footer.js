@@ -38,7 +38,7 @@ export function Footer() {
             </li>
             <li>
               <NavLink as={Link} to="/react-on-twitter">
-                Nothing interesting
+                Nothing here
               </NavLink>
             </li>
           </List>
@@ -56,16 +56,8 @@ export function Footer() {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                as="a"
-                href="https://www.meetup.com/kl-react/?action=join"
-              >
-                Join Us
-              </NavLink>
-            </li>
-            <li>
-              <NavLink as="a" href="https://github.com/malcolm-kee/kl-react">
-                GitHub
+              <NavLink as={Link} to="/contributing">
+                Contributing
               </NavLink>
             </li>
           </List>
@@ -75,6 +67,16 @@ export function Footer() {
             <li>
               <NavLink as={Link} to="/code-of-conduct">
                 Code of Conduct
+              </NavLink>
+            </li>
+            <li>
+              <NavLink as="a" href="https://github.com/malcolm-kee/kl-react">
+                GitHub
+              </NavLink>
+            </li>
+            <li>
+              <NavLink as="a" href="https://www.meetup.com/kl-react">
+                Meetup
               </NavLink>
             </li>
           </List>
