@@ -21,3 +21,11 @@
       url: https://github.com/matt-writes-code/gatsby-plugin-mdx
     - type: demo
       url: https://gatsby-plugin-mdx.netlify.com/
+- id: why-the-hook
+  title: 'Why The Hook: How Stateful Logic in React Evolved'
+  speaker: malcolm
+  description: A brief history of how stateful logic in React evolved from mixin, to HOC/Render Props, and finally to hooks today. You would understand why hooks is a better patterns in React.
+- id: css-animations-in-react
+  title: Creating CSS Animations in React
+  speaker: wendy
+  description: TBD

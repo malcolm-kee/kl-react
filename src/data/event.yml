@@ -1,3 +1,22 @@
+- id: sept-2019
+  type: meetup
+  meetup: 264208460
+  venue: fave
+  schedule:
+    - time: 7.30pm
+      type: clinic
+    - time: 8.00pm
+      type: talk
+      talk: why-the-hook
+    - time: 8.30pm
+      type: talk
+      talk: css-animations-in-react
+    - time: 9.00pm
+      type: talk
+      talk: tbd
+    - time: 9.30pm
+      type: wrap up
+      desc: Nothing else to see here.
 - id: august-2019
   type: meetup
   meetup: 263797889

@@ -20,13 +20,14 @@ export default function TalkPage({ data }) {
               <Styled.p sx={{ mb: 2 }}>by {node.speaker.name}</Styled.p>
               <Styled.p sx={{ mb: 2 }}>{node.description}</Styled.p>
               <div sx={{ mb: 5 }}>
-                {node.materials.map(material => (
-                  <TalkMaterialIcons
-                    type={material.type}
-                    url={material.url}
-                    key={node.id}
-                  />
-                ))}
+                {node.materials &&
+                  node.materials.map(material => (
+                    <TalkMaterialIcons
+                      type={material.type}
+                      url={material.url}
+                      key={node.id}
+                    />
+                  ))}
               </div>
             </div>
           ))}
