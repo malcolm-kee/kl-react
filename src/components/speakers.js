@@ -8,6 +8,7 @@ import { SpeakerCard } from './speaker-card';
 export const Speakers = ({ speakers, showMore, showPastEvents }) => (
   <Container>
     <SectionHeading>Speakers</SectionHeading>
+    <p sx={{ textAlign: 'center' }}>in alphabetical order</p>
     {speakers && speakers.length > 0 ? (
       <FlexList
         sx={{

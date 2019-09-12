@@ -10,10 +10,11 @@ import { TalkMaterialIcons } from '../components/talk-material-icons';
 export default function TalkPage({ data }) {
   return (
     <>
-      <Seo title="Talks - KL React" />
+      <Seo title="Talks - KL React" description="Previous talks in KL React" />
       <Layout>
         <Container>
-          <Styled.h1 sx={{ mb: 5 }}>Talks</Styled.h1>
+          <Styled.h1>Talks</Styled.h1>
+          <p sx={{ mb: 5 }}>in alphabetical order</p>
           {data.allTalkYaml.edges.map(({ node }) => (
             <div key={node.id}>
               <Styled.h3>{node.title}</Styled.h3>
@@ -38,8 +39,8 @@ export default function TalkPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query MyQuery {
-    allTalkYaml {
+  query {
+    allTalkYaml(sort: { fields: title }) {
       edges {
         node {
           id

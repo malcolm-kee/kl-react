@@ -80,27 +80,49 @@ export function SpeakerCard({
       </Flex>
       {showPastEvents && isFilledArray(talk) && (
         <div>
-          <Styled.h4 sx={{ pt: 2, pb: 1 }}>Talk(s) in React KL</Styled.h4>
+          <Styled.h4 sx={{ pt: 2, pb: 1 }}>
+            {pluralize('Talk', talk.length)} in React KL
+          </Styled.h4>
           <BulletedList>
-            {talk.map(t => (
-              <li key={t.id}>{t.title}</li>
-            ))}
+            {/* we only shows 3 talks, remaining just a count */}
+            {talk.map((t, index) =>
+              index <= 2 ? (
+                <li key={t.id}>{t.title}</li>
+              ) : index === 3 ? (
+                <li key={t.id}>
+                  And {talk.length - 3} other{' '}
+                  {pluralize('talk', talk.length - 3)}
+                </li>
+              ) : null
+            )}
           </BulletedList>
         </div>
       )}
       {showPastEvents && isFilledArray(workshop) && (
         <div>
-          <Styled.h4 sx={{ pt: 2, pb: 1 }}>Workshop(s) in React KL</Styled.h4>
+          <Styled.h4 sx={{ pt: 2, pb: 1 }}>
+            {pluralize('Workshop', workshop.length)} in React KL
+          </Styled.h4>
           <BulletedList>
-            {workshop.map(w => (
-              <li key={w.id}>{w.meetup.name}</li>
-            ))}
+            {/* we only shows 3 workshops, remaining just a count */}
+            {workshop.map((wshop, index) =>
+              index <= 2 ? (
+                <li key={wshop.id}>{wshop.meetup.name}</li>
+              ) : index === 3 ? (
+                <li key={wshop.id}>
+                  And {workshop.length - 3} other{' '}
+                  {pluralize('workshop', workshop.length - 3)}
+                </li>
+              ) : null
+            )}
           </BulletedList>
         </div>
       )}
     </Card>
   );
 }
+
+const pluralize = (singular, count) => (count > 1 ? `${singular}s` : singular);
 
 export const query = graphql`
   fragment SpeakerCard on SpeakerYaml {

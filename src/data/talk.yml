@@ -28,4 +28,4 @@
 - id: css-animations-in-react
   title: Creating CSS Animations in React
   speaker: wendy
-  description: TBD
+  description: CSS animations (when used correctly) can add life to your website and engage users. In this talk we will explore a simple animation built on pure CSS and HTML, and how to make the code cleaner and more extensible using React and Emotion.
