@@ -6,7 +6,7 @@ title: Meetup Checklist
 
 ### Theme
 
-1. What is the theme? (Not compulsory that it would be great to have one)
+1. What is the theme? (Not compulsory but it would be great to have one)
 
 ### Talks
 
@@ -20,7 +20,7 @@ title: Meetup Checklist
 1. How many people can fit into the venue?
 1. Is security registration required?
    - If yes, what details are required? Full Name, Phone Number, IC Number? (As an organizer we try to collect as little as possible, so don't suggest if they never ask, because they would think "let's also collect that, just in case")
-   - Set the
+   - Set the RSVP question for the meetup event to ask for those details.
 1. Is food sponsored as well?
 
 ### Marketing
@@ -56,8 +56,8 @@ title: Meetup Checklist
 
 ### Venue & Food
 
-1. Reconfirm the expected attendees count and the date/time with the venue sponsor. If attendees list is required, send a first list but highlight it is not final.
-1. If the venue is hard to find for someone never been there (e.g. the Bangsar South Office Towers Maze), prepare a detailed walkthrough to how to go there in the meetup page and the website.
+1. Reconfirm the expected attendees count and the date/time with the venue sponsor. If attendees list is required, send a first list but highlight that it is not final.
+1. If the venue is hard to find for someone never been there (e.g. the Bangsar South Office Towers Maze), prepare a detailed instruction on how to go there in the meetup page and the website.
 
 ### Marketing
 

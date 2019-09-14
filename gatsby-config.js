@@ -38,7 +38,6 @@ module.exports = {
     {
       resolve: `gatsby-source-meetup`,
       options: {
-        key: process.env.MEETUP_API_KEY,
         groupUrlName: 'kl-react',
         status: 'upcoming,past',
         desc: 'true',
