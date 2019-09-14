@@ -19,6 +19,7 @@ export const Speakers = ({ speakers, showMore, showPastEvents }) => (
           <SpeakerCard
             key={speaker.id}
             as="li"
+            sx={{ mb: 4 }}
             showPastEvents={showPastEvents}
             {...speaker}
           />
