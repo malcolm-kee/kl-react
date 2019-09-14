@@ -7,7 +7,10 @@ import { Layout } from '../components/layout';
 export default function SpeakersPage({ data }) {
   return (
     <>
-      <Seo title="Speakers - KL React" />
+      <Seo
+        title="Speakers - KL React"
+        description="Speakers that had given talk or workshop in KL React"
+      />
       <Layout>
         <Speakers speakers={data.allSpeakerYaml.nodes} showPastEvents />
       </Layout>
@@ -17,7 +20,7 @@ export default function SpeakersPage({ data }) {
 
 export const pageQuery = graphql`
   query {
-    allSpeakerYaml {
+    allSpeakerYaml(sort: { fields: name }) {
       nodes {
         ...SpeakerCard
       }

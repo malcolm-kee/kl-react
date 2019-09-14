@@ -1,19 +1,38 @@
+import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
-import { Container } from 'theme-ui';
+import { Note } from '../components/note';
 import { Seo } from '../components/seo';
-import { Layout } from '../components/layout';
 
-const NoteTemplate = ({ children, pageContext = {} }) => {
-  const { frontmatter } = pageContext;
+const NoteTemplate = ({ data, location }) => {
+  const { frontmatter, body } = data.mdx;
 
   return (
     <>
-      <Seo title={frontmatter && frontmatter.title} />
-      <Layout>
-        <Container>{children}</Container>
-      </Layout>
+      <Seo
+        title={`${frontmatter.title} - React KL`}
+        image={frontmatter.image && frontmatter.image.publicURL}
+        pathname={location.pathname}
+      />
+      <Note title={frontmatter.title}>
+        <MDXRenderer>{body}</MDXRenderer>
+      </Note>
     </>
   );
 };
 
 export default NoteTemplate;
+
+export const pageQuery = graphql`
+  query MdxById($id: String!) {
+    mdx(id: { eq: $id }) {
+      frontmatter {
+        title
+        image {
+          publicURL
+        }
+      }
+      body
+    }
+  }
+`;

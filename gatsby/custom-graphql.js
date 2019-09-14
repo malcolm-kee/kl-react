@@ -1,6 +1,9 @@
 const moment = require('moment');
 const { createRemoteFileNode } = require('gatsby-source-filesystem');
-const { createMockTwitterSchema } = require('./mock-graphql');
+const {
+  createMockTwitterSchema,
+  createMockS3ImageSchema,
+} = require('./mock-graphql');
 
 function getSpeakerImageUrl(speakerNode) {
   return speakerNode.image
@@ -209,16 +212,11 @@ exports.createSchemaCustomization = function createSchemaCustomization({
           },
         },
         photos: {
-          type: '[File]',
+          type: '[S3ImageAsset]',
           resolve: (source, _, context) => {
             return context.nodeModel
-              .getAllNodes({ type: 'File' })
-              .filter(
-                file =>
-                  file.sourceInstanceName === 'event-photos' &&
-                  file.relativeDirectory === source.id
-              )
-              .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
+              .getAllNodes({ type: 'S3ImageAsset' })
+              .filter(node => node.Key.split('_')[0] === source.id);
           },
         },
       },
@@ -257,6 +255,13 @@ exports.createSchemaCustomization = function createSchemaCustomization({
   if (!process.env.TWITTER_CONSUMER_KEY) {
     reporter.info(`Using mock twitter graphql schema`);
     typeDefs = typeDefs.concat(createMockTwitterSchema());
+  }
+
+  if (!process.env.AWS_ACCESS_KEY) {
+    reporter.info(
+      `AWS Access Key not available, using mock S3 image graphql schema`
+    );
+    typeDefs = typeDefs.concat(createMockS3ImageSchema());
   }
 
   createTypes(typeDefs);

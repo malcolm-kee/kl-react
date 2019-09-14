@@ -38,7 +38,8 @@ export const Layout = props => (
     <UI.Main>{props.children}</UI.Main>
     <UI.Footer
       sx={{
-        py: 1,
+        pt: 3,
+        pb: 1,
       }}
     >
       <Footer />
