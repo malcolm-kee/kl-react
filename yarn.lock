@@ -5972,6 +5972,14 @@ gatsby-page-utils@^0.0.17:
     micromatch "^3.1.10"
     slash "^3.0.0"
 
+gatsby-plugin-catch-links@^2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-2.1.9.tgz#74a21ca7a55e1cb49f1776d8913b7da8b1d02779"
+  integrity sha512-UWOty2yuV2tINSv5ToKJfFXUYtaSKtP4zRVeZ3dx+m2v7WO61ap/o3JEMWUAG1n+VaN+TIq2T5Qc9Ln0emDloQ==
+  dependencies:
+    "@babel/runtime" "^7.6.0"
+    escape-string-regexp "^1.0.5"
+
 gatsby-plugin-emotion@^4.1.5:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.1.6.tgz#a1a4b0d6be51448897ea3e456c23154cc50ce795"

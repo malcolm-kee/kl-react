@@ -46,6 +46,7 @@
     "babel-preset-gatsby": "^0.2.11",
     "eslint-config-react-app": "^5.0.1",
     "eslint-plugin-import": "^2.18.2",
+    "gatsby-plugin-catch-links": "^2.1.9",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "jest-junit": "^8.0.0",
