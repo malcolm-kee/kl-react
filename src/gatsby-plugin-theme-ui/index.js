@@ -36,6 +36,7 @@ export default {
     },
     h2: {
       ...heading,
+      pb: [3],
       fontSize: [5, 6],
     },
     h3: {
