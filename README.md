@@ -11,10 +11,16 @@ Repo for website of [KL React Meetup][kl-react-meetup].
 - Submit a talk for future meetups
 - List of previous talks
 
-## Update Speaker Profile
+## Common Changes
+
+### Update Speaker Profile
 
 The image of the speaker is retrieved from the speaker's GitHub/Twitter account.
 
 To update your image/details, make a PR to update [speakers.yml](src/data/speakers.yml)
+
+### Add/Update Talk Details
+
+Make a PR to update [talk.yml](src/data/talk.yml)
 
 [kl-react-meetup]: https://www.meetup.com/kl-react/
