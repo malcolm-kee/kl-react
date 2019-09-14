@@ -28,15 +28,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: ['.mdx', '.md'],
         defaultLayouts: {
           default: require.resolve('./src/templates/note-template.js'),
         },
       },
     },
+    `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-source-meetup`,
       options: {
-        key: process.env.MEETUP_API_KEY,
         groupUrlName: 'kl-react',
         status: 'upcoming,past',
         desc: 'true',

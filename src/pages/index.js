@@ -22,6 +22,11 @@ export default function HomePage({ data }) {
             !!(item && item.type === 'talk' && item.talk && item.talk.speaker)
         )
         .map(item => item.talk.speaker)
+        .sort((a, b) => {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          return 0;
+        })
     : data.allSpeakerYaml.edges.map(edge => edge.node);
 
   return (
