@@ -25,6 +25,9 @@
   title: 'Why The Hook: Evolution of Stateful Logic Composition in React'
   speaker: malcolm
   description: A brief history of how stateful logic in React evolved from mixin, to HOC/Render Props, and finally to hooks today. You would understand why hooks is a better patterns in React.
+  materials:
+    - type: repo
+      url: https://github.com/malcolm-kee/why-the-hook
 - id: css-animations-in-react
   title: Creating CSS Animations in React
   speaker: wendy
@@ -32,3 +35,4 @@
 - id: deploy-react-native-to-web
   title: Deploying React Native to Web
   speaker: joel
+  description: With Expo you can deploy to iOS and Android with ease. Now you can use Expo for web as well 🤯
