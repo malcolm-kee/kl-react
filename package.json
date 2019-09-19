@@ -27,6 +27,7 @@
     "gatsby-plugin-sharp": "^2.2.11",
     "gatsby-plugin-theme-ui": "^0.2.33",
     "gatsby-source-filesystem": "^2.1.11",
+    "gatsby-source-graphql": "^2.1.10",
     "gatsby-source-meetup": "^1.0.0",
     "gatsby-source-s3-image": "^1.6.31",
     "gatsby-source-twitter": "^3.0.0",
