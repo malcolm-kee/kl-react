@@ -5,6 +5,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Seo } from '../components/seo';
 import { Layout } from '../components/layout';
+import { Link } from '../components/link';
 import { TalkMaterialIcons } from '../components/talk-material-icons';
 
 export default function TalkPage({ data }) {
@@ -18,7 +19,12 @@ export default function TalkPage({ data }) {
           {data.allTalkYaml.edges.map(({ node }) => (
             <div key={node.id}>
               <Styled.h3>{node.title}</Styled.h3>
-              <Styled.p sx={{ mb: 2 }}>by {node.speaker.name}</Styled.p>
+              <Styled.p sx={{ mb: 2 }}>
+                by{' '}
+                <Link to={`/speakers/#${node.speaker.id}`}>
+                  {node.speaker.name}
+                </Link>
+              </Styled.p>
               <Styled.p sx={{ mb: 2 }}>{node.description}</Styled.p>
               <div sx={{ mb: 5 }}>
                 {node.materials &&
@@ -47,6 +53,7 @@ export const pageQuery = graphql`
           title
           description
           speaker {
+            id
             name
           }
           materials {

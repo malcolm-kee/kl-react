@@ -1,5 +1,7 @@
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
+import { graphql, useStaticQuery } from 'gatsby';
+import Image from 'gatsby-image';
 import React from 'react';
 
 //#region CSS
@@ -309,6 +311,17 @@ const Drawing = styled.div`
   place-items: center;
   margin-top: -70px;
   margin-bottom: 20px;
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
+  }
+`;
+
+const FallbackWrapper = styled.div`
+  @media (prefers-reduced-motion: reduce) {
+    display: block;
+    margin: 0 auto 24px;
+    max-width: 436px;
+  }
 `;
 //#endregion
 
@@ -327,25 +340,44 @@ const Person = ({ parts, doctor }) => {
 };
 //#endregion
 
-export const ReactClinicDrawing = () => (
-  <Drawing>
-    <Scene>
-      <Person parts={['head', 'eyes', 'body', 'arm-left']} />
-      <Laptop />
-      <Person parts={['thumb']} />
-      <Person
-        doctor
-        parts={[
-          'head',
-          'eyes',
-          'eyebrows',
-          'body',
-          'scan',
-          'arm-left',
-          'stethoscope',
-          'arm-right',
-        ]}
-      />
-    </Scene>
-  </Drawing>
-);
+export const ReactClinicDrawing = () => {
+  const imageData = useStaticQuery(graphql`
+    {
+      file(relativePath: { eq: "clinic.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 436) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
+  return (
+    <>
+      <Drawing>
+        <Scene>
+          <Person parts={['head', 'eyes', 'body', 'arm-left']} />
+          <Laptop />
+          <Person parts={['thumb']} />
+          <Person
+            doctor
+            parts={[
+              'head',
+              'eyes',
+              'eyebrows',
+              'body',
+              'scan',
+              'arm-left',
+              'stethoscope',
+              'arm-right',
+            ]}
+          />
+        </Scene>
+      </Drawing>
+      <FallbackWrapper>
+        <Image fluid={imageData.file.childImageSharp.fluid} alt="" />
+      </FallbackWrapper>
+    </>
+  );
+};

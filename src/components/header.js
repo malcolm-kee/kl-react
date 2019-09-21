@@ -47,7 +47,7 @@ export function Header() {
           Talks
         </NavLink>
       </DesktopOnly>
-      <Button as={Link} to="/submit-a-talk">
+      <Button as={Link} to="/submit-a-talk" sx={{ ml: 2 }}>
         Submit a Talk
       </Button>
     </>
