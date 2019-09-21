@@ -60,7 +60,7 @@ function ScheduleTypeDisplay({ type }) {
   );
 }
 
-export function ScheduleItem({ time, type, talk, desc }) {
+export function ScheduleItem({ time, type, talk, desc, speakersOnSamePage }) {
   const isTalk = type === 'talk';
 
   return (
@@ -96,7 +96,13 @@ export function ScheduleItem({ time, type, talk, desc }) {
               {talk.title}
             </Styled.h4>
             {talk.speaker && (
-              <Link to={`/speakers/#${talk.speaker.id}`}>
+              <Link
+                to={
+                  speakersOnSamePage
+                    ? `#${talk.speaker.id}`
+                    : `/speakers/#${talk.speaker.id}`
+                }
+              >
                 {talk.speaker.name}
               </Link>
             )}
