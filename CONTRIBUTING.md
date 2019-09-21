@@ -18,18 +18,22 @@ To create a new page in this site, there are two options:
 
 To run the site locally,
 
-1. clone the repo
-2. add a `.env.development` file in project root with the following keys:
+1. clone the repository
+2. install all dependencies
 
-```
-GITHUB_TOKEN=<Github_Token>
-```
+   ```bash
+   yarn
+   ```
 
-> To create a GitHub token, see [this article][create-github-token].
+3. start
+
+   ```bash
+   yarn start
+   ```
 
 ### Getting Data from Twitter
 
-If the features you're developing involves `gatsby-source-twitter`, you need to add additional 3 keys in `.env.development`:
+If the features you're developing involves `gatsby-source-twitter`, you need to add additional 3 keys in a `.env.development` file (placed next to `package.json`):
 
 ```
 TWITTER_BEARER_TOKEN=<Twitter_Bearer_Token>

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Styled, jsx } from 'theme-ui';
+import { jsx, Styled } from 'theme-ui';
 
 export const NavLink = props => (
   <Styled.a

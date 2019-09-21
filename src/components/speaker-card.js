@@ -8,6 +8,7 @@ import { BackgroundImage } from './background-image';
 import { Card } from './card';
 import { IconLink } from './icon-link';
 import { BulletedList } from './bulleted-list';
+import { SrOnly } from './sr-only';
 
 /**
  *
@@ -30,7 +31,7 @@ export function SpeakerCard({
   ...props
 }) {
   return (
-    <Card {...props}>
+    <Card id={id} {...props}>
       {imageFile ? (
         <Image fluid={imageFile.childImageSharp.fluid} sx={{ mb: 3 }} />
       ) : (
@@ -65,16 +66,19 @@ export function SpeakerCard({
         {twitter && (
           <IconLink href={`https://twitter.com/${twitter}`}>
             <Twitter />
+            <SrOnly>Twitter</SrOnly>
           </IconLink>
         )}
         {github && (
           <IconLink href={`https://github.com/${github}`}>
             <GitHub />
+            <SrOnly>GitHub</SrOnly>
           </IconLink>
         )}
         {website && (
           <IconLink href={website}>
             <Globe />
+            <SrOnly>Website</SrOnly>
           </IconLink>
         )}
       </Flex>

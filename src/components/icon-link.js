@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Styled, jsx } from 'theme-ui';
+import { jsx, Styled } from 'theme-ui';
 
 export const IconLink = ({ to, href = to, ...props }) => (
   <Styled.a
@@ -10,6 +10,7 @@ export const IconLink = ({ to, href = to, ...props }) => (
     sx={{
       display: 'inline-block',
       p: 2,
+      borderRadius: 8,
       color: 'inherit',
       textDecoration: 'none',
       '&:hover': {

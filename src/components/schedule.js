@@ -4,7 +4,7 @@ import { List } from './list';
 import { ScheduleItem } from './schedule-item';
 import { SectionHeading } from './section-heading';
 
-export function Schedule({ schedule }) {
+export function Schedule({ schedule, speakersOnSamePage }) {
   return (
     <Container>
       <SectionHeading>Schedule</SectionHeading>
@@ -12,7 +12,7 @@ export function Schedule({ schedule }) {
         <List>
           {schedule.map(item => (
             <li key={item.time}>
-              <ScheduleItem {...item} />
+              <ScheduleItem {...item} speakersOnSamePage={speakersOnSamePage} />
             </li>
           ))}
         </List>

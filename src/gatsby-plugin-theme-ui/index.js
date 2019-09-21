@@ -5,16 +5,18 @@ const heading = {
   m: 0,
 };
 
+const colors = {
+  text: 'rgba(0, 0, 0, 0.87)',
+  background: '#f8f8f8',
+  primary: '#33e',
+  secondary: '#11a',
+  accent: '#61dafb',
+  muted: '#9e9e9e',
+};
+
 export default {
   breakpoints: ['40em', '52em', '64em'],
-  colors: {
-    text: 'rgba(0, 0, 0, 0.87)',
-    background: '#f8f8f8',
-    primary: '#33e',
-    secondary: '#11a',
-    accent: '#61dafb',
-    muted: '#9e9e9e',
-  },
+  colors,
   fonts: {
     body: 'system-ui, sans-serif',
     heading: 'inherit',
@@ -60,6 +62,13 @@ export default {
       color: 'primary',
       '&:hover': {
         color: 'secondary',
+      },
+      '&:focus': {
+        outline: 'none',
+        boxShadow: `0 0 0 3px ${colors.accent}`,
+        '&:not(:focus-visible)': {
+          boxShadow: 'none',
+        },
       },
     },
   },

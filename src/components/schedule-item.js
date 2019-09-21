@@ -60,7 +60,7 @@ function ScheduleTypeDisplay({ type }) {
   );
 }
 
-export function ScheduleItem({ time, type, talk, desc }) {
+export function ScheduleItem({ time, type, talk, desc, speakersOnSamePage }) {
   const isTalk = type === 'talk';
 
   return (
@@ -95,7 +95,17 @@ export function ScheduleItem({ time, type, talk, desc }) {
             >
               {talk.title}
             </Styled.h4>
-            {talk.speaker && talk.speaker.name}
+            {talk.speaker && (
+              <Link
+                to={
+                  speakersOnSamePage
+                    ? `#${talk.speaker.id}`
+                    : `/speakers/#${talk.speaker.id}`
+                }
+              >
+                {talk.speaker.name}
+              </Link>
+            )}
           </div>
         ) : (
           <div sx={titleStyle}>
@@ -153,6 +163,7 @@ export const query = graphql`
       title
       description
       speaker {
+        id
         name
       }
       materials {

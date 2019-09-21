@@ -11,6 +11,7 @@ import { useUpcomingEvent } from '../hooks/use-upcoming-event';
 export default function HomePage({ data }) {
   const upcomingEvent = useUpcomingEvent();
   const upcomingEventSchedule = upcomingEvent && upcomingEvent.schedule;
+
   // get speakers for the upcoming event if there is any,
   // else just load 6 speakers from speaker list
   const speakers = upcomingEvent
@@ -36,7 +37,7 @@ export default function HomePage({ data }) {
         <Banner upcomingEvent={upcomingEvent} />
         {upcomingEventSchedule && (
           <div id="schedule" sx={{ py: 5 }}>
-            <Schedule schedule={upcomingEventSchedule} />
+            <Schedule schedule={upcomingEventSchedule} speakersOnSamePage />
           </div>
         )}
         <div
