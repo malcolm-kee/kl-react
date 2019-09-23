@@ -31,6 +31,7 @@ export function Header() {
         <Icon
           sx={{
             mr: 2,
+            my: -2,
           }}
         />
         {title}
