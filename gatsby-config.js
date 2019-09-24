@@ -111,7 +111,7 @@ module.exports = {
         short_name: `KL React`,
         background_color: `#33e`,
         theme_color: `#33e`,
-        icon: `og-image/reactkl-logo-circle.png`,
+        icon: `og-image/durian-react-1x1.png`,
         display: `standalone`,
       },
     },
