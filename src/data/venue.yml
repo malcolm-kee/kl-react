@@ -3,3 +3,7 @@
   url: https://www.inscale.net/
   logo: https://www.inscale.net/assets/img/logo_white_bg.svg
   mapURL: https://goo.gl/maps/GUAdgrBgeosmUo5i6
+- id: fave
+  name: Fave Malaysia HQ
+  directions: https://how-to-get-to-malaysia-meetup.netlify.com/getting-to/fave/
+  mapURL: https://goo.gl/maps/gJaQqVFMvUwUJWef9
