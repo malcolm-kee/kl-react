@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Navigation2 } from 'react-feather';
+import { Map, Navigation2 } from 'react-feather';
 import { Container, jsx, Styled } from 'theme-ui';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 import { Button } from './button';
@@ -59,24 +59,32 @@ export function Banner({ upcomingEvent, ...props }) {
           ) : (
             <Button href="#cta">Join Meetup</Button>
           )}
-          {upcomingEvent && upcomingEvent.venue.mapURL && (
-            <IconLink sx={{ p: 3, mx: 3 }} href={upcomingEvent.venue.mapURL}>
-              <span
-                sx={{
-                  mx: 1,
-                }}
-                css={theme => ({
-                  display: 'inline-block',
-                  [`@media screen and (max-width: ${theme.breakpoints[0]})`]: {
-                    display: 'none',
-                  },
-                })}
+          {upcomingEvent &&
+            (upcomingEvent.venue.directions || upcomingEvent.venue.mapURL) && (
+              <IconLink
+                sx={{ p: 3, mx: 3 }}
+                href={
+                  upcomingEvent.venue.directions || upcomingEvent.venue.mapURL
+                }
               >
-                Getting There
-              </span>
-              <Navigation2 />
-            </IconLink>
-          )}
+                <span
+                  sx={{
+                    mx: 1,
+                  }}
+                  css={theme => ({
+                    display: 'inline-block',
+                    [`@media screen and (max-width: ${
+                      theme.breakpoints[0]
+                    })`]: {
+                      display: 'none',
+                    },
+                  })}
+                >
+                  Getting There
+                </span>
+                {upcomingEvent.venue.directions ? <Map /> : <Navigation2 />}
+              </IconLink>
+            )}
         </div>
       </Container>
     </div>

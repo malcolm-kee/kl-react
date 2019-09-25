@@ -158,6 +158,16 @@ exports.createSchemaCustomization = function createSchemaCustomization({
             return null;
           },
         },
+        directions: {
+          type: 'String',
+          resolve: (source, _, context) => {
+            const venue = getMeetupVenue(source, _, context);
+            if (venue && venue.directions) {
+              return venue.directions;
+            }
+            return null;
+          },
+        },
       },
     }),
     schema.buildObjectType({

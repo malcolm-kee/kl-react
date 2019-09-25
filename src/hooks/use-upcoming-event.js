@@ -16,6 +16,7 @@ export function useUpcomingEvent() {
         shouldClose
         dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
         mapURL
+        directions
         venueName
         info {
           schedule {
@@ -44,6 +45,7 @@ export function useUpcomingEvent() {
     link,
     info,
     mapURL,
+    directions,
     venueName,
     isFull,
     isRsvpOpen,
@@ -61,6 +63,7 @@ export function useUpcomingEvent() {
     venue: {
       name: venueName,
       mapURL,
+      directions,
     },
     schedule: info && info.schedule,
   };
