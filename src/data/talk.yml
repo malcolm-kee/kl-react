@@ -27,7 +27,9 @@
   description: A brief history of how stateful logic in React evolved from mixin, to HOC/Render Props, and finally to hooks today. You would understand why hooks is a better patterns in React.
   materials:
     - type: repo
-      url: https://github.com/malcolm-kee/why-the-hook
+      url: https://github.com/malcolm-kee/infinite-scroll-pokemon
+    - type: demo
+      url: https://pokemon-infinity.netlify.com
 - id: css-animations-in-react
   title: Creating CSS Animations in React
   speaker: wendy
