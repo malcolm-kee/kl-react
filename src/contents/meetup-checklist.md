@@ -32,7 +32,7 @@ title: Meetup Checklist
 
 ### Talks
 
-1. Speakers list should be confirmed by now
+1. Speakers list should be confirmed by now. Get each speaker to complete this form: https://airtable.com/shrpSPxnFoaPiwi0v.
 1. Talk topics and description should be confirmed by now.
 1. Start asking them for deck/materials as a backup. This would nudge them to start preparing the talk.
 1. If the speaker asked for rehearsal, this is perfect time to schedule for the rehearsal date.
@@ -53,6 +53,7 @@ title: Meetup Checklist
 
 1. Collect deck/materials from speakers. Have a brief glance on the materials to make sure they don't violate our [Code of Conduct](/code-of-conduct).
 1. Reconfirm the exact time of the talks with the speakers and ensure they can come on-time for their respective slot.
+1. Schedule a Google Calendar conference and invites all the speakers to accept it. This is to prepare for the workaround to share screen via Hangout if projector connection is having issue with some of the speakers' laptop.
 
 ### Venue & Food
 
