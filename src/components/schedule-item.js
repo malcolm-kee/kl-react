@@ -7,6 +7,7 @@ import { Flex, jsx, Styled } from 'theme-ui';
 import { DesktopOnly } from './desktop-only';
 import { TalkMaterialIcons } from './talk-material-icons';
 import { Link } from './link';
+import { List } from './list';
 
 const scheduleTypeStyle = {
   fontSize: 3,
@@ -126,15 +127,28 @@ export function ScheduleItem({ time, type, talk, desc, speakersOnSamePage }) {
           talk ? (
             <>
               <Styled.p sx={descStyle}>{talk.description}</Styled.p>
-              {talk &&
-                talk.materials &&
-                talk.materials.map((material, i) => (
-                  <TalkMaterialIcons
-                    type={material.type}
-                    url={material.url}
-                    key={i}
-                  />
-                ))}
+              {talk && talk.materials && (
+                <List
+                  sx={{
+                    my: 1,
+                  }}
+                >
+                  {talk.materials.map((material, i) => (
+                    <li
+                      key={i}
+                      sx={{
+                        display: 'inline-block',
+                        mr: 1,
+                      }}
+                    >
+                      <TalkMaterialIcons
+                        type={material.type}
+                        url={material.url}
+                      />
+                    </li>
+                  ))}
+                </List>
+              )}
             </>
           ) : (
             <Styled.p sx={descStyle}>
