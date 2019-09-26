@@ -28,7 +28,13 @@ export default function HomePage({ data }) {
           if (a.name > b.name) return 1;
           return 0;
         })
-    : data.allSpeakerYaml.edges.map(edge => edge.node);
+    : data.allSpeakerYaml.edges
+        .map(edge => edge.node)
+        .sort((a, b) => {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          return 0;
+        });
 
   return (
     <>

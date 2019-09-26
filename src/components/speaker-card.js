@@ -61,7 +61,6 @@ export function SpeakerCard({
       >
         {bio}
       </Styled.p>
-
       <Flex mx={-2}>
         {twitter && (
           <IconLink href={`https://twitter.com/${twitter}`}>

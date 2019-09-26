@@ -317,6 +317,7 @@ const Drawing = styled.div`
 `;
 
 const FallbackWrapper = styled.div`
+  display: none;
   @media (prefers-reduced-motion: reduce) {
     display: block;
     margin: 0 auto 24px;
