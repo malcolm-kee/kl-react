@@ -226,7 +226,16 @@ exports.createSchemaCustomization = function createSchemaCustomization({
           resolve: (source, _, context) => {
             return context.nodeModel
               .getAllNodes({ type: 'S3ImageAsset' })
-              .filter(node => node.Key.split('_')[0] === source.id);
+              .filter(node => node.Key.split('_')[0] === source.id)
+              .sort((nodeA, nodeB) => {
+                if (nodeA.Key < nodeB.Key) {
+                  return -1;
+                }
+                if (nodeA.Key > nodeB.Key) {
+                  return 1;
+                }
+                return 0;
+              });
           },
         },
       },
