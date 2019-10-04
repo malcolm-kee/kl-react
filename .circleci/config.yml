@@ -55,6 +55,22 @@ jobs:
           paths:
             - public
 
+  deploy:
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+      - attach_workspace:
+          at: ./
+
+      - run:
+          name: Deploy to Netlify
+          command: yarn deploy:preview
+
   test:
     docker:
       - image: circleci/node:10.16.3
@@ -83,12 +99,15 @@ workflows:
   install-build-and-test:
     jobs:
       - setup
-      - build:
-          requires:
-            - setup
       - test:
           requires:
             - setup
       - lint:
           requires:
             - setup
+      - build:
+          requires:
+            - setup
+      - deploy:
+          requires:
+            - build
