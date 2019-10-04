@@ -69,7 +69,7 @@ jobs:
 
       - run:
           name: Deploy to Netlify Preview
-          command: yarn deploy:preview
+          command: yarn deploy:preview > netlify.log
 
       - run:
           name: Run Notify Script
