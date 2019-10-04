@@ -71,6 +71,13 @@ jobs:
           name: Deploy to Netlify Preview
           command: yarn deploy:preview
 
+      - run:
+          name: Run Notify Script
+          command: |
+            echo Running notify script;
+            echo 'Creating log File' > notify.log;
+            cat notify.log;
+
   deploy:
     docker:
       - image: circleci/node:10.16.3
