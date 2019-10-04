@@ -73,7 +73,7 @@ jobs:
 
       - run:
           name: Run Notify Script
-          command: ./.circleci/notify.sh
+          command: sh ./.circleci/notify.sh
 
   deploy:
     docker:
