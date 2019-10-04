@@ -9,7 +9,9 @@
     "clean": "gatsby clean",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "deploy:preview": "netlify deploy --dir=public",
+    "deploy": "netlify deploy --dir=public --prod"
   },
   "dependencies": {
     "@emotion/core": "^10.0.15",
@@ -50,6 +52,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "jest-junit": "^8.0.0",
-    "jest-junit-reporter": "^1.1.0"
+    "jest-junit-reporter": "^1.1.0",
+    "netlify-cli": "^2.15.0"
   }
 }

@@ -55,6 +55,42 @@ jobs:
           paths:
             - public
 
+  preview:
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+      - attach_workspace:
+          at: ./
+
+      - run:
+          name: Deploy to Netlify Preview
+          command: yarn deploy:preview > netlify.log
+
+      - run:
+          name: Run Notify Script
+          command: sh ./.circleci/notify.sh
+
+  deploy:
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+      - attach_workspace:
+          at: ./
+
+      - run:
+          name: Deploy to Netlify Production
+          command: yarn deploy
+
   test:
     docker:
       - image: circleci/node:10.16.3
@@ -83,12 +119,21 @@ workflows:
   install-build-and-test:
     jobs:
       - setup
-      - build:
-          requires:
-            - setup
       - test:
           requires:
             - setup
       - lint:
           requires:
             - setup
+      - build:
+          requires:
+            - setup
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - preview:
+          requires:
+            - build
