@@ -1,11 +1,14 @@
 /** @jsx jsx */
 import { Link } from 'gatsby';
-import { Container, Flex, jsx, Styled } from 'theme-ui';
+import { Container, Flex, jsx } from 'theme-ui';
+import { useLastBuild } from '../hooks/use-last-build';
 import { currentYear } from '../lib';
 import { List } from './list';
 import { NavLink } from './nav-link';
 
 export function Footer() {
+  const lastBuild = useLastBuild();
+
   return (
     <Container sx={{ py: 1 }}>
       <Flex
@@ -82,16 +85,21 @@ export function Footer() {
           </List>
         </div>
       </Flex>
-      <div>
-        <Styled.p
+      <Flex
+        sx={{
+          justifyContent: 'space-between',
+          my: 2,
+        }}
+      >
+        <small>Last build on {lastBuild}.</small>
+        <small
           sx={{
             textAlign: 'right',
-            fontSize: 0,
           }}
         >
           © {currentYear} KL React
-        </Styled.p>
-      </div>
+        </small>
+      </Flex>
     </Container>
   );
 }

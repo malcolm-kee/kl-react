@@ -44,3 +44,11 @@
   materials:
     - type: slide
       url: https://docs.google.com/presentation/d/1rMumju5l71WD7_xQ6M0W21MEC2AxvZMCEsr7IT09shg/edit
+- id: why-css-in-js
+  title: Why We Should Write CSS in JS
+  speaker: azizi
+  description: In this talk we will walk through on the advantages of writing CSS in JS and why its the right time to end the Global style-sheet for Local style-sheet using CSS-in-JS.
+- id: intro-to-ts-in-react
+  title: Introduction to TypeScript Features in React
+  speaker: lewis
+  description: Introduction to features of TypeSript that developers can use to benefit their work flow.
