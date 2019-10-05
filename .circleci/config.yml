@@ -137,3 +137,6 @@ workflows:
       - preview:
           requires:
             - build
+          filters:
+            branches:
+              ignore: master
