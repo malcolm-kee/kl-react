@@ -1,3 +1,21 @@
+- id: oct-2019
+  type: meetup
+  meetup: 265309818
+  venue: supahands
+  schedule:
+    - time: 7.30pm
+      type: clinic
+    - time: 8.00pm
+      type: talk
+      talk: why-css-in-js
+    - time: 8.30pm
+      type: talk
+    - time: 9.00pm
+      type: talk
+      talk: intro-to-ts-in-react
+    - time: 9.30pm
+      type: wrap up
+      desc: Go home.
 - id: sept-2019
   type: meetup
   meetup: 264208460
