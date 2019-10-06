@@ -13,6 +13,9 @@ export const NavLink = props => (
       flex: 'none',
       px: 3,
       py: 2,
+      '&[aria-current]': {
+        color: 'primary',
+      },
     }}
   />
 );
