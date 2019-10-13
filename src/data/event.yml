@@ -3,6 +3,9 @@
   meetup: 265309818
   venue: supahands
   schedule:
+    - time: 7.00pm
+      type: food
+      desc: Food Consuming + Human Social Activity
     - time: 7.30pm
       type: clinic
     - time: 8.00pm
