@@ -21,6 +21,7 @@
     "dotenv": "^8.0.0",
     "gatsby": "^2.13.76",
     "gatsby-image": "^2.2.8",
+    "gatsby-plugin-advanced-sitemap": "^1.4.4",
     "gatsby-plugin-emotion": "^4.1.5",
     "gatsby-plugin-manifest": "^2.2.5",
     "gatsby-plugin-mdx": "^1.0.24",

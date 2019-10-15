@@ -18,6 +18,7 @@ module.exports = {
     title: `KL React`,
     description: `Reacting in Kuala Lumpur, Malaysia`,
     url: `https://kl-react.com`,
+    siteUrl: `https://kl-react.com`,
     twitter: `@KlReact`,
     keywords: [`reactjs`, `react developer`, `kuala lumpur`, `meetup`],
   },
@@ -116,5 +117,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-advanced-sitemap`,
   ].filter(Boolean),
 };
