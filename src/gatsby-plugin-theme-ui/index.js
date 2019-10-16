@@ -12,6 +12,17 @@ const colors = {
   secondary: '#11a',
   accent: '#61dafb',
   muted: '#9e9e9e',
+  modes: {
+    dark: {
+      text: '#fff',
+      background: '#000',
+      primary: '#33e',
+      secondary: '#11a',
+      accent: '#61dafb',
+      muted: '#9e9e9e',
+
+    }
+  },
 };
 
 export default {
