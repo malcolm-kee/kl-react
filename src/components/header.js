@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Link } from 'gatsby';
-import { jsx } from 'theme-ui';
+import { jsx, useColorMode } from 'theme-ui';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 import { Button } from './button';
 import { DesktopOnly } from './desktop-only';
@@ -8,9 +8,11 @@ import { NavLink } from './nav-link';
 import { Icon } from './icon';
 // eslint-disable-next-line
 import React from 'react';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 export function Header() {
   const { title } = useSiteMetadata();
+  const [colorMode, setColorMode] = useColorMode();
 
   return (
     <>
@@ -51,6 +53,12 @@ export function Header() {
       <Button as={Link} to="/submit-a-talk" sx={{ ml: 2 }}>
         Submit a Talk
       </Button>
+      <NavLink
+        onClick={e => {
+          setColorMode(colorMode === 'default' ? 'dark' : 'default')
+        }}>
+        {colorMode === 'default' ? <FaMoon /> : <FaSun />}
+      </NavLink>
     </>
   );
 }
