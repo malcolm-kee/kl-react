@@ -8,7 +8,7 @@ import { NavLink } from './nav-link';
 import { Icon } from './icon';
 // eslint-disable-next-line
 import React from 'react';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { Sun, Moon } from 'react-feather';
 
 export function Header() {
   const { title } = useSiteMetadata();
@@ -53,12 +53,22 @@ export function Header() {
       <Button as={Link} to="/submit-a-talk" sx={{ ml: 2 }}>
         Submit a Talk
       </Button>
-      <NavLink
+      <button
+        sx={{
+          cursor: 'pointer',
+          background: 'transparent',
+          margin: '0 10px',
+          color: 'text',
+          border: '0',
+          '&:focus': {
+            outline: 0,
+          }
+        }}
         onClick={e => {
           setColorMode(colorMode === 'default' ? 'dark' : 'default')
         }}>
-        {colorMode === 'default' ? <FaMoon /> : <FaSun />}
-      </NavLink>
+        {colorMode === 'default' ? <Moon /> : <Sun />}
+      </button>
     </>
   );
 }
