@@ -14,6 +14,8 @@ export function Header() {
   const { title } = useSiteMetadata();
   const [colorMode, setColorMode] = useColorMode();
 
+  const isDark = () => colorMode === 'dark';
+
   return (
     <>
       <NavLink
@@ -64,6 +66,7 @@ export function Header() {
             outline: 0,
           }
         }}
+        aria-label={isDark() ? `Activate light mode` : `Activate dark mode`}
         onClick={e => {
           setColorMode(colorMode === 'default' ? 'dark' : 'default')
         }}>
