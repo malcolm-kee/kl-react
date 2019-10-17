@@ -50,6 +50,7 @@ export function Field({
           width: '100%',
           fontFamily: 'inherit',
           fontSize: [2, 3, 3],
+          color: 'text',
           outline: 'none',
           bg: 'background',
           border: 0,

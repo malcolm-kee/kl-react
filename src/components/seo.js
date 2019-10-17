@@ -25,7 +25,7 @@ export const Seo = ({ title, description, pathname, image, keywords }) => {
           twitter
         }
       }
-      siteImage: file(name: { eq: "durian-react-16x9" }) {
+      siteImage: file(name: { eq: "durian-react-social" }) {
         publicURL
       }
     }

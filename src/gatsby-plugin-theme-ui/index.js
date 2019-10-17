@@ -12,6 +12,16 @@ const colors = {
   secondary: '#11a',
   accent: '#61dafb',
   muted: '#9e9e9e',
+  modes: {
+    dark: {
+      text: 'hsl(210,50%,96% )',
+      background: '#000',
+      primary: '#0fd7ba',
+      secondary: '#40AF9F',
+      accent: '#CB7F61',
+      muted: 'hsla(230,20%,0%,20% )'
+    }
+  },
 };
 
 export default {
