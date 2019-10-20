@@ -52,3 +52,7 @@
   title: Introduction to TypeScript Features in React
   speaker: lewis
   description: Introduction to features of TypeSript that developers can use to benefit their work flow.
+- id: productive-react-codebase
+  title: A Productive React Codebase
+  speaker: aymen
+  description: We will be looking into the next step in React learning and utilising its abstraction power to extract stateful logic and convert a working component into a reusable component that can be implemented in different parts in the application easily and smoothly. We will be using Hooks and HOC to achieve this and to have a much readable and elegant code.
