@@ -9,6 +9,9 @@
     "clean": "gatsby clean",
     "test": "jest",
     "test:watch": "jest --watch",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test start http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run",
     "lint": "eslint src",
     "deploy:preview": "netlify deploy --dir=public",
     "deploy": "netlify deploy --dir=public --prod"
@@ -47,6 +50,7 @@
     "aws-sdk": "^2.521.0",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.11",
+    "cypress": "^3.5.0",
     "eslint-config-react-app": "^5.0.1",
     "eslint-plugin-import": "^2.18.2",
     "gatsby-plugin-catch-links": "^2.1.9",
@@ -54,6 +58,7 @@
     "jest": "^24.9.0",
     "jest-junit": "^8.0.0",
     "jest-junit-reporter": "^1.1.0",
-    "netlify-cli": "^2.15.0"
+    "netlify-cli": "^2.15.0",
+    "start-server-and-test": "^1.10.6"
   }
 }
