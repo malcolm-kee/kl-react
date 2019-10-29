@@ -15,12 +15,12 @@ const colors = {
   modes: {
     dark: {
       text: 'hsl(210,50%,96% )',
-      background: '#000',
+      background: '#212121',
       primary: '#0fd7ba',
       secondary: '#40AF9F',
-      accent: '#CB7F61',
-      muted: 'hsla(230,20%,0%,20% )'
-    }
+      accent: '#E89E56',
+      muted: 'hsla(230,20%,0%,20% )',
+    },
   },
 };
 
@@ -75,7 +75,7 @@ export default {
       },
       '&:focus': {
         outline: 'none',
-        boxShadow: `0 0 0 3px ${colors.accent}`,
+        boxShadow: `0 0 0 3px currentColor`,
         '&:not(:focus-visible)': {
           boxShadow: 'none',
         },
