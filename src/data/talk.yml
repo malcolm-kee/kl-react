@@ -55,6 +55,9 @@
   title: Introduction to TypeScript Features in React
   speaker: lewis
   description: Introduction to features of TypeSript that developers can use to benefit their work flow.
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/1-LKxfMos-slU78xXtqpn9NgN_pDsxgV-bzce02Ri2Yw/mobilepresent
 - id: productive-react-codebase
   title: A Productive React Codebase
   speaker: aymen
