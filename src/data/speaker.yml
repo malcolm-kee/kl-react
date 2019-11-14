@@ -56,3 +56,15 @@
   bio: Senior developer at Nintex, I work primarily with JS and I love creating applications in React.
   github: ayox
   twitter: Lashuel
+- id: pushkin
+  name: Vijay Pushkin
+  bio: Full Stack engineer in Accendo HR, who works mainly with TypeScript and React.
+  github: vijaypushkin
+  twitter: vijaypushkin
+  website: https://vijaypushkin.me
+- id: sergio
+  name: Sergio Utama
+  bio: Polyglot fullstack dev, specialist on mobile apps. Currently working as Head of Engineering in social commerce startup called Pollen.
+  github: sergioutama
+  twitter: sergioutama
+  website: https://www.coderclimber.com/

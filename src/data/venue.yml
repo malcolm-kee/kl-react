@@ -10,3 +10,7 @@
 - id: supahands
   name: Supahands
   directions: https://how-to-get-to-malaysia-meetup.netlify.com/getting-to/supahands/
+- id: surialab
+  name: Suria Labs
+  directions: https://how-to-get-to-malaysia-meetup.netlify.com/getting-to/surialabs/
+  mapURL: https://g.page/surialabs

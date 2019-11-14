@@ -1,3 +1,23 @@
+- id: nov-2019
+  type: meetup
+  meetup: 266045344
+  venue: surialab
+  schedule:
+    - time: 7.00pm
+      type: food
+      desc: Food Consuming + Human Social Activity + React Clinic
+    - time: 7.30pm
+      type: talk
+      talk: template-literals
+    - time: 8.00pm
+      type: talk
+      talk: hate-hooks
+    - time: 8.30pm
+      type: talk
+      talk: concurrent-react
+    - time: 9.00pm
+      type: wrap up
+      desc: Go home.
 - id: oct-2019
   type: meetup
   meetup: 265309818
