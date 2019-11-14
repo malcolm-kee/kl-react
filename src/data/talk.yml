@@ -67,3 +67,15 @@
       url: https://public-kyan.ayox.now.sh/
     - type: repo
       url: https://github.com/ayox/react-kl-productive-codebase
+- id: template-literals
+  title: Hidden Powers of Template Literals
+  speaker: pushkin
+  description: "People usually think that backticks (` `) are yet another quote for strings. But that's much more to string literal in JavaScript than normal single and double quotes. I'll talk about how string literals can be used a in CSS in JS, Web Component and how `Literal Tag` functions works."
+- id: hate-hooks
+  title: Why I Hate Hooks
+  speaker: sergio
+  description: Hook is a bad way to manage state in your application, it's easily abused, difficult to test, often hiding bad architecture decision behind fancy functional programming API, creating unnecessary performance bottleneck in your apps and more.
+- id: concurrent-react
+  title: React Cocurrent Mode
+  speaker: malcolm
+  description: An overview of the next major React feature - Concurrent Mode. Understand how concurrent mode could improves user experience by unlocking new UI patterns that was not possible previously.

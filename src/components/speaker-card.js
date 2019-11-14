@@ -32,16 +32,20 @@ export function SpeakerCard({
 }) {
   return (
     <Card id={id} {...props}>
-      {imageFile ? (
-        <Image fluid={imageFile.childImageSharp.fluid} sx={{ mb: 3 }} />
-      ) : (
-        <BackgroundImage
-          src={image}
-          sx={{
-            mb: 3,
-          }}
-        />
-      )}
+      <div
+        sx={{
+          mb: 3,
+          borderRadius: 16,
+          overflow: 'hidden',
+          boxShadow: `0 2px 0 hsla(0, 0%, 100%, .15), inset 0 2px 2px hsla(0, 0%, 0%, 0.1)`,
+        }}
+      >
+        {imageFile ? (
+          <Image fluid={imageFile.childImageSharp.fluid} />
+        ) : (
+          <BackgroundImage src={image} />
+        )}
+      </div>
       <Styled.h3>{name}</Styled.h3>
       <Styled.div
         sx={{
