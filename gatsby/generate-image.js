@@ -1,6 +1,9 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
+const mustache = require('mustache');
+
+mustache.escape = x => x;
 
 exports.screenshot = async function screenshot(
   { nodes, reporter },
@@ -16,26 +19,27 @@ exports.screenshot = async function screenshot(
   const htmlTemplate = fs.readFileSync(template, 'utf8');
 
   for (const node of nodes) {
-    const { title, date, slug, subtitle, icon } = node;
+    const { title, dateTime, slug, subtitle, venue, talks, icon } = node;
     const filePath = path.resolve(`public/og_image/${slug}.png`);
     ensureDirectoryExistence(filePath);
 
     if (fs.existsSync(filePath)) continue;
 
     try {
-      const html = htmlTemplate
-        .replace('{{ title }}', title || '')
-        .replace('{{ subtitle }}', subtitle || '')
-        .replace('{{ date }}', date || '')
-        .replace(
-          'icon-src',
+      const html = mustache.render(htmlTemplate, {
+        title,
+        subtitle,
+        dateTime,
+        venue,
+        talks,
+        icon:
           (icon &&
             icon.absolutePath &&
             `data:image/${icon.extension};base64,${fs
               .readFileSync(icon.absolutePath)
               .toString('base64')}`) ||
-            ''
-        );
+          '',
+      });
 
       await page.setContent(html);
       await page.screenshot({ path: filePath });

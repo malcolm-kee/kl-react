@@ -13,8 +13,27 @@ This file is used for development for the SEO image generation only.
       {
         nodes: [
           {
-            title: 'How to become a racist',
-            slug: 'c',
+            title: 'KL React Meetup November: Talks & Clinic',
+            slug: 'f',
+            dateTime: 'Wed, 20 Nov 2019 7:00 PM',
+            venue: 'Suria Labs',
+            talks: [
+              {
+                title: 'Hidden Powers of Template Literals',
+                speakerImage: 'https://github.com/vijaypushkin.png',
+                speakerName: 'Vijay Pushkin',
+              },
+              {
+                title: 'Why I Hate React Hooks',
+                speakerImage: 'https://github.com/sergioutama.png',
+                speakerName: 'Sergio Utama',
+              },
+              {
+                title: 'React Concurrent Mode',
+                speakerImage: 'https://github.com/malcolm-kee.png',
+                speakerName: 'Malcolm Kee',
+              },
+            ],
             icon: {
               extension: 'png',
               absolutePath: imagePath,

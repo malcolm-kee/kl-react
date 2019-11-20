@@ -42,7 +42,7 @@
       }
 
       .background {
-        background-image: url(icon-src);
+        background-image: url({{icon}});
         background-repeat: no-repeat;
         background-size: 100% 100%;
         width: 873px;
@@ -114,37 +114,17 @@
     <div class="top-border"></div>
     <div class="container">
       <div class="background"></div>
-      <h1 class="event-title">KL React Meetup November: Talks & Clinic</h1>
+      <h1 class="event-title">{{title}}</h1>
       <main class="talks">
+        {{#talks}}
         <section class="talk">
-          <img
-            class="speaker-image"
-            src="https://github.com/vijaypushkin.png"
-            alt=""
-          />
-          <h2 class="talk-title">Hidden Powers of Template Literals</h2>
-          <h3 class="speaker-name">Vijay Pushkin</h3>
+          <img class="speaker-image" src="{{speakerImage}}" alt="" />
+          <h2 class="talk-title">{{title}}</h2>
+          <h3 class="speaker-name">{{speakerName}}</h3>
         </section>
-        <section class="talk">
-          <img
-            class="speaker-image"
-            src="https://github.com/sergioutama.png"
-            alt=""
-          />
-          <h2 class="talk-title">Why I Hate React Hooks</h2>
-          <h3 class="speaker-name">Sergio Utama</h3>
-        </section>
-        <section class="talk">
-          <img
-            class="speaker-image"
-            src="https://github.com/malcolm-kee.png"
-            alt=""
-          />
-          <h2 class="talk-title">React Concurrent Mode</h2>
-          <h3 class="speaker-name">Malcolm Kee</h3>
-        </section>
+        {{/talks}}
       </main>
-      <p class="date-venue">Wed, 20 Nov 2019 7:00 PM @Suria Labs</p>
+      <p class="date-venue">{{dateTime}} @{{venue}}</p>
     </div>
   </body>
 </html>
