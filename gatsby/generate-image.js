@@ -19,27 +19,13 @@ exports.screenshot = async function screenshot(
   const htmlTemplate = fs.readFileSync(template, 'utf8');
 
   for (const node of nodes) {
-    const { title, dateTime, slug, subtitle, venue, talks, icon } = node;
-    const filePath = path.resolve(`public/og_image/${slug}.png`);
+    const filePath = path.resolve(`public/og_image/${node.slug}.png`);
     ensureDirectoryExistence(filePath);
 
     if (fs.existsSync(filePath)) continue;
 
     try {
-      const html = mustache.render(htmlTemplate, {
-        title,
-        subtitle,
-        dateTime,
-        venue,
-        talks,
-        icon:
-          (icon &&
-            icon.absolutePath &&
-            `data:image/${icon.extension};base64,${fs
-              .readFileSync(icon.absolutePath)
-              .toString('base64')}`) ||
-          '',
-      });
+      const html = mustache.render(htmlTemplate, node);
 
       await page.setContent(html);
       await page.screenshot({ path: filePath });

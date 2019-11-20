@@ -1,8 +1,6 @@
 const path = require('path');
 const { screenshot } = require('./gatsby/generate-image');
 
-const imagePath = path.resolve(__dirname, 'og-image', 'durian-react.png');
-
 /*
 This file is used for development for the SEO image generation only.
 */
@@ -14,7 +12,7 @@ This file is used for development for the SEO image generation only.
         nodes: [
           {
             title: 'KL React Meetup November: Talks & Clinic',
-            slug: 'f',
+            slug: 'g',
             dateTime: 'Wed, 20 Nov 2019 7:00 PM',
             venue: 'Suria Labs',
             talks: [
@@ -34,10 +32,8 @@ This file is used for development for the SEO image generation only.
                 speakerName: 'Malcolm Kee',
               },
             ],
-            icon: {
-              extension: 'png',
-              absolutePath: imagePath,
-            },
+            icon:
+              'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
           },
         ],
         reporter: console,
