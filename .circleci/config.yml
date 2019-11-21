@@ -19,6 +19,8 @@ jobs:
       - run: rm yarn.lock
       - run: mv yarn.lock.tmp yarn.lock
 
+      # this yarn.lock copy and replace "hack" is to tie the cache after install puppeteer to yarn.lock file before install it
+
       - save_cache:
           paths:
             - node_modules

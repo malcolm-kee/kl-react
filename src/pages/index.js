@@ -8,9 +8,39 @@ import { Seo } from '../components/seo';
 import { Speakers } from '../components/speakers';
 import { useUpcomingEvent } from '../hooks/use-upcoming-event';
 
+const sortSpeaker = (a, b) => {
+  if (a.name < b.name) return -1;
+  if (a.name > b.name) return 1;
+  return 0;
+};
+
+// we get last 3 meetups and extract speakers from them instead of retrieve from speaker list directly
+// so that we show speakers from most recent meetups
+const getSpeakersForMeetups = meetups => {
+  const speakers = [];
+
+  outer: for (let meetup of meetups) {
+    for (let schedule of meetup.info.schedule) {
+      if (schedule.type === 'talk') {
+        if (
+          !speakers.some(speaker => speaker.id === schedule.talk.speaker.id)
+        ) {
+          speakers.push(schedule.talk.speaker);
+          if (speakers.length >= 6) {
+            break outer;
+          }
+        }
+      }
+    }
+  }
+
+  return speakers;
+};
+
 export default function HomePage({ data }) {
   const upcomingEvent = useUpcomingEvent();
   const upcomingEventSchedule = upcomingEvent && upcomingEvent.schedule;
+  const last3Meetups = data.allMeetupEvent.nodes;
 
   // get speakers for the upcoming event if there is any,
   // else just load 6 speakers from speaker list
@@ -23,18 +53,8 @@ export default function HomePage({ data }) {
             !!(item && item.type === 'talk' && item.talk && item.talk.speaker)
         )
         .map(item => item.talk.speaker)
-        .sort((a, b) => {
-          if (a.name < b.name) return -1;
-          if (a.name > b.name) return 1;
-          return 0;
-        })
-    : data.allSpeakerYaml.edges
-        .map(edge => edge.node)
-        .sort((a, b) => {
-          if (a.name < b.name) return -1;
-          if (a.name > b.name) return 1;
-          return 0;
-        });
+        .sort(sortSpeaker)
+    : getSpeakersForMeetups(last3Meetups).sort(sortSpeaker);
 
   return (
     <>
@@ -52,7 +72,7 @@ export default function HomePage({ data }) {
             py: 5,
           }}
         >
-          <Speakers speakers={speakers} showMore />
+          <Speakers title="Recent Speakers" speakers={speakers} showMore />
         </div>
         <CTA />
       </Layout>
@@ -62,10 +82,22 @@ export default function HomePage({ data }) {
 
 export const pageQuery = graphql`
   query {
-    allSpeakerYaml(limit: 6) {
-      edges {
-        node {
-          ...SpeakerCard
+    allMeetupEvent(
+      filter: { isMeetup: { eq: true } }
+      sort: { order: DESC, fields: dateTime }
+      limit: 3
+    ) {
+      nodes {
+        info {
+          schedule {
+            type
+            talk {
+              title
+              speaker {
+                ...SpeakerCard
+              }
+            }
+          }
         }
       }
     }

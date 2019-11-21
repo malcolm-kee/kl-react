@@ -5,9 +5,14 @@ import { FlexList } from './flex-list';
 import { SectionHeading } from './section-heading';
 import { SpeakerCard } from './speaker-card';
 
-export const Speakers = ({ speakers, showMore, showPastEvents }) => (
+export const Speakers = ({
+  speakers,
+  showMore,
+  showPastEvents,
+  title = 'Speakers',
+}) => (
   <Container>
-    <SectionHeading>Speakers</SectionHeading>
+    <SectionHeading>{title}</SectionHeading>
     <p sx={{ textAlign: 'center', mt: 0 }}>in alphabetical order</p>
     {speakers && speakers.length > 0 ? (
       <FlexList
