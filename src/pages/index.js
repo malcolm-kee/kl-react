@@ -58,7 +58,7 @@ export default function HomePage({ data }) {
 
   return (
     <>
-      <Seo />
+      <Seo largeImage={upcomingEvent && upcomingEvent.seoImage} />
       <Layout>
         <Banner upcomingEvent={upcomingEvent} />
         {upcomingEventSchedule && (
