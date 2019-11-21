@@ -19,6 +19,7 @@ export function useUpcomingEvent() {
         directions
         venueName
         info {
+          seoImagePublicUrl
           schedule {
             time
             type
@@ -66,5 +67,6 @@ export function useUpcomingEvent() {
       directions,
     },
     schedule: info && info.schedule,
+    seoImage: info && info.seoImagePublicUrl,
   };
 }

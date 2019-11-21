@@ -2,7 +2,14 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-export const Seo = ({ title, description, pathname, image, keywords }) => {
+export const Seo = ({
+  title,
+  description,
+  pathname,
+  image,
+  largeImage,
+  keywords,
+}) => {
   const {
     site: {
       siteMetadata: {
@@ -35,7 +42,7 @@ export const Seo = ({ title, description, pathname, image, keywords }) => {
     title: title || defaultTitle,
     description: description || defaultDescription,
     url: `${siteUrl}${pathname || '/'}`,
-    image: `${siteUrl}${image || publicURL}`,
+    image: `${siteUrl}${largeImage || image || publicURL}`,
     keywords: keywords
       ? Array.isArray(keywords)
         ? keywords.join(',')
@@ -52,7 +59,10 @@ export const Seo = ({ title, description, pathname, image, keywords }) => {
       <meta property="og:type" content="website" />
       <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
-      <meta name="twitter:card" content="summary" />
+      <meta
+        name="twitter:card"
+        content={largeImage ? 'summary_large_image' : 'summary'}
+      />
       <meta name="twitter:creator" content={twitter} />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />

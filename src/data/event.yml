@@ -11,9 +11,6 @@
       talk: template-literals
     - time: 8.00pm
       type: talk
-      talk: hate-hooks
-    - time: 8.30pm
-      type: talk
       talk: concurrent-react
     - time: 9.00pm
       type: wrap up

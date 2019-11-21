@@ -71,11 +71,15 @@
   title: Hidden Powers of Template Literals
   speaker: pushkin
   description: "People usually think that backticks (` `) are yet another quote for strings. But that's much more to string literal in JavaScript than normal single and double quotes. I'll talk about how string literals can be used a in CSS in JS, Web Component and how `Literal Tag` functions works."
-- id: hate-hooks
-  title: Why I Hate Hooks
-  speaker: sergio
-  description: Hook is a bad way to manage state in your application, it's easily abused, difficult to test, often hiding bad architecture decision behind fancy functional programming API, creating unnecessary performance bottleneck in your apps and more.
+  materials:
+    - type: slide
+      url: https://drive.google.com/file/d/0B3utoAAc1O8BQlZXVUhfSE50amZ4c1lld21adnBBQmhpc1dB/view?usp=sharing
 - id: concurrent-react
   title: React Cocurrent Mode
   speaker: malcolm
   description: An overview of the next major React feature - Concurrent Mode. Understand how concurrent mode could improves user experience by unlocking new UI patterns that was not possible previously.
+  materials:
+    - type: repo
+      url: https://github.com/malcolm-kee/learn-react-suspense
+    - type: demo
+      url: https://react-suspense-pokemon.netlify.com/

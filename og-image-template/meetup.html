@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: inherit;
+      }
+      html,
+      body {
+        background-color: #f8f8f8;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        --primary-color: #0fd7ba;
+      }
+
+      body {
+        height: 100vh;
+      }
+
+      .top-border {
+        width: 100%;
+        height: 18px;
+        position: fixed;
+        top: 0;
+        background-color: var(--primary-color);
+      }
+
+      .container {
+        margin: 0 auto;
+        padding: 42px 0 24px;
+        height: 100%;
+        max-width: 1100px;
+        display: flex;
+        flex-flow: column;
+      }
+
+      .background {
+        background-image: url({{icon}});
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 873px;
+        height: 794px;
+        opacity: 0.2;
+        position: absolute;
+        left: 280px;
+        top: 62px;
+      }
+
+      .event-title {
+        font-size: 48px;
+      }
+
+      .talks {
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 16px 0;
+      }
+
+      .talk {
+        width: 356px;
+        height: 258px;
+        position: relative;
+        background-color: var(--primary-color);
+        border-radius: 0px 0px 32px 0px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .speaker-image {
+        width: 148px;
+        height: 148px;
+        border: 8px solid var(--primary-color);
+        border-radius: 90px;
+        position: absolute;
+        left: 8px;
+        top: -74px;
+      }
+
+      .talk-title {
+        font-size: 36px;
+        font-weight: normal;
+      }
+
+      .speaker-name {
+        position: absolute;
+        text-align: left;
+        top: 0;
+        left: calc(16px + 148px);
+        width: calc(100% - 16px - 148px);
+        transform: translateY(-100%);
+        font-size: 36px;
+        line-height: 42px;
+        font-weight: normal;
+        padding-bottom: 4px;
+      }
+
+      .date-venue {
+        font-size: 36px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-border"></div>
+    <div class="container">
+      <div class="background"></div>
+      <h1 class="event-title">{{title}}</h1>
+      <main class="talks">
+        {{#talks}}
+        <section class="talk">
+          <img class="speaker-image" src="{{speakerImage}}" alt="" />
+          <h2 class="talk-title">{{title}}</h2>
+          <h3 class="speaker-name">{{speakerName}}</h3>
+        </section>
+        {{/talks}}
+      </main>
+      <p class="date-venue">{{dateTime}} @{{venue}}</p>
+    </div>
+  </body>
+</html>
