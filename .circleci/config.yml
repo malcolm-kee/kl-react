@@ -14,7 +14,10 @@ jobs:
             - v1-dependencies-
 
       - run: yarn install
+      - run: cp yarn.lock yarn.lock.tmp
       - run: yarn add puppeteer
+      - run: rm yarn.lock
+      - run: mv yarn.lock.tmp yarn.lock
 
       - save_cache:
           paths:
