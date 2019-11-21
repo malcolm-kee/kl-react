@@ -7,10 +7,14 @@ import { Seo } from '../components/seo';
 import { Photos } from '../components/photos';
 
 const MeetupTemplate = ({ data, location }) => {
-  const { schedule, meetup, photos } = data.eventYaml;
+  const { schedule, meetup, photos, seoImagePublicUrl } = data.eventYaml;
   return (
     <>
-      <Seo title={meetup && meetup.name} pathname={location.pathname} />
+      <Seo
+        title={meetup && meetup.name}
+        pathname={location.pathname}
+        largeImage={seoImagePublicUrl}
+      />
       <Layout>
         <MeetupOverview {...meetup} />
         <Schedule schedule={schedule} />
@@ -25,6 +29,7 @@ export default MeetupTemplate;
 export const pageQuery = graphql`
   query MeetupById($id: String!) {
     eventYaml(id: { eq: $id }) {
+      seoImagePublicUrl
       meetup {
         ...MeetupOverview
       }
