@@ -70,6 +70,7 @@ export default {
     },
     a: {
       color: 'primary',
+      textDecoration: 'none',
       '&:hover': {
         color: 'secondary',
       },

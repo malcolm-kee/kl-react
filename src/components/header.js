@@ -52,7 +52,11 @@ export function Header() {
           Talks
         </NavLink>
       </DesktopOnly>
-      <Button as={Link} to="/submit-a-talk" sx={{ ml: 2 }}>
+      <Button
+        as={Link}
+        to="/submit-a-talk"
+        sx={{ ml: 2, display: ['none', 'inline-block'] }}
+      >
         Submit a Talk
       </Button>
       <button
@@ -61,15 +65,20 @@ export function Header() {
           background: 'transparent',
           margin: '0 10px',
           color: 'text',
-          border: '0',
+          width: 36,
+          height: 36,
+          border: 0,
+          borderRadius: '50%',
           '&:focus': {
             outline: 0,
-          }
+            boxShadow: `0 0 4px 0 currentColor`,
+          },
         }}
         aria-label={isDark() ? `Activate light mode` : `Activate dark mode`}
         onClick={e => {
-          setColorMode(colorMode === 'default' ? 'dark' : 'default')
-        }}>
+          setColorMode(colorMode === 'default' ? 'dark' : 'default');
+        }}
+      >
         {colorMode === 'default' ? <Moon /> : <Sun />}
       </button>
     </>
