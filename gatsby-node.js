@@ -78,13 +78,19 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
 
   const result = await graphql(`
     {
-      allMeetupEvent(filter: { isMeetup: { eq: true } }) {
+      allMeetupEvent {
         nodes {
           name
+          isMeetup
           dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
           venueName
           info {
             id
+            instructor {
+              id
+              name
+              image
+            }
             schedule {
               type
               talk {
@@ -106,32 +112,61 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
     return reporter.error(result.errors);
   }
 
-  const events = result.data.allMeetupEvent.nodes.map(node => ({
-    title: node.name,
-    slug: node.info.id,
-    dateTime: node.dateTime,
-    venue: node.venueName,
-    talks: node.info.schedule
-      .filter(s => s.type === 'talk')
-      .map(s => ({
-        title: s.talk.title,
-        speakerImage: s.talk.speaker.image,
-        speakerName: s.talk.speaker.name,
-      })),
-    icon:
-      'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
-  }));
+  const meetups = [];
+  const workshops = [];
+
+  result.data.allMeetupEvent.nodes.forEach(node => {
+    if (node.info) {
+      if (node.isMeetup) {
+        meetups.push({
+          title: node.name,
+          slug: node.info.id,
+          dateTime: node.dateTime,
+          venue: node.venueName,
+          talks: node.info.schedule
+            .filter(s => s.type === 'talk')
+            .map(s => ({
+              title: s.talk.title,
+              speakerImage: s.talk.speaker.image,
+              speakerName: s.talk.speaker.name,
+            })),
+          icon:
+            'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
+        });
+      } else {
+        workshops.push({
+          title: node.name,
+          slug: node.info.id,
+          dateTime: node.dateTime,
+          venue: node.venueName,
+          instructors: node.info.instructor,
+          icon:
+            'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
+        });
+      }
+    }
+  });
 
   try {
-    await screenshot(
+    const meetupScreenshotTask = screenshot(
       {
-        nodes: events,
+        nodes: meetups,
         reporter,
       },
       {
         template: path.resolve(__dirname, 'og-image-template', 'meetup.html'),
       }
     );
+    const workshopScreenshotTask = screenshot(
+      {
+        nodes: workshops,
+        reporter,
+      },
+      {
+        template: path.resolve(__dirname, 'og-image-template', 'workshop.html'),
+      }
+    );
+    await Promise.all([meetupScreenshotTask, workshopScreenshotTask]);
   } catch (e) {
     reporter.error(`caught error`);
     reporter.error(e);

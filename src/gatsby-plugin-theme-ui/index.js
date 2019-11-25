@@ -70,15 +70,9 @@ export default {
     },
     a: {
       color: 'primary',
+      textDecoration: 'none',
       '&:hover': {
         color: 'secondary',
-      },
-      '&:focus': {
-        outline: 'none',
-        boxShadow: `0 0 0 3px currentColor`,
-        '&:not(:focus-visible)': {
-          boxShadow: 'none',
-        },
       },
     },
   },

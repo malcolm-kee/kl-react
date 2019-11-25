@@ -12,3 +12,11 @@ export function noop() {
 export function isFilledArray(array) {
   return Array.isArray(array) && array.length > 0;
 }
+
+/**
+ *
+ * @param {string} singular
+ * @param {number} count
+ */
+export const pluralize = (singular, count) =>
+  count > 1 ? `${singular}s` : singular;

@@ -7,6 +7,7 @@ import { Schedule } from '../components/schedule';
 import { Seo } from '../components/seo';
 import { Speakers } from '../components/speakers';
 import { useUpcomingEvent } from '../hooks/use-upcoming-event';
+import { pluralize } from '../lib';
 
 const sortSpeaker = (a, b) => {
   if (a.name < b.name) return -1;
@@ -45,15 +46,16 @@ export default function HomePage({ data }) {
   // get speakers for the upcoming event if there is any,
   // else just load 6 speakers from speaker list
   const speakers = upcomingEvent
-    ? upcomingEvent &&
-      upcomingEventSchedule &&
-      upcomingEventSchedule
-        .filter(
-          item =>
-            !!(item && item.type === 'talk' && item.talk && item.talk.speaker)
-        )
-        .map(item => item.talk.speaker)
-        .sort(sortSpeaker)
+    ? upcomingEvent.instructors
+      ? upcomingEvent.instructors
+      : upcomingEventSchedule &&
+        upcomingEventSchedule
+          .filter(
+            item =>
+              !!(item && item.type === 'talk' && item.talk && item.talk.speaker)
+          )
+          .map(item => item.talk.speaker)
+          .sort(sortSpeaker)
     : getSpeakersForMeetups(last3Meetups).sort(sortSpeaker);
 
   return (
@@ -72,7 +74,20 @@ export default function HomePage({ data }) {
             py: 5,
           }}
         >
-          <Speakers title="Recent Speakers" speakers={speakers} showMore />
+          <Speakers
+            title={
+              upcomingEvent
+                ? pluralize(
+                    upcomingEvent.type === 'workshop'
+                      ? 'Instructor'
+                      : 'Speaker',
+                    speakers.length
+                  )
+                : 'Recent Speakers'
+            }
+            speakers={speakers}
+            showMore
+          />
         </div>
         <CTA />
       </Layout>

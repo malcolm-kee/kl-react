@@ -50,8 +50,6 @@ export function Banner({ upcomingEvent, ...props }) {
             >
               {upcomingEvent.shouldClose
                 ? 'Closed for RSVP'
-                : upcomingEvent.isFull
-                ? 'Add to Waitlist (Full)'
                 : upcomingEvent.isRsvpOpen
                 ? 'RSVP Now'
                 : 'Coming Soon'}
@@ -73,9 +71,7 @@ export function Banner({ upcomingEvent, ...props }) {
                   }}
                   css={theme => ({
                     display: 'inline-block',
-                    [`@media screen and (max-width: ${
-                      theme.breakpoints[0]
-                    })`]: {
+                    [`@media screen and (max-width: ${theme.breakpoints[0]})`]: {
                       display: 'none',
                     },
                   })}

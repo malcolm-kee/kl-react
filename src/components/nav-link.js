@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui';
 
-export const NavLink = props => (
+export const NavLink = ({ children, className, ...props }) => (
   <Styled.a
-    {...props}
     sx={{
       diplay: 'inline-block',
       color: 'inherit',
@@ -16,6 +15,30 @@ export const NavLink = props => (
       '&[aria-current]': {
         color: 'primary',
       },
+      // all these focus style is to achieve the goal of showing focus ring
+      // when user navigate with keyboard, else don't show it
+      ':focus': {
+        outline: 'none',
+      },
+      ':focus > span': {
+        boxShadow: `0 0 0 3px currentColor`,
+      },
     }}
-  />
+    tabIndex={0}
+    {...props}
+  >
+    <span
+      sx={{
+        position: 'relative',
+        display: 'inline-block',
+        ':focus': {
+          outline: 'none',
+        },
+      }}
+      className={className}
+      tabIndex={-1}
+    >
+      {children}
+    </span>
+  </Styled.a>
 );

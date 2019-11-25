@@ -75,7 +75,7 @@
     - type: slide
       url: https://drive.google.com/file/d/0B3utoAAc1O8BQlZXVUhfSE50amZ4c1lld21adnBBQmhpc1dB/view?usp=sharing
 - id: concurrent-react
-  title: React Cocurrent Mode
+  title: React Concurrent Mode
   speaker: malcolm
   description: An overview of the next major React feature - Concurrent Mode. Understand how concurrent mode could improves user experience by unlocking new UI patterns that was not possible previously.
   materials:

@@ -241,9 +241,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
         seoImagePublicUrl: {
           type: 'String',
           resolve: source => {
-            return source.type === 'meetup'
-              ? `/og_image/${source.id}.png`
-              : null;
+            return `/og_image/${source.id}.png`;
           },
         },
       },

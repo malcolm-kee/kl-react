@@ -1,22 +1,27 @@
 /** @jsx jsx */
-import { Styled, jsx } from 'theme-ui';
+import { jsx, Styled } from 'theme-ui';
 
-export const Button = ({ disabled, ...props }) => (
+export const Button = ({ children, disabled, className, ...props }) => (
   <Styled.a
-    {...props}
     sx={{
       cursor: disabled ? 'default' : 'pointer',
-      display: 'inline-block',
       textDecoration: 'none',
       whiteSpace: 'nowrap',
+      display: 'inline-block',
       flex: 'none',
       fontWeight: 'bold',
-      px: 3,
-      py: 3,
       border: 0,
+      p: 0,
+      borderRadius: 4,
       color: disabled ? 'text' : 'background',
       bg: disabled ? 'background' : 'primary',
-      borderRadius: 4,
+      ':focus': {
+        outline: 'none',
+      },
+      ':focus > span': {
+        borderColor: `currentColor`,
+        boxShadow: theme => `0 0 0 3px ${theme.colors.primary}`,
+      },
       '&:hover': disabled
         ? {
             color: 'text',
@@ -26,5 +31,25 @@ export const Button = ({ disabled, ...props }) => (
             bg: 'secondary',
           },
     }}
-  />
+    tabIndex={0}
+    {...props}
+  >
+    <span
+      sx={{
+        display: 'inline-block',
+        p: theme => theme.space[3] - 3,
+        m: 0,
+        borderWidth: 3,
+        borderStyle: 'solid',
+        borderColor: 'transparent',
+        ':focus': {
+          outline: 'none',
+        },
+      }}
+      className={className}
+      tabIndex={-1}
+    >
+      {children}
+    </span>
+  </Styled.a>
 );

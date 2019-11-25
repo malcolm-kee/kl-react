@@ -19,7 +19,12 @@ export function useUpcomingEvent() {
         directions
         venueName
         info {
+          rsvpLink
           seoImagePublicUrl
+          type
+          instructor {
+            ...SpeakerCard
+          }
           schedule {
             time
             type
@@ -57,7 +62,8 @@ export function useUpcomingEvent() {
   return {
     name,
     dateTime,
-    link,
+    link: (info && info.rsvpLink) || link,
+    type: info && info.type,
     shouldClose,
     isFull,
     isRsvpOpen,
@@ -68,5 +74,6 @@ export function useUpcomingEvent() {
     },
     schedule: info && info.schedule,
     seoImage: info && info.seoImagePublicUrl,
+    instructors: info && info.instructor,
   };
 }

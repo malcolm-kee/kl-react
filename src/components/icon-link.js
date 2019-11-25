@@ -19,6 +19,7 @@ export const IconLink = ({ to, href = to, ...props }) => (
       '& > svg': {
         display: 'inline-block',
         verticalAlign: 'middle',
+        opacity: 0.7,
       },
     }}
   />
