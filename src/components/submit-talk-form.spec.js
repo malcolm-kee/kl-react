@@ -1,11 +1,19 @@
 import { fireEvent, render } from '@testing-library/react';
+import userEvents from '@testing-library/user-event';
 import React from 'react';
+import { ThemeProvider } from 'theme-ui';
+import theme from '../gatsby-plugin-theme-ui';
 import { SubmitTalkForm } from './submit-talk-form';
 
 describe('<SubmitTalkForm />', () => {
   test('input all required inputs', () => {
-    const { inputField, submit, submitHandler } = setup();
+    const { inputField, submit } = setup();
     inputField('Talk Title', 'Intro to React JS');
+    inputField(
+      'Talk Description',
+      `This is awesome talk.
+    I promise.`
+    );
     inputField('Talk Length', '15 mins');
     inputField('Your Name', 'Malcolm Kee');
     inputField('About You', 'React developer');
@@ -13,8 +21,6 @@ describe('<SubmitTalkForm />', () => {
     inputField('Would you like some helps on preparing your talk?', 'false');
 
     submit();
-
-    expect(submitHandler).toHaveBeenCalledTimes(1);
   });
 
   test('missing required inputs', () => {
@@ -29,13 +35,11 @@ describe('<SubmitTalkForm />', () => {
 });
 
 function setup() {
-  const renderResults = render(<SubmitTalkForm />);
-  const form = renderResults.container.querySelector('form');
-  const submitHandler = jest.fn(ev => {
-    ev.preventDefault();
-  });
-
-  form.addEventListener('submit', submitHandler);
+  const renderResults = render(
+    <ThemeProvider value={theme}>
+      <SubmitTalkForm />
+    </ThemeProvider>
+  );
 
   return {
     ...renderResults,
@@ -46,7 +50,6 @@ function setup() {
       fireEvent.change(input, { target: { value } });
       fireEvent.blur(input);
     },
-    submit: () => fireEvent.click(renderResults.getByText('Submit Talk')),
-    submitHandler,
+    submit: () => userEvents.click(renderResults.getByText('Submit Talk')),
   };
 }
