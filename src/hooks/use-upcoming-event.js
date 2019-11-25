@@ -22,9 +22,6 @@ export function useUpcomingEvent() {
           rsvpLink
           seoImagePublicUrl
           type
-          instructor {
-            ...SpeakerCard
-          }
           schedule {
             time
             type
@@ -36,6 +33,11 @@ export function useUpcomingEvent() {
                 ...SpeakerCard
               }
             }
+          }
+          description
+          takeaways
+          instructor {
+            ...SpeakerCard
           }
         }
       }
@@ -75,5 +77,7 @@ export function useUpcomingEvent() {
     schedule: info && info.schedule,
     seoImage: info && info.seoImagePublicUrl,
     instructors: info && info.instructor,
+    description: info && info.description,
+    takeaways: info && info.takeaways,
   };
 }
