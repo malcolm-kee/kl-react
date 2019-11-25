@@ -70,9 +70,10 @@
       }
 
       .instructor {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         margin-bottom: 8px;
+        margin-right: 8px;
       }
 
       .instructor-image {
@@ -80,6 +81,7 @@
         height: 148px;
         border: 8px solid var(--primary-color);
         border-radius: 90px;
+        position: relative;
       }
 
       .instructor-name {
@@ -96,12 +98,12 @@
       <p class="date-venue">{{dateTime}} @{{venue}}</p>
       <div class="instructors">
         {{#instructors}}
-        <p class="instructor">
+        <div class="instructor">
           <img class="instructor-image" src="{{image}}" />
           <span class="instructor-name">
             {{name}}
           </span>
-        </p>
+        </div>
         {{/instructors}}
       </div>
     </div>
