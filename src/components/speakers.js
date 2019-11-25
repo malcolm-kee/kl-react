@@ -13,7 +13,9 @@ export const Speakers = ({
 }) => (
   <Container>
     <SectionHeading>{title}</SectionHeading>
-    <p sx={{ textAlign: 'center', mt: 0 }}>in alphabetical order</p>
+    {speakers && speakers.length > 1 && (
+      <p sx={{ textAlign: 'center', mt: 0 }}>in alphabetical order</p>
+    )}
     {speakers && speakers.length > 0 ? (
       <FlexList
         sx={{

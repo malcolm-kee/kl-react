@@ -3,11 +3,11 @@ import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import { GitHub, Globe, Twitter } from 'react-feather';
 import { Flex, jsx, Styled } from 'theme-ui';
-import { isFilledArray } from '../lib';
+import { isFilledArray, pluralize } from '../lib';
 import { BackgroundImage } from './background-image';
+import { BulletedList } from './bulleted-list';
 import { Card } from './card';
 import { IconLink } from './icon-link';
-import { BulletedList } from './bulleted-list';
 import { SrOnly } from './sr-only';
 
 /**
@@ -128,8 +128,6 @@ export function SpeakerCard({
     </Card>
   );
 }
-
-const pluralize = (singular, count) => (count > 1 ? `${singular}s` : singular);
 
 export const query = graphql`
   fragment SpeakerCard on SpeakerYaml {
