@@ -28,11 +28,11 @@ export default function TalkPage({ data }) {
               <Styled.p sx={{ mb: 2 }}>{node.description}</Styled.p>
               <div sx={{ mb: 5 }}>
                 {node.materials &&
-                  node.materials.map(material => (
+                  node.materials.map((material, i) => (
                     <TalkMaterialIcons
                       type={material.type}
                       url={material.url}
-                      key={node.id}
+                      key={i}
                     />
                   ))}
               </div>

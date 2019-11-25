@@ -55,7 +55,7 @@ export function Header() {
       <Button
         as={Link}
         to="/submit-a-talk"
-        sx={{ ml: 2, display: ['none', 'inline-block'] }}
+        sx={{ display: ['none', 'inline-block'] }}
       >
         Submit a Talk
       </Button>
@@ -65,21 +65,35 @@ export function Header() {
           background: 'transparent',
           margin: '0 10px',
           color: 'text',
-          width: 36,
-          height: 36,
           border: 0,
-          borderRadius: '50%',
-          '&:focus': {
-            outline: 0,
+          ':focus': {
+            outline: 'none',
+          },
+          ':focus > span': {
             boxShadow: `0 0 4px 0 currentColor`,
           },
         }}
+        tabIndex={0}
         aria-label={isDark() ? `Activate light mode` : `Activate dark mode`}
         onClick={e => {
           setColorMode(colorMode === 'default' ? 'dark' : 'default');
         }}
       >
-        {colorMode === 'default' ? <Moon /> : <Sun />}
+        <span
+          sx={{
+            p: '6px',
+            width: 36,
+            height: 36,
+            borderRadius: '50%',
+            display: 'inline-block',
+            ':focus': {
+              outline: 'none',
+            },
+          }}
+          tabIndex={-1}
+        >
+          {colorMode === 'default' ? <Moon /> : <Sun />}
+        </span>
       </button>
     </>
   );
