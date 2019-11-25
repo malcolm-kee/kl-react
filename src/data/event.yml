@@ -5,6 +5,11 @@
   venue: ringgitplus
   instructor:
     - malcolm
+  description: Learn the Typescript fundamentals to make your React codebase more maintainable.
+  takeaways:
+    - TypeScript fundamentals required to use it in React
+    - How to slowly migrate your React codebase from JavaScript to TypeScript
+    - Common coding pattern when using TypeScript with React
   site: https://malcolmkee.com/typescript-for-react-developer
   icon: https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/react-typescript.png
 - id: nov-2019

@@ -12,7 +12,11 @@ export default function SpeakersPage({ data }) {
         description="Speakers that had given talk or workshop in KL React"
       />
       <Layout>
-        <Speakers speakers={data.allSpeakerYaml.nodes} showPastEvents />
+        <Speakers
+          speakers={data.allSpeakerYaml.nodes}
+          showPastEvents
+          titleTag="h1"
+        />
       </Layout>
     </>
   );

@@ -6,6 +6,7 @@ import { Layout } from '../components/layout';
 import { Schedule } from '../components/schedule';
 import { Seo } from '../components/seo';
 import { Speakers } from '../components/speakers';
+import { WorkshopSummary } from '../components/workshop-summary';
 import { useUpcomingEvent } from '../hooks/use-upcoming-event';
 import { pluralize } from '../lib';
 
@@ -67,6 +68,9 @@ export default function HomePage({ data }) {
           <div id="schedule" sx={{ py: 5 }}>
             <Schedule schedule={upcomingEventSchedule} speakersOnSamePage />
           </div>
+        )}
+        {upcomingEvent.type === 'workshop' && (
+          <WorkshopSummary upcomingEvent={upcomingEvent} />
         )}
         <div
           id="speakers"
