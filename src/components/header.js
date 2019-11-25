@@ -70,7 +70,7 @@ export function Header() {
             outline: 'none',
           },
           ':focus > span': {
-            boxShadow: `0 0 4px 0 currentColor`,
+            boxShadow: `0 0 0 2px currentColor`,
           },
         }}
         tabIndex={0}
