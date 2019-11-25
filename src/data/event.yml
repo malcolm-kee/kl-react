@@ -6,6 +6,7 @@
   instructor:
     - malcolm
   site: https://malcolmkee.com/typescript-for-react-developer
+  icon: https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/react-typescript.png
 - id: nov-2019
   type: meetup
   meetup: 266045344

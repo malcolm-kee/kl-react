@@ -11,25 +11,14 @@ This file is used for development for the SEO image generation only.
       {
         nodes: [
           {
-            title: 'KL React Meetup November: Talks & Clinic',
-            slug: 'g',
-            dateTime: 'Wed, 20 Nov 2019 7:00 PM',
-            venue: 'Suria Labs',
-            talks: [
+            title: 'TypeScript for React Developer',
+            slug: 'c',
+            dateTime: 'Sat, 14 Dec 2019 9:30 AM',
+            venue: 'RiggitPlus',
+            instructors: [
               {
-                title: 'Hidden Powers of Template Literals',
-                speakerImage: 'https://github.com/vijaypushkin.png',
-                speakerName: 'Vijay Pushkin',
-              },
-              {
-                title: 'Why I Hate React Hooks',
-                speakerImage: 'https://github.com/sergioutama.png',
-                speakerName: 'Sergio Utama',
-              },
-              {
-                title: 'React Concurrent Mode',
-                speakerImage: 'https://github.com/malcolm-kee.png',
-                speakerName: 'Malcolm Kee',
+                image: 'https://github.com/malcolm-kee.png',
+                name: 'Malcolm Kee',
               },
             ],
             icon:
@@ -39,7 +28,7 @@ This file is used for development for the SEO image generation only.
         reporter: console,
       },
       {
-        template: path.resolve(__dirname, 'og-image-template', 'meetup.html'),
+        template: path.resolve(__dirname, 'og-image-template', 'workshop.html'),
       }
     );
   } catch (e) {
