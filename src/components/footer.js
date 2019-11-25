@@ -78,6 +78,11 @@ export function Footer() {
               </NavLink>
             </li>
             <li sx={{ my: 1 }}>
+              <NavLink as="a" href="https://fb.me/klreact">
+                Facebook
+              </NavLink>
+            </li>
+            <li sx={{ my: 1 }}>
               <NavLink as="a" href="https://www.meetup.com/kl-react">
                 Meetup
               </NavLink>
