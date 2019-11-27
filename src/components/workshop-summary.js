@@ -1,18 +1,17 @@
 /** @jsx jsx */
 import { Container, jsx, Styled } from 'theme-ui';
+import { graphql } from 'gatsby';
 
-export function WorkshopSummary({ upcomingEvent }) {
+export function WorkshopSummary({ description, takeaways }) {
   return (
     <Container>
-      {upcomingEvent.description && (
-        <Styled.p sx={{ fontSize: 3 }}>{upcomingEvent.description}</Styled.p>
-      )}
-      {upcomingEvent.takeaways && (
+      {description && <Styled.p sx={{ fontSize: 3 }}>{description}</Styled.p>}
+      {takeaways && (
         <div>
           <Styled.h2>In this workshop, you will learn</Styled.h2>
           <div>
             <ul>
-              {upcomingEvent.takeaways.map((item, index) => (
+              {takeaways.map((item, index) => (
                 <li key={index}>
                   <Styled.p sx={{ fontSize: 3 }}>{item}</Styled.p>
                 </li>
@@ -24,3 +23,10 @@ export function WorkshopSummary({ upcomingEvent }) {
     </Container>
   );
 }
+
+export const query = graphql`
+  fragment WorkshopSummary on EventYaml {
+    description
+    takeaways
+  }
+`;

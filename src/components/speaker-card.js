@@ -117,7 +117,9 @@ export function SpeakerCard({
             {/* we only shows 3 workshops, remaining just a count */}
             {workshop.map((wshop, index) =>
               index <= 2 ? (
-                <li key={wshop.id}>{wshop.meetup.name}</li>
+                <li key={wshop.id}>
+                  <Link to={`/event/${wshop.id}`}>{wshop.meetup.name}</Link>
+                </li>
               ) : index === 3 ? (
                 <li key={wshop.id}>
                   And {workshop.length - 3} other{' '}

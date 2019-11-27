@@ -70,7 +70,7 @@ export default function HomePage({ data }) {
           </div>
         )}
         {upcomingEvent.type === 'workshop' && (
-          <WorkshopSummary upcomingEvent={upcomingEvent} />
+          <WorkshopSummary {...upcomingEvent} />
         )}
         <div
           id="speakers"

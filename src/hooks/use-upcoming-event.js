@@ -19,6 +19,7 @@ export function useUpcomingEvent() {
         directions
         venueName
         info {
+          ...WorkshopSummary
           rsvpLink
           seoImagePublicUrl
           type
@@ -34,8 +35,6 @@ export function useUpcomingEvent() {
               }
             }
           }
-          description
-          takeaways
           instructor {
             ...SpeakerCard
           }
