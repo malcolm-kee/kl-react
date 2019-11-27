@@ -37,7 +37,7 @@ export function EventCard({
   const isUpcoming = status === 'upcoming';
 
   return (
-    <Card {...props}>
+    <Card sx={{ px: 0 }} width={310} {...props}>
       <Styled.h3>
         <Link
           isExternal={!isMeetup}

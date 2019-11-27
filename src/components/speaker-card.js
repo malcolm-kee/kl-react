@@ -9,6 +9,7 @@ import { BulletedList } from './bulleted-list';
 import { Card } from './card';
 import { IconLink } from './icon-link';
 import { SrOnly } from './sr-only';
+import { Link } from './link';
 
 /**
  *
@@ -94,7 +95,9 @@ export function SpeakerCard({
             {/* we only shows 3 talks, remaining just a count */}
             {talk.map((t, index) =>
               index <= 2 ? (
-                <li key={t.id}>{t.title}</li>
+                <li key={t.id}>
+                  <Link to={`/talks#${t.id}`}>{t.title}</Link>
+                </li>
               ) : index === 3 ? (
                 <li key={t.id}>
                   And {talk.length - 3} other{' '}
