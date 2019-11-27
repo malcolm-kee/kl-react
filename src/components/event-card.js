@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby';
-import { ExternalLink } from 'react-feather';
 import { jsx, Styled } from 'theme-ui';
 import { Card } from './card';
 import { Link } from './link';
@@ -30,18 +29,17 @@ export function EventCard({
   status,
   link,
   dateTime,
-  isMeetup,
   info,
   ...props
 }) {
   const isUpcoming = status === 'upcoming';
 
   return (
-    <Card {...props}>
+    <Card sx={{ px: 0 }} width={310} {...props}>
       <Styled.h3>
         <Link
-          isExternal={!isMeetup}
-          to={isMeetup ? `/event/${info.id}` : link}
+          to={info ? `/event/${info.id}` : link}
+          isExternal={!info}
           sx={{
             color: 'inherit',
             textDecoration: 'none',
@@ -59,22 +57,6 @@ export function EventCard({
         <Styled.li>
           {dateTime} {venueName && `@${venueName}`}
         </Styled.li>
-        {info && info.site && (
-          <Styled.li>
-            <Link
-              href={info.site}
-              isExternal
-              sx={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                textDecoration: 'none',
-                color: '#555',
-              }}
-            >
-              Site <ExternalLink sx={{ ml: 1 }} />
-            </Link>
-          </Styled.li>
-        )}
       </Styled.ul>
     </Card>
   );
@@ -88,10 +70,8 @@ export const query = graphql`
     status
     link
     dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
-    isMeetup
     info {
       id
-      site
       instructor {
         name
       }

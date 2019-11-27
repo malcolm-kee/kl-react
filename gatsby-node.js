@@ -18,6 +18,12 @@ const meetupTemplate = path.resolve(
   'templates',
   'meetup-template.js'
 );
+const workshopTemplate = path.resolve(
+  __dirname,
+  'src',
+  'templates',
+  'workshop-template.js'
+);
 const reactOnTwitterTemplate = path.resolve(
   __dirname,
   'src',
@@ -31,9 +37,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const [result] = await Promise.all([
     graphql(`
       {
-        allEventYaml(filter: { type: { eq: "meetup" } }) {
+        allEventYaml {
           nodes {
             id
+            type
           }
         }
       }
@@ -46,14 +53,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  const meetups = result.data.allEventYaml.nodes;
-
-  meetups.forEach(meetup => {
+  result.data.allEventYaml.nodes.forEach(event => {
     createPage({
-      path: `/event/${meetup.id}`,
-      component: meetupTemplate,
+      path: `/event/${event.id}`,
+      component: event.type === 'meetup' ? meetupTemplate : workshopTemplate,
       context: {
-        id: meetup.id,
+        id: event.id,
       },
     });
   });

@@ -108,6 +108,7 @@
   instructor:
     - malcolm
   site: https://malcolmkee.com/fast-site-with-gatsby-js
+  description: Learn how to build blog with GatsbyJS, which automatically optimize your site to make it fast without sacrificing developer usability or accessibility.
 - id: how-to-react
   type: workshop
   meetup: 262361421
@@ -119,6 +120,11 @@
   instructor:
     - malcolm
   site: https://malcolmkee.com/js-the-react-parts
+  description: JavaScript fundamentals and concepts that are commonly used when developing in React.
+  takeaways:
+    - 'ES6 syntactic sugar: template string, destructuring, spread operator, arrow function'
+    - 'new JavaScript features: block scope declaration, Array methods, ES modules'
+    - 'advanced concepts in JavaScript: closure and functional programming'
 - id: intro-to-web-dev
   type: workshop
   meetup: 259839134
@@ -132,6 +138,7 @@
   instructor:
     - malcolm
   site: https://react-component-lib.netlify.com/14
+  description: Learn how to create a component library for your React projects with React styleguidist.
 - id: intro-to-react-v2
   type: workshop
   meetup: 258755070

@@ -1,30 +1,49 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby';
-import { ExternalLink } from 'react-feather';
+import { ExternalLink, BookOpen } from 'react-feather';
 import { Container, jsx, Styled } from 'theme-ui';
 import { Link } from './link';
 
-export const MeetupOverview = ({ name, dateTime, venueName, link }) => (
+export const MeetupOverview = ({ name, dateTime, venueName, link, info }) => (
   <div id="meetup-overview">
     <Container>
-      <Styled.h2 sx={{ color: 'secondary' }}>{name}</Styled.h2>
-      <Styled.p sx={{ my: 1, fontSize: [3, 4, 5] }}>{dateTime}</Styled.p>
+      <Styled.h1 sx={{ color: 'secondary', mb: 4 }}>{name}</Styled.h1>
+      <Styled.p sx={{ my: 1, fontSize: [3, 4] }}>{dateTime}</Styled.p>
       <Styled.p
         sx={{
-          fontSize: [3, 4, 5],
+          fontSize: [3, 4],
         }}
       >
         @{venueName}{' '}
       </Styled.p>
-      <Styled.p>
+      <Styled.p sx={{ display: 'flex', alignItems: 'center' }}>
         <Link
           to={link}
           isExternal
-          sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+          sx={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            mr: 4,
+            opacity: 0.9,
+          }}
         >
           Meetup.com
-          <ExternalLink sx={{ mx: 1 }} />
+          <ExternalLink sx={{ mx: 2 }} />
         </Link>
+        {info && info.site && (
+          <Link
+            to={info.site}
+            isExternal
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              opacity: 0.9,
+            }}
+          >
+            Material
+            <BookOpen sx={{ mx: 2 }} />
+          </Link>
+        )}
       </Styled.p>
     </Container>
   </div>
@@ -39,5 +58,8 @@ export const query = graphql`
     dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
     mapURL
     venueName
+    info {
+      site
+    }
   }
 `;
