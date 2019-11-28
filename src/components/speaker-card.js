@@ -59,7 +59,7 @@ export function SpeakerCard({
       </Styled.div>
       <Styled.p
         sx={{
-          mb: 3,
+          mb: 1,
           textAlign: 'justify',
           whiteSpace: 'pre-wrap',
         }}

@@ -4,7 +4,7 @@ import { jsx, Styled } from 'theme-ui';
 export const NavLink = ({ children, className, ...props }) => (
   <Styled.a
     sx={{
-      diplay: 'inline-block',
+      display: 'inline-flex',
       color: 'inherit',
       textDecoration: 'none',
       fontWeight: 'bold',
@@ -12,6 +12,8 @@ export const NavLink = ({ children, className, ...props }) => (
       flex: 'none',
       px: 3,
       py: 2,
+      justifyContent: 'center',
+      alignItems: 'center',
       '&[aria-current]': {
         color: 'primary',
       },

@@ -1,7 +1,5 @@
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { graphql, useStaticQuery } from 'gatsby';
-import Image from 'gatsby-image';
 import React from 'react';
 
 //#region CSS
@@ -26,6 +24,9 @@ const personStyle = css`
     border-radius: 50%;
     box-shadow: 50px 0px black;
     animation: blink 3s infinite;
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
   @keyframes blink {
     0%,
@@ -66,6 +67,9 @@ const doctorStyle = css`
     &::before {
       margin: -85px 57px;
       animation: up 3s infinite;
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
     }
     @keyframes up {
       0%,
@@ -104,6 +108,9 @@ const doctorStyle = css`
       margin: -11px -11px;
       border-radius: 50px;
       animation: pondering 3s infinite;
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
     }
     @keyframes pondering {
       0%,
@@ -126,6 +133,9 @@ const doctorStyle = css`
     margin: -120px -35px;
     transform: skewX(10deg);
     animation: handmove 3s infinite;
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
     &::before,
     &::after {
       content: '';
@@ -185,6 +195,9 @@ const doctorStyle = css`
       margin: 65px -74px;
       transform: skewY(-137deg);
       animation: stethomove 3s infinite;
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
     }
     @keyframes stethomove {
       0%,
@@ -218,6 +231,9 @@ const doctorStyle = css`
     border-radius: 50%;
     margin: -151px -75px;
     animation: scanning 3s infinite;
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
   @keyframes scanning {
     0%,
@@ -311,18 +327,6 @@ const Drawing = styled.div`
   place-items: center;
   margin-top: -70px;
   margin-bottom: 20px;
-  @media (prefers-reduced-motion: reduce) {
-    display: none;
-  }
-`;
-
-const FallbackWrapper = styled.div`
-  display: none;
-  @media (prefers-reduced-motion: reduce) {
-    display: block;
-    margin: 0 auto 24px;
-    max-width: 436px;
-  }
 `;
 //#endregion
 
@@ -342,43 +346,26 @@ const Person = ({ parts, doctor }) => {
 //#endregion
 
 export const ReactClinicDrawing = () => {
-  const imageData = useStaticQuery(graphql`
-    {
-      file(relativePath: { eq: "clinic.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 436) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
   return (
-    <>
-      <Drawing>
-        <Scene>
-          <Person parts={['head', 'eyes', 'body', 'arm-left']} />
-          <Laptop />
-          <Person parts={['thumb']} />
-          <Person
-            doctor
-            parts={[
-              'head',
-              'eyes',
-              'eyebrows',
-              'body',
-              'scan',
-              'arm-left',
-              'stethoscope',
-              'arm-right',
-            ]}
-          />
-        </Scene>
-      </Drawing>
-      <FallbackWrapper>
-        <Image fluid={imageData.file.childImageSharp.fluid} alt="" />
-      </FallbackWrapper>
-    </>
+    <Drawing>
+      <Scene>
+        <Person parts={['head', 'eyes', 'body', 'arm-left']} />
+        <Laptop />
+        <Person parts={['thumb']} />
+        <Person
+          doctor
+          parts={[
+            'head',
+            'eyes',
+            'eyebrows',
+            'body',
+            'scan',
+            'arm-left',
+            'stethoscope',
+            'arm-right',
+          ]}
+        />
+      </Scene>
+    </Drawing>
   );
 };

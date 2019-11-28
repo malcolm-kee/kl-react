@@ -36,21 +36,24 @@ export function Header() {
           sx={{
             mr: 2,
             my: -2,
+            display: 'inline-block',
           }}
         />
         {title}
       </NavLink>
       <div sx={{ mx: 'auto' }} />
       <DesktopOnly>
-        <NavLink as={Link} to="/events">
-          Events
-        </NavLink>
-        <NavLink as={Link} to="/speakers">
-          Speakers
-        </NavLink>
-        <NavLink as={Link} to="/talks">
-          Talks
-        </NavLink>
+        <span>
+          <NavLink as={Link} to="/events">
+            Events
+          </NavLink>
+          <NavLink as={Link} to="/speakers">
+            Speakers
+          </NavLink>
+          <NavLink as={Link} to="/talks">
+            Talks
+          </NavLink>
+        </span>
       </DesktopOnly>
       <Button
         as={Link}
@@ -64,8 +67,9 @@ export function Header() {
           cursor: 'pointer',
           background: 'transparent',
           margin: '0 10px',
-          color: 'text',
+          color: 'textLight',
           border: 0,
+          '-webkit-tap-highlight-color': 'transparent',
           ':focus': {
             outline: 'none',
           },
