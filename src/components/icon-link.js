@@ -11,7 +11,7 @@ export const IconLink = ({ to, href = to, ...props }) => (
       display: 'inline-block',
       p: 2,
       borderRadius: 8,
-      color: 'inherit',
+      color: 'textLight',
       textDecoration: 'none',
       '&:hover': {
         color: 'primary',
@@ -19,7 +19,6 @@ export const IconLink = ({ to, href = to, ...props }) => (
       '& > svg': {
         display: 'inline-block',
         verticalAlign: 'middle',
-        opacity: 0.7,
       },
     }}
   />

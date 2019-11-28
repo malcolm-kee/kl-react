@@ -21,8 +21,8 @@ export function Field({
         <label
           sx={{
             display: 'block',
-            fontSize: [2, 3, 3],
-            color: '#777',
+            fontSize: [1, 2],
+            color: 'textLight',
           }}
           htmlFor={id}
         >

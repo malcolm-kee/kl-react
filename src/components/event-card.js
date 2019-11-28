@@ -50,7 +50,7 @@ export function EventCard({
       </Styled.h3>
       <Styled.ul sx={{ listStyle: 'none', p: 0 }}>
         {info && info.instructor && (
-          <Styled.li sx={{ fontWeight: 'bold' }}>
+          <Styled.li sx={{ fontWeight: 'bold', color: 'textLight' }}>
             by {info.instructor.map(i => i.name).join(', ')}
           </Styled.li>
         )}

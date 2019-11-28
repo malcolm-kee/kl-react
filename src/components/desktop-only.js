@@ -9,6 +9,8 @@ export const DesktopOnly = props => {
       css: theme => ({
         [`@media screen and (max-width: ${theme.breakpoints[1]})`]: {
           display: 'none',
+          padding: 0,
+          margin: 0,
         },
       }),
     });
