@@ -69,7 +69,7 @@ export default function HomePage({ data }) {
             <Schedule schedule={upcomingEventSchedule} speakersOnSamePage />
           </div>
         )}
-        {upcomingEvent.type === 'workshop' && (
+        {upcomingEvent && upcomingEvent.type === 'workshop' && (
           <WorkshopSummary {...upcomingEvent} />
         )}
         <div
