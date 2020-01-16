@@ -25,7 +25,9 @@ export const Speakers = ({
       <SectionHeading as={titleTag}>{title}</SectionHeading>
     )}
     {speakers && speakers.length > 1 && (
-      <p sx={{ textAlign: 'center', mb: 5 }}>in alphabetical order</p>
+      <p sx={{ textAlign: 'center', mb: 5, color: 'textLight' }}>
+        /* in alphabetical order */
+      </p>
     )}
     {speakers && speakers.length > 0 ? (
       <FlexList

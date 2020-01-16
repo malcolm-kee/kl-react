@@ -83,3 +83,15 @@
       url: https://github.com/malcolm-kee/learn-react-suspense
     - type: demo
       url: https://react-suspense-pokemon.netlify.com/
+- id: code-from-swagger
+  title: Code Generation with Swagger
+  speaker: mohsen
+  description: Learn how to generate api calls code from Swagger for your React application.
+- id: prop-types
+  title: PropTypes
+  speaker: burhan
+  description: Usage, benefits and why need to use PropTypes
+- id: feb-tbc
+  title: (To Be Confirmed)
+  speaker: aymen
+  description: TBC
