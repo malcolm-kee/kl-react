@@ -96,17 +96,16 @@ export function ScheduleItem({ time, type, talk, desc, speakersOnSamePage }) {
             >
               {talk.title}
             </Styled.h4>
-            {talk.speaker && (
-              <Link
-                to={
-                  speakersOnSamePage
-                    ? `#${talk.speaker.id}`
-                    : `/speakers/#${talk.speaker.id}`
-                }
-              >
-                {talk.speaker.name}
-              </Link>
-            )}
+            {talk.speaker &&
+              (speakersOnSamePage ? (
+                <Styled.a href={`#${talk.speaker.id}`}>
+                  {talk.speaker.name}
+                </Styled.a>
+              ) : (
+                <Link to={`/speakers/#${talk.speaker.id}`}>
+                  {talk.speaker.name}
+                </Link>
+              ))}
           </div>
         ) : (
           <div sx={titleStyle}>

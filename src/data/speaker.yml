@@ -62,3 +62,13 @@
   github: vijaypushkin
   twitter: vijaypushkin
   website: https://vijaypushkin.me
+- id: mohsen
+  name: Mohsen Asle Zaim
+  bio: Existence precedes essence. Javascript developer, gamer, tech enthusiast and heavy metal fan, with sense of humor at core.
+  github: mohsenZaim
+  company: Jirnexu
+  twitter: MohsenZaim
+- id: burhan
+  name: Mohd Burhan
+  bio: Working as a Full stack Dev. Active in React Native and Laravel
+  github: burhan3759

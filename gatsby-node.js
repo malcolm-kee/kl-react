@@ -124,7 +124,11 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
     if (node.info) {
       if (node.isMeetup) {
         meetups.push({
-          title: node.name,
+          title: node.name.replace(
+            /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
+            ''
+          ),
+          // copied blindly 🤦‍♂️ from https://stackoverflow.com/questions/10992921/how-to-remove-emoji-code-using-javascript/41543705#41543705
           slug: node.info.id,
           dateTime: node.dateTime,
           venue: node.venueName,
