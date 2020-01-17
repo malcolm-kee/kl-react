@@ -4,18 +4,21 @@ import { jsx, Styled } from 'theme-ui';
 import { Card } from './card';
 import { Link } from './link';
 
-function UpcomingLabel() {
+function UpcomingLabel({ className }) {
   return (
     <span
       sx={{
+        display: 'inline-block',
         fontSize: '12px',
         lineHeight: 2,
         verticalAlign: 'top',
         borderRadius: 4,
         backgroundColor: 'accent',
         color: 'text',
-        p: 1,
+        px: 1,
+        my: 2,
       }}
+      className={className}
     >
       Upcoming
     </span>
@@ -36,7 +39,11 @@ export function EventCard({
 
   return (
     <Card sx={{ px: 0 }} width={310} {...props}>
-      <Styled.h3>
+      <Styled.h3
+        sx={{
+          mb: 2,
+        }}
+      >
         <Link
           to={info ? `/event/${info.id}` : link}
           isExternal={!info}

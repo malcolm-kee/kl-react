@@ -10,8 +10,6 @@ export const NavLink = ({ children, className, ...props }) => (
       fontWeight: 'bold',
       whiteSpace: 'nowrap',
       flex: 'none',
-      px: 3,
-      py: 2,
       justifyContent: 'center',
       alignItems: 'center',
       '&[aria-current]': {
@@ -33,6 +31,8 @@ export const NavLink = ({ children, className, ...props }) => (
       sx={{
         position: 'relative',
         display: 'inline-block',
+        px: 3,
+        py: 2,
         ':focus': {
           outline: 'none',
         },
