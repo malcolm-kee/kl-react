@@ -25,7 +25,7 @@ export function EventPage({ events }) {
               key={event.id}
               as="li"
               sx={{
-                my: 2,
+                my: 3,
                 pr: [2],
                 mr: [0, 2, 3],
                 flexGrow: 1,

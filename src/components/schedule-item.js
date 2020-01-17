@@ -2,7 +2,7 @@
 import { graphql } from 'gatsby';
 // eslint-disable-next-line
 import React from 'react';
-import { Coffee, Home, PlusSquare, Radio } from 'react-feather';
+import { Coffee, Home, PlusSquare, Radio, Info } from 'react-feather';
 import { Flex, jsx, Styled } from 'theme-ui';
 import { DesktopOnly } from './desktop-only';
 import { TalkMaterialIcons } from './talk-material-icons';
@@ -17,6 +17,7 @@ const scheduleTypeStyle = {
 
 const iconStyle = {
   mr: 1,
+  color: 'textLight',
 };
 
 const titleStyle = {
@@ -33,25 +34,24 @@ const descStyle = {
   textAlign: ['justify', 'left'],
 };
 
+const IconMap = {
+  food: { Component: Coffee, label: 'Food' },
+  announcement: { Component: Info, label: 'Shout out' },
+  home: { Component: Home, label: 'End' },
+  clinic: { Component: PlusSquare, label: 'React Clinic' },
+  news: { Component: Radio, label: 'This Month on React' },
+};
+
 function ScheduleTypeDisplay({ type }) {
-  const icon =
-    type === 'food' ? (
-      <Coffee sx={iconStyle} />
-    ) : type === 'announcement' ? (
-      <Radio sx={iconStyle} />
-    ) : type === 'home' ? (
-      <Home sx={iconStyle} />
-    ) : type === 'clinic' ? (
-      <PlusSquare sx={iconStyle} />
-    ) : null;
+  const Icon = IconMap[type];
 
   return (
     <div sx={titleStyle}>
-      {icon ? (
+      {Icon ? (
         <Styled.h4 sx={scheduleTypeStyle}>
-          {icon}{' '}
+          <Icon.Component sx={iconStyle} />{' '}
           <DesktopOnly>
-            <span>{type}</span>
+            <span>{Icon.label}</span>
           </DesktopOnly>
         </Styled.h4>
       ) : (
