@@ -17,8 +17,14 @@
       type: talk
       talk: feb-tbc
     - time: 9.00pm
-      type: wrap up
-      desc: Go home.
+      type: news
+      desc: News and Updates of React Ecosystem
+    - time: 9.15pm
+      type: announcement
+      desc: Company hiring or developer looking for opportunity
+    - time: 9.30pm
+      type: home
+      desc: Go home
 - id: typescript-for-react-developer
   type: workshop
   rsvpLink: https://www.facebook.com/events/2338556746456503/
@@ -48,7 +54,7 @@
       type: talk
       talk: concurrent-react
     - time: 9.00pm
-      type: wrap up
+      type: home
       desc: Go home.
 - id: oct-2019
   type: meetup
@@ -70,7 +76,7 @@
       type: talk
       talk: intro-to-ts-in-react
     - time: 9.30pm
-      type: wrap up
+      type: home
       desc: Go home.
 - id: sept-2019
   type: meetup
@@ -89,7 +95,7 @@
       type: talk
       talk: deploy-react-native-to-web
     - time: 9.30pm
-      type: wrap up
+      type: home
       desc: Nothing else to see here.
 - id: august-2019
   type: meetup
@@ -121,7 +127,7 @@
 
         You're welcome to give a shout-out if you're hiring or hosting an event. Each shout-out should not be longer than 2 minutes.
     - time: 9.30pm
-      type: wrap up
+      type: home
       desc: Nothing else to see here. Aren't you busy?
 - id: fast-site-with-gatsbyjs
   type: workshop
