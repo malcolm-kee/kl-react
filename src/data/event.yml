@@ -15,7 +15,7 @@
       talk: prop-types
     - time: 8.30pm
       type: talk
-      talk: feb-tbc
+      talk: additional-react-hooks
     - time: 9.00pm
       type: news
       desc: News and Updates of React Ecosystem

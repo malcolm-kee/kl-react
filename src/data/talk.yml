@@ -1,49 +1,31 @@
-- id: peeking-inside-react
-  title: 'Peeking inside React: The Background Magic'
-  speaker: abhishek
-  description: Looking into how react is rendered and what are the processes that they follow, VDom, Reconciliation, Memoization.
-  materials:
-    - type: slide
-      url: https://docs.google.com/presentation/d/1TcUEQYqkggdBamR2iYe6Y82Zfs63mkeoC-fgrDKKFlM/edit?usp=sharing
-- id: boost-dx-with-graphql
-  title: Boost your developer experience with GraphQL
-  speaker: yongshean
-  description: Managing data fetching and UI rendering logics when dealing with API calls are the most challenging and often frustrating for most developers. This talk presents the benefits that GraphQL offers for enhancing developer experience.
-  materials:
-    - type: slide
-      url: https://docs.google.com/presentation/d/18Jrz9drlAcPG-XrZ2AOtqB-wnELc0Wj9uJbMrcpWV8M/edit?usp=sharing
-- id: gatsby-mdx
-  title: Using MDX in Gatsby site
-  speaker: matt
-  description: Ever wanted to use React together with markdown in your projects? Now you can with gatsby-plugin-mdx. Write markdown for your pages while importing React components in the same file.
-  materials:
-    - type: repo
-      url: https://github.com/matt-writes-code/gatsby-plugin-mdx
-    - type: demo
-      url: https://gatsby-plugin-mdx.netlify.com/
-- id: why-the-hook
-  title: 'Why The Hook: Evolution of Stateful Logic Composition in React'
+- id: additional-react-hooks
+  title: Exploring React Additional Hooks
+  speaker: aymen
+  description: Learn when to use React additional hooks and how it can enhance your application performance and usability.
+- id: prop-types
+  title: PropTypes
+  speaker: burhan
+  description: Usage, benefits and why need to use PropTypes
+- id: code-from-swagger
+  title: Code Generation with Swagger
+  speaker: mohsen
+  description: Learn how to generate api calls code from Swagger for your React application.
+- id: concurrent-react
+  title: React Concurrent Mode
   speaker: malcolm
-  description: A brief history of how stateful logic in React evolved from mixin, to HOC/Render Props, and finally to hooks today. You would understand why hooks is a better patterns in React.
+  description: An overview of the next major React feature - Concurrent Mode. Understand how concurrent mode could improves user experience by unlocking new UI patterns that was not possible previously.
   materials:
     - type: repo
-      url: https://github.com/malcolm-kee/infinite-scroll-pokemon
+      url: https://github.com/malcolm-kee/learn-react-suspense
     - type: demo
-      url: https://pokemon-infinity.netlify.com
-- id: css-animations-in-react
-  title: Creating CSS Animations in React
-  speaker: wendy
-  description: CSS animations (when used correctly) can add life to your website and engage users. In this talk we will explore a simple animation built on pure CSS and HTML, and how to make the code cleaner and more extensible using React and Emotion.
+      url: https://react-suspense-pokemon.netlify.com/
+- id: template-literals
+  title: Hidden Powers of Template Literals
+  speaker: pushkin
+  description: "People usually think that backticks (` `) are yet another quote for strings. But that's much more to string literal in JavaScript than normal single and double quotes. I'll talk about how string literals can be used a in CSS in JS, Web Component and how `Literal Tag` functions works."
   materials:
     - type: slide
-      url: https://speakerdeck.com/wendko/creating-css-animations-in-react
-- id: deploy-react-native-to-web
-  title: Deploying React Native to Web
-  speaker: joel
-  description: With Expo you can deploy to iOS and Android with ease. Now you can use Expo for web as well 🤯
-  materials:
-    - type: slide
-      url: https://docs.google.com/presentation/d/1rMumju5l71WD7_xQ6M0W21MEC2AxvZMCEsr7IT09shg/edit
+      url: https://drive.google.com/file/d/0B3utoAAc1O8BQlZXVUhfSE50amZ4c1lld21adnBBQmhpc1dB/view?usp=sharing
 - id: why-css-in-js
   title: Why We Should Write CSS in JS
   speaker: azizi
@@ -67,31 +49,49 @@
       url: https://public-kyan.ayox.now.sh/
     - type: repo
       url: https://github.com/ayox/react-kl-productive-codebase
-- id: template-literals
-  title: Hidden Powers of Template Literals
-  speaker: pushkin
-  description: "People usually think that backticks (` `) are yet another quote for strings. But that's much more to string literal in JavaScript than normal single and double quotes. I'll talk about how string literals can be used a in CSS in JS, Web Component and how `Literal Tag` functions works."
+- id: css-animations-in-react
+  title: Creating CSS Animations in React
+  speaker: wendy
+  description: CSS animations (when used correctly) can add life to your website and engage users. In this talk we will explore a simple animation built on pure CSS and HTML, and how to make the code cleaner and more extensible using React and Emotion.
   materials:
     - type: slide
-      url: https://drive.google.com/file/d/0B3utoAAc1O8BQlZXVUhfSE50amZ4c1lld21adnBBQmhpc1dB/view?usp=sharing
-- id: concurrent-react
-  title: React Concurrent Mode
+      url: https://speakerdeck.com/wendko/creating-css-animations-in-react
+- id: deploy-react-native-to-web
+  title: Deploying React Native to Web
+  speaker: joel
+  description: With Expo you can deploy to iOS and Android with ease. Now you can use Expo for web as well 🤯
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/1rMumju5l71WD7_xQ6M0W21MEC2AxvZMCEsr7IT09shg/edit
+- id: why-the-hook
+  title: 'Why The Hook: Evolution of Stateful Logic Composition in React'
   speaker: malcolm
-  description: An overview of the next major React feature - Concurrent Mode. Understand how concurrent mode could improves user experience by unlocking new UI patterns that was not possible previously.
+  description: A brief history of how stateful logic in React evolved from mixin, to HOC/Render Props, and finally to hooks today. You would understand why hooks is a better patterns in React.
   materials:
     - type: repo
-      url: https://github.com/malcolm-kee/learn-react-suspense
+      url: https://github.com/malcolm-kee/infinite-scroll-pokemon
     - type: demo
-      url: https://react-suspense-pokemon.netlify.com/
-- id: code-from-swagger
-  title: Code Generation with Swagger
-  speaker: mohsen
-  description: Learn how to generate api calls code from Swagger for your React application.
-- id: prop-types
-  title: PropTypes
-  speaker: burhan
-  description: Usage, benefits and why need to use PropTypes
-- id: feb-tbc
-  title: (To Be Confirmed)
-  speaker: aymen
-  description: TBC
+      url: https://pokemon-infinity.netlify.com
+- id: gatsby-mdx
+  title: Using MDX in Gatsby site
+  speaker: matt
+  description: Ever wanted to use React together with markdown in your projects? Now you can with gatsby-plugin-mdx. Write markdown for your pages while importing React components in the same file.
+  materials:
+    - type: repo
+      url: https://github.com/matt-writes-code/gatsby-plugin-mdx
+    - type: demo
+      url: https://gatsby-plugin-mdx.netlify.com/
+- id: boost-dx-with-graphql
+  title: Boost your developer experience with GraphQL
+  speaker: yongshean
+  description: Managing data fetching and UI rendering logics when dealing with API calls are the most challenging and often frustrating for most developers. This talk presents the benefits that GraphQL offers for enhancing developer experience.
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/18Jrz9drlAcPG-XrZ2AOtqB-wnELc0Wj9uJbMrcpWV8M/edit?usp=sharing
+- id: peeking-inside-react
+  title: 'Peeking inside React: The Background Magic'
+  speaker: abhishek
+  description: Looking into how react is rendered and what are the processes that they follow, VDom, Reconciliation, Memoization.
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/1TcUEQYqkggdBamR2iYe6Y82Zfs63mkeoC-fgrDKKFlM/edit?usp=sharing
