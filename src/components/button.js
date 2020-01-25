@@ -1,8 +1,19 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui';
 
-export const Button = ({ children, disabled, className, ...props }) => (
+export const Button = ({
+  children,
+  disabled,
+  className,
+  href,
+  target = href && href[0] !== '/' ? '_BLANK' : undefined,
+  rel = target === '_BLANK' ? 'noopener noreferrer' : undefined,
+  ...props
+}) => (
   <Styled.a
+    href={href}
+    target={target}
+    rel={rel}
     sx={{
       cursor: disabled ? 'default' : 'pointer',
       textDecoration: 'none',

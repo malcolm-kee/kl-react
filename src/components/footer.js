@@ -15,11 +15,12 @@ export function Footer() {
       <Container sx={{ pb: 4, pt: 5 }}>
         <Flex
           sx={{
-            mx: -3,
+            flexDirection: ['column', 'row'],
+            justifyContent: 'space-between',
             flexWrap: 'wrap',
           }}
         >
-          <div sx={{ width: ['100%', 100 / 3 + '%'] }}>
+          <div>
             <List sx={{ my: [3, 1] }}>
               <li sx={{ my: -2 }}>
                 <NavLink as={Link} to="/events">
@@ -48,7 +49,7 @@ export function Footer() {
               </li>
             </List>
           </div>
-          <div sx={{ width: ['100%', 100 / 3 + '%'] }}>
+          <div>
             <List sx={{ my: [3, 1] }}>
               <li sx={{ my: -2 }}>
                 <NavLink as={Link} to="/submit-a-talk">
@@ -65,28 +66,29 @@ export function Footer() {
                   Contributing
                 </NavLink>
               </li>
-            </List>
-          </div>
-          <div sx={{ width: ['100%', 100 / 3 + '%'] }}>
-            <List sx={{ my: [3, 1] }}>
               <li sx={{ my: -2 }}>
                 <NavLink as={Link} to="/code-of-conduct">
                   Code of Conduct
                 </NavLink>
               </li>
+            </List>
+          </div>
+          <div>
+            <List sx={{ my: [3, 1] }}>
               <li sx={{ my: -2 }}>
-                <NavLink as="a" href="https://github.com/malcolm-kee/kl-react">
+                <NavLink href="https://github.com/malcolm-kee/kl-react">
                   GitHub
                 </NavLink>
               </li>
               <li sx={{ my: -2 }}>
-                <NavLink as="a" href="https://fb.me/klreact">
-                  Facebook
-                </NavLink>
+                <NavLink href="https://fb.me/klreact">Facebook</NavLink>
               </li>
               <li sx={{ my: -2 }}>
-                <NavLink as="a" href="https://www.meetup.com/kl-react">
-                  Meetup
+                <NavLink href="https://www.meetup.com/kl-react">Meetup</NavLink>
+              </li>
+              <li sx={{ my: -2 }}>
+                <NavLink as={Link} to="/resources">
+                  Resources
                 </NavLink>
               </li>
             </List>
@@ -96,6 +98,7 @@ export function Footer() {
           sx={{
             justifyContent: 'space-between',
             my: 4,
+            px: 3,
           }}
         >
           <small>Last build on {lastBuild}.</small>

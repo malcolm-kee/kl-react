@@ -58,7 +58,7 @@ export function Header() {
           <NavLink as={Link} to="/speakers">
             Speakers
           </NavLink>
-          <NavLink as={Link} to="/talks">
+          <NavLink as={Link} sx={{ mr: 2 }} to="/talks">
             Talks
           </NavLink>
         </span>

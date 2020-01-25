@@ -12,9 +12,7 @@ export function CTA() {
       }}
     >
       <Container>
-        <Button href="https://www.meetup.com/kl-react/?action=join">
-          Join Meetup
-        </Button>
+        <Button href="https://fb.me/klreact">Follow Us</Button>
       </Container>
     </div>
   );
