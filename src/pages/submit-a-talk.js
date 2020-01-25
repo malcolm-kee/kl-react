@@ -1,7 +1,8 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { Container, Styled } from 'theme-ui';
+import { Styled } from 'theme-ui';
 import { Aside } from '../components/aside';
+import { Article } from '../components/article';
 import { Layout } from '../components/layout';
 import { Seo } from '../components/seo';
 import { SubmitTalkForm } from '../components/submit-talk-form';
@@ -14,7 +15,7 @@ function SubmitATalk() {
         description="Submit a talk to speak at next React KL meetup"
       />
       <Layout>
-        <Container>
+        <Article>
           <Styled.h2 as="h1">Submit A Talk</Styled.h2>
           <Styled.p />
           <Styled.p>
@@ -41,7 +42,7 @@ function SubmitATalk() {
             </Styled.p>
           </Aside>
           <SubmitTalkForm />
-        </Container>
+        </Article>
       </Layout>
     </>
   );

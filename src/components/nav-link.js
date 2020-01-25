@@ -1,8 +1,18 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui';
 
-export const NavLink = ({ children, className, ...props }) => (
+export const NavLink = ({
+  children,
+  className,
+  href,
+  target = href && href[0] !== '/' ? '_BLANK' : undefined,
+  rel = target === '_BLANK' ? 'noopener noreferrer' : undefined,
+  ...props
+}) => (
   <Styled.a
+    href={href}
+    target={target}
+    rel={rel}
     sx={{
       display: 'inline-flex',
       color: 'inherit',

@@ -1,20 +1,21 @@
 /** @jsx jsx */
-import { Container, jsx, Styled } from 'theme-ui';
+import { jsx, Styled } from 'theme-ui';
+import { Article } from './article';
 import { Layout } from './layout';
 
 export const Note = ({ title, children }) => {
   return (
     <Layout>
-      <Container>
+      <Article>
         <Styled.h1
           sx={{
-            mb: [2, 3, 4],
+            my: [3, 4],
           }}
         >
           {title}
         </Styled.h1>
         {children}
-      </Container>
+      </Article>
     </Layout>
   );
 };

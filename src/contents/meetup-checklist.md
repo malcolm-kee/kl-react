@@ -25,8 +25,10 @@ title: Meetup Checklist
 
 ### Marketing
 
+1. Facebook event is created with date.
 1. Meetup event is created with date.
-   - Set RSVP start date to 2 weeks before event, as those RSVP so early probably just book the slot without proper consideration.
+   - Add agenda and link to the Facebook event.
+   - Set RSVP limit to 1 so only event creator (organizer) will be the attendee.
 
 ## 2 Weeks Before
 

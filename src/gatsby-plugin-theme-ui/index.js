@@ -11,6 +11,7 @@ const colors = {
   primary: '#33e',
   secondary: '#11a',
   accent: '#61dafb',
+  accentLight: '#EBF8FF',
   muted: '#9e9e9e',
   textLight: '#4A5568',
   modes: {
@@ -20,6 +21,7 @@ const colors = {
       primary: '#0fd7ba',
       secondary: '#40AF9F',
       accent: '#E89E56',
+      accentLight: '#7B341E',
       muted: 'hsla(230,20%,0%,20% )',
       textLight: '#CBD5E0',
     },
@@ -27,7 +29,8 @@ const colors = {
 };
 
 export default {
-  breakpoints: ['40em', '52em', '64em'],
+  breakpoints: ['40em', '52em', '64em', '72em'],
+  useColorSchemeMediaQuery: true,
   colors,
   fonts: {
     body: 'system-ui, sans-serif',
@@ -47,13 +50,13 @@ export default {
     h1: {
       ...heading,
       color: 'textLight',
-      fontSize: [5, 6, 7],
+      fontSize: [5, 6, 6, 7],
     },
     h2: {
       ...heading,
       color: 'textLight',
       pb: [3],
-      fontSize: [5, 6],
+      fontSize: [4, 5, 5, 6],
     },
     h3: {
       ...heading,
@@ -75,7 +78,7 @@ export default {
     a: {
       color: 'primary',
       textDecoration: 'none',
-      '-webkit-tap-highlight-color': 'transparent',
+      WebkitTapHighlightColor: 'transparent',
       '&:hover': {
         color: 'secondary',
       },

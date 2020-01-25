@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { Map, Navigation2 } from 'react-feather';
-import { Container, jsx, Styled } from 'theme-ui';
+import { jsx, Styled } from 'theme-ui';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 import { Button } from './button';
+import { Container } from './container';
 import { IconLink } from './icon-link';
 
 export function Banner({ upcomingEvent, ...props }) {
@@ -15,10 +16,13 @@ export function Banner({ upcomingEvent, ...props }) {
         py: [5, 6],
       }}
     >
-      <Container>
+      <Container
+        sx={{
+          py: 3,
+        }}
+      >
         <Styled.h1
           sx={{
-            fontSize: [5, 6, 7],
             m: 0,
             color: 'secondary',
           }}

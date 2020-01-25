@@ -54,6 +54,7 @@
 - id: aymen
   name: 'Aymen Al-Ashwal'
   bio: Senior developer at Nintex, I work primarily with JS and I love creating applications in React.
+  company: Nintex
   github: ayox
   twitter: Lashuel
 - id: pushkin

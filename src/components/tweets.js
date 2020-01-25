@@ -1,7 +1,8 @@
 /** @jsx jsx */
-import { useEffect, useCallback, useMemo, useReducer } from 'react';
-import { Container, jsx } from 'theme-ui';
+import { useCallback, useEffect, useMemo, useReducer } from 'react';
+import { jsx } from 'theme-ui';
 import { useInterval } from '../hooks/use-interval';
+import { Container } from './container';
 import { ProgressBar } from './progress-bar';
 import { Tweet } from './tweet';
 

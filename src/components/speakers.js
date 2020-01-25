@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { Link } from 'gatsby';
-import { Container, jsx, Styled } from 'theme-ui';
+import { jsx, Styled } from 'theme-ui';
+import { Container } from './container';
 import { FlexList } from './flex-list';
 import { SectionHeading } from './section-heading';
 import { SpeakerCard } from './speaker-card';
@@ -25,6 +26,7 @@ export const Speakers = ({
       <SectionHeading as={titleTag}>{title}</SectionHeading>
     )}
     {speakers && speakers.length > 1 && (
+      // eslint-disable-next-line react/jsx-no-comment-textnodes
       <p sx={{ textAlign: 'center', mb: 5, color: 'textLight' }}>
         /* in alphabetical order */
       </p>

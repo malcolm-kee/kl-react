@@ -1,6 +1,7 @@
 /** @jsx jsx */
-import { Container, jsx } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { Button } from './button';
+import { Container } from './container';
 
 export function CTA() {
   return (
@@ -11,9 +12,7 @@ export function CTA() {
       }}
     >
       <Container>
-        <Button href="https://www.meetup.com/kl-react/?action=join">
-          Join Meetup
-        </Button>
+        <Button href="https://fb.me/klreact">Follow Us</Button>
       </Container>
     </div>
   );

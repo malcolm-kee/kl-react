@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { Container, jsx, Styled } from 'theme-ui';
+import { jsx, Styled } from 'theme-ui';
+import { Container } from './container';
 import { EventCard } from './event-card';
 import { FlexList } from './flex-list';
 import { Layout } from './layout';
