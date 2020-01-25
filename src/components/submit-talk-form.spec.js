@@ -35,11 +35,15 @@ describe('<SubmitTalkForm />', () => {
 });
 
 function setup() {
-  const renderResults = render(
-    <ThemeProvider value={theme}>
-      <SubmitTalkForm />
-    </ThemeProvider>
-  );
+  function TestBed() {
+    return (
+      <ThemeProvider value={theme}>
+        <SubmitTalkForm onSubmit={ev => ev.preventDefault()} />
+      </ThemeProvider>
+    );
+  }
+
+  const renderResults = render(<TestBed />);
 
   return {
     ...renderResults,

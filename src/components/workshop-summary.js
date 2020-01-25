@@ -1,6 +1,7 @@
 /** @jsx jsx */
-import { Container, jsx, Styled } from 'theme-ui';
 import { graphql } from 'gatsby';
+import { jsx, Styled } from 'theme-ui';
+import { Container } from './container';
 
 export function WorkshopSummary({ description, takeaways }) {
   return (

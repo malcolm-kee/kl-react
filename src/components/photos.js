@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
-import { Container, jsx } from 'theme-ui';
+import { jsx } from 'theme-ui';
+import { Container } from './container';
 import { List } from './list';
 import { SectionHeading } from './section-heading';
 

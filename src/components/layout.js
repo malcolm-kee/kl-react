@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import { Global } from '@emotion/core';
-import * as UI from 'theme-ui';
 import { jsx } from 'theme-ui';
-import { Header } from './header';
 import { Footer } from './footer';
+import { Header } from './header';
 
 export const Layout = props => (
-  <UI.Layout
+  <div
     {...props}
     sx={{
       fontFamily: 'body',
@@ -25,24 +24,8 @@ export const Layout = props => (
         },
       }}
     />
-    <UI.Header
-      sx={{
-        alignItems: 'center',
-        px: 3,
-        py: 2,
-        overflowX: 'auto',
-      }}
-    >
-      <Header />
-    </UI.Header>
-    <UI.Main>{props.children}</UI.Main>
-    <UI.Footer
-      sx={{
-        pt: 3,
-        pb: 1,
-      }}
-    >
-      <Footer />
-    </UI.Footer>
-  </UI.Layout>
+    <Header />
+    <main>{props.children}</main>
+    <Footer />
+  </div>
 );

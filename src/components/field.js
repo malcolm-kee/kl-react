@@ -21,7 +21,7 @@ export function Field({
         <label
           sx={{
             display: 'block',
-            fontSize: [1, 2],
+            fontSize: [2, 3],
             color: 'textLight',
           }}
           htmlFor={id}
@@ -34,6 +34,7 @@ export function Field({
         <small
           sx={{
             fontSize: 1,
+            fontStyle: 'italic',
           }}
           id={`help-${id}`}
         >

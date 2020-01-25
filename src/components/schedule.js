@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { Container, jsx } from 'theme-ui';
+import { jsx } from 'theme-ui';
+import { Container } from './container';
 import { List } from './list';
 import { ScheduleItem } from './schedule-item';
 import { SectionHeading } from './section-heading';

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Styled } from 'theme-ui';
+import { Styled } from 'theme-ui';
+import { Container } from '../components/container';
 import { Layout } from '../components/layout';
 import { Seo } from '../components/seo';
 

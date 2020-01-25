@@ -1,11 +1,17 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby';
-import { ExternalLink, BookOpen } from 'react-feather';
-import { Container, jsx, Styled } from 'theme-ui';
+import { BookOpen, ExternalLink } from 'react-feather';
+import { jsx, Styled } from 'theme-ui';
+import { Container } from './container';
 import { Link } from './link';
 
 export const MeetupOverview = ({ name, dateTime, venueName, link, info }) => (
-  <div id="meetup-overview">
+  <div
+    id="meetup-overview"
+    sx={{
+      py: 6,
+    }}
+  >
     <Container>
       <Styled.h1 sx={{ color: 'secondary', mb: 4 }}>{name}</Styled.h1>
       <Styled.p sx={{ my: 1, fontSize: [3, 4] }}>{dateTime}</Styled.p>

@@ -1,6 +1,7 @@
 /** @jsx jsx */
-import { Container, jsx } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { Button } from './button';
+import { Container } from './container';
 
 export function CTA() {
   return (

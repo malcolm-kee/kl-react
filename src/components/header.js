@@ -17,7 +17,15 @@ export function Header() {
   const isDark = () => colorMode === 'dark';
 
   return (
-    <>
+    <header
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        px: 3,
+        py: 2,
+        overflowX: 'auto',
+      }}
+    >
       <NavLink
         sx={{
           display: 'inline-flex',
@@ -69,7 +77,7 @@ export function Header() {
           margin: '0 10px',
           color: 'textLight',
           border: 0,
-          '-webkit-tap-highlight-color': 'transparent',
+          WebkitTapHighlightColor: 'transparent',
           ':focus': {
             outline: 'none',
           },
@@ -99,6 +107,6 @@ export function Header() {
           {colorMode === 'default' ? <Moon /> : <Sun />}
         </span>
       </button>
-    </>
+    </header>
   );
 }
