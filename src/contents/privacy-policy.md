@@ -6,11 +6,11 @@ KL React operates the https://www.kl-react.com/ website, which provides the info
 
 This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to participate in our event.
 
-If you choose to participant our event, then you agree to the collection and use of information in relation with this policy. The Personal Information that we collect are used for providing and improving the meetup. We will not use or share your information with anyone except as described in this Privacy Policy.
+If you choose to participant in our event, you agree to the collection and use of information in relation with this policy. The Personal Information that we collect are used for providing and improving the meetup. We will not use or share your information with anyone except as described in this Privacy Policy.
 
 ## Information Collection and Use
 
-For a better experience while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to your name, phone number, and postal address. The information that we collect will be used to contact or identify you.
+For a better experience while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to your name, phone number, email, and postal address. The information that we collect will be used to contact or identify you. Personally identifiable information is commonly shared with third parties for administrative purposes including but not limited to building security registration and event attendance.
 
 ## Log Data
 
@@ -31,11 +31,11 @@ We may employ third-party companies and individuals due to the following reasons
 - To perform Service-related services; or
 - To assist us in analyzing how our Service is used.
 
-We want to inform our Service users that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
+We want to inform our Service users that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. Though we have an understanding of non-disclosure with service providers, we cannot guarantee full data protection after data has been shared with them. Care is taken to ensure that data shared is the minimal possible.
 
 ## Security
 
-We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
+We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security. Access permission for our working group is always kept at admin, restricted, closed, or equivalent.
 
 ## Links to Other Sites
 
