@@ -71,6 +71,11 @@ export function Footer() {
                   Code of Conduct
                 </NavLink>
               </li>
+              <li sx={{ my: -2 }}>
+                <NavLink as={Link} to="/privacy-policy">
+                  Privacy Policy
+                </NavLink>
+              </li>
             </List>
           </div>
           <div>
