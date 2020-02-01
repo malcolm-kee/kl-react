@@ -1,7 +1,7 @@
 - id: feb-2020
   type: meetup
   meetup: 267928159
-  facebook: 464091987860254
+  rsvpLink: https://www.facebook.com/events/464091987860254/
   venue: ringgitplus
   schedule:
     - time: 7.00pm
