@@ -1,6 +1,7 @@
 - id: matt
   name: Matthew Yong
-  bio: Matthew is working full time in an international bank as a business analyst for compliance services. He is currently learning to code React.
+  company: Hong Leong Bank
+  bio: Solution architect whose job has nothing to do with houses. Likes banking tech, loves coffee more.
   github: matt-writes-code
 - id: yongshean
   name: Yong Shean
