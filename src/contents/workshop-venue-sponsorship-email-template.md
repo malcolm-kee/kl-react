@@ -20,6 +20,6 @@ Equipment: A mic, projector, HDMI, whiteboard, and power sockets for members' la
 
 The workshop format will be classroom-like where members can sit comfortably with laptops opened. You're also welcomed to give a shout-out about your company.
 
-Here's a link to one of our previous events: https://www.kl-react.com/event/how-to-react
+Here's a link to one of our previous event: https://www.kl-react.com/event/how-to-react
 
 Looking forward to working with you. Thanks!
