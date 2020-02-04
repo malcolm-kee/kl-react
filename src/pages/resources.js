@@ -21,6 +21,16 @@ const Resources = () => (
               Meetup Checklist
             </NavLink>
           </li>
+          <li>
+            <NavLink as={Link} to="/meetup-venue-sponsorship-email-template">
+              Meetup Venue Sponsorship Email Template
+            </NavLink>
+          </li>
+          <li>
+            <NavLink as={Link} to="/workshop-venue-sponsorship-email-template">
+              Workshop Venue Sponsorship Email Template
+            </NavLink>
+          </li>
         </ul>
       </Article>
     </Layout>
