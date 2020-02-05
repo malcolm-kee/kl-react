@@ -73,4 +73,6 @@
 - id: burhan
   name: Mohd Burhan
   bio: Working as a Full stack Dev. Active in React Native and Laravel
+  image: 'https://kl-react-photos.s3.us-east-2.amazonaws.com/burhan.jpg'
   github: burhan3759
+  website: https://skolacode.github.io/
