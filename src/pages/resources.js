@@ -31,6 +31,11 @@ const Resources = () => (
               Workshop Venue Sponsorship Email Template
             </NavLink>
           </li>
+          <li>
+            <NavLink as={Link} to="/mc-event-order">
+              MC Event Order
+            </NavLink>
+          </li>
         </ul>
       </Article>
     </Layout>
