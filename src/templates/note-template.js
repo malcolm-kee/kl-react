@@ -2,24 +2,25 @@ import { MDXProvider } from '@mdx-js/react';
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
+import { Styled } from 'theme-ui';
 import { Note } from '../components/note';
 import { Seo } from '../components/seo';
 
 const MDXComponents = {
   a: ({ href, children, ...props }) =>
     href && href[0] === '/' ? (
-      <Link to={href} {...props}>
+      <Styled.a as={Link} to={href} {...props}>
         {children}
-      </Link>
+      </Styled.a>
     ) : (
-      <a
+      <Styled.a
         href={href}
         target={href[0] !== '#' ? '_BLANK' : undefined}
         rel={href[0] !== '#' ? 'noopener noreferrer' : undefined}
         {...props}
       >
         {children}
-      </a>
+      </Styled.a>
     ),
 };
 
