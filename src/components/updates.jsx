@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { Update } from './update';
-import { Container } from './container';
-import { SectionHeading } from './section-heading';
-import { List } from './list';
+import React from 'react';
 import { isFilledArray } from '../lib';
+import { List } from './list';
+import { SectionHeading } from './section-heading';
+import { Update } from './update';
 
 export const Updates = ({ updates, title }) => {
   if (!isFilledArray(updates)) {
@@ -12,7 +12,7 @@ export const Updates = ({ updates, title }) => {
   }
 
   return (
-    <Container sx={{ py: 4 }}>
+    <React.Fragment>
       {title && <SectionHeading>{title}</SectionHeading>}
       <div>
         <List>
@@ -23,6 +23,6 @@ export const Updates = ({ updates, title }) => {
           ))}
         </List>
       </div>
-    </Container>
+    </React.Fragment>
   );
 };

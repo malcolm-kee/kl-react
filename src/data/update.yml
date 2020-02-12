@@ -2,9 +2,9 @@
   description: >
     Yarn 2's rollout plan causes intense debates because its maintainers intends to mark Yarn v1 as "legacy" while v2 could not support many existing projects and libraries yet. 
 
-    The "legacy" tag concerns some developers because may cause confusions, especially new developers. Some suggest yarn v2 should not even name themselves as yarn2 as it's a brand new code build from scratch and there is no clear migration path at the moment. 
+    The "legacy" tag concerns some developers because it may cause confusions, especially new developers. Some even suggest yarn v2 should not name themselves as yarn2 as it's entire new code from scratch and there is no clear migration path at the moment. 
 
-    At the end, the maintainer decide to mark yarn v1 as "classic" and the website is now https://classic.yarnpkg.com for yarn1 while https://yarnpkg.com/ is used for yarn v2.
+    At the end, the maintainers decide to mark yarn v1 as "classic" and the website is now https://classic.yarnpkg.com for yarn1 while https://yarnpkg.com/ is used for yarn v2.
   meetupEvent: feb-2020
   links:
     - label: Announcement of Yarn 2 rollout

@@ -4,6 +4,7 @@ import { Layout } from '../components/layout';
 import { MeetupOverview } from '../components/meetup-overview';
 import { Schedule } from '../components/schedule';
 import { Seo } from '../components/seo';
+import { Container } from '../components/container';
 import { Photos } from '../components/photos';
 import { Updates } from '../components/updates';
 
@@ -25,7 +26,9 @@ const MeetupTemplate = ({ data, location }) => {
       <Layout>
         <MeetupOverview {...meetup} />
         <Schedule schedule={schedule} />
-        <Updates title="This Month on React" updates={updates} />
+        <Container py={4}>
+          <Updates title="This Month on React" updates={updates} />
+        </Container>
         <Photos photos={photos} />
       </Layout>
     </>
