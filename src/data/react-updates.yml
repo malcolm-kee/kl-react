@@ -1,0 +1,5 @@
+- title: Yarn v2 Rollout Causes Intense Debates
+  description: >
+    Yarn 2's rollout plan causes intense debates because its maintainers intends to mark Yarn v1 as "legacy" while it could not support many existing projects and libraries.
+    The "legacy" tag  which may cause some confusions to developers. Some opinions suggests yarn v2 should not even name themselves as yarn2 as it's totally different and there is no clear migration path at the moment. At the end, the maintainer decide to mark yarn v1 as "classic" and the website is now https://classic.yarnpkg.com for yarn1 while https://yarnpkg.com/ is used for yarn v2.
+  meetupEventId: feb-2020
