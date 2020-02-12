@@ -11,6 +11,9 @@
   title: PropTypes
   speaker: burhan
   description: Usage, benefits and why need to use PropTypes
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/1uYpLSEDWW23nMjrhYsRHnMYpPNJGrmxUV7pS9Y8jCSA/edit?usp=sharing
 - id: code-from-swagger
   title: Code Generation with Swagger
   speaker: mohsen

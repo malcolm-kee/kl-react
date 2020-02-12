@@ -1,19 +1,14 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { Article } from './article';
 import { Layout } from './layout';
+import { PageTitle } from './page-title';
 
 export const Note = ({ title, children }) => {
   return (
     <Layout>
       <Article>
-        <Styled.h1
-          sx={{
-            my: [3, 4],
-          }}
-        >
-          {title}
-        </Styled.h1>
+        <PageTitle>{title}</PageTitle>
         {children}
       </Article>
     </Layout>
