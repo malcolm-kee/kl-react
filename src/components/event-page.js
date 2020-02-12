@@ -11,7 +11,7 @@ export function EventPage({ events }) {
       <Container>
         <Styled.h1
           sx={{
-            mb: 5,
+            mb: [3, 5],
           }}
         >
           Events
@@ -27,8 +27,9 @@ export function EventPage({ events }) {
               as="li"
               sx={{
                 my: 3,
-                pr: [2],
-                mr: [0, 2, 3],
+                pr: 2,
+                pl: [2, 0],
+                mx: [0, 2, 3],
                 flexGrow: 1,
               }}
               {...event}

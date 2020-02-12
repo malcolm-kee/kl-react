@@ -1,8 +1,27 @@
-import { graphql } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
+import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import { Note } from '../components/note';
 import { Seo } from '../components/seo';
+
+const MDXComponents = {
+  a: ({ href, children, ...props }) =>
+    href && href[0] === '/' ? (
+      <Link to={href} {...props}>
+        {children}
+      </Link>
+    ) : (
+      <a
+        href={href}
+        target={href[0] !== '#' ? '_BLANK' : undefined}
+        rel={href[0] !== '#' ? 'noopener noreferrer' : undefined}
+        {...props}
+      >
+        {children}
+      </a>
+    ),
+};
 
 const NoteTemplate = ({ data, location }) => {
   const { frontmatter, body } = data.mdx;
@@ -12,10 +31,13 @@ const NoteTemplate = ({ data, location }) => {
       <Seo
         title={`${frontmatter.title} - React KL`}
         image={frontmatter.image && frontmatter.image.publicURL}
+        description={frontmatter.description}
         pathname={location.pathname}
       />
       <Note title={frontmatter.title}>
-        <MDXRenderer>{body}</MDXRenderer>
+        <MDXProvider components={MDXComponents}>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
       </Note>
     </>
   );

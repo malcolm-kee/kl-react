@@ -1,9 +1,10 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import { Styled } from 'theme-ui';
-import { Aside } from '../components/aside';
 import { Article } from '../components/article';
+import { Aside } from '../components/aside';
 import { Layout } from '../components/layout';
+import { PageTitle } from '../components/page-title';
 import { Seo } from '../components/seo';
 import { SubmitTalkForm } from '../components/submit-talk-form';
 
@@ -16,8 +17,7 @@ function SubmitATalk() {
       />
       <Layout>
         <Article>
-          <Styled.h2 as="h1">Submit A Talk</Styled.h2>
-          <Styled.p />
+          <PageTitle>Submit A Talk</PageTitle>
           <Styled.p>
             Register your interest to give a talk at React KL Meetup! If you
             doesn't want to give talk but interested to hear about a topic,{' '}
