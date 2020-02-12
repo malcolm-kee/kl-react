@@ -20,3 +20,22 @@ export function isFilledArray(array) {
  */
 export const pluralize = (singular, count) =>
   count > 1 ? `${singular}s` : singular;
+
+export const groupBy = (array, getKey) => {
+  if (!isFilledArray) {
+    return [];
+  }
+
+  const resultByKey = {};
+
+  array.forEach(item => {
+    const key = getKey(item);
+    if (resultByKey[key]) {
+      resultByKey[key].push(item);
+    } else {
+      resultByKey[key] = [item];
+    }
+  });
+
+  return Object.keys(resultByKey).map(key => [key, resultByKey[key]]);
+};

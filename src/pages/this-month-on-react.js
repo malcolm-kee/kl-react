@@ -5,9 +5,11 @@ import { Layout } from '../components/layout';
 import { PageTitle } from '../components/page-title';
 import { Seo } from '../components/seo';
 import { UpdatesForMeetup } from '../components/updates-for-meetup';
-import { isFilledArray } from '../lib';
+import { isFilledArray, groupBy } from '../lib';
 
 export default function ThisMonthOnReact({ data }) {
+  const groups = groupBy(data.allUpdateYaml.nodes, node => node.meetupEvent.id);
+
   return (
     <>
       <Seo
@@ -17,19 +19,19 @@ export default function ThisMonthOnReact({ data }) {
       <Layout>
         <Container>
           <PageTitle>This Month on React</PageTitle>
-          {data.allUpdateYaml.group.map(group => {
-            if (!isFilledArray(group.nodes)) {
+          {groups.map(([meetupId, updates]) => {
+            if (!isFilledArray(updates)) {
               return null;
             }
 
-            const meetupId = group.nodes[0].meetupEvent.id;
+            const meetupTitle = updates[0].meetupEvent.meetup.name;
 
             return (
               <UpdatesForMeetup
-                meetupTitle={group.meetupTitle}
+                meetupTitle={meetupTitle}
                 meetupId={meetupId}
-                updates={group.nodes}
-                key={group.meetupTitle}
+                updates={updates}
+                key={meetupId}
               />
             );
           })}
@@ -39,16 +41,22 @@ export default function ThisMonthOnReact({ data }) {
   );
 }
 
+// GraphQL groupBy somehow not working, manually group them as workaround for now
 export const pageQuery = graphql`
   query {
     allUpdateYaml {
-      group(field: meetupEvent___meetup___name) {
-        meetupTitle: fieldValue
-        nodes {
-          meetupEvent {
-            id
+      nodes {
+        title
+        description
+        links {
+          label
+          url
+        }
+        meetupEvent {
+          id
+          meetup {
+            name
           }
-          ...Update
         }
       }
     }
