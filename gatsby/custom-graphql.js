@@ -55,10 +55,15 @@ exports.createSchemaCustomization = function createSchemaCustomization({
       venue: VenueYaml @link 
       schedule: [EventYamlSchedule]
       instructor: [SpeakerYaml] @link
+      updates: [UpdateYaml] @link(by: "meetupEvent", from: "id")
     }
     
     type EventYamlSchedule {
         talk: TalkYaml @link
+    }
+
+    type UpdateYaml implements Node {
+      meetupEvent: EventYaml @link
     }
     `,
     `type TalkYaml implements Node {

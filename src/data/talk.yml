@@ -18,6 +18,9 @@
   title: Code Generation with Swagger
   speaker: mohsen
   description: Learn how to generate api calls code from Swagger for your React application.
+  materials:
+    - type: repo
+      url: https://github.com/swagger-api/swagger-codegen
 - id: concurrent-react
   title: React Concurrent Mode
   speaker: malcolm

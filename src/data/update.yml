@@ -1,0 +1,38 @@
+- title: Yarn v2 Rollout Causes Intense Debates
+  description: >
+    Yarn 2's rollout plan causes intense debates because its maintainers intends to mark Yarn v1 as "legacy" while v2 could not support many existing projects and libraries yet. 
+
+    The "legacy" tag concerns some developers because it may cause confusions, especially new developers. Some even suggest yarn v2 should not name themselves as yarn2 as it's entire new code from scratch and there is no clear migration path at the moment. 
+
+    At the end, the maintainers decide to mark yarn v1 as "classic" and the website is now https://classic.yarnpkg.com for yarn1 while https://yarnpkg.com/ is used for yarn v2.
+  meetupEvent: feb-2020
+  links:
+    - label: Announcement of Yarn 2 rollout
+      url: https://dev.to/arcanis/introducing-yarn-2-4eh1
+    - label: Debates on GitHub
+      url: https://github.com/yarnpkg/berry/issues/766
+- title: Learn JavaScript Mental Model from Dan Abromov
+  description: >
+    Dan Abromov (one of the core maintainers of React) had recently started a course, Just Javascript that teaches you the mental model for JavaScript. Highly recommended. You can signup at its website.
+  meetupEvent: feb-2020
+  links:
+    - label: Just JavaScript Website
+      url: https://justjavascript.com/
+- title: Cross Browsers E2E Testing Getting Easier
+  description: >
+    Microsoft had released a library, playwright that allows you to test in Webkit, Chromium, and Firefox. At the same time puppeteer and Cypress had just released a new version that supports testing on Firefox, in addition of Chrome.
+  meetupEvent: feb-2020
+  links:
+    - label: playwright repo
+      url: https://github.com/microsoft/playwright
+    - label: puppeteer repo
+      url: https://github.com/puppeteer/puppeteer
+    - label: Cypress website
+      url: https://www.cypress.io/
+- title: React Router v6 Beta Release
+  description: >
+    react-router releases v6 beta. Key features are relative link, nested routes, and suspense-ready navigate API.
+  meetupEvent: feb-2020
+  links:
+    - label: Release Note
+      url: https://github.com/ReactTraining/react-router/releases/tag/v6.0.0-alpha.0

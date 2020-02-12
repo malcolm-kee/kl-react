@@ -38,6 +38,11 @@ export function Footer() {
                 </NavLink>
               </li>
               <li sx={{ my: -2 }}>
+                <NavLink as={Link} to="/this-month-on-react">
+                  This Month on React
+                </NavLink>
+              </li>
+              <li sx={{ my: -2 }}>
                 <NavLink as={Link} to="/react-clinic">
                   React Clinic
                 </NavLink>
