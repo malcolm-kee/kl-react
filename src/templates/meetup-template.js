@@ -5,9 +5,16 @@ import { MeetupOverview } from '../components/meetup-overview';
 import { Schedule } from '../components/schedule';
 import { Seo } from '../components/seo';
 import { Photos } from '../components/photos';
+import { Updates } from '../components/updates';
 
 const MeetupTemplate = ({ data, location }) => {
-  const { schedule, meetup, photos, seoImagePublicUrl } = data.eventYaml;
+  const {
+    schedule,
+    meetup,
+    photos,
+    seoImagePublicUrl,
+    updates,
+  } = data.eventYaml;
   return (
     <>
       <Seo
@@ -18,6 +25,7 @@ const MeetupTemplate = ({ data, location }) => {
       <Layout>
         <MeetupOverview {...meetup} />
         <Schedule schedule={schedule} />
+        <Updates title="This Month on React" updates={updates} />
         <Photos photos={photos} />
       </Layout>
     </>
@@ -38,6 +46,9 @@ export const pageQuery = graphql`
       }
       photos {
         ...EventPhoto
+      }
+      updates {
+        ...Update
       }
     }
   }
