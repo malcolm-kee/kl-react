@@ -3,23 +3,15 @@ version: 2.0
 jobs:
   setup:
     docker:
-      - image: circleci/node:10.16.3 # the primary container, where your job's commands are run
+      - image: circleci/node:12.16.1
     steps:
-      - checkout # check out the code in the project directory
-
-      # Download and cache dependencies
+      - checkout
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "yarn.lock" }}
             - v1-dependencies-
 
       - run: yarn install
-      - run: cp yarn.lock yarn.lock.tmp
-      - run: yarn add puppeteer
-      - run: rm yarn.lock
-      - run: mv yarn.lock.tmp yarn.lock
-
-      # this yarn.lock copy and replace "hack" is to tie the cache after install puppeteer to yarn.lock file before install it
 
       - save_cache:
           paths:
@@ -28,7 +20,7 @@ jobs:
 
   lint:
     docker:
-      - image: circleci/node:10.16.3
+      - image: circleci/node:12.16.1
     steps:
       - checkout
       - restore_cache:
@@ -43,7 +35,7 @@ jobs:
 
   build:
     docker:
-      - image: circleci/node:10.16.3
+      - image: circleci/node:12.16.1
     steps:
       - checkout
       - restore_cache:
@@ -73,7 +65,7 @@ jobs:
 
   preview:
     docker:
-      - image: circleci/node:10.16.3
+      - image: circleci/node:12.16.1
     steps:
       - checkout
       - restore_cache:
@@ -93,7 +85,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/node:10.16.3
+      - image: circleci/node:12.16.1
     steps:
       - checkout
       - restore_cache:
@@ -109,7 +101,7 @@ jobs:
 
   test:
     docker:
-      - image: circleci/node:10.16.3
+      - image: circleci/node:12.16.1
     steps:
       - checkout
       - restore_cache:
