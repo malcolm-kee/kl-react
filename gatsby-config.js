@@ -33,6 +33,15 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve('./src/templates/note-template.js'),
         },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              withWebp: true,
+            },
+          },
+        ],
       },
     },
     `gatsby-plugin-catch-links`,
