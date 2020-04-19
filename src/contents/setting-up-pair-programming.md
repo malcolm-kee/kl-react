@@ -13,3 +13,7 @@ This guide shows you how to setup your VS Code to allows remote pair-programming
 1. Once the session started, the session link will already be copied which you can share to others. You can always click the Copy Collaboration Link button again to get the link.
 
    ![Get Share Link](get-share-link.png)
+
+1. Start audio call by clicking "Start audio call".
+
+   ![Start Audio Call](start-audio-call.png)
