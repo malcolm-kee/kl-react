@@ -38,11 +38,13 @@ export const Seo = ({
     }
   `);
 
+  const imagePath = largeImage || image || publicURL;
+
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
     url: `${siteUrl}${pathname || '/'}`,
-    image: `${siteUrl}${largeImage || image || publicURL}`,
+    image: imagePath[0] === '/' ? `${siteUrl}${imagePath}` : imagePath,
     keywords: keywords
       ? Array.isArray(keywords)
         ? keywords.join(',')

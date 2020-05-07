@@ -51,7 +51,7 @@ module.exports = {
         groupUrlName: 'kl-react',
         status: 'upcoming,past',
         desc: 'true',
-        fields: 'rsvp_rules',
+        fields: 'rsvp_rules,featured_photo',
       },
     },
     process.env.AWS_ACCESS_KEY && {

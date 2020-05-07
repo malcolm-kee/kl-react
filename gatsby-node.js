@@ -24,6 +24,12 @@ const workshopTemplate = path.resolve(
   'templates',
   'workshop-template.js'
 );
+const webcastTemplate = path.resolve(
+  __dirname,
+  'src',
+  'templates',
+  'webcast-template.js'
+);
 const reactOnTwitterTemplate = path.resolve(
   __dirname,
   'src',
@@ -53,10 +59,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  result.data.allEventYaml.nodes.forEach(event => {
+  result.data.allEventYaml.nodes.forEach((event) => {
     createPage({
       path: `/event/${event.id}`,
-      component: event.type === 'meetup' ? meetupTemplate : workshopTemplate,
+      component:
+        event.type === 'meetup'
+          ? meetupTemplate
+          : event.type === 'webcast'
+          ? webcastTemplate
+          : workshopTemplate,
       context: {
         id: event.id,
       },
@@ -120,7 +131,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
   const meetups = [];
   const workshops = [];
 
-  result.data.allMeetupEvent.nodes.forEach(node => {
+  result.data.allMeetupEvent.nodes.forEach((node) => {
     if (node.info) {
       if (node.isMeetup) {
         meetups.push({
@@ -133,8 +144,8 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
           dateTime: node.dateTime,
           venue: node.venueName,
           talks: node.info.schedule
-            .filter(s => s.type === 'talk')
-            .map(s => ({
+            .filter((s) => s.type === 'talk')
+            .map((s) => ({
               title: s.talk.title,
               speakerImage: s.talk.speaker.image,
               speakerName: s.talk.speaker.name,

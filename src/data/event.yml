@@ -1,3 +1,27 @@
+- id: jest-do-it
+  type: webcast
+  meetup: 270463527
+  instructor:
+    - malcolm
+  videoUrl: https://youtu.be/bfdjXfXs01w
+  description: Learn how to get started with JavaScript automated testing with Jest.
+  takeaways:
+    - how test runner and assertion works by write a simple version from scratch
+    - how to assert dynamic behavior using Mock function
+    - how to mock API calls or non-deterministic code using mock
+    - how to utilize snapshot testing effectively
+- id: testing-react
+  type: webcast
+  meetup: 270352991
+  instructor:
+    - malcolm
+  videoUrl: https://youtu.be/am84Dy8ADXE
+  description: Learn about how to write tests for your React application using Jest and React Testing Library.
+  takeaways:
+    - Test rendering logic of a React component
+    - Test how the component responds to user interaction
+    - Test asynchronous behavior of React component (API calls)
+    - Test Redux-connected React component
 - id: feb-2020
   type: meetup
   meetup: 267928159

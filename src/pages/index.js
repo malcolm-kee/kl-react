@@ -6,8 +6,10 @@ import { Layout } from '../components/layout';
 import { Schedule } from '../components/schedule';
 import { Seo } from '../components/seo';
 import { Speakers } from '../components/speakers';
+import { WebcastSummary } from '../components/webcast-summary';
 import { WorkshopSummary } from '../components/workshop-summary';
 import { useUpcomingEvent } from '../hooks/use-upcoming-event';
+import { VideoPlayer } from '../components/video-player';
 import { pluralize } from '../lib';
 
 const sortSpeaker = (a, b) => {
@@ -18,14 +20,14 @@ const sortSpeaker = (a, b) => {
 
 // we get last 3 meetups and extract speakers from them instead of retrieve from speaker list directly
 // so that we show speakers from most recent meetups
-const getSpeakersForMeetups = meetups => {
+const getSpeakersForMeetups = (meetups) => {
   const speakers = [];
 
   outer: for (let meetup of meetups) {
     for (let schedule of meetup.info.schedule) {
       if (schedule.type === 'talk') {
         if (
-          !speakers.some(speaker => speaker.id === schedule.talk.speaker.id)
+          !speakers.some((speaker) => speaker.id === schedule.talk.speaker.id)
         ) {
           speakers.push(schedule.talk.speaker);
           if (speakers.length >= 6) {
@@ -52,10 +54,10 @@ export default function HomePage({ data }) {
       : upcomingEventSchedule &&
         upcomingEventSchedule
           .filter(
-            item =>
+            (item) =>
               !!(item && item.type === 'talk' && item.talk && item.talk.speaker)
           )
-          .map(item => item.talk.speaker)
+          .map((item) => item.talk.speaker)
           .sort(sortSpeaker)
     : getSpeakersForMeetups(last3Meetups).sort(sortSpeaker);
 
@@ -69,30 +71,38 @@ export default function HomePage({ data }) {
             <Schedule schedule={upcomingEventSchedule} speakersOnSamePage />
           </div>
         )}
+        {upcomingEvent && upcomingEvent.videoUrl && (
+          <VideoPlayer url={upcomingEvent.videoUrl} />
+        )}
         {upcomingEvent && upcomingEvent.type === 'workshop' && (
           <WorkshopSummary {...upcomingEvent} />
         )}
-        <div
-          id="speakers"
-          sx={{
-            py: 5,
-          }}
-        >
-          <Speakers
-            title={
-              upcomingEvent
-                ? pluralize(
-                    upcomingEvent.type === 'workshop'
-                      ? 'Instructor'
-                      : 'Speaker',
-                    speakers.length
-                  )
-                : 'Recent Speakers'
-            }
-            speakers={speakers}
-            showMore
-          />
-        </div>
+        {upcomingEvent && upcomingEvent.type === 'webcast' && (
+          <WebcastSummary {...upcomingEvent} />
+        )}
+        {speakers && (
+          <div
+            id="speakers"
+            sx={{
+              py: 5,
+            }}
+          >
+            <Speakers
+              title={
+                upcomingEvent
+                  ? pluralize(
+                      upcomingEvent.type === 'workshop'
+                        ? 'Instructor'
+                        : 'Speaker',
+                      speakers.length
+                    )
+                  : 'Recent Speakers'
+              }
+              speakers={speakers}
+              showMore
+            />
+          </div>
+        )}
         <CTA />
       </Layout>
     </>

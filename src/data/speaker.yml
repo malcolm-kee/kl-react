@@ -6,6 +6,7 @@
 - id: yongshean
   name: Yong Shean
   bio: I love writing code, fascinate about trying new technologies and concepts, discuss and sharing knowledge with great people around. I'm passionate in making applications easily maintainable and fun to build.
+  github: yshean
   twitter: shin_chong
 - id: abhishek
   name: Abhishek Prasad
@@ -17,11 +18,9 @@
   name: Malcolm Kee
   image: https://github.com/malcolm-kee.png
   bio: >
-    A frontend engineer making web applications functional and accessible.
+    A software engineer making web applications functional and accessible.
 
     He conducted workshops to teach others on React and web development.
-
-    He is currently learning to play guitar. 🎸
   company: Topdanmark
   github: malcolm-kee
   twitter: Malcolm_Kee

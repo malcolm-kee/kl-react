@@ -10,8 +10,6 @@ function getSpeakerImageUrl(speakerNode) {
     ? speakerNode.image
     : speakerNode.github
     ? `https://github.com/${speakerNode.github}.png`
-    : speakerNode.twitter
-    ? `https://avatars.io/twitter/${speakerNode.twitter}/Large`
     : null;
 }
 
@@ -22,7 +20,7 @@ function getMeetupInfo(source, _, context) {
     return (
       context.nodeModel
         .getAllNodes({ type: 'EventYaml' })
-        .find(event => event.meetup === eventId) || null
+        .find((event) => event.meetup === eventId) || null
     );
   }
   return null;
@@ -37,11 +35,20 @@ function getMeetupVenue(source, _, context) {
         .getAllNodes({
           type: 'VenueYaml',
         })
-        .find(venue => venue.id === info.venue) || null
+        .find((venue) => venue.id === info.venue) || null
     );
   }
 
   return null;
+}
+
+function isMeetupMatchId(meetup, meetupId) {
+  if (!meetup.link) {
+    return false;
+  }
+  const match = /\/(\d+)\/$/.exec(meetup.link);
+  const eventId = match && Number(match[1]);
+  return eventId === meetupId;
 }
 
 exports.createSchemaCustomization = function createSchemaCustomization({
@@ -80,10 +87,10 @@ exports.createSchemaCustomization = function createSchemaCustomization({
               context.nodeModel
                 .getAllNodes({ type: 'EventYaml' })
                 .find(
-                  event =>
+                  (event) =>
                     Array.isArray(event.schedule) &&
                     event.schedule.some(
-                      sc => sc.type === 'talk' && sc.talk === source.id
+                      (sc) => sc.type === 'talk' && sc.talk === source.id
                     )
                 ) || null
             );
@@ -97,13 +104,13 @@ exports.createSchemaCustomization = function createSchemaCustomization({
       fields: {
         isFull: {
           type: 'Boolean',
-          resolve: source => {
+          resolve: (source) => {
             return source.rsvp_limit - source.yes_rsvp_count <= 0;
           },
         },
         isRsvpOpen: {
           type: 'Boolean',
-          resolve: source => {
+          resolve: (source) => {
             return (
               !source.rsvp_rules.closed &&
               (!source.rsvp_rules.open_time ||
@@ -113,7 +120,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
         },
         shouldClose: {
           type: 'Boolean',
-          resolve: source => {
+          resolve: (source) => {
             // hard-code to should close if it is full and less than 3 days (unless found a way to get it from Meetup API)
             if (source.rsvp_limit - source.yes_rsvp_count > 0) {
               return false;
@@ -122,7 +129,9 @@ exports.createSchemaCustomization = function createSchemaCustomization({
             const now = moment(new Date());
             const eventDate = moment(new Date(source.time));
 
-            return moment.duration(now.diff(eventDate)).asDays() > -3;
+            return source.is_online_event
+              ? now.isAfter(eventDate)
+              : moment.duration(now.diff(eventDate)).asDays() > -3;
           },
         },
         dateTime: {
@@ -130,7 +139,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
           extensions: {
             dateformat: {},
           },
-          resolve: source => new Date(source.time + source.utc_offset),
+          resolve: (source) => new Date(source.time + source.utc_offset),
         },
         info: {
           type: 'EventYaml',
@@ -188,7 +197,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
           resolve: (source, _, context) => {
             return context.nodeModel
               .getAllNodes({ type: 'TalkYaml' })
-              .filter(talk => talk.speaker === source.id);
+              .filter((talk) => talk.speaker === source.id);
           },
         },
         workshop: {
@@ -197,8 +206,20 @@ exports.createSchemaCustomization = function createSchemaCustomization({
             return context.nodeModel
               .getAllNodes({ type: 'EventYaml' })
               .filter(
-                event =>
-                  Array.isArray(event.instructor) &&
+                (event) =>
+                  event.type === 'workshop' &&
+                  event.instructor.includes(source.id)
+              );
+          },
+        },
+        webcast: {
+          type: '[EventYaml]',
+          resolve: (source, _, context) => {
+            return context.nodeModel
+              .getAllNodes({ type: 'EventYaml' })
+              .filter(
+                (event) =>
+                  event.type === 'webcast' &&
                   event.instructor.includes(source.id)
               );
           },
@@ -211,27 +232,17 @@ exports.createSchemaCustomization = function createSchemaCustomization({
       fields: {
         meetup: {
           type: 'MeetupEvent',
-          resolve: (source, _, context) => {
-            return (
-              context.nodeModel
-                .getAllNodes({ type: 'MeetupEvent' })
-                .find(meetup => {
-                  if (!meetup.link) {
-                    return false;
-                  }
-                  const match = /\/(\d+)\/$/.exec(meetup.link);
-                  const eventId = match && Number(match[1]);
-                  return eventId === source.meetup;
-                }) || null
-            );
-          },
+          resolve: (source, _, context) =>
+            context.nodeModel
+              .getAllNodes({ type: 'MeetupEvent' })
+              .find((meetup) => isMeetupMatchId(meetup, source.meetup)) || null,
         },
         photos: {
           type: '[S3ImageAsset]',
           resolve: (source, _, context) => {
             return context.nodeModel
               .getAllNodes({ type: 'S3ImageAsset' })
-              .filter(node => node.Key.split('_')[0] === source.id)
+              .filter((node) => node.Key.split('_')[0] === source.id)
               .sort((nodeA, nodeB) => {
                 if (nodeA.Key < nodeB.Key) {
                   return -1;
@@ -245,8 +256,17 @@ exports.createSchemaCustomization = function createSchemaCustomization({
         },
         seoImagePublicUrl: {
           type: 'String',
-          resolve: source => {
-            return `/og_image/${source.id}.png`;
+          resolve: function resolveSeoImage(source, _, context) {
+            const meetup = context.nodeModel
+              .getAllNodes({ type: 'MeetupEvent' })
+              .find((meetup) => isMeetupMatchId(meetup, source.meetup));
+
+            return source.type === 'webcast'
+              ? (meetup &&
+                  meetup.featured_photo &&
+                  meetup.featured_photo.highres_link) ||
+                  null
+              : `/og_image/${source.id}.png`;
           },
         },
       },
@@ -257,7 +277,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
       fields: {
         displayedText: {
           type: 'String',
-          resolve: source => {
+          resolve: (source) => {
             const oriText =
               source.full_text &&
               source.full_text.replace(/&gt;/g, '>').replace(/&amp;/g, '&');
@@ -275,7 +295,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
         },
         url: {
           type: 'String',
-          resolve: source =>
+          resolve: (source) =>
             `https://twitter.com/${source.user.screen_name}/status/${source.id_str}`,
         },
       },

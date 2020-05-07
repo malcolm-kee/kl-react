@@ -20,6 +20,8 @@ export function useUpcomingEvent() {
         venueName
         info {
           ...WorkshopSummary
+          ...WebcastSummary
+          videoUrl
           rsvpLink
           seoImagePublicUrl
           type
@@ -78,5 +80,6 @@ export function useUpcomingEvent() {
     instructors: info && info.instructor,
     description: info && info.description,
     takeaways: info && info.takeaways,
+    videoUrl: info && info.videoUrl,
   };
 }

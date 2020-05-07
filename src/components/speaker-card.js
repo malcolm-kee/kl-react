@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
-import { GitHub, Globe, Twitter } from 'react-feather';
+import { GitHub, Globe, Twitter, Mic } from 'react-feather';
 import { Flex, jsx, Styled } from 'theme-ui';
 import { isFilledArray, pluralize } from '../lib';
 import { BackgroundImage } from './background-image';
@@ -11,11 +11,6 @@ import { IconLink } from './icon-link';
 import { SrOnly } from './sr-only';
 import { Link } from './link';
 
-/**
- *
- * @param {Object} props
- * @param {boolean} showPastEvents should show previous talks and workshops in React KL
- */
 export function SpeakerCard({
   id,
   name,
@@ -28,6 +23,7 @@ export function SpeakerCard({
   website,
   talk,
   workshop,
+  webcast,
   showPastEvents,
   ...props
 }) {
@@ -43,8 +39,21 @@ export function SpeakerCard({
       >
         {imageFile ? (
           <Image fluid={imageFile.childImageSharp.fluid} />
-        ) : (
+        ) : image ? (
           <BackgroundImage src={image} />
+        ) : (
+          <div
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: 304,
+              height: 304,
+              color: 'textLight',
+            }}
+          >
+            <Mic width={100} height={100} />
+          </div>
         )}
       </div>
       <Styled.h3>{name}</Styled.h3>
@@ -108,6 +117,28 @@ export function SpeakerCard({
           </BulletedList>
         </div>
       )}
+      {showPastEvents && isFilledArray(webcast) && (
+        <div>
+          <Styled.h4 sx={{ pt: 2, pb: 1 }}>
+            {pluralize('Webcast', webcast.length)} in React KL
+          </Styled.h4>
+          <BulletedList>
+            {/* we only shows 3 webcasts, remaining just a count */}
+            {webcast.map((wshop, index) =>
+              index <= 2 ? (
+                <li key={wshop.id}>
+                  <Link to={`/event/${wshop.id}`}>{wshop.meetup.name}</Link>
+                </li>
+              ) : index === 3 ? (
+                <li key={wshop.id}>
+                  And {webcast.length - 3} other{' '}
+                  {pluralize('webcast', webcast.length - 3)}
+                </li>
+              ) : null
+            )}
+          </BulletedList>
+        </div>
+      )}
       {showPastEvents && isFilledArray(workshop) && (
         <div>
           <Styled.h4 sx={{ pt: 2, pb: 1 }}>
@@ -156,6 +187,12 @@ export const query = graphql`
       title
     }
     workshop {
+      id
+      meetup {
+        name
+      }
+    }
+    webcast {
       id
       meetup {
         name
