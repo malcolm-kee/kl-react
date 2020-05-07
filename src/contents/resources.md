@@ -10,3 +10,7 @@ description: Resources for organizers
 - [Workshop Venue Sponsorship Email Template](/workshop-venue-sponsorship-email-template)
 - [MC Event Order](/mc-event-order)
 - [How to Add Photos to kl-react.com](/how-to-add-photos)
+
+## Participants
+
+- [Setting Up VS Code for Pair Programming](/setting-up-pair-programming)

@@ -27,6 +27,7 @@ export const VideoPlayer = ({ className, ...props }) => {
             top: 0,
             left: 0,
           }}
+          controls
           {...props}
         />
       </div>

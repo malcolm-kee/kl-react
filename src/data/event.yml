@@ -22,6 +22,13 @@
     - Test how the component responds to user interaction
     - Test asynchronous behavior of React component (API calls)
     - Test Redux-connected React component
+- id: testing-benefits-and-costs
+  type: webcast
+  meetup: 270307163
+  instructor:
+    - malcolm
+  videoUrl: https://youtu.be/l1iyrIyWTcU
+  description: Short sharing about the benefits and costs of automated testing from perspective of developer
 - id: feb-2020
   type: meetup
   meetup: 267928159
