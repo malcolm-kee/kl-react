@@ -59,11 +59,15 @@ module.exports = {
       options:
         process.env.NODE_ENV === 'production'
           ? {
+              accessKeyId: process.env.AWS_ACCESS_KEY,
+              secretAccessKey: process.env.AWS_SECRET_ACCESS,
               bucketName: 'kl-react-photos',
               protocol: 'https',
               region: 'us-east-2',
             }
           : {
+              accessKeyId: process.env.AWS_ACCESS_KEY,
+              secretAccessKey: process.env.AWS_SECRET_ACCESS,
               bucketName: 'kl-react-meetup-dev',
               protocol: 'https',
               region: 'ap-southeast-1',
