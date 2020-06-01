@@ -51,6 +51,9 @@ function isMeetupMatchId(meetup, meetupId) {
   return eventId === meetupId;
 }
 
+/**
+ * @type {import('gatsby').GatsbyNode['createSchemaCustomization']}
+ */
 exports.createSchemaCustomization = function createSchemaCustomization({
   actions,
   schema,
@@ -317,6 +320,9 @@ exports.createSchemaCustomization = function createSchemaCustomization({
   createTypes(typeDefs);
 };
 
+/**
+ * @type {import('gatsby').GatsbyNode['createResolvers']}
+ */
 exports.createResolvers = function createResolvers({
   actions,
   cache,

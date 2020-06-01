@@ -1,18 +1,12 @@
 const path = require('path');
 
-const AWS = require('aws-sdk');
-
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-if (process.env.AWS_ACCESS_KEY) {
-  AWS.config.update({
-    accessKeyId: process.env.AWS_ACCESS_KEY,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS,
-  });
-}
-
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
 module.exports = {
   siteMetadata: {
     title: `KL React`,

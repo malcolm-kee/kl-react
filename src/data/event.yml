@@ -1,3 +1,16 @@
+- id: e2e-testing-using-cypress
+  type: webcast
+  meetup: 271015260
+  instructor:
+    - malcolm
+  videoUrl: https://youtu.be/_tY9wQ-pnSo
+  description: Learn how to get started with end-to-end testing using Cypress.
+  takeaways:
+    - install Cypress and write your first end-to-end test
+    - configure Cypress with helpful libraries
+    - extends Cypress with custom commands
+    - test file upload
+    - mock API calls
 - id: jest-do-it
   type: webcast
   meetup: 270463527

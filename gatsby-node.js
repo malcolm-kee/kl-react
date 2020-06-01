@@ -37,6 +37,9 @@ const reactOnTwitterTemplate = path.resolve(
   'react-on-twitter-template.js'
 );
 
+/**
+ * @type {import('gatsby').GatsbyNode['createPages']}
+ */
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
 
@@ -89,6 +92,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 };
 
+/**
+ * @type {import('gatsby').GatsbyNode['onPostBuild']}
+ */
 exports.onPostBuild = async ({ graphql, reporter }) => {
   reporter.info(`Start generating social media preview images`);
 
