@@ -85,9 +85,11 @@ export const Tweets = ({ tweets = [] }) => {
     ) : null;
 
   const setDelay = useCallback(
-    int => dispatch({ type: 'setInterval', payload: int }),
+    (int) => dispatch({ type: 'setInterval', payload: int }),
     []
   );
+
+  const displayedTweet = tweets[state.index];
 
   return (
     <div
@@ -99,11 +101,13 @@ export const Tweets = ({ tweets = [] }) => {
       <Container sx={{ py: 0 }}>
         {controls}
         <div>
-          {tweets
-            .filter((_, index) => index === state.index)
-            .map(tweet => (
-              <TweetItem setDelay={setDelay} {...tweet} key={tweet.id} />
-            ))}
+          {displayedTweet && (
+            <TweetItem
+              setDelay={setDelay}
+              {...displayedTweet}
+              key={displayedTweet.id}
+            />
+          )}
         </div>
       </Container>
       <ProgressBar
@@ -159,7 +163,6 @@ function TweetItem({ setDelay, displayedText, entities, ...props }) {
       {...props}
       entities={entities}
       displayedText={displayedText}
-      onVideoPlay={vidDuration => setDelay(vidDuration + 1000)}
       sx={{
         height: `calc(100vh - 220px)`,
       }}

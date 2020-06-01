@@ -1,18 +1,9 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby';
 import { jsx, Styled } from 'theme-ui';
-import { noop } from '../lib';
 import { Card } from './card';
 
-export function Tweet({
-  id,
-  displayedText,
-  entities,
-  user,
-  url,
-  onVideoPlay = noop,
-  ...props
-}) {
+export function Tweet({ displayedText, entities, user, url, ...props }) {
   return (
     <Card sx={{ position: 'relative' }} {...props}>
       <AuthorAvatar user={user} url={url} />
@@ -22,6 +13,8 @@ export function Tweet({
             sx={{
               fontSize: [2, 3, 4],
               whiteSpace: 'pre-wrap',
+              maxWidth: 720,
+              mx: 'auto',
               pr: '60px',
             }}
           >
@@ -73,30 +66,6 @@ export function Tweet({
                     )
                   );
 
-                case 'video':
-                  return (
-                    Array.isArray(medium.video && medium.video.variants) && (
-                      <video
-                        autoPlay
-                        muted
-                        onPlay={() => onVideoPlay(medium.video.duration_millis)}
-                        key={i}
-                        sx={{
-                          maxWidth: '100%',
-                          maxHeight: '100%',
-                        }}
-                      >
-                        {medium.video.variants.map((variant, i) => (
-                          <source
-                            src={variant.url}
-                            type={variant.content_type}
-                            key={i}
-                          />
-                        ))}
-                      </video>
-                    )
-                  );
-
                 default:
                   return null;
               }
@@ -117,14 +86,6 @@ export const query = graphql`
         type
         url: media_url_https
         alt: ext_alt_text
-        video: video_info {
-          duration_millis
-          variants {
-            url
-            content_type
-            bitrate
-          }
-        }
       }
     }
     user {
