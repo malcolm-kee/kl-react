@@ -1,6 +1,6 @@
 # kl-react
 
-[![CircleCI Status](https://circleci.com/gh/malcolm-kee/kl-react/tree/master.svg?style=svg)](https://circleci.com/gh/malcolm-kee/kl-react/tree/master)
+![Build Site and Deploy](https://github.com/malcolm-kee/kl-react/workflows/Build%20Site%20and%20Deploy/badge.svg?branch=master)
 
 Repo for website of [KL React Meetup][kl-react-meetup].
 
