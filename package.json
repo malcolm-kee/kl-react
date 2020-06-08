@@ -9,9 +9,7 @@
     "clean": "gatsby clean",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "eslint src",
-    "deploy:preview": "netlify deploy --dir=public",
-    "deploy": "netlify deploy --dir=public --prod"
+    "lint": "eslint src"
   },
   "dependencies": {
     "@emotion/styled": "^10.0.17",
@@ -58,7 +56,6 @@
     "jest-junit": "^10.0.0",
     "jest-junit-reporter": "^1.1.0",
     "mustache": "^4.0.0",
-    "netlify-cli": "^2.15.0",
     "puppeteer": "^3.2.0"
   }
 }

@@ -11,5 +11,6 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: ``,
   },
+  collectCoverageFrom: ['<rootDir>/src/**/*.{js,jsx,ts,tsx}'],
   setupFiles: [`<rootDir>/loadershim.js`],
 };
