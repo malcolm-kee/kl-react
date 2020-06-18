@@ -1,3 +1,17 @@
+- id: june-2020
+  type: webcast
+  meetup: 271372247
+  videoUrl: https://youtu.be/_dGwqpk8434
+  schedule:
+    - time: 8.30pm
+      type: talk
+      talk: accessibility-first
+    - time: 9.10pm
+      type: talk
+      talk: effective-typescript
+    - time: 9.50pm
+      type: news
+      desc: News and Updates of React Ecosystem
 - id: e2e-testing-using-cypress
   type: webcast
   meetup: 271015260

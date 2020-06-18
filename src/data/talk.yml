@@ -1,3 +1,11 @@
+- id: accessibility-first
+  title: Accessibility First
+  speaker: abhishek
+  description: Looking into how we can design websites for people with physical disabilities, situational disabilities, and socio-economic restrictions. Thereby, taking care of the entire spectrum of our users.
+- id: effective-typescript
+  title: 'Effective TypeScript: 7 Ways to Improve Your TypeScript'
+  speaker: malcolm
+  description: TypeScript is getting traction in recent years as it provides type safety to the dynamic JavaScript without causing runtime overhead. However, as TypeScript keep evolving, the yesterday best practices may becomes obsolete and should be replaced with something more idiomatic and powerful features. This talk will covers 7 concrete and actionable tips to improve your TypeScript code.
 - id: additional-react-hooks
   title: Exploring React Additional Hooks
   speaker: aymen

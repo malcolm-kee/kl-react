@@ -223,6 +223,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
               .filter(
                 (event) =>
                   event.type === 'webcast' &&
+                  Array.isArray(event.instructor) &&
                   event.instructor.includes(source.id)
               );
           },
@@ -264,12 +265,14 @@ exports.createSchemaCustomization = function createSchemaCustomization({
               .getAllNodes({ type: 'MeetupEvent' })
               .find((meetup) => isMeetupMatchId(meetup, source.meetup));
 
+            const generatedImage = `/og_image/${source.id}.png`;
+
             return source.type === 'webcast'
               ? (meetup &&
                   meetup.featured_photo &&
                   meetup.featured_photo.highres_link) ||
-                  null
-              : `/og_image/${source.id}.png`;
+                  generatedImage
+              : generatedImage;
           },
         },
       },
