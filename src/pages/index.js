@@ -67,7 +67,7 @@ export default function HomePage({ data }) {
       <Layout>
         <Banner upcomingEvent={upcomingEvent} />
         {upcomingEventSchedule && (
-          <div id="schedule" sx={{ py: 5 }}>
+          <div id="schedule">
             <Schedule schedule={upcomingEventSchedule} speakersOnSamePage />
           </div>
         )}

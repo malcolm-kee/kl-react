@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Layout } from '../components/layout';
 import { MeetupOverview } from '../components/meetup-overview';
 import { Seo } from '../components/seo';
+import { Schedule } from '../components/schedule';
 import { Speakers } from '../components/speakers';
 import { VideoPlayer } from '../components/video-player';
 import { WebcastSummary } from '../components/webcast-summary';
@@ -15,6 +16,7 @@ const WebcastTemplate = ({ data, location }) => {
     seoImagePublicUrl,
     videoUrl,
     instructor,
+    schedule,
   } = data.eventYaml;
   return (
     <>
@@ -28,10 +30,13 @@ const WebcastTemplate = ({ data, location }) => {
         <MeetupOverview {...meetup} />
         <VideoPlayer url={videoUrl} />
         <WebcastSummary {...data.eventYaml} />
-        <Speakers
-          title={pluralize('Instructor', instructor.length)}
-          speakers={instructor}
-        />
+        {instructor && (
+          <Speakers
+            title={pluralize('Instructor', instructor.length)}
+            speakers={instructor}
+          />
+        )}
+        {schedule && <Schedule schedule={schedule} />}
       </Layout>
     </>
   );
@@ -46,6 +51,18 @@ export const pageQuery = graphql`
       videoUrl
       instructor {
         ...SpeakerCard
+      }
+      schedule {
+        time
+        type
+        desc
+        talk {
+          title
+          description
+          speaker {
+            ...SpeakerCard
+          }
+        }
       }
       seoImagePublicUrl
       meetup {
