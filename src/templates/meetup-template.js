@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import * as React from 'react';
 import { Layout } from '../components/layout';
 import { MeetupOverview } from '../components/meetup-overview';
 import { Schedule } from '../components/schedule';
@@ -7,6 +7,7 @@ import { Seo } from '../components/seo';
 import { Container } from '../components/container';
 import { Photos } from '../components/photos';
 import { Updates } from '../components/updates';
+import { VideoPlayer } from '../components/video-player';
 
 const MeetupTemplate = ({ data, location }) => {
   const {
@@ -15,6 +16,7 @@ const MeetupTemplate = ({ data, location }) => {
     photos,
     seoImagePublicUrl,
     updates,
+    videoUrl,
   } = data.eventYaml;
   return (
     <>
@@ -25,6 +27,7 @@ const MeetupTemplate = ({ data, location }) => {
       />
       <Layout>
         <MeetupOverview {...meetup} />
+        {videoUrl && <VideoPlayer url={videoUrl} />}
         <Schedule schedule={schedule} />
         <Container py={4}>
           <Updates title="This Month on React" updates={updates} />
@@ -41,6 +44,7 @@ export const pageQuery = graphql`
   query MeetupById($id: String!) {
     eventYaml(id: { eq: $id }) {
       seoImagePublicUrl
+      videoUrl
       meetup {
         ...MeetupOverview
       }
