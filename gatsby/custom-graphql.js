@@ -65,7 +65,6 @@ exports.createSchemaCustomization = function createSchemaCustomization({
       venue: VenueYaml @link 
       schedule: [EventYamlSchedule]
       instructor: [SpeakerYaml] @link
-      updates: [UpdateYaml] @link(by: "meetupEvent", from: "id")
     }
     
     type EventYamlSchedule {
@@ -73,7 +72,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
     }
 
     type UpdateYaml implements Node {
-      meetupEvent: EventYaml @link
+      meetupEvent: EventYaml @link(by: "name")
     }
     `,
     `type TalkYaml implements Node {
@@ -273,6 +272,14 @@ exports.createSchemaCustomization = function createSchemaCustomization({
                   meetup.featured_photo.highres_link) ||
                   generatedImage
               : generatedImage;
+          },
+        },
+        updates: {
+          type: '[UpdateYaml]',
+          resolve: function resolveEventUpdates(source, _, context) {
+            return context.nodeModel
+              .getAllNodes({ type: 'UpdateYaml' })
+              .filter((updateYaml) => updateYaml.meetupEvent === source.name);
           },
         },
       },

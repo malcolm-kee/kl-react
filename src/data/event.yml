@@ -1,4 +1,4 @@
-- id: june-2020
+- name: june-2020
   type: meetup
   meetup: 271372247
   videoUrl: https://youtu.be/_dGwqpk8434
@@ -12,7 +12,12 @@
     - time: 9.50pm
       type: news
       desc: News and Updates of React Ecosystem
-- id: e2e-testing-using-cypress
+  links:
+    - url: https://bxjs.dev/
+      label: BxJS
+    - url: https://overreacted.io/
+      label: Overreacted - personal blog by Dan Abramov
+- name: e2e-testing-using-cypress
   type: webcast
   meetup: 271015260
   instructor:
@@ -25,7 +30,7 @@
     - extends Cypress with custom commands
     - test file upload
     - mock API calls
-- id: jest-do-it
+- name: jest-do-it
   type: webcast
   meetup: 270463527
   instructor:
@@ -37,7 +42,7 @@
     - how to assert dynamic behavior using Mock function
     - how to mock API calls or non-deterministic code using mock
     - how to utilize snapshot testing effectively
-- id: testing-react
+- name: testing-react
   type: webcast
   meetup: 270352991
   instructor:
@@ -49,14 +54,14 @@
     - Test how the component responds to user interaction
     - Test asynchronous behavior of React component (API calls)
     - Test Redux-connected React component
-- id: testing-benefits-and-costs
+- name: testing-benefits-and-costs
   type: webcast
   meetup: 270307163
   instructor:
     - malcolm
   videoUrl: https://youtu.be/l1iyrIyWTcU
   description: Short sharing about the benefits and costs of automated testing from perspective of developer
-- id: feb-2020
+- name: feb-2020
   type: meetup
   meetup: 267928159
   rsvpLink: https://www.facebook.com/events/464091987860254/
@@ -83,7 +88,7 @@
     - time: 9.30pm
       type: home
       desc: Go home
-- id: typescript-for-react-developer
+- name: typescript-for-react-developer
   type: workshop
   rsvpLink: https://www.facebook.com/events/2338556746456503/
   meetup: 266720026
@@ -97,7 +102,7 @@
     - Common coding pattern when using TypeScript with React
   site: https://malcolmkee.com/typescript-for-react-developer
   icon: https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/react-typescript.png
-- id: nov-2019
+- name: nov-2019
   type: meetup
   meetup: 266045344
   venue: surialab
@@ -114,7 +119,7 @@
     - time: 9.00pm
       type: home
       desc: Go home.
-- id: oct-2019
+- name: oct-2019
   type: meetup
   meetup: 265309818
   venue: supahands
@@ -136,7 +141,7 @@
     - time: 9.30pm
       type: home
       desc: Go home.
-- id: sept-2019
+- name: sept-2019
   type: meetup
   meetup: 264208460
   venue: fave
@@ -155,7 +160,7 @@
     - time: 9.30pm
       type: home
       desc: Nothing else to see here.
-- id: august-2019
+- name: august-2019
   type: meetup
   meetup: 263797889
   venue: inscale
@@ -187,19 +192,19 @@
     - time: 9.30pm
       type: home
       desc: Nothing else to see here. Aren't you busy?
-- id: fast-site-with-gatsbyjs
+- name: fast-site-with-gatsbyjs
   type: workshop
   meetup: 261886708
   instructor:
     - malcolm
   site: https://malcolmkee.com/fast-site-with-gatsby-js
   description: Learn how to build blog with GatsbyJS, which automatically optimize your site to make it fast without sacrificing developer usability or accessibility.
-- id: how-to-react
+- name: how-to-react
   type: workshop
   meetup: 262361421
   instructor:
     - malcolm
-- id: js-the-react-parts
+- name: js-the-react-parts
   type: workshop
   meetup: 261500896
   instructor:
@@ -210,27 +215,27 @@
     - 'ES6 syntactic sugar: template string, destructuring, spread operator, arrow function'
     - 'new JavaScript features: block scope declaration, Array methods, ES modules'
     - 'advanced concepts in JavaScript: closure and functional programming'
-- id: intro-to-web-dev
+- name: intro-to-web-dev
   type: workshop
   meetup: 259839134
   instructor:
     - malcolm
     - matt
   site: https://intro-to-web-dev.netlify.com
-- id: project-component
+- name: project-component
   type: workshop
   meetup: 259665881
   instructor:
     - malcolm
   site: https://react-component-lib.netlify.com/14
   description: Learn how to create a component library for your React projects with React styleguidist.
-- id: intro-to-react-v2
+- name: intro-to-react-v2
   type: workshop
   meetup: 258755070
   instructor:
     - malcolm
   site: https://malcolmkee.com/intro-to-react-js-v2
-- id: intro-to-react
+- name: intro-to-react
   type: workshop
   meetup: 257458735
   instructor:

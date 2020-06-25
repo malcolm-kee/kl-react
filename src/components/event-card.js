@@ -45,7 +45,7 @@ export function EventCard({
         }}
       >
         <Link
-          to={info ? `/event/${info.id}` : link}
+          to={info ? `/event/${info.name}` : link}
           isExternal={!info}
           sx={{
             color: 'inherit',
@@ -58,7 +58,7 @@ export function EventCard({
       <Styled.ul sx={{ listStyle: 'none', p: 0 }}>
         {info && info.instructor && (
           <Styled.li sx={{ fontWeight: 'bold', color: 'textLight' }}>
-            by {info.instructor.map(i => i.name).join(', ')}
+            by {info.instructor.map((i) => i.name).join(', ')}
           </Styled.li>
         )}
         <Styled.li>
@@ -79,6 +79,7 @@ export const query = graphql`
     dateTime(formatString: "ddd, DD MMM YYYY h:mm A")
     info {
       id
+      name
       instructor {
         name
       }

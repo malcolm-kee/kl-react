@@ -1,3 +1,4 @@
+const path = require('path');
 const {
   createSchemaCustomization,
   createResolvers,
@@ -11,7 +12,6 @@ exports.createSchemaCustomization = createSchemaCustomization;
 
 exports.createResolvers = createResolvers;
 
-const path = require('path');
 const meetupTemplate = path.resolve(
   __dirname,
   'src',
@@ -48,7 +48,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       {
         allEventYaml {
           nodes {
-            id
+            name
             type
           }
         }
@@ -64,7 +64,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   result.data.allEventYaml.nodes.forEach((event) => {
     createPage({
-      path: `/event/${event.id}`,
+      path: `/event/${event.name}`,
       component:
         event.type === 'meetup'
           ? meetupTemplate
@@ -72,7 +72,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           ? webcastTemplate
           : workshopTemplate,
       context: {
-        id: event.id,
+        name: event.name,
       },
     });
   });
@@ -108,6 +108,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
           venueName
           info {
             id
+            name
             instructor {
               id
               name
@@ -146,7 +147,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
             ''
           ),
           // copied blindly 🤦‍♂️ from https://stackoverflow.com/questions/10992921/how-to-remove-emoji-code-using-javascript/41543705#41543705
-          slug: node.info.id,
+          slug: node.info.name,
           dateTime: node.dateTime,
           venue: node.venueName,
           talks: node.info.schedule
@@ -162,7 +163,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
       } else {
         workshops.push({
           title: node.name,
-          slug: node.info.id,
+          slug: node.info.name,
           dateTime: node.dateTime,
           venue: node.venueName,
           instructors: node.info.instructor,

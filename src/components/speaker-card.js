@@ -124,13 +124,13 @@ export function SpeakerCard({
           </Styled.h4>
           <BulletedList>
             {/* we only shows 3 webcasts, remaining just a count */}
-            {webcast.map((wshop, index) =>
+            {webcast.map((wcast, index) =>
               index <= 2 ? (
-                <li key={wshop.id}>
-                  <Link to={`/event/${wshop.id}`}>{wshop.meetup.name}</Link>
+                <li key={wcast.name}>
+                  <Link to={`/event/${wcast.name}`}>{wcast.meetup.name}</Link>
                 </li>
               ) : index === 3 ? (
-                <li key={wshop.id}>
+                <li key={wcast.name}>
                   And {webcast.length - 3} other{' '}
                   {pluralize('webcast', webcast.length - 3)}
                 </li>
@@ -148,11 +148,11 @@ export function SpeakerCard({
             {/* we only shows 3 workshops, remaining just a count */}
             {workshop.map((wshop, index) =>
               index <= 2 ? (
-                <li key={wshop.id}>
-                  <Link to={`/event/${wshop.id}`}>{wshop.meetup.name}</Link>
+                <li key={wshop.name}>
+                  <Link to={`/event/${wshop.name}`}>{wshop.meetup.name}</Link>
                 </li>
               ) : index === 3 ? (
-                <li key={wshop.id}>
+                <li key={wshop.name}>
                   And {workshop.length - 3} other{' '}
                   {pluralize('workshop', workshop.length - 3)}
                 </li>
@@ -187,13 +187,13 @@ export const query = graphql`
       title
     }
     workshop {
-      id
+      name
       meetup {
         name
       }
     }
     webcast {
-      id
+      name
       meetup {
         name
       }

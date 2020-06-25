@@ -40,8 +40,8 @@ const WorkshopTemplate = ({ data, location }) => {
 export default WorkshopTemplate;
 
 export const pageQuery = graphql`
-  query WorkshopById($id: String!) {
-    eventYaml(id: { eq: $id }) {
+  query WorkshopByName($name: String!) {
+    eventYaml(name: { eq: $name }) {
       ...WorkshopSummary
       instructor {
         ...SpeakerCard

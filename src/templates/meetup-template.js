@@ -1,13 +1,17 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
-import { Layout } from '../components/layout';
-import { MeetupOverview } from '../components/meetup-overview';
-import { Schedule } from '../components/schedule';
-import { Seo } from '../components/seo';
 import { Container } from '../components/container';
+import { Layout } from '../components/layout';
+import { Link } from '../components/link';
+import { MeetupOverview } from '../components/meetup-overview';
+import { NumberedList } from '../components/numbered-list';
 import { Photos } from '../components/photos';
+import { Schedule } from '../components/schedule';
+import { SectionHeading } from '../components/section-heading';
+import { Seo } from '../components/seo';
 import { Updates } from '../components/updates';
 import { VideoPlayer } from '../components/video-player';
+import { isFilledArray } from '../lib';
 
 const MeetupTemplate = ({ data, location }) => {
   const {
@@ -17,6 +21,7 @@ const MeetupTemplate = ({ data, location }) => {
     seoImagePublicUrl,
     updates,
     videoUrl,
+    links,
   } = data.eventYaml;
   return (
     <>
@@ -32,6 +37,20 @@ const MeetupTemplate = ({ data, location }) => {
         <Container py={4}>
           <Updates title="This Month on React" updates={updates} />
         </Container>
+        {links && isFilledArray(links) && (
+          <Container py={4}>
+            <SectionHeading>Others Links/Resources</SectionHeading>
+            <NumberedList>
+              {links.map((link) => (
+                <li key={link.url}>
+                  <Link to={link.url} isExternal>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </NumberedList>
+          </Container>
+        )}
         <Photos photos={photos} />
       </Layout>
     </>
@@ -41,8 +60,8 @@ const MeetupTemplate = ({ data, location }) => {
 export default MeetupTemplate;
 
 export const pageQuery = graphql`
-  query MeetupById($id: String!) {
-    eventYaml(id: { eq: $id }) {
+  query MeetupByName($name: String!) {
+    eventYaml(name: { eq: $name }) {
       seoImagePublicUrl
       videoUrl
       meetup {
@@ -56,6 +75,10 @@ export const pageQuery = graphql`
       }
       updates {
         ...Update
+      }
+      links {
+        url
+        label
       }
     }
   }

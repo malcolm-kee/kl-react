@@ -45,8 +45,8 @@ const WebcastTemplate = ({ data, location }) => {
 export default WebcastTemplate;
 
 export const pageQuery = graphql`
-  query WebcastById($id: String!) {
-    eventYaml(id: { eq: $id }) {
+  query WebcastByName($name: String!) {
+    eventYaml(name: { eq: $name }) {
       ...WebcastSummary
       videoUrl
       instructor {

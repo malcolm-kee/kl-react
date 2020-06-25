@@ -8,7 +8,10 @@ import { UpdatesForMeetup } from '../components/updates-for-meetup';
 import { isFilledArray, groupBy } from '../lib';
 
 export default function ThisMonthOnReact({ data }) {
-  const groups = groupBy(data.allUpdateYaml.nodes, node => node.meetupEvent.id);
+  const groups = groupBy(
+    data.allUpdateYaml.nodes,
+    (node) => node.meetupEvent.name
+  );
 
   return (
     <>
@@ -53,7 +56,7 @@ export const pageQuery = graphql`
           url
         }
         meetupEvent {
-          id
+          name
           meetup {
             name
           }

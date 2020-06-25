@@ -1,3 +1,37 @@
+- title: Recoil, an Experimental State Management Library by Facebook
+  description: >
+    A state management library by Facebook that helps with React applications that requires state coordination between elements far from each other in the component tree. Similar to MobX, it features auto subscriptions of data to component so it only re-render components if the data that it subscribes to changes.
+
+    One notable difference of Recoil compared to other existing libraries is it is very React-centered and  its concepts seems very natural if you're already familiar with React. The way I look at it is "super-powered" `useState`.
+
+    As of now, it's still considered as experimental.
+  meetupEvent: june-2020
+  links:
+    - label: Introduction video
+      url: https://youtu.be/_ISAA_Jt9kI
+    - label: Docs site
+      url: https://recoiljs.org/
+- title: Mock Service Worker, mocking your API for development and testing
+  description: >
+    MSW (Mock Service Worker) is a mocking utility that mock your network requests using Service Worker. It supports mocking in NodeJS environment so you can use the same sets of mocking in your development and Jest testing.
+  meetupEvent: june-2020
+  links:
+    - label: Docs site
+      url: https://mswjs.io/
+- title: Remix, React framework by creators of React Router
+  description: >
+    React framework from the creators of React Router, Ryan Florence and Michael Jackson. It is still under development, but they have a newsletter that talk about the problems in current React ecosystem and their approach on how to solve them.
+  meetupEvent: june-2020
+  links:
+    - label: Site
+      url: https://remix.run/
+- title: Cypress Component Tests - test your components in real browser environment
+  description: >
+    Cypress, the end-to-end testing framework that we featured previously, has added a beta feature - Component Testing. You can use it to test a React component in isolation. The benefit of it over using Jest is it will runs in actual browser environment instead of JSDOM.
+  meetupEvent: june-2020
+  links:
+    - label: Details of the feature
+      url: https://docs.cypress.io/guides/references/experiments.html#Component-Testing
 - title: Yarn v2 Rollout Causes Intense Debates
   description: >
     Yarn 2's rollout plan causes intense debates because its maintainers intends to mark Yarn v1 as "legacy" while v2 could not support many existing projects and libraries yet. 
