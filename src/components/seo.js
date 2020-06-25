@@ -20,7 +20,7 @@ export const Seo = ({
         twitter,
       },
     },
-    siteImage: { publicURL },
+    siteImage,
   } = useStaticQuery(graphql`
     {
       site {
@@ -38,7 +38,7 @@ export const Seo = ({
     }
   `);
 
-  const imagePath = largeImage || image || publicURL;
+  const imagePath = largeImage || image || siteImage.publicURL;
 
   const seo = {
     title: title || defaultTitle,
@@ -61,6 +61,8 @@ export const Seo = ({
       <meta property="og:type" content="website" />
       <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
+      {largeImage && <meta property="og:image:width" content="1200" />}
+      {largeImage && <meta property="og:image:height" content="628" />}
       <meta
         name="twitter:card"
         content={largeImage ? 'summary_large_image' : 'summary'}

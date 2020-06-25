@@ -245,7 +245,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
           resolve: (source, _, context) => {
             return context.nodeModel
               .getAllNodes({ type: 'S3ImageAsset' })
-              .filter((node) => node.Key.split('_')[0] === source.id)
+              .filter((node) => node.Key.split('_')[0] === source.name)
               .sort((nodeA, nodeB) => {
                 if (nodeA.Key < nodeB.Key) {
                   return -1;
@@ -264,7 +264,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
               .getAllNodes({ type: 'MeetupEvent' })
               .find((meetup) => isMeetupMatchId(meetup, source.meetup));
 
-            const generatedImage = `/og_image/${source.id}.png`;
+            const generatedImage = `/og_image/${source.name}.png`;
 
             return source.type === 'webcast'
               ? (meetup &&
