@@ -1,3 +1,22 @@
+- name: oct-2020
+  type: meetup
+  meetup: 273289572
+  schedule:
+    - time: 8.00pm
+      type: networking
+      desc: Get to know each other + React Clinic
+    - time: 8.20pm
+      type: talk
+      talk: test-promise
+    - time: 8.50pm
+      type: talk
+      talk: module-federation
+    - time: 9.20pm
+      type: talk
+      talk: tbd
+    - time: 9.50pm
+      type: announcement
+      desc: Company hiring or developer looking for opportunity
 - name: june-2020
   type: meetup
   meetup: 271372247

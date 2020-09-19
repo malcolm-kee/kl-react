@@ -1,3 +1,15 @@
+- id: module-federation
+  title: Scalable Micro Frontend with Module Federation
+  speaker: malcolm
+  description: Learn how the module federation feature (available in webpack 5) enables a scalable micro frontend architecture that improves your development and deployment workflow without sacrificing user experience.
+- id: test-promise
+  title: Test Your Promises
+  speaker: abhishek
+  description: A brief talk about JS promises, making it as complicated as possible(along with async/await) and how to test it out in JS.
+- id: tbd
+  title: TBD
+  speaker: khairul
+  description: TBD
 - id: accessibility-first
   title: Accessibility First
   speaker: abhishek

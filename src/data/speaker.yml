@@ -11,9 +11,10 @@
 - id: abhishek
   name: Abhishek Prasad
   company: Fave Malaysia
-  bio: Software Engineer at Fave, loves working on JS stuff and contributing to open source.
+  bio: I am a software engineer at Fave, Malaysia. Buy me coffee and I will pair program with you.
   github: abhishek71994
   twitter: abhi_hk95
+  website: abhishek71994.github.io
 - id: malcolm
   name: Malcolm Kee
   image: https://github.com/malcolm-kee.png
@@ -77,3 +78,7 @@
   image: 'https://kl-react-photos.s3.us-east-2.amazonaws.com/burhan.jpg'
   github: burhan3759
   website: https://www.facebook.com/skolacode/
+- id: khairul
+  name: Khairul Nizam Saiful
+  bio: Self-taught Software Engineer with passion in Dataviz and React
+  company: Setel

@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby';
 // eslint-disable-next-line
-import React from 'react';
-import { Coffee, Home, PlusSquare, Radio, Info } from 'react-feather';
+import * as React from 'react';
+import { Coffee, Home, PlusSquare, Radio, Info, Users } from 'react-feather';
 import { Flex, jsx, Styled } from 'theme-ui';
 import { DesktopOnly } from './desktop-only';
 import { TalkMaterialIcons } from './talk-material-icons';
@@ -36,6 +36,7 @@ const descStyle = {
 
 const IconMap = {
   food: { Component: Coffee, label: 'Food' },
+  networking: { Component: Users, label: 'Networking' },
   announcement: { Component: Info, label: 'Shout out' },
   home: { Component: Home, label: 'End' },
   clinic: { Component: PlusSquare, label: 'React Clinic' },
