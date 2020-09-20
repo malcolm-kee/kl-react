@@ -14,18 +14,6 @@ const colors = {
   accentLight: '#EBF8FF',
   muted: '#9e9e9e',
   textLight: '#4A5568',
-  modes: {
-    dark: {
-      text: 'hsl(210,50%,96% )',
-      background: '#212121',
-      primary: '#0fd7ba',
-      secondary: '#40AF9F',
-      accent: '#E89E56',
-      accentLight: '#7B341E',
-      muted: 'hsla(230,20%,0%,20% )',
-      textLight: '#CBD5E0',
-    },
-  },
 };
 
 /**

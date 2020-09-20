@@ -1,13 +1,20 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby';
-// eslint-disable-next-line
 import * as React from 'react';
-import { Coffee, Home, PlusSquare, Radio, Info, Users } from 'react-feather';
+import {
+  FiCoffee as Coffee,
+  FiHome as Home,
+  FiInfo as Info,
+  FiPlusSquare as PlusSquare,
+  FiRadio as Radio,
+  FiUsers as Users,
+} from 'react-icons/fi';
 import { Flex, jsx, Styled } from 'theme-ui';
 import { DesktopOnly } from './desktop-only';
-import { TalkMaterialIcons } from './talk-material-icons';
 import { Link } from './link';
 import { List } from './list';
+import { NLink } from './nav-link';
+import { TalkMaterialIcons } from './talk-material-icons';
 
 const scheduleTypeStyle = {
   fontSize: 3,
@@ -99,13 +106,16 @@ export function ScheduleItem({ time, type, talk, desc, speakersOnSamePage }) {
             </Styled.h4>
             {talk.speaker &&
               (speakersOnSamePage ? (
-                <Styled.a href={`#${talk.speaker.id}`}>
+                <a href={`#${talk.speaker.id}`} className="text-primary-700">
                   {talk.speaker.name}
-                </Styled.a>
+                </a>
               ) : (
-                <Link to={`/speakers/#${talk.speaker.id}`}>
+                <NLink
+                  to={`/speakers/#${talk.speaker.id}`}
+                  className="text-primary-700"
+                >
                   {talk.speaker.name}
-                </Link>
+                </NLink>
               ))}
           </div>
         ) : (
@@ -125,7 +135,7 @@ export function ScheduleItem({ time, type, talk, desc, speakersOnSamePage }) {
       <div sx={{ width: '100%' }}>
         {isTalk ? (
           talk ? (
-            <>
+            <React.Fragment>
               <Styled.p sx={descStyle}>{talk.description}</Styled.p>
               {talk && talk.materials && (
                 <List
@@ -149,7 +159,7 @@ export function ScheduleItem({ time, type, talk, desc, speakersOnSamePage }) {
                   ))}
                 </List>
               )}
-            </>
+            </React.Fragment>
           ) : (
             <Styled.p sx={descStyle}>
               TBD is the shorthand for To Be Determined, in case you don't know.

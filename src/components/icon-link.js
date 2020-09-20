@@ -1,25 +1,17 @@
-/** @jsx jsx */
-import { jsx, Styled } from 'theme-ui';
+import cx from 'classnames';
+import * as React from 'react';
 
-export const IconLink = ({ to, href = to, ...props }) => (
-  <Styled.a
+export const IconLink = ({ to, href = to, children, className, ...props }) => (
+  <a
     href={href}
     target="_BLANK"
     rel="noopener noreferrer"
     {...props}
-    sx={{
-      display: 'inline-block',
-      p: 2,
-      borderRadius: 8,
-      color: 'textLight',
-      textDecoration: 'none',
-      '&:hover': {
-        color: 'primary',
-      },
-      '& > svg': {
-        display: 'inline-block',
-        verticalAlign: 'middle',
-      },
-    }}
-  />
+    className={cx(
+      'inline-block p-2 rounded-full text-gray-500 hover:text-primary-500 focus:outline-none focus:shadow-outline-teal',
+      className
+    )}
+  >
+    {children}
+  </a>
 );

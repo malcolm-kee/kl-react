@@ -28,7 +28,7 @@ export const groupBy = (array, getKey) => {
 
   const resultByKey = {};
 
-  array.forEach(item => {
+  array.forEach((item) => {
     const key = getKey(item);
     if (resultByKey[key]) {
       resultByKey[key].push(item);
@@ -37,5 +37,17 @@ export const groupBy = (array, getKey) => {
     }
   });
 
-  return Object.keys(resultByKey).map(key => [key, resultByKey[key]]);
+  return Object.keys(resultByKey).map((key) => [key, resultByKey[key]]);
+};
+
+/**
+ *
+ * @param {string} value
+ */
+export const titleCase = (value) => {
+  if (!value) {
+    return value;
+  }
+
+  return value[0].toUpperCase() + value.substring(1).toLowerCase();
 };

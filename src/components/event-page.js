@@ -1,41 +1,21 @@
-/** @jsx jsx */
-import { jsx, Styled } from 'theme-ui';
+import * as React from 'react';
 import { Container } from './container';
 import { EventCard } from './event-card';
-import { FlexList } from './flex-list';
 import { Layout } from './layout';
+import { PageTitle } from './page-title';
 
 export function EventPage({ events }) {
   return (
     <Layout>
       <Container>
-        <Styled.h1
-          sx={{
-            mb: [3, 5],
-          }}
-        >
-          Events
-        </Styled.h1>
-        <FlexList
-          sx={{
-            justifyContent: 'center',
-          }}
-        >
-          {events.map(event => (
-            <EventCard
-              key={event.id}
-              as="li"
-              sx={{
-                my: 3,
-                pr: 2,
-                pl: [2, 0],
-                mx: [0, 2, 3],
-                flexGrow: 1,
-              }}
-              {...event}
-            />
-          ))}
-        </FlexList>
+        <PageTitle>Events</PageTitle>
+        <div className="mt-12 border-t-2 border-gray-300 pt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+            {events.map((event) => (
+              <EventCard {...event} key={event.id} />
+            ))}
+          </div>
+        </div>
       </Container>
     </Layout>
   );

@@ -1,8 +1,7 @@
-import { Link } from 'gatsby';
-import React from 'react';
-import { Styled } from 'theme-ui';
+import * as React from 'react';
 import { Article } from '../components/article';
 import { Layout } from '../components/layout';
+import { NLink } from '../components/nav-link';
 import { PageTitle } from '../components/page-title';
 import { Seo } from '../components/seo';
 import { TalkTopicForm } from '../components/talk-topic-form';
@@ -17,18 +16,18 @@ function SubmitTopic() {
       <Layout>
         <Article>
           <PageTitle>Submit A Topic</PageTitle>
-          <Styled.p>
+          <p>
             Let us know what you like to hear about in next meetup! We'll share
             this with anyone that interested to give a talk but doesn't have
             topic.
-          </Styled.p>
-          <Styled.p>
+          </p>
+          <p>
             If you would like to give the talk yourself,{' '}
-            <Styled.a as={Link} to="/submit-a-talk">
+            <NLink to="/submit-a-talk" className="text-primary-500">
               submit a talk
-            </Styled.a>{' '}
+            </NLink>{' '}
             instead.
-          </Styled.p>
+          </p>
           <TalkTopicForm />
         </Article>
       </Layout>

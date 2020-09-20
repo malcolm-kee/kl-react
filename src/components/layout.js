@@ -1,31 +1,12 @@
-/** @jsx jsx */
-import { Global } from '@emotion/core';
-import { jsx } from 'theme-ui';
+import * as React from 'react';
+import cx from 'classnames';
 import { Footer } from './footer';
 import { Header } from './header';
 
-export const Layout = props => (
-  <div
-    {...props}
-    sx={{
-      fontFamily: 'body',
-      lineHeight: 'body',
-      fontWeight: 'body',
-      color: 'text',
-      bg: 'background',
-    }}
-  >
-    <Global
-      styles={{
-        '*': { boxSizing: 'border-box' },
-        body: { margin: 0 },
-        textarea: {
-          resize: 'vertical',
-        },
-      }}
-    />
-    <Header />
-    <main>{props.children}</main>
+export const Layout = ({ children, hideHeader, className }) => (
+  <>
+    {!hideHeader && <Header />}
+    <main className={cx(className, !hideHeader && 'py-10')}>{children}</main>
     <Footer />
-  </div>
+  </>
 );

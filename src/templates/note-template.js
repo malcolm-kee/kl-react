@@ -1,27 +1,15 @@
 import { MDXProvider } from '@mdx-js/react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
-import { Styled } from 'theme-ui';
+import { NLink } from '../components/nav-link';
 import { Note } from '../components/note';
 import { Seo } from '../components/seo';
 
 const MDXComponents = {
-  a: ({ href, children, ...props }) =>
-    href && href[0] === '/' ? (
-      <Styled.a as={Link} to={href} {...props}>
-        {children}
-      </Styled.a>
-    ) : (
-      <Styled.a
-        href={href}
-        target={href[0] !== '#' ? '_BLANK' : undefined}
-        rel={href[0] !== '#' ? 'noopener noreferrer' : undefined}
-        {...props}
-      >
-        {children}
-      </Styled.a>
-    ),
+  a: ({ href, ...props }) => (
+    <NLink className="text-primary-700" {...props} to={href} />
+  ),
 };
 
 const NoteTemplate = ({ data, location }) => {

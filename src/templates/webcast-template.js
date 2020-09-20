@@ -2,8 +2,9 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 import { Layout } from '../components/layout';
 import { MeetupOverview } from '../components/meetup-overview';
-import { Seo } from '../components/seo';
 import { Schedule } from '../components/schedule';
+import { Section } from '../components/section';
+import { Seo } from '../components/seo';
 import { Speakers } from '../components/speakers';
 import { VideoPlayer } from '../components/video-player';
 import { WebcastSummary } from '../components/webcast-summary';
@@ -31,10 +32,9 @@ const WebcastTemplate = ({ data, location }) => {
         <VideoPlayer url={videoUrl} />
         <WebcastSummary {...data.eventYaml} />
         {instructor && (
-          <Speakers
-            title={pluralize('Instructor', instructor.length)}
-            speakers={instructor}
-          />
+          <Section title={pluralize('Instructor', instructor.length)}>
+            <Speakers speakers={instructor} />
+          </Section>
         )}
         {schedule && <Schedule schedule={schedule} />}
       </Layout>

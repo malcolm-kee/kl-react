@@ -1,24 +1,19 @@
-/** @jsx jsx */
 import { graphql } from 'gatsby';
-import { jsx, Styled } from 'theme-ui';
+import * as React from 'react';
 import { Container } from './container';
 
 export function WorkshopSummary({ description, takeaways }) {
   return (
-    <Container>
-      {description && <Styled.p sx={{ fontSize: 3 }}>{description}</Styled.p>}
+    <Container className="prose-lg pb-10">
+      {description && <p className="text-2xl">{description}</p>}
       {takeaways && (
         <div>
-          <Styled.h2>In this workshop, you will learn</Styled.h2>
-          <div>
-            <ul>
-              {takeaways.map((item, index) => (
-                <li key={index}>
-                  <Styled.p sx={{ fontSize: 3 }}>{item}</Styled.p>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <h2>In this workshop, you will learn</h2>
+          <ul>
+            {takeaways.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
         </div>
       )}
     </Container>

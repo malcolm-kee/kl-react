@@ -1,15 +1,20 @@
 /** @jsx jsx */
+import cx from 'classnames';
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
-import { GitHub, Globe, Twitter, Mic } from 'react-feather';
+import {
+  FiGithub as GitHub,
+  FiGlobe as Globe,
+  FiMic as Mic,
+  FiTwitter as Twitter,
+} from 'react-icons/fi';
 import { Flex, jsx, Styled } from 'theme-ui';
 import { isFilledArray, pluralize } from '../lib';
 import { BackgroundImage } from './background-image';
 import { BulletedList } from './bulleted-list';
-import { Card } from './card';
 import { IconLink } from './icon-link';
+import { NLink } from './nav-link';
 import { SrOnly } from './sr-only';
-import { Link } from './link';
 
 export function SpeakerCard({
   id,
@@ -25,143 +30,144 @@ export function SpeakerCard({
   workshop,
   webcast,
   showPastEvents,
+  className,
   ...props
 }) {
   return (
-    <Card id={id} {...props}>
-      <div
-        sx={{
-          mb: 3,
-          borderRadius: 16,
-          overflow: 'hidden',
-          boxShadow: `0 2px 0 hsla(0, 0%, 100%, .15), inset 0 2px 2px hsla(0, 0%, 0%, 0.1)`,
-        }}
-      >
+    <div
+      id={id}
+      className={cx(
+        'space-y-4 sm:grid sm:gap-6 sm:space-y-0',
+        showPastEvents ? 'sm:grid-cols-3' : 'sm:grid-cols-2',
+        className
+      )}
+      {...props}
+    >
+      <div>
         {imageFile ? (
-          <Image fluid={imageFile.childImageSharp.fluid} />
+          <Image
+            fluid={imageFile.childImageSharp.fluid}
+            className="w-full h-full max-h-96 object-cover object-center rounded-lg shadow-lg"
+          />
         ) : image ? (
-          <BackgroundImage src={image} />
+          <BackgroundImage
+            src={image}
+            className="w-full h-full object-cover object-center rounded-lg shadow-lg"
+          />
         ) : (
-          <div
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: 304,
-              height: 304,
-              color: 'textLight',
-            }}
-          >
-            <Mic width={100} height={100} />
+          <div className="w-full h-full flex items-center justify-center text-gray-600">
+            <Mic className="w-20 h-20" />
           </div>
         )}
       </div>
-      <Styled.h3>{name}</Styled.h3>
-      <Styled.div
-        sx={{
-          fontSize: 1,
-          fontWeight: 'bold',
-          mb: 2,
-        }}
-      >
-        {company}
-      </Styled.div>
-      <Styled.p
-        sx={{
-          mb: 1,
-          textAlign: 'justify',
-          whiteSpace: 'pre-wrap',
-        }}
-      >
-        {bio}
-      </Styled.p>
-      <Flex mx={-2}>
-        {twitter && (
-          <IconLink href={`https://twitter.com/${twitter}`}>
-            <Twitter />
-            <SrOnly>Twitter</SrOnly>
-          </IconLink>
-        )}
-        {github && (
-          <IconLink href={`https://github.com/${github}`}>
-            <GitHub />
-            <SrOnly>GitHub</SrOnly>
-          </IconLink>
-        )}
-        {website && (
-          <IconLink href={website}>
-            <Globe />
-            <SrOnly>Website</SrOnly>
-          </IconLink>
-        )}
-      </Flex>
-      {showPastEvents && isFilledArray(talk) && (
+      <div>
+        <h3 className="text-2xl font-medium">{name}</h3>
+        <div className="text-xl">{company}</div>
+        <p className="whitespace-pre-wrap my-2 text-gray-600">{bio}</p>
+        <div className="-mx-2">
+          {twitter && (
+            <IconLink href={`https://twitter.com/${twitter}`}>
+              <Twitter className="w-5 h-5" aria-hidden />
+              <span className="sr-only">Twitter</span>
+            </IconLink>
+          )}
+          {github && (
+            <IconLink href={`https://github.com/${github}`}>
+              <GitHub className="w-5 h-5" aria-hidden />
+              <span className="sr-only">GitHub</span>
+            </IconLink>
+          )}
+          {website && (
+            <IconLink href={website}>
+              <Globe className="w-5 h-5" aria-hidden />
+              <span className="sr-only">Website</span>
+            </IconLink>
+          )}
+        </div>
+      </div>
+      {showPastEvents && (
         <div>
-          <Styled.h4 sx={{ pt: 2, pb: 1 }}>
-            {pluralize('Talk', talk.length)} in React KL
-          </Styled.h4>
-          <BulletedList>
-            {/* we only shows 3 talks, remaining just a count */}
-            {talk.map((t, index) =>
-              index <= 2 ? (
-                <li key={t.id}>
-                  <Link to={`/talks#${t.id}`}>{t.title}</Link>
-                </li>
-              ) : index === 3 ? (
-                <li key={t.id}>
-                  And {talk.length - 3} other{' '}
-                  {pluralize('talk', talk.length - 3)}
-                </li>
-              ) : null
-            )}
-          </BulletedList>
+          {isFilledArray(talk) && (
+            <div>
+              <Styled.h4 sx={{ pt: 2, pb: 1 }}>
+                {pluralize('Talk', talk.length)} in React KL
+              </Styled.h4>
+              <BulletedList>
+                {/* we only shows 3 talks, remaining just a count */}
+                {talk.map((t, index) =>
+                  index <= 2 ? (
+                    <li key={t.id}>
+                      <NLink to={`/talks#${t.id}`} className="text-primary-700">
+                        {t.title}
+                      </NLink>
+                    </li>
+                  ) : index === 3 ? (
+                    <li key={t.id}>
+                      And {talk.length - 3} other{' '}
+                      {pluralize('talk', talk.length - 3)}
+                    </li>
+                  ) : null
+                )}
+              </BulletedList>
+            </div>
+          )}
+          {isFilledArray(webcast) && (
+            <div>
+              <Styled.h4 sx={{ pt: 2, pb: 1 }}>
+                {pluralize('Webcast', webcast.length)} in React KL
+              </Styled.h4>
+              <BulletedList>
+                {/* we only shows 3 webcasts, remaining just a count */}
+                {webcast.map((wcast, index) =>
+                  index <= 2 ? (
+                    <li key={wcast.name}>
+                      <NLink
+                        to={`/event/${wcast.name}`}
+                        className="text-primary-700"
+                      >
+                        {wcast.meetup.name}
+                      </NLink>
+                    </li>
+                  ) : index === 3 ? (
+                    <li key={wcast.name}>
+                      And {webcast.length - 3} other{' '}
+                      {pluralize('webcast', webcast.length - 3)}
+                    </li>
+                  ) : null
+                )}
+              </BulletedList>
+            </div>
+          )}
+          {isFilledArray(workshop) && (
+            <div>
+              <Styled.h4 sx={{ pt: 2, pb: 1 }}>
+                {pluralize('Workshop', workshop.length)} in React KL
+              </Styled.h4>
+              <BulletedList>
+                {/* we only shows 3 workshops, remaining just a count */}
+                {workshop.map((wshop, index) =>
+                  index <= 2 ? (
+                    <li key={wshop.name}>
+                      <NLink
+                        to={`/event/${wshop.name}`}
+                        className="text-primary-700"
+                      >
+                        {wshop.meetup.name}
+                      </NLink>
+                    </li>
+                  ) : index === 3 ? (
+                    <li key={wshop.name}>
+                      And {workshop.length - 3} other{' '}
+                      {pluralize('workshop', workshop.length - 3)}
+                    </li>
+                  ) : null
+                )}
+              </BulletedList>
+            </div>
+          )}
         </div>
       )}
-      {showPastEvents && isFilledArray(webcast) && (
-        <div>
-          <Styled.h4 sx={{ pt: 2, pb: 1 }}>
-            {pluralize('Webcast', webcast.length)} in React KL
-          </Styled.h4>
-          <BulletedList>
-            {/* we only shows 3 webcasts, remaining just a count */}
-            {webcast.map((wcast, index) =>
-              index <= 2 ? (
-                <li key={wcast.name}>
-                  <Link to={`/event/${wcast.name}`}>{wcast.meetup.name}</Link>
-                </li>
-              ) : index === 3 ? (
-                <li key={wcast.name}>
-                  And {webcast.length - 3} other{' '}
-                  {pluralize('webcast', webcast.length - 3)}
-                </li>
-              ) : null
-            )}
-          </BulletedList>
-        </div>
-      )}
-      {showPastEvents && isFilledArray(workshop) && (
-        <div>
-          <Styled.h4 sx={{ pt: 2, pb: 1 }}>
-            {pluralize('Workshop', workshop.length)} in React KL
-          </Styled.h4>
-          <BulletedList>
-            {/* we only shows 3 workshops, remaining just a count */}
-            {workshop.map((wshop, index) =>
-              index <= 2 ? (
-                <li key={wshop.name}>
-                  <Link to={`/event/${wshop.name}`}>{wshop.meetup.name}</Link>
-                </li>
-              ) : index === 3 ? (
-                <li key={wshop.name}>
-                  And {workshop.length - 3} other{' '}
-                  {pluralize('workshop', workshop.length - 3)}
-                </li>
-              ) : null
-            )}
-          </BulletedList>
-        </div>
-      )}
-    </Card>
+    </div>
   );
 }
 

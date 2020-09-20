@@ -1,18 +1,15 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
-import { Button } from './button';
+import * as React from 'react';
+import { NButton } from './button';
 import { Container } from './container';
+import { NLink } from './nav-link';
 
 export function CTA() {
   return (
-    <div
-      id="cta"
-      sx={{
-        py: [5, 6],
-      }}
-    >
+    <div id="cta" className="py-10">
       <Container>
-        <Button href="https://fb.me/klreact">Follow Us</Button>
+        <NButton to="https://fb.me/klreact" size="large" as={NLink}>
+          FOLLOW US
+        </NButton>
       </Container>
     </div>
   );

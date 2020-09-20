@@ -1,10 +1,14 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import { Container } from '../components/container';
+import { Layout } from '../components/layout';
+import { PageTitle } from '../components/page-title';
 import { Seo } from '../components/seo';
 import { Speakers } from '../components/speakers';
-import { Layout } from '../components/layout';
 
 export default function SpeakersPage({ data }) {
+  const speakers = data.allSpeakerYaml.nodes;
+
   return (
     <>
       <Seo
@@ -12,11 +16,15 @@ export default function SpeakersPage({ data }) {
         description="Speakers that had given talk or workshop in KL React"
       />
       <Layout>
-        <Speakers
-          speakers={data.allSpeakerYaml.nodes}
-          showPastEvents
-          titleTag="h1"
-        />
+        <Container>
+          <PageTitle>Speakers</PageTitle>
+          {speakers && speakers.length > 1 && (
+            <p className="mb-8 text-gray-500">
+              {'/* in alphabetical order */'}
+            </p>
+          )}
+          <Speakers speakers={speakers} showPastEvents />
+        </Container>
       </Layout>
     </>
   );

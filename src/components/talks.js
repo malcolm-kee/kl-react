@@ -1,17 +1,20 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-/** @jsx jsx */
-
-import { jsx, Styled } from 'theme-ui';
+import * as React from 'react';
 import { Container } from './container';
+import { PageTitle } from './page-title';
 import { Talk } from './talk';
 
 export function Talks({ talks }) {
   return (
     <Container>
-      <Styled.h1>Talks</Styled.h1>
-      <p sx={{ mb: 5, color: 'textLight' }}>/* in alphabetical order */</p>
-      {talks.map(talk => (
-        <Talk talk={talk} key={talk.id} />
+      <PageTitle>Talks</PageTitle>
+      <p className="mb-8 text-gray-500">{'/* in alphabetical order */'}</p>
+      {talks.map((talk) => (
+        <article
+          className="mb-5 hover:bg-gray-100 px-2 -mx-2 py-3 sm:px-4 sm:-mx-4"
+          key={talk.id}
+        >
+          <Talk talk={talk} />
+        </article>
       ))}
     </Container>
   );

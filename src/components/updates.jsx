@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
-import React from 'react';
+import * as React from 'react';
 import { isFilledArray } from '../lib';
 import { List } from './list';
 import { SectionHeading } from './section-heading';

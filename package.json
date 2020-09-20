@@ -14,6 +14,8 @@
   "dependencies": {
     "@emotion/styled": "^10.0.17",
     "@mdx-js/mdx": "^1.3.0",
+    "@tailwindui/react": "^0.1.1",
+    "classnames": "^2.2.6",
     "dotenv": "^8.0.0",
     "gatsby": "^2.13.76",
     "gatsby-image": "^2.2.8",
@@ -22,6 +24,7 @@
     "gatsby-plugin-manifest": "^2.2.5",
     "gatsby-plugin-mdx": "^1.0.24",
     "gatsby-plugin-netlify": "^2.1.4",
+    "gatsby-plugin-postcss": "^2.3.12",
     "gatsby-plugin-react-helmet": "^3.1.3",
     "gatsby-plugin-sharp": "^2.2.11",
     "gatsby-plugin-theme-ui": "^0.3.0",
@@ -36,10 +39,12 @@
     "react-dom": "^16.10.1",
     "react-feather": "^2.0.3",
     "react-helmet": "^6.0.0",
+    "react-icons": "^3.11.0",
     "react-player": "^2.0.1",
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
+    "@tailwindcss/ui": "^0.6.2",
     "@testing-library/react": "^10.0.4",
     "@testing-library/user-event": "^12.1.1",
     "@types/jest": "^26.0.10",
@@ -55,6 +60,7 @@
     "jest-junit": "^11.1.0",
     "jest-junit-reporter": "^1.1.0",
     "mustache": "^4.0.0",
-    "puppeteer": "^5.2.1"
+    "puppeteer": "^5.2.1",
+    "tailwindcss": "^1.8.10"
   }
 }

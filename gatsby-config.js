@@ -17,6 +17,7 @@ module.exports = {
     keywords: [`reactjs`, `react developer`, `kuala lumpur`, `meetup`],
   },
   plugins: [
+    'gatsby-plugin-postcss',
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-theme-ui`,

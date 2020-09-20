@@ -1,14 +1,9 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
+import * as React from 'react';
+import cx from 'classnames';
 
-export const Container = ({ py, ...props }) => (
+export const Container = ({ className, ...props }) => (
   <div
+    className={cx('max-w-7xl mx-auto px-4 sm:px-6 lg:px-8', className)}
     {...props}
-    sx={{
-      mx: 'auto',
-      px: 3,
-      py,
-      maxWidth: ['100%', '40em', '52em', '64em', '72em'],
-    }}
   />
 );

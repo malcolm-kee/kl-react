@@ -1,15 +1,16 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import * as React from 'react';
 import { Banner } from '../components/banner';
 import { CTA } from '../components/cta';
 import { Layout } from '../components/layout';
 import { Schedule } from '../components/schedule';
+import { Section } from '../components/section';
 import { Seo } from '../components/seo';
 import { Speakers } from '../components/speakers';
+import { VideoPlayer } from '../components/video-player';
 import { WebcastSummary } from '../components/webcast-summary';
 import { WorkshopSummary } from '../components/workshop-summary';
 import { useUpcomingEvent } from '../hooks/use-upcoming-event';
-import { VideoPlayer } from '../components/video-player';
 import { pluralize } from '../lib';
 
 const sortSpeaker = (a, b) => {
@@ -64,46 +65,55 @@ export default function HomePage({ data }) {
   return (
     <>
       <Seo largeImage={upcomingEvent && upcomingEvent.seoImage} />
-      <Layout>
+      <Layout hideHeader>
         <Banner upcomingEvent={upcomingEvent} />
-        {upcomingEventSchedule && (
-          <div id="schedule">
-            <Schedule schedule={upcomingEventSchedule} speakersOnSamePage />
-          </div>
-        )}
-        {upcomingEvent && upcomingEvent.videoUrl && (
-          <VideoPlayer url={upcomingEvent.videoUrl} />
-        )}
-        {upcomingEvent && upcomingEvent.type === 'workshop' && (
-          <WorkshopSummary {...upcomingEvent} />
-        )}
-        {upcomingEvent && upcomingEvent.type === 'webcast' && (
-          <WebcastSummary {...upcomingEvent} />
-        )}
-        {speakers && (
-          <div
-            id="speakers"
-            sx={{
-              py: 5,
-            }}
-          >
-            <Speakers
-              title={
-                upcomingEvent
-                  ? pluralize(
-                      upcomingEvent.type === 'workshop'
-                        ? 'Instructor'
-                        : 'Speaker',
-                      speakers.length
-                    )
-                  : 'Recent Speakers'
+        <div className="bg-gradient-to-b from-primary-100 to-white">
+          {upcomingEventSchedule && (
+            <Section id="schedule" title="Schedule" className="py-10">
+              <Schedule schedule={upcomingEventSchedule} speakersOnSamePage />
+            </Section>
+          )}
+          {upcomingEvent && upcomingEvent.videoUrl && (
+            <VideoPlayer url={upcomingEvent.videoUrl} />
+          )}
+          {upcomingEvent && upcomingEvent.type === 'workshop' && (
+            <WorkshopSummary {...upcomingEvent} />
+          )}
+          {upcomingEvent && upcomingEvent.type === 'webcast' && (
+            <WebcastSummary {...upcomingEvent} />
+          )}
+          {speakers && (
+            <Section
+              id="speakers"
+              title="Speakers"
+              description={
+                speakers &&
+                speakers.length > 1 && (
+                  <p className="mb-8 text-xl leading-7 text-gray-500">
+                    {'/* in alphabetical order */'}
+                  </p>
+                )
               }
-              speakers={speakers}
-              showMore
-            />
-          </div>
-        )}
-        <CTA />
+              className="py-10"
+            >
+              <Speakers
+                title={
+                  upcomingEvent
+                    ? pluralize(
+                        upcomingEvent.type === 'workshop'
+                          ? 'Instructor'
+                          : 'Speaker',
+                        speakers.length
+                      )
+                    : 'Recent Speakers'
+                }
+                speakers={speakers}
+                showMore
+              />
+            </Section>
+          )}
+          <CTA />
+        </div>
       </Layout>
     </>
   );

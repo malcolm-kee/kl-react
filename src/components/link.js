@@ -1,11 +1,23 @@
-import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
-import { Styled } from 'theme-ui';
+import * as React from 'react';
 
-export const Link = ({ to, isExternal, ...props }) => {
-  return isExternal ? (
-    <Styled.a href={to} target="_BLANK" rel="noopener noreferrer" {...props} />
-  ) : (
-    <Styled.a as={GatsbyLink} to={to} {...props} />
-  );
+export const Link = ({
+  to,
+  target = to && to[0] !== '/' ? '_BLANK' : undefined,
+  rel = target === '_BLANK' ? 'noopener noreferrer' : undefined,
+  ...props
+}) => {
+  const isExternal = to && to[0] !== '/';
+  const Component = isExternal ? 'a' : GatsbyLink;
+  const appliedProps = isExternal
+    ? {
+        href: to,
+        target,
+        rel,
+      }
+    : {
+        to,
+      };
+
+  return <Component {...appliedProps} {...props} />;
 };

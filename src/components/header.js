@@ -1,112 +1,54 @@
-/** @jsx jsx */
-import { Link } from 'gatsby';
-import { jsx, useColorMode } from 'theme-ui';
+import cx from 'classnames';
+import * as React from 'react';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
-import { Button } from './button';
-import { DesktopOnly } from './desktop-only';
-import { NavLink } from './nav-link';
+import { NButton } from './button';
 import { Icon } from './icon';
-// eslint-disable-next-line
-import React from 'react';
-import { Sun, Moon } from 'react-feather';
+import { NLink } from './nav-link';
+import { Container } from './container';
 
-export function Header() {
+export function Header({ flat }) {
   const { title } = useSiteMetadata();
-  const [colorMode, setColorMode] = useColorMode();
-
-  const isDark = () => colorMode === 'dark';
 
   return (
-    <header
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        px: 3,
-        py: 2,
-        overflowX: 'auto',
-      }}
-    >
-      <NavLink
-        sx={{
-          display: 'inline-flex',
-          alignItems: 'center',
-        }}
-        css={theme => ({
-          [`@media screen and (max-width: ${theme.breakpoints[0]})`]: {
-            paddingLeft: 0,
-            paddingRight: 0,
-          },
-        })}
-        as={Link}
-        to="/"
-      >
-        <Icon
-          sx={{
-            mr: 2,
-            my: -2,
-            display: 'inline-block',
-          }}
-        />
-        {title}
-      </NavLink>
-      <div sx={{ mx: 'auto' }} />
-      <DesktopOnly>
-        <span>
-          <NavLink as={Link} to="/events">
-            Events
-          </NavLink>
-          <NavLink as={Link} to="/speakers">
-            Speakers
-          </NavLink>
-          <NavLink as={Link} sx={{ mr: 2 }} to="/talks">
-            Talks
-          </NavLink>
-        </span>
-      </DesktopOnly>
-      <Button
-        as={Link}
-        to="/submit-a-talk"
-        sx={{ display: ['none', 'inline-block'] }}
-      >
-        Submit a Talk
-      </Button>
-      <button
-        sx={{
-          cursor: 'pointer',
-          background: 'transparent',
-          margin: '0 10px',
-          color: 'textLight',
-          border: 0,
-          WebkitTapHighlightColor: 'transparent',
-          ':focus': {
-            outline: 'none',
-          },
-          ':focus > span': {
-            boxShadow: `0 0 0 2px currentColor`,
-          },
-        }}
-        tabIndex={0}
-        aria-label={isDark() ? `Activate light mode` : `Activate dark mode`}
-        onClick={e => {
-          setColorMode(colorMode === 'default' ? 'dark' : 'default');
-        }}
-      >
-        <span
-          sx={{
-            p: '6px',
-            width: 36,
-            height: 36,
-            borderRadius: '50%',
-            display: 'inline-block',
-            ':focus': {
-              outline: 'none',
-            },
-          }}
-          tabIndex={-1}
-        >
-          {colorMode === 'default' ? <Moon /> : <Sun />}
-        </span>
-      </button>
+    <header className={cx(!flat && 'bg-white border-b border-gray-200')}>
+      <Container>
+        <div className="flex justify-between h-16">
+          <div className="flex">
+            <NLink
+              className="text-xl font-bold text-primary-500 focus:shadow-outline-teal px-1 rounded"
+              to="/"
+              innerClass="inline-flex items-center"
+            >
+              <Icon className="mr-2 h-12 inline-block" />
+              {title}
+            </NLink>
+            <div className="hidden sm:-my-px sm:ml-6 space-x-8 sm:flex">
+              <HeaderLink to="/events">Events</HeaderLink>
+              <HeaderLink to="/speakers">Speakers</HeaderLink>
+              <HeaderLink to="/talks">Talks</HeaderLink>
+            </div>
+          </div>
+          <div className="flex items-center">
+            <NButton
+              as={NLink}
+              to="/submit-a-talk"
+              className={cx('hidden sm:inline-flex', flat && 'relative')}
+            >
+              Submit a Talk
+            </NButton>
+          </div>
+        </div>
+      </Container>
     </header>
   );
 }
+
+const HeaderLink = ({ to, children }) => (
+  <NLink
+    className="px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-900 focus:border-primary-700 transition duration-150 ease-in-out"
+    to={to}
+    activeClassName="border-primary-500"
+  >
+    {children}
+  </NLink>
+);

@@ -1,13 +1,11 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
-import { Container } from '../components/container';
 import { Layout } from '../components/layout';
 import { Link } from '../components/link';
 import { MeetupOverview } from '../components/meetup-overview';
-import { NumberedList } from '../components/numbered-list';
 import { Photos } from '../components/photos';
 import { Schedule } from '../components/schedule';
-import { SectionHeading } from '../components/section-heading';
+import { Section } from '../components/section';
 import { Seo } from '../components/seo';
 import { Updates } from '../components/updates';
 import { VideoPlayer } from '../components/video-player';
@@ -33,23 +31,28 @@ const MeetupTemplate = ({ data, location }) => {
       <Layout>
         <MeetupOverview {...meetup} />
         {videoUrl && <VideoPlayer url={videoUrl} />}
-        <Schedule schedule={schedule} />
-        <Container py={4}>
-          <Updates title="This Month on React" updates={updates} />
-        </Container>
+        <Section title="Schedule" className="py-10">
+          <Schedule schedule={schedule} />
+        </Section>
+        {updates && updates.length > 0 && (
+          <Section title="This Month on React" className="py-10">
+            <Updates updates={updates} />
+          </Section>
+        )}
         {links && isFilledArray(links) && (
-          <Container py={4}>
-            <SectionHeading>Others Links/Resources</SectionHeading>
-            <NumberedList>
-              {links.map((link) => (
-                <li key={link.url}>
-                  <Link to={link.url} isExternal>
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </NumberedList>
-          </Container>
+          <Section title="Others Links/Resources" className="py-10">
+            <div className="prose-lg">
+              <ol>
+                {links.map((link) => (
+                  <li key={link.url}>
+                    <Link to={link.url} isExternal>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </Section>
         )}
         <Photos photos={photos} />
       </Layout>

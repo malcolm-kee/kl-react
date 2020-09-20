@@ -1,67 +1,26 @@
-/** @jsx jsx */
-import { Link } from 'gatsby';
-import { jsx, Styled } from 'theme-ui';
-import { Container } from './container';
-import { FlexList } from './flex-list';
-import { SectionHeading } from './section-heading';
+import * as React from 'react';
+import { NLink } from './nav-link';
 import { SpeakerCard } from './speaker-card';
 
-export const Speakers = ({
-  speakers,
-  showMore,
-  showPastEvents,
-  title = 'Speakers',
-  titleTag = 'h2',
-}) => (
-  <Container>
-    {titleTag === 'h1' ? (
-      <Styled.h1
-        sx={{
-          textAlign: 'center',
-        }}
-      >
-        {title}
-      </Styled.h1>
-    ) : (
-      <SectionHeading as={titleTag}>{title}</SectionHeading>
-    )}
-    {speakers && speakers.length > 1 && (
-      // eslint-disable-next-line react/jsx-no-comment-textnodes
-      <p sx={{ textAlign: 'center', mb: 5, color: 'textLight' }}>
-        /* in alphabetical order */
-      </p>
-    )}
+export const Speakers = ({ speakers, showMore, showPastEvents }) => (
+  <React.Fragment>
     {speakers && speakers.length > 0 ? (
-      <FlexList
-        sx={{
-          justifyContent: 'center',
-        }}
-      >
-        {speakers.map(speaker => (
-          <SpeakerCard
-            key={speaker.id}
-            as="li"
-            sx={{ mb: 4 }}
-            showPastEvents={showPastEvents}
-            {...speaker}
-          />
+      <ul className="space-y-12 sm:divide-y sm:divide-gray-200 sm:space-y-0 sm:-mt-8">
+        {speakers.map((speaker) => (
+          <li className="sm:py-8" key={speaker.id}>
+            <SpeakerCard showPastEvents={showPastEvents} {...speaker} />
+          </li>
         ))}
-      </FlexList>
+      </ul>
     ) : (
-      <Styled.h3 as="p" sx={{ textAlign: 'center', m: 3 }}>
-        To be announced
-      </Styled.h3>
+      <p className="mb-6 text-2xl">To be announced</p>
     )}
     {showMore && (
-      <div
-        sx={{
-          textAlign: 'center',
-        }}
-      >
-        <Styled.a as={Link} to="/speakers">
+      <div>
+        <NLink to="/speakers" className="text-xl text-primary-600">
           View speakers for previous meetups/workshops
-        </Styled.a>
+        </NLink>
       </div>
     )}
-  </Container>
+  </React.Fragment>
 );

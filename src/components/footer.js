@@ -1,126 +1,133 @@
-/** @jsx jsx */
-import { Link } from 'gatsby';
-import { Flex, jsx } from 'theme-ui';
+import * as React from 'react';
+import { FaMeetup as Meetup } from 'react-icons/fa';
+import { FiFacebook as Facebook, FiGithub as GitHub } from 'react-icons/fi';
 import { useLastBuild } from '../hooks/use-last-build';
+import { useSiteMetadata } from '../hooks/use-site-metadata';
 import { currentYear } from '../lib';
 import { Container } from './container';
-import { List } from './list';
-import { NavLink } from './nav-link';
+import { Icon } from './icon';
+import { NLink } from './nav-link';
 
 export function Footer() {
   const lastBuild = useLastBuild();
+  const { description } = useSiteMetadata();
 
   return (
-    <footer>
-      <Container sx={{ pb: 4, pt: 5 }}>
-        <Flex
-          sx={{
-            flexDirection: ['column', 'row'],
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-          }}
-        >
+    <footer className="bg-white">
+      <Container className="py-8">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div>
-            <List sx={{ my: [3, 1] }}>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/events">
-                  Events
-                </NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/speakers">
-                  Speakers
-                </NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/talks">
-                  Talks
-                </NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/this-month-on-react">
-                  This Month on React
-                </NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/react-clinic">
-                  React Clinic
-                </NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/react-on-twitter">
-                  Nothing here
-                </NavLink>
-              </li>
-            </List>
+            <Icon className="h-12" />
+            <p className="mt-8 text-gray-500 text-base leading-6">
+              {description}
+            </p>
+            <div className="mt-8 flex">
+              <NLink
+                to="https://github.com/malcolm-kee/kl-react"
+                className="text-gray-400 hover:text-gray-500"
+              >
+                <span className="sr-only">GitHub</span>
+                <GitHub className="h-6 w-6" aria-hidden />
+              </NLink>
+              <NLink
+                to="https://www.meetup.com/kl-react"
+                className="text-gray-400 hover:text-gray-500 ml-6"
+              >
+                <span className="sr-only">Meetup</span>
+                <Meetup className="h-6 w-6" aria-hidden />
+              </NLink>
+              <NLink
+                to="https://fb.me/klreact"
+                className="text-gray-400 hover:text-gray-500 ml-6"
+              >
+                <span className="sr-only">Facebook</span>
+                <Facebook className="h-6 w-6" aria-hidden />
+              </NLink>
+            </div>
           </div>
-          <div>
-            <List sx={{ my: [3, 1] }}>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/submit-a-talk">
-                  Submit A Talk
-                </NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/submit-topic">
-                  Submit Topic
-                </NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/contributing">
-                  Contributing
-                </NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/code-of-conduct">
-                  Code of Conduct
-                </NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/privacy-policy">
-                  Privacy Policy
-                </NavLink>
-              </li>
-            </List>
+          <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <FooterGroup title="Participate">
+                <ul>
+                  <li>
+                    <FooterLink to="/submit-a-talk">Submit A Talk</FooterLink>
+                  </li>
+                  <li className="mt-4">
+                    <FooterLink to="/submit-topic">Submit Topic</FooterLink>
+                  </li>
+                  <li className="mt-4">
+                    <FooterLink to="/contributing">Contributing</FooterLink>
+                  </li>
+                  <li className="mt-4">
+                    <FooterLink to="/code-of-conduct">
+                      Code of Conduct
+                    </FooterLink>
+                  </li>
+                  <li className="mt-4">
+                    <FooterLink to="/react-clinic">React Clinic</FooterLink>
+                  </li>
+                </ul>
+              </FooterGroup>
+              <FooterGroup title="Archives" className="mt-12 md:mt-0">
+                <ul>
+                  <li>
+                    <FooterLink to="/events">Events</FooterLink>
+                  </li>
+                  <li className="mt-4">
+                    <FooterLink to="/speakers">Speakers</FooterLink>
+                  </li>
+                  <li className="mt-4">
+                    <FooterLink to="/talks">Talks</FooterLink>
+                  </li>
+                  <li className="mt-4">
+                    <FooterLink to="/this-month-on-react">
+                      This Month on React
+                    </FooterLink>
+                  </li>
+                </ul>
+              </FooterGroup>
+            </div>
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <FooterGroup title="Miscellaneous">
+                <ul>
+                  <li>
+                    <FooterLink to="/resources">Resources</FooterLink>
+                  </li>
+                  <li className="mt-4">
+                    <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
+                  </li>
+                  <li className="mt-4">
+                    <FooterLink to="/react-on-twitter">Nothing here</FooterLink>
+                  </li>
+                </ul>
+              </FooterGroup>
+            </div>
           </div>
-          <div>
-            <List sx={{ my: [3, 1] }}>
-              <li sx={{ my: -2 }}>
-                <NavLink href="https://github.com/malcolm-kee/kl-react">
-                  GitHub
-                </NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink href="https://fb.me/klreact">Facebook</NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink href="https://www.meetup.com/kl-react">Meetup</NavLink>
-              </li>
-              <li sx={{ my: -2 }}>
-                <NavLink as={Link} to="/resources">
-                  Resources
-                </NavLink>
-              </li>
-            </List>
-          </div>
-        </Flex>
-        <Flex
-          sx={{
-            justifyContent: 'space-between',
-            my: 4,
-            px: 3,
-          }}
-        >
-          <small>Last build on {lastBuild}.</small>
-          <small
-            sx={{
-              textAlign: 'right',
-            }}
-          >
-            © {currentYear} KL React
+        </div>
+        <div className="flex justify-between my-6">
+          <small className="text-base leading-6 text-gray-400">
+            © {currentYear} KL React. All rights reserved.
           </small>
-        </Flex>
+          <small className="text-base leading-6 text-gray-400">
+            Last build on {lastBuild}.
+          </small>
+        </div>
       </Container>
     </footer>
   );
 }
+
+const FooterGroup = ({ title, children, className }) => (
+  <div className={className}>
+    <div className="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase mb-4">
+      {title}
+    </div>
+    {children}
+  </div>
+);
+
+const FooterLink = ({ children, to }) => (
+  <NLink to={to} className="leading-6 text-gray-500 hover:text-primary-500">
+    {children}
+  </NLink>
+);

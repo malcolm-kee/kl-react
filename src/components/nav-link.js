@@ -1,5 +1,24 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui';
+import cx from 'classnames';
+import { Link } from './link';
+
+export const NLink = ({ className, innerClass, children, ...linkProps }) => {
+  return (
+    <Link
+      className={cx(
+        'inline-flex items-center focus:outline-none focus:shadow-outline-teal',
+        className
+      )}
+      tabIndex={0}
+      {...linkProps}
+    >
+      <span className={cx('focus:outline-none', innerClass)} tabIndex={-1}>
+        {children}
+      </span>
+    </Link>
+  );
+};
 
 export const NavLink = ({
   children,

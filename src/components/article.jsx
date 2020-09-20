@@ -1,13 +1,9 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
+import cx from 'classnames';
+import * as React from 'react';
 
-export const Article = props => (
+export const Article = (props) => (
   <article
     {...props}
-    sx={{
-      mx: 'auto',
-      px: 3,
-      maxWidth: ['72ch'],
-    }}
+    className={cx('prose max-w-2xl px-2 sm:px-4 mx-auto', props.className)}
   />
 );

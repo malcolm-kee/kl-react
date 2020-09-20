@@ -1,21 +1,14 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
-import { Link } from './link';
-import { SectionHeading } from './section-heading';
+import * as React from 'react';
+import { NLink } from './nav-link';
 import { Updates } from './updates';
 
 export const UpdatesForMeetup = ({ updates, meetupTitle, meetupId }) => {
   return (
-    <section
-      sx={{
-        boxShadow: 5,
-        p: 4,
-      }}
-    >
-      <SectionHeading>
-        <Link to={`/event/${meetupId}`}>{meetupTitle}</Link>
-      </SectionHeading>
-      <div>
+    <section className="py-4">
+      <div className="text-3xl leading-9 font-extrabold sm:text-4xl sm:leading-10">
+        <NLink to={`/event/${meetupId}`}>{meetupTitle}</NLink>
+      </div>
+      <div className="mt-6 border-t-2 border-gray-200 pt-6">
         <Updates updates={updates} />
       </div>
     </section>

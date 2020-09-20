@@ -1,6 +1,9 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby';
-import { BookOpen, ExternalLink } from 'react-feather';
+import {
+  FiBookOpen as BookOpen,
+  FiExternalLink as ExternalLink,
+} from 'react-icons/fi';
 import { jsx, Styled } from 'theme-ui';
 import { Container } from './container';
 import { Link } from './link';

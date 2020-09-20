@@ -240,6 +240,32 @@ exports.createSchemaCustomization = function createSchemaCustomization({
               .getAllNodes({ type: 'MeetupEvent' })
               .find((meetup) => isMeetupMatchId(meetup, source.meetup)) || null,
         },
+        speakers: {
+          type: '[SpeakerYaml]',
+          resolve: (source, _, context) => {
+            const talkIds =
+              source.schedule &&
+              source.schedule
+                .filter((s) => s.type === 'talk')
+                .map((s) => s.talk);
+
+            if (!talkIds || talkIds.length === 0) {
+              return [];
+            }
+
+            const allTalks = context.nodeModel.getNodesByIds({
+              ids: talkIds,
+              type: 'TalkYaml',
+            });
+
+            return allTalks && allTalks.length > 0
+              ? context.nodeModel.getNodesByIds({
+                  ids: allTalks.map((talk) => talk.speaker),
+                  type: 'SpeakerYaml',
+                })
+              : [];
+          },
+        },
         photos: {
           type: '[S3ImageAsset]',
           resolve: (source, _, context) => {

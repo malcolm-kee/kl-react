@@ -2,11 +2,12 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Layout } from '../components/layout';
 import { MeetupOverview } from '../components/meetup-overview';
-import { Seo } from '../components/seo';
 import { Photos } from '../components/photos';
+import { Section } from '../components/section';
+import { Seo } from '../components/seo';
 import { Speakers } from '../components/speakers';
-import { pluralize } from '../lib';
 import { WorkshopSummary } from '../components/workshop-summary';
+import { pluralize } from '../lib';
 
 const WorkshopTemplate = ({ data, location }) => {
   const {
@@ -27,10 +28,9 @@ const WorkshopTemplate = ({ data, location }) => {
       <Layout>
         <MeetupOverview {...meetup} />
         <WorkshopSummary {...data.eventYaml} />
-        <Speakers
-          title={pluralize('Instructor', instructor.length)}
-          speakers={instructor}
-        />
+        <Section title={pluralize('Instructor', instructor.length)}>
+          <Speakers speakers={instructor} />
+        </Section>
         <Photos photos={photos} />
       </Layout>
     </>
