@@ -44,6 +44,7 @@ export function EventCard({
             .map((i, index, all) => (
               <Image
                 fixed={i.imageFile.childImageSharp.fixed}
+                title={i.name}
                 className={cx(
                   'rounded-full shadow-solid text-white',
                   index > 0 && '-ml-2',

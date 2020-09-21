@@ -20,18 +20,20 @@ export function Banner({ upcomingEvent, className, ...props }) {
           <h1 className="text-4xl md:text-6xl font-medium text-primary-600">
             {upcomingEvent ? upcomingEvent.name : title}
           </h1>
-          {upcomingEvent && (
-            <p className="text-lg md:text-2xl xl:text-3xl mb-3 md:mb-6">
-              {upcomingEvent.dateTime}
+          <div className="mb-3 md:mb-6 space-y-3">
+            {upcomingEvent && (
+              <p className="text-lg md:text-2xl xl:text-3xl">
+                {upcomingEvent.dateTime}
+              </p>
+            )}
+            <p className="text-lg md:text-2xl xl:text-3xl">
+              {upcomingEvent
+                ? upcomingEvent.venue.name
+                  ? `@${upcomingEvent.venue.name}`
+                  : '(Needs a location)'
+                : description}
             </p>
-          )}
-          <p className="text-lg md:text-2xl xl:text-3xl mb-3 md:mb-6">
-            {upcomingEvent
-              ? upcomingEvent.venue.name
-                ? `@${upcomingEvent.venue.name}`
-                : '(Needs a location)'
-              : description}
-          </p>
+          </div>
           <div className="flex">
             {upcomingEvent ? (
               <NButton
