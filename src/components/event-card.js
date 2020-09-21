@@ -1,11 +1,10 @@
-/** @jsx jsx */
+import cx from 'classnames';
 import { graphql } from 'gatsby';
-import { jsx } from 'theme-ui';
 import Image from 'gatsby-image';
+import * as React from 'react';
 import { titleCase } from '../lib';
 import { Badge } from './badge';
 import { Link } from './link';
-import cx from 'classnames';
 
 export function EventCard({
   id,

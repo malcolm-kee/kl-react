@@ -1,10 +1,8 @@
-/** @jsx jsx */
-
 import { graphql } from 'gatsby';
-import { jsx } from 'theme-ui';
+import Image from 'gatsby-image';
+import * as React from 'react';
 import { NLink } from './nav-link';
 import { TalkMaterialIcons } from './talk-material-icons';
-import Image from 'gatsby-image';
 
 export const Talk = ({ talk }) => (
   <div id={talk.id} key={talk.id}>
