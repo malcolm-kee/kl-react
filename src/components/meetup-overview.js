@@ -1,59 +1,39 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby';
-import {
-  FiBookOpen as BookOpen,
-  FiExternalLink as ExternalLink,
-} from 'react-icons/fi';
-import { jsx, Styled } from 'theme-ui';
+import { FaMeetup as Meetup } from 'react-icons/fa';
+import { FiBook as Book } from 'react-icons/fi';
+import { jsx } from 'theme-ui';
 import { Container } from './container';
 import { Link } from './link';
 
 export const MeetupOverview = ({ name, dateTime, venueName, link, info }) => (
-  <div
-    id="meetup-overview"
-    sx={{
-      py: 6,
-    }}
-  >
-    <Container>
-      <Styled.h1 sx={{ color: 'secondary', mb: 4 }}>{name}</Styled.h1>
-      <Styled.p sx={{ my: 1, fontSize: [3, 4] }}>{dateTime}</Styled.p>
-      <Styled.p
-        sx={{
-          fontSize: [3, 4],
-        }}
-      >
-        @{venueName}{' '}
-      </Styled.p>
-      <Styled.p sx={{ display: 'flex', alignItems: 'center' }}>
+  <div id="meetup-overview">
+    <Container className="py-12">
+      <h1 className="text-4xl md:text-6xl font-medium text-primary-600">
+        {name}
+      </h1>
+      <div className="mb-3 md:mb-6 space-y-3">
+        <p className="text-lg md:text-2xl xl:text-3xl">{dateTime}</p>
+        <p className="text-lg md:text-2xl xl:text-3xl">@{venueName} </p>
+      </div>
+      <div className="flex items-center space-x-4">
         <Link
           to={link}
-          isExternal
-          sx={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            mr: 4,
-            opacity: 0.9,
-          }}
+          className="inline-flex items-center text-lg text-pink-600 hover:text-pink-700"
         >
-          Meetup.com
-          <ExternalLink sx={{ mx: 2 }} />
+          <Meetup className="h-8 w-8 mr-1" aria-hidden />
+          Meetup
         </Link>
         {info && info.site && (
           <Link
             to={info.site}
-            isExternal
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              opacity: 0.9,
-            }}
+            className="inline-flex items-center text-lg text-gray-500 hover:text-gray-600"
           >
+            <Book className="h-8 w-8 mr-1" aria-hidden />
             Material
-            <BookOpen sx={{ mx: 2 }} />
           </Link>
         )}
-      </Styled.p>
+      </div>
     </Container>
   </div>
 );

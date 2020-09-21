@@ -1,11 +1,10 @@
-/** @jsx jsx */
+import cx from 'classnames';
 import { graphql } from 'gatsby';
-import { jsx } from 'theme-ui';
 import Image from 'gatsby-image';
+import * as React from 'react';
 import { titleCase } from '../lib';
 import { Badge } from './badge';
 import { Link } from './link';
-import cx from 'classnames';
 
 export function EventCard({
   id,
@@ -44,6 +43,7 @@ export function EventCard({
             .map((i, index, all) => (
               <Image
                 fixed={i.imageFile.childImageSharp.fixed}
+                title={i.name}
                 className={cx(
                   'rounded-full shadow-solid text-white',
                   index > 0 && '-ml-2',
