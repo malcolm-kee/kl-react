@@ -19,7 +19,7 @@ export function Header({ flat }) {
               to="/"
               innerClass="inline-flex items-center"
             >
-              <Icon className="mr-2 h-12 inline-block" />
+              <Icon className="mr-2 inline-block" />
               {title}
             </NLink>
             <div className="hidden sm:-my-px sm:ml-6 space-x-8 sm:flex">

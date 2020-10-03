@@ -17,7 +17,7 @@ export const Speakers = ({ speakers, showMore, showPastEvents }) => (
     )}
     {showMore && (
       <div>
-        <NLink to="/speakers" className="text-xl text-primary-600">
+        <NLink to="/speakers" primary className="text-xl">
           View speakers for previous meetups/workshops
         </NLink>
       </div>

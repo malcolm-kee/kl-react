@@ -13,6 +13,10 @@ module.exports = {
         css: {
           a: {
             color: defaultTheme.colors.teal[700],
+            textDecoration: 'none',
+            '&:hover': {
+              textDecoration: 'underline',
+            },
           },
         },
       },

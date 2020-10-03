@@ -3,11 +3,18 @@ import { jsx, Styled } from 'theme-ui';
 import cx from 'classnames';
 import { Link } from './link';
 
-export const NLink = ({ className, innerClass, children, ...linkProps }) => {
+export const NLink = ({
+  className,
+  innerClass,
+  children,
+  primary,
+  ...linkProps
+}) => {
   return (
     <Link
       className={cx(
         'inline-flex items-center focus:outline-none focus:shadow-outline-teal',
+        primary && 'text-primary-700 hover:underline',
         className
       )}
       tabIndex={0}

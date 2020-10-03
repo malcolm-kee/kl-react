@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import { jsx } from 'theme-ui';
 import { Container } from './container';
-import { List } from './list';
 import { SectionHeading } from './section-heading';
 
 export function Photos({ photos }) {
@@ -11,7 +10,7 @@ export function Photos({ photos }) {
     <Container>
       <SectionHeading>Photos</SectionHeading>
       <div>
-        <List
+        <ul
           sx={{
             display: 'grid',
             my: 4,
@@ -22,7 +21,7 @@ export function Photos({ photos }) {
             ],
           }}
         >
-          {photos.map(photo => (
+          {photos.map((photo) => (
             <li
               sx={{
                 minWidth: 0,
@@ -32,7 +31,7 @@ export function Photos({ photos }) {
               <Image fluid={photo.childImageSharp.fluid} />
             </li>
           ))}
-        </List>
+        </ul>
       </div>
     </Container>
   );

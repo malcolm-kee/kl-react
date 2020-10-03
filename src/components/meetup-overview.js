@@ -1,8 +1,7 @@
-/** @jsx jsx */
 import { graphql } from 'gatsby';
+import * as React from 'react';
 import { FaMeetup as Meetup } from 'react-icons/fa';
 import { FiBook as Book } from 'react-icons/fi';
-import { jsx } from 'theme-ui';
 import { Container } from './container';
 import { Link } from './link';
 

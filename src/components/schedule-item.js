@@ -12,7 +12,6 @@ import {
 import { Flex, jsx, Styled } from 'theme-ui';
 import { DesktopOnly } from './desktop-only';
 import { Link } from './link';
-import { List } from './list';
 import { NLink } from './nav-link';
 import { TalkMaterialIcons } from './talk-material-icons';
 
@@ -106,14 +105,14 @@ export function ScheduleItem({ time, type, talk, desc, speakersOnSamePage }) {
             </Styled.h4>
             {talk.speaker &&
               (speakersOnSamePage ? (
-                <a href={`#${talk.speaker.id}`} className="text-primary-700">
+                <a
+                  href={`#${talk.speaker.id}`}
+                  className="text-primary-700 hover:underline"
+                >
                   {talk.speaker.name}
                 </a>
               ) : (
-                <NLink
-                  to={`/speakers/#${talk.speaker.id}`}
-                  className="text-primary-700"
-                >
+                <NLink to={`/speakers/#${talk.speaker.id}`} primary>
                   {talk.speaker.name}
                 </NLink>
               ))}
@@ -132,32 +131,22 @@ export function ScheduleItem({ time, type, talk, desc, speakersOnSamePage }) {
       ) : (
         <ScheduleTypeDisplay type={type} />
       )}
-      <div sx={{ width: '100%' }}>
+      <div className="w-full">
         {isTalk ? (
           talk ? (
             <React.Fragment>
               <Styled.p sx={descStyle}>{talk.description}</Styled.p>
               {talk && talk.materials && (
-                <List
-                  sx={{
-                    my: 1,
-                  }}
-                >
+                <ul className="flex flex-wrap my-1">
                   {talk.materials.map((material, i) => (
-                    <li
-                      key={i}
-                      sx={{
-                        display: 'inline-block',
-                        mr: 1,
-                      }}
-                    >
+                    <li key={i} className="mr-1">
                       <TalkMaterialIcons
                         type={material.type}
                         url={material.url}
                       />
                     </li>
                   ))}
-                </List>
+                </ul>
               )}
             </React.Fragment>
           ) : (
