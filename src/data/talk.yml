@@ -7,7 +7,7 @@
   speaker: abhishek
   description: A brief talk about JS promises, making it as complicated as possible(along with async/await) and how to test it out in JS.
 - id: testing-library
-  title: 'Integration Testing UI Made Easier with @testing-library'
+  title: 'Integration UI Testing Made Easier with @testing-library'
   speaker: khairul
   description: Integration testing shouldn''t be hard. @testing-library allows you to write integration tests as how users interact with your React web pages. Learn the basics and discuss a few practical examples.
 - id: accessibility-first
