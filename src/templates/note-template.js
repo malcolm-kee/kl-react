@@ -1,15 +1,13 @@
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import React from 'react';
-import { NLink } from '../components/nav-link';
+import * as React from 'react';
+import { Link } from '../components/link';
 import { Note } from '../components/note';
 import { Seo } from '../components/seo';
 
 const MDXComponents = {
-  a: ({ href, ...props }) => (
-    <NLink className="text-primary-700" {...props} to={href} />
-  ),
+  a: ({ href, ...props }) => <Link {...props} to={href} />,
 };
 
 const NoteTemplate = ({ data, location }) => {

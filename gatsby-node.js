@@ -152,11 +152,25 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
           venue: node.venueName,
           talks: node.info.schedule
             .filter((s) => s.type === 'talk')
-            .map((s) => ({
-              title: s.talk.title,
-              speakerImage: s.talk.speaker.image,
-              speakerName: s.talk.speaker.name,
-            })),
+            .map((s) => {
+              const nameParts = s.talk.speaker.name.split(' ');
+              const displayName =
+                nameParts.length > 2
+                  ? nameParts
+                      .map((part, i, allParts) =>
+                        i === 0 || i === allParts.length - 1
+                          ? part
+                          : `${part[0]}.`
+                      )
+                      .join(' ')
+                  : s.talk.speaker.name;
+
+              return {
+                title: s.talk.title,
+                speakerImage: s.talk.speaker.image,
+                speakerName: displayName,
+              };
+            }),
           icon:
             'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
         });

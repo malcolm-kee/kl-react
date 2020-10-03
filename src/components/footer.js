@@ -17,7 +17,7 @@ export function Footer() {
       <Container className="py-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div>
-            <Icon className="h-12" />
+            <Icon />
             <p className="mt-8 text-gray-500 text-base leading-6">
               {description}
             </p>

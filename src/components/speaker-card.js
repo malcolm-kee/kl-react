@@ -1,20 +1,18 @@
-/** @jsx jsx */
 import cx from 'classnames';
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
+import * as React from 'react';
 import {
   FiGithub as GitHub,
   FiGlobe as Globe,
   FiMic as Mic,
   FiTwitter as Twitter,
 } from 'react-icons/fi';
-import { Flex, jsx, Styled } from 'theme-ui';
 import { isFilledArray, pluralize } from '../lib';
 import { BackgroundImage } from './background-image';
 import { BulletedList } from './bulleted-list';
 import { IconLink } from './icon-link';
 import { NLink } from './nav-link';
-import { SrOnly } from './sr-only';
 
 export function SpeakerCard({
   id,
@@ -89,15 +87,15 @@ export function SpeakerCard({
         <div>
           {isFilledArray(talk) && (
             <div>
-              <Styled.h4 sx={{ pt: 2, pb: 1 }}>
+              <h4 className="pt-1 pb-0.5 font-bold">
                 {pluralize('Talk', talk.length)} in React KL
-              </Styled.h4>
+              </h4>
               <BulletedList>
                 {/* we only shows 3 talks, remaining just a count */}
                 {talk.map((t, index) =>
                   index <= 2 ? (
                     <li key={t.id}>
-                      <NLink to={`/talks#${t.id}`} className="text-primary-700">
+                      <NLink to={`/talks#${t.id}`} primary>
                         {t.title}
                       </NLink>
                     </li>
@@ -113,18 +111,15 @@ export function SpeakerCard({
           )}
           {isFilledArray(webcast) && (
             <div>
-              <Styled.h4 sx={{ pt: 2, pb: 1 }}>
+              <h4 className="pt-1 pb-0.5 font-bold">
                 {pluralize('Webcast', webcast.length)} in React KL
-              </Styled.h4>
+              </h4>
               <BulletedList>
                 {/* we only shows 3 webcasts, remaining just a count */}
                 {webcast.map((wcast, index) =>
                   index <= 2 ? (
                     <li key={wcast.name}>
-                      <NLink
-                        to={`/event/${wcast.name}`}
-                        className="text-primary-700"
-                      >
+                      <NLink to={`/event/${wcast.name}`} primary>
                         {wcast.meetup.name}
                       </NLink>
                     </li>
@@ -140,18 +135,15 @@ export function SpeakerCard({
           )}
           {isFilledArray(workshop) && (
             <div>
-              <Styled.h4 sx={{ pt: 2, pb: 1 }}>
+              <h4 className="pt-1 pb-0.5 font-bold">
                 {pluralize('Workshop', workshop.length)} in React KL
-              </Styled.h4>
+              </h4>
               <BulletedList>
                 {/* we only shows 3 workshops, remaining just a count */}
                 {workshop.map((wshop, index) =>
                   index <= 2 ? (
                     <li key={wshop.name}>
-                      <NLink
-                        to={`/event/${wshop.name}`}
-                        className="text-primary-700"
-                      >
+                      <NLink to={`/event/${wshop.name}`} primary>
                         {wshop.meetup.name}
                       </NLink>
                     </li>

@@ -5,7 +5,7 @@ import { NLink } from './nav-link';
 import { TalkMaterialIcons } from './talk-material-icons';
 
 export const Talk = ({ talk }) => (
-  <div id={talk.id} key={talk.id}>
+  <div id={talk.id}>
     <div className="mb-3 lg:flex lg:justify-between lg:items-center">
       <h3 className="text-2xl font-medium">{talk.title}</h3>
       <div className="inline-flex items-center lg:flex-row-reverse">
