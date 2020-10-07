@@ -2,6 +2,15 @@
   title: Scalable Micro Frontend with Module Federation
   speaker: malcolm
   description: Learn how the module federation feature (available in webpack 5) enables a scalable micro frontend architecture that improves your development and deployment workflow without sacrificing user experience.
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/1Ee0DfYb18XJZaLNOS_2dCNt5St9aZbuTGGYFNC5ZPdI/edit?usp=sharing
+    - type: repo
+      url: https://github.com/malcolm-kee/federation-main-app
+    - type: repo
+      url: https://github.com/malcolm-kee/federation-mini-app
+    - type: repo
+      url: https://github.com/malcolm-kee/federation-career-app
 - id: test-promise
   title: Test Your Promises
   speaker: abhishek
@@ -10,6 +19,13 @@
   title: 'Integration UI Testing Made Easier with @testing-library'
   speaker: khairul
   description: Integration testing shouldn''t be hard. @testing-library allows you to write integration tests as how users interact with your React web pages. Learn the basics and discuss a few practical examples.
+  materials:
+    - type: slide
+      url: https://speakerdeck.com/jongthechemist/integration-test-with-at-testing-library
+    - type: repo
+      url: https://github.com/jongthechemist/testing-react
+    - type: repo
+      url: https://github.com/jongthechemist/testing-ng
 - id: accessibility-first
   title: Accessibility First
   speaker: abhishek
