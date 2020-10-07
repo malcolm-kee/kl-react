@@ -25,7 +25,7 @@ export const Talk = ({ talk }) => (
           </NLink>
           <br />
           <NLink
-            to={`/event/${talk.event.id}`}
+            to={`/event/${talk.event.name}`}
             className="text-sm leading-5 text-gray-500 hover:underline"
           >
             {talk.event.meetup.dateTime}
@@ -71,6 +71,7 @@ export const query = graphql`
     }
     event {
       id
+      name
       meetup {
         dateTime(formatString: "DD MMM YYYY")
       }

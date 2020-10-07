@@ -22,7 +22,9 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    zIndex: ({ after }) => after(['hover']),
+  },
   plugins: [require('@tailwindcss/ui')],
   future: {
     removeDeprecatedGapUtilities: true,

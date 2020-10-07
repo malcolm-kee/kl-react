@@ -10,7 +10,6 @@ import {
   FiUsers as Users,
 } from 'react-icons/fi';
 import { Flex, jsx, Styled } from 'theme-ui';
-import { DesktopOnly } from './desktop-only';
 import { Link } from './link';
 import { NLink } from './nav-link';
 import { TalkMaterialIcons } from './talk-material-icons';
@@ -22,7 +21,7 @@ const scheduleTypeStyle = {
 };
 
 const iconStyle = {
-  mr: 1,
+  mr: 2,
   color: 'textLight',
 };
 
@@ -57,9 +56,7 @@ function ScheduleTypeDisplay({ type }) {
       {Icon ? (
         <Styled.h4 sx={scheduleTypeStyle}>
           <Icon.Component sx={iconStyle} />{' '}
-          <DesktopOnly>
-            <span>{Icon.label}</span>
-          </DesktopOnly>
+          <span className="hidden lg:inline">{Icon.label}</span>
         </Styled.h4>
       ) : (
         <Styled.h4 sx={scheduleTypeStyle}>{type}</Styled.h4>

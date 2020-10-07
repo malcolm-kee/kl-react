@@ -45,7 +45,7 @@ export function EventCard({
                 fixed={i.imageFile.childImageSharp.fixed}
                 title={i.name}
                 className={cx(
-                  'rounded-full shadow-solid text-white',
+                  'rounded-full shadow-solid text-white hover:z-50',
                   index > 0 && '-ml-2',
                   zIndex[all.length - index - 1]
                 )}
