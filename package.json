@@ -24,7 +24,7 @@
     "gatsby-plugin-manifest": "^2.2.5",
     "gatsby-plugin-mdx": "^1.0.24",
     "gatsby-plugin-netlify": "^2.1.4",
-    "gatsby-plugin-postcss": "^2.3.12",
+    "gatsby-plugin-postcss": "^3.0.1",
     "gatsby-plugin-react-helmet": "^3.1.3",
     "gatsby-plugin-sharp": "^2.2.11",
     "gatsby-plugin-theme-ui": "^0.3.0",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@tailwindcss/ui": "^0.6.2",
-    "@testing-library/react": "^10.0.4",
+    "@testing-library/react": "^11.0.4",
     "@testing-library/user-event": "^12.1.1",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^26.0.10",
@@ -58,12 +58,12 @@
     "gatsby-plugin-catch-links": "^2.1.9",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
-    "jest-junit": "^11.1.0",
+    "jest-junit": "^12.0.0",
     "jest-junit-reporter": "^1.1.0",
     "mustache": "^4.0.0",
     "puppeteer": "^5.2.1",
     "tailwindcss": "^1.8.10",
     "ts-jest": "^26.4.0",
-    "typescript": "3.9.7"
+    "typescript": "^4.0.3"
   }
 }
