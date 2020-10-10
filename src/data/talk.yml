@@ -15,6 +15,11 @@
   title: Test Your Promises
   speaker: abhishek
   description: A brief talk about JS promises, making it as complicated as possible(along with async/await) and how to test it out in JS.
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/1sWwLBvqzm1B5-iZ_degG6w2CYxDT_nrZGQg9msgKxOM/edit?usp=sharing
+    - type: repo
+      url: https://github.com/abhishek71994/KL-react-promises-october-talk
 - id: testing-library
   title: 'Integration UI Testing Made Easier with @testing-library'
   speaker: khairul
