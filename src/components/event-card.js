@@ -65,6 +65,7 @@ const colorForType = {
   meetup: 'pink',
   workshop: 'indigo',
   webcast: 'green',
+  codelab: 'teal',
 };
 
 export const query = graphql`

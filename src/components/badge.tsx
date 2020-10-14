@@ -2,7 +2,7 @@ import cx from 'classnames';
 import * as React from 'react';
 
 export type BadgeProps = React.ComponentPropsWithoutRef<'span'> & {
-  color: 'indigo' | 'pink' | 'green' | 'gray' | 'primary';
+  color: 'indigo' | 'pink' | 'green' | 'gray' | 'primary' | 'teal';
 };
 
 export const Badge = ({ color, className, ...badgeProps }: BadgeProps) => {
@@ -24,4 +24,5 @@ const classForColor: Record<BadgeProps['color'], string> = {
   pink: 'bg-pink-100 text-pink-800',
   primary: 'bg-primary-100 text-primary-800',
   green: 'bg-green-100 text-green-800',
+  teal: 'bg-teal-100 text-teal-800',
 };

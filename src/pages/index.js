@@ -8,6 +8,7 @@ import { Section } from '../components/section';
 import { Seo } from '../components/seo';
 import { Speakers } from '../components/speakers';
 import { VideoPlayer } from '../components/video-player';
+import { CodelabSummary } from '../components/codelab-summary';
 import { WebcastSummary } from '../components/webcast-summary';
 import { WorkshopSummary } from '../components/workshop-summary';
 import { useUpcomingEvent } from '../hooks/use-upcoming-event';
@@ -81,6 +82,9 @@ export default function HomePage({ data }) {
           )}
           {upcomingEvent && upcomingEvent.type === 'webcast' && (
             <WebcastSummary {...upcomingEvent} />
+          )}
+          {upcomingEvent && upcomingEvent.type === 'codelab' && (
+            <CodelabSummary {...upcomingEvent} />
           )}
           {speakers && (
             <Section

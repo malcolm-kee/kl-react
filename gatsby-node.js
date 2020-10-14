@@ -12,6 +12,12 @@ exports.createSchemaCustomization = createSchemaCustomization;
 
 exports.createResolvers = createResolvers;
 
+const codelabTemplate = path.resolve(
+  __dirname,
+  'src',
+  'templates',
+  'codelab-template.js'
+);
 const meetupTemplate = path.resolve(
   __dirname,
   'src',
@@ -70,6 +76,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           ? meetupTemplate
           : event.type === 'webcast'
           ? webcastTemplate
+          : event.type === 'codelab'
+          ? codelabTemplate
           : workshopTemplate,
       context: {
         name: event.name,

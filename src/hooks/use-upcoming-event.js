@@ -21,6 +21,7 @@ export function useUpcomingEvent() {
         info {
           ...WorkshopSummary
           ...WebcastSummary
+          ...CodelabSummary
           videoUrl
           rsvpLink
           seoImagePublicUrl
