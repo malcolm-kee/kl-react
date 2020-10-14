@@ -1,3 +1,7 @@
+- name: codelab-oct-2020
+  type: codelab
+  meetup: 273915428
+  site: https://github.com/kentcdodds/react-fundamentals
 - name: oct-2020
   type: meetup
   meetup: 273289572
