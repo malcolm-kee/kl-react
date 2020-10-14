@@ -1,3 +1,11 @@
+- name: codelab-oct-2020
+  type: codelab
+  meetup: 273915428
+  site: https://github.com/kentcdodds/react-fundamentals
+  description: >
+    Learn the foundational concepts necessary for building React applications and libraries.
+
+    Learn everything you need to be effective with the fundamental building block of React applications. When you’re finished, you’ll be prepared to create React components to build excellent experiences for your app's users.
 - name: oct-2020
   type: meetup
   meetup: 273289572
