@@ -37,22 +37,24 @@ export function EventCard({
         {dateTime} {venueName && `@${venueName}`}
       </p>
       {allPeople && allPeople.length > 0 && (
-        <div className="flex">
-          {allPeople
-            .filter((i) => !!i.imageFile)
-            .map((i, index, all) => (
-              <Image
-                fixed={i.imageFile.childImageSharp.fixed}
-                title={i.name}
-                className={cx(
-                  'rounded-full shadow-solid text-white hover:z-50',
-                  index > 0 && '-ml-2',
-                  zIndex[all.length - index - 1]
-                )}
-                alt={i.name}
-                key={index}
-              />
-            ))}
+        <div>
+          <div className="inline-flex group pt-1">
+            {allPeople
+              .filter((i) => !!i.imageFile)
+              .map((i, index, all) => (
+                <Image
+                  fixed={i.imageFile.childImageSharp.fixed}
+                  title={i.name}
+                  className={cx(
+                    'rounded-full shadow-solid text-white transition-all ease-in-out duration-150',
+                    index > 0 && '-ml-2 group-hover:ml-3',
+                    zIndex[all.length - index - 1]
+                  )}
+                  alt={i.name}
+                  key={index}
+                />
+              ))}
+          </div>
         </div>
       )}
     </Link>

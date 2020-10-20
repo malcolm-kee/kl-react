@@ -1,25 +1,25 @@
 /** @jsx jsx */
+import cx from 'classnames';
 import { graphql } from 'gatsby';
-import { jsx, Styled } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { Card } from './card';
 
-export function Tweet({ displayedText, entities, user, url, ...props }) {
+export function Tweet({
+  displayedText,
+  entities,
+  user,
+  url,
+  className,
+  ...props
+}) {
   return (
-    <Card sx={{ position: 'relative' }} {...props}>
+    <Card className={cx('relative', className)} {...props}>
       <AuthorAvatar user={user} url={url} />
-      <div sx={{ display: 'flex', flexFlow: 'column', height: '100%' }}>
+      <div className="flex flex-col h-full">
         {displayedText && (
-          <Styled.p
-            sx={{
-              fontSize: [2, 3, 4],
-              whiteSpace: 'pre-wrap',
-              maxWidth: 720,
-              mx: 'auto',
-              pr: '60px',
-            }}
-          >
+          <p className="prose-xl whitespace-pre-wrap max-w-2xl mx-auto pr-20">
             {displayedText}
-          </Styled.p>
+          </p>
         )}
         <div
           sx={{
@@ -97,42 +97,19 @@ export const query = graphql`
 
 function AuthorAvatar({ user, url }) {
   return (
-    <Styled.div
-      sx={{
-        position: 'absolute',
-        right: 1,
-        top: 1,
-        textAlign: 'right',
-      }}
-    >
-      <Styled.a
-        sx={{
-          fontSize: 3,
-          textDecoration: 'none',
-        }}
-        css={{
-          '& div': {
-            opacity: 0,
-            transition: `opacity 500ms ease`,
-          },
-          ':hover, :focus': {
-            div: {
-              opacity: 1,
-            },
-          },
-        }}
-        href={url}
-      >
-        <img
-          sx={{
-            borderRadius: '50%',
-            mr: 2,
-          }}
-          src={user.profileImage}
-          alt={user.name}
-        />
-        <div>{user.name}</div>
-      </Styled.a>
-    </Styled.div>
+    <div className="absolute right-1 top-1 text-right">
+      <a href={url} className="block text-gray-500 group">
+        <div className="inline-block shadow-lg rounded-full mr-2">
+          <img
+            className="inline-block shadow-solid text-white rounded-full"
+            src={user.profileImage}
+            alt={user.name}
+          />
+        </div>
+        <div className="opacity-0 group-hover:bg-gray-100 group-hover:opacity-100 group-focus:opacity-100 xl:opacity-100 px-1 shadow rounded">
+          {user.name}
+        </div>
+      </a>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { Styled, jsx } from 'theme-ui';
+import { jsx } from 'theme-ui';
+import cx from 'classnames';
 import { keyframes } from '@emotion/core';
 
 const expand = keyframes`
@@ -12,25 +13,17 @@ to {
 }
 `;
 
-export const ProgressBar = ({ duration = 1000, ...props }) => {
+export const ProgressBar = ({ duration = 1000, className, ...props }) => {
   return (
-    <Styled.div
-      sx={{
-        width: '100%',
-      }}
-      {...props}
-    >
-      <Styled.div
-        sx={{
-          height: 8,
-          backgroundColor: 'secondary',
-        }}
+    <div className={cx('w-full', className)} {...props}>
+      <div
+        className="bg-primary-500 h-2"
         css={{
           animation: `${expand} ${duration}ms linear`,
         }}
       >
         &nbsp;
-      </Styled.div>
-    </Styled.div>
+      </div>
+    </div>
   );
 };

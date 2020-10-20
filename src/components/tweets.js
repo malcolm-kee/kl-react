@@ -111,10 +111,7 @@ export const Tweets = ({ tweets = [] }) => {
         </div>
       </Container>
       <ProgressBar
-        sx={{
-          position: 'fixed',
-          bottom: 0,
-        }}
+        className="fixed bottom-0 z-10"
         duration={state.interval}
         key={state.index}
       />

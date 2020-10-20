@@ -24,6 +24,7 @@ module.exports = {
   },
   variants: {
     zIndex: ({ after }) => after(['hover']),
+    margin: ({ after }) => after(['group-hover']),
   },
   plugins: [require('@tailwindcss/ui')],
   future: {
