@@ -1,3 +1,22 @@
+- name: jan-2021
+  type: meetup
+  meetup: 275642025
+  schedule:
+    - time: 8.00pm
+      type: networking
+      desc: Get to know each other
+    - time: 8.30pm
+      type: talk
+      talk: ssr-spa-and-prerendering
+    - time: 9.00pm
+      type: talk
+      talk: react-with-apollo-server
+    - time: 9.30pm
+      type: talk
+      talk: react-in-angular
+    - time: 10.00pm
+      type: announcement
+      desc: Company hiring or developer looking for opportunity
 - name: codelab-oct-2020
   type: codelab
   meetup: 273915428

@@ -80,3 +80,19 @@
   bio: Self-taught Software Engineer with passion in Dataviz and React
   company: Setel
   github: jongthechemist
+- id: amirul-abu
+  name: Amirul Abu
+  bio: Full Stack Software Engineer at Vase.ai
+  github: amirulabu
+  website: https://mirul.xyz
+  twitter: amirulabu
+  company: Vase.ai
+- id: wai-hong
+  name: Teo Wai Hong
+  bio: >
+    A full-time oncology pharmacist with interest in programming.
+
+    Has developed a few projects in hospital setting focusing on data management.
+
+    Programming language: Python and Javascript
+  github: waihong87

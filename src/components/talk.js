@@ -34,7 +34,9 @@ export const Talk = ({ talk }) => (
       </div>
     </div>
     <div className="lg:flex lg:justify-between">
-      <p className="mb-3 max-w-2xl text-justify">{talk.description}</p>
+      <p className="mb-3 max-w-2xl text-justify whitespace-pre-wrap">
+        {talk.description}
+      </p>
       <div className="flex-shrink-0">
         {talk.materials &&
           talk.materials.map((material, i) => (
