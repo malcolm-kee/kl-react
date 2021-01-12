@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import snarkdown from 'snarkdown';
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import * as React from 'react';
@@ -31,6 +32,8 @@ export function SpeakerCard({
   className,
   ...props
 }) {
+  const bioHtml = React.useMemo(() => snarkdown(bio), [bio]);
+
   return (
     <div
       id={id}
@@ -61,7 +64,10 @@ export function SpeakerCard({
       <div>
         <h3 className="text-2xl font-medium">{name}</h3>
         <div className="text-xl">{company}</div>
-        <p className="whitespace-pre-wrap my-2 text-gray-600">{bio}</p>
+        <p
+          className="prose my-2 text-gray-600"
+          dangerouslySetInnerHTML={{ __html: bioHtml }}
+        />
         <div className="-mx-2">
           {twitter && (
             <IconLink href={`https://twitter.com/${twitter}`}>

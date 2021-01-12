@@ -42,6 +42,7 @@
     "react-helmet": "^6.0.0",
     "react-icons": "^4.1.0",
     "react-player": "^2.0.1",
+    "snarkdown": "^2.0.0",
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
