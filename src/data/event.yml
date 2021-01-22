@@ -10,7 +10,7 @@
       talk: ssr-spa-and-prerendering
     - time: 9.00pm
       type: talk
-      talk: react-with-apollo-server
+      talk: graphql-apollo-server
     - time: 9.30pm
       type: talk
       talk: react-in-angular
