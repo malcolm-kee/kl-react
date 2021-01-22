@@ -2,21 +2,10 @@
   title: Making sense of SSR, SPA, and Pre-rendering
   speaker: amirul-abu
   description: How to make architecture decision between server-side rendering, single page application, and pre-rendering. The talk will touch on what options does nextjs and nuxtjs provides, what are the pros and cons, what type of web application is suitable for each types, and what are the compromises. Will also demonstrate live websites with this characteristic.
-- id: react-with-apollo-server
-  title: Integrating Apollo Server with React
+- id: graphql-apollo-server
+  title: Introduction to GraphQL and Apollo Server
   speaker: wai-hong
-  description: >
-    1. Setting up Apollo Server with React
-
-    2. Setting up typeDefs and Resolvers
-
-    3. Testing queries and mutation on backend (GraphQL)
-
-    4. Setting up Schemas on React
-
-    5. Running queries and mutation on React
-
-    6. Error handling with Apollo Server and React
+  description: This talk gives a brief overview about GraphQL (including differences as compared to RESTful APIs) and its implementation via Apollo Server.
 - id: react-in-angular
   title: 'Angular in React: A Migration Approach'
   speaker: malcolm
