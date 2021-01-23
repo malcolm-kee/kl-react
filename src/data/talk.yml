@@ -7,7 +7,7 @@
   speaker: wai-hong
   description: This talk gives a brief overview about GraphQL (including differences as compared to RESTful APIs) and its implementation via Apollo Server.
 - id: react-in-angular
-  title: 'Angular in React: A Migration Approach'
+  title: 'React in Angular: A Migration Approach'
   speaker: malcolm
   description: Sharing of how to incrementally migrate your frontend application from Angular to React by putting React inside Angular application.
 - id: module-federation
