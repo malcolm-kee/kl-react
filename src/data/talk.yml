@@ -2,14 +2,27 @@
   title: Making sense of SSR, SPA, and Pre-rendering
   speaker: amirul-abu
   description: How to make architecture decision between server-side rendering, single page application, and pre-rendering. The talk will touch on what options does nextjs and nuxtjs provides, what are the pros and cons, what type of web application is suitable for each types, and what are the compromises. Will also demonstrate live websites with this characteristic.
+  materials:
+    - type: slide
+      url: https://hackmd.io/@amirulabu/Hky8aYY1O#/
 - id: graphql-apollo-server
   title: Introduction to GraphQL and Apollo Server
   speaker: wai-hong
   description: This talk gives a brief overview about GraphQL (including differences as compared to RESTful APIs) and its implementation via Apollo Server.
+  materials:
+    - type: slide
+      url: https://drive.google.com/file/d/1NzIIvuPv7R18laPuJRGR2VgKe5lVrgEt/view?usp=sharing
+    - type: repo
+      url: https://github.com/waihong87/graphql-apollo-tutorial
 - id: react-in-angular
   title: 'React in Angular: A Migration Approach'
   speaker: malcolm
   description: Sharing of how to incrementally migrate your frontend application from Angular to React by putting React inside Angular application.
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/14K8ZXQ8b_JZ0XI2iJrb0n_u8GmEhU2KZ-vFTpBbnCZs/edit?usp=sharing
+    - type: repo
+      url: https://github.com/malcolm-kee/u07-angular-movie-app
 - id: module-federation
   title: Scalable Micro Frontend with Module Federation
   speaker: malcolm
