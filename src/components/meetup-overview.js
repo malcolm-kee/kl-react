@@ -7,7 +7,7 @@ import { Link } from './link';
 
 export const MeetupOverview = ({ name, dateTime, venueName, link, info }) => (
   <div id="meetup-overview">
-    <Container className="py-12">
+    <Container className="py-12 space-y-5">
       <h1 className="text-4xl md:text-6xl font-medium text-primary-600">
         {name}
       </h1>

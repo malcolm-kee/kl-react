@@ -10,7 +10,7 @@ export type FieldProps = {
   children: React.ReactNode;
 };
 
-export const Field = ({ className = 'mb-8', ...props }: FieldProps) => {
+export const Field = ({ className, ...props }: FieldProps) => {
   return (
     <FieldContext.Provider
       value={{
@@ -19,12 +19,18 @@ export const Field = ({ className = 'mb-8', ...props }: FieldProps) => {
       }}
     >
       <div className={className}>
-        <div className="flex justify-between items-center">
-          <label htmlFor={props.id}>{props.label}</label>
-          {props.required && <span className="text-sm">Required</span>}
+        <div className="flex justify-between items-center mb-1">
+          <label htmlFor={props.id} className="text-gray-700">
+            {props.label}
+          </label>
+          {props.required && (
+            <span className="text-sm text-gray-500">Required</span>
+          )}
         </div>
         {props.children}
-        {props.helpText && <span className="text-sm">{props.helpText}</span>}
+        {props.helpText && (
+          <span className="text-sm text-gray-500">{props.helpText}</span>
+        )}
       </div>
     </FieldContext.Provider>
   );
