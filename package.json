@@ -55,6 +55,7 @@
     "@types/jest": "^26.0.22",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^26.0.1",
     "babel-preset-gatsby": "^1.2.0",
     "eslint-config-react-app": "^6.0.0",
