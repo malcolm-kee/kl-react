@@ -18,7 +18,10 @@ export const Select = ({
 
   return (
     <select
-      className={cx('form-select w-full', className)}
+      className={cx(
+        'w-full rounded border-gray-300 focus:ring-primary-300',
+        className
+      )}
       id={inputId}
       required={isRequired}
       {...inputProps}

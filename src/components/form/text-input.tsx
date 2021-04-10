@@ -18,7 +18,11 @@ export const TextInput = ({
 
   return (
     <input
-      className={cx('form-input w-full', className)}
+      type="text"
+      className={cx(
+        'block w-full rounded border-gray-300 focus:ring-primary-300',
+        className
+      )}
       id={inputId}
       required={isRequired}
       {...inputProps}

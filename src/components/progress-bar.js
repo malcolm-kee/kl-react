@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import cx from 'classnames';
-import { keyframes } from '@emotion/core';
+import { keyframes } from '@emotion/react';
 
 const expand = keyframes`
 from {

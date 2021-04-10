@@ -18,7 +18,10 @@ export const Textarea = ({
 
   return (
     <textarea
-      className={cx('form-textarea w-full', className)}
+      className={cx(
+        'block w-full rounded border-gray-300 focus:ring-primary-300',
+        className
+      )}
       id={inputId}
       required={isRequired}
       {...inputProps}
