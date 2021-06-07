@@ -18,34 +18,34 @@ export function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div>
             <Icon />
-            <p className="mt-8 text-gray-500 text-base leading-6">
+            <p className="mt-8 text-base leading-6 text-gray-500">
               {description}
             </p>
-            <div className="mt-8 flex">
+            <div className="flex mt-8">
               <NLink
                 to="https://github.com/malcolm-kee/kl-react"
                 className="text-gray-400 hover:text-gray-500"
               >
                 <span className="sr-only">GitHub</span>
-                <GitHub className="h-6 w-6" aria-hidden />
+                <GitHub className="w-6 h-6" aria-hidden />
               </NLink>
               <NLink
                 to="https://www.meetup.com/kl-react"
-                className="text-gray-400 hover:text-gray-500 ml-6"
+                className="ml-6 text-gray-400 hover:text-gray-500"
               >
                 <span className="sr-only">Meetup</span>
-                <Meetup className="h-6 w-6" aria-hidden />
+                <Meetup className="w-6 h-6" aria-hidden />
               </NLink>
               <NLink
                 to="https://fb.me/klreact"
-                className="text-gray-400 hover:text-gray-500 ml-6"
+                className="ml-6 text-gray-400 hover:text-gray-500"
               >
                 <span className="sr-only">Facebook</span>
-                <Facebook className="h-6 w-6" aria-hidden />
+                <Facebook className="w-6 h-6" aria-hidden />
               </NLink>
             </div>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+          <div className="grid grid-cols-2 gap-8 mt-12 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <FooterGroup title="Participate">
                 <ul>
@@ -65,6 +65,9 @@ export function Footer() {
                   </li>
                   <li className="mt-4">
                     <FooterLink to="/react-clinic">React Clinic</FooterLink>
+                  </li>
+                  <li className="mt-4">
+                    <FooterLink to="/tech-referrals">Tech Referrals</FooterLink>
                   </li>
                 </ul>
               </FooterGroup>
@@ -119,7 +122,7 @@ export function Footer() {
 
 const FooterGroup = ({ title, children, className }) => (
   <div className={className}>
-    <div className="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase mb-4">
+    <div className="mb-4 text-sm font-semibold leading-5 tracking-wider text-gray-400 uppercase">
       {title}
     </div>
     {children}
