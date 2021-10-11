@@ -66,10 +66,7 @@ export function Footer() {
                   <li className="mt-4">
                     <FooterLink to="/react-clinic">React Clinic</FooterLink>
                   </li>
-                  <li className="mt-4">
-                    <FooterLink to="/tech-referrals">Tech Referrals</FooterLink>
-                  </li>
-                </ul>
+                </ul> 
               </FooterGroup>
               <FooterGroup title="Archives" className="mt-12 md:mt-0">
                 <ul>
