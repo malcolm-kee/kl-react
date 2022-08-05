@@ -131,6 +131,11 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
                   name
                   image
                 }
+                speakers {
+                  id
+                  name
+                  image
+                }
               }
             }
           }
@@ -161,7 +166,22 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
           talks: node.info.schedule
             .filter((s) => s.type === 'talk')
             .map((s) => {
-              const nameParts = s.talk.speaker.name.split(' ');
+              const speakerNameParts = s.talk.speaker
+                ? s.talk.speaker.name.split(' ')
+                : Array.isArray(s.talk.speakers)
+                ? s.talk.speakers
+                    .map((speaker) => speaker.name.split(' '))
+                    .flat()
+                : [];
+
+              if (Array.isArray(s.talk.speakers)) {
+                console.log({
+                  speakerNameParts,
+                  talk: s.talk,
+                });
+              }
+
+              const nameParts = speakerNameParts;
               const displayName =
                 nameParts.length > 2
                   ? nameParts
@@ -171,16 +191,15 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
                           : `${part[0]}.`
                       )
                       .join(' ')
-                  : s.talk.speaker.name;
+                  : speakerNameParts.join(' ');
 
               return {
                 title: s.talk.title,
-                speakerImage: s.talk.speaker.image,
+                speakerImage: s.talk.speaker?.image,
                 speakerName: displayName,
               };
             }),
-          icon:
-            'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
+          icon: 'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
         });
       } else {
         workshops.push({
@@ -189,8 +208,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
           dateTime: node.dateTime,
           venue: node.venueName,
           instructors: node.info.instructor,
-          icon:
-            'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
+          icon: 'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
         });
       }
     }

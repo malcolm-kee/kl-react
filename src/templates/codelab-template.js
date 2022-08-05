@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import * as React from 'react';
 import { CodelabSummary } from '../components/codelab-summary';
 import { Layout } from '../components/layout';
 import { MeetupOverview } from '../components/meetup-overview';

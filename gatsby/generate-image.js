@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const mustache = require('mustache');
 
-mustache.escape = x => x;
+mustache.escape = (x) => x;
 
 exports.screenshot = async function screenshot(
   { nodes, reporter },

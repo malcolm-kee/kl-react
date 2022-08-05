@@ -32,7 +32,7 @@ export function SpeakerCard({
   className,
   ...props
 }) {
-  const bioHtml = React.useMemo(() => snarkdown(bio), [bio]);
+  const bioHtml = React.useMemo(() => bio && snarkdown(bio), [bio]);
 
   return (
     <div

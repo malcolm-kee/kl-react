@@ -77,6 +77,7 @@ exports.createSchemaCustomization = function createSchemaCustomization({
     `,
     `type TalkYaml implements Node {
         speaker: SpeakerYaml @link
+        speakers: [SpeakerYaml] @link
     }`,
     schema.buildObjectType({
       name: 'TalkYaml',
@@ -260,7 +261,9 @@ exports.createSchemaCustomization = function createSchemaCustomization({
 
             return allTalks && allTalks.length > 0
               ? context.nodeModel.getNodesByIds({
-                  ids: allTalks.map((talk) => talk.speaker),
+                  ids: allTalks
+                    .map((talk) => talk.speaker || talk.speakers)
+                    .flat(),
                   type: 'SpeakerYaml',
                 })
               : [];

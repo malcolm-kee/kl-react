@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import * as React from 'react';
 import { Layout } from '../components/layout';
 import { MeetupOverview } from '../components/meetup-overview';
 import { Photos } from '../components/photos';
@@ -10,13 +10,8 @@ import { WorkshopSummary } from '../components/workshop-summary';
 import { pluralize } from '../lib';
 
 const WorkshopTemplate = ({ data, location }) => {
-  const {
-    meetup,
-    description,
-    seoImagePublicUrl,
-    photos,
-    instructor,
-  } = data.eventYaml;
+  const { meetup, description, seoImagePublicUrl, photos, instructor } =
+    data.eventYaml;
   return (
     <>
       <Seo

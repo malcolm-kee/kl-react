@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {
   FiCast as Cast,
   FiCode as Code,

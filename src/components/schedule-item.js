@@ -113,6 +113,26 @@ export function ScheduleItem({ time, type, talk, desc, speakersOnSamePage }) {
                   {talk.speaker.name}
                 </NLink>
               ))}
+            {Array.isArray(talk.speakers) && talk.speakers.length > 0 && (
+              <ul>
+                {talk.speakers.map((speaker) => (
+                  <li key={speaker.id}>
+                    {speakersOnSamePage ? (
+                      <a
+                        href={`#${speaker.id}`}
+                        className="text-primary-700 hover:underline"
+                      >
+                        {speaker.name}
+                      </a>
+                    ) : (
+                      <NLink to={`/speakers/#${speaker.id}`} primary>
+                        {speaker.name}
+                      </NLink>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         ) : (
           <div sx={titleStyle}>
@@ -173,6 +193,10 @@ export const query = graphql`
       title
       description
       speaker {
+        id
+        name
+      }
+      speakers {
         id
         name
       }

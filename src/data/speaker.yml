@@ -22,9 +22,7 @@
     A software engineer making web applications functional and accessible.
 
     He conducted workshops to teach others on React and web development.
-
-    He is available for training and consulting services at [react-training.dev](https://react-training.dev).
-  company: Setel
+  company: Stashaway
   github: malcolm-kee
   twitter: Malcolm_Kee
   website: https://malcolmkee.com
@@ -98,3 +96,14 @@
 
     Programming language: Python and Javascript
   github: waihong87
+- id: nereus-eng
+  name: Nereus Eng
+  bio: A software engineer who focuses more on the frontend, enjoy creating scalable solutions.
+  github: nereuseng
+- id: timothy-teoh
+  name: Timothy Teoh
+  github: chalcedonyt
+- id: khairulnizam
+  name: Mohd Khairulnizam
+- id: faisal-arba
+  name: "Faisal Arba'in"

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export function useInterval(callback, delay) {
   const savedCallback = React.useRef();
@@ -21,6 +21,6 @@ export function useInterval(callback, delay) {
   }, [delay, lastReset]);
 
   return function reset() {
-    setLastReset(cur => cur + 1);
+    setLastReset((cur) => cur + 1);
   };
 }
