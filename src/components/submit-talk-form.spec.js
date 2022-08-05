@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
 import userEvents from '@testing-library/user-event';
-import React from 'react';
+import * as React from 'react';
 import { ThemeProvider } from 'theme-ui';
 import theme from '../gatsby-plugin-theme-ui';
 import { SubmitTalkForm } from './submit-talk-form';
@@ -38,7 +38,7 @@ function setup() {
   function TestBed() {
     return (
       <ThemeProvider value={theme}>
-        <SubmitTalkForm onSubmit={ev => ev.preventDefault()} />
+        <SubmitTalkForm onSubmit={(ev) => ev.preventDefault()} />
       </ThemeProvider>
     );
   }

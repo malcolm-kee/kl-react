@@ -1,3 +1,27 @@
+- name: aug-2022
+  type: meetup
+  meetup: 287631901
+  ogImage: compact
+  venue: digitalrhb
+  schedule:
+    - time: 6.30pm
+      type: networking
+      desc: Get to know each other + eating
+    - time: 7.00pm
+      type: talk
+      talk: journey-in-scaling-frontend-applications
+    - time: 7.30pm
+      type: talk
+      talk: microfrontend-with-react
+    - time: 8.00pm
+      type: talk
+      talk: microservices-in-real-world
+    - time: 8.30pm
+      type: talk
+      talk: package-setup-and-workflow
+    - time: 8.45pm
+      type: announcement
+      desc: Hiring shoutout
 - name: jan-2021
   type: meetup
   meetup: 275642025

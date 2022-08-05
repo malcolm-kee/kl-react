@@ -117,6 +117,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
           info {
             id
             name
+            ogImage
             instructor {
               id
               name
@@ -127,6 +128,11 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
               talk {
                 title
                 speaker {
+                  id
+                  name
+                  image
+                }
+                speakers {
                   id
                   name
                   image
@@ -144,12 +150,13 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
   }
 
   const meetups = [];
+  const meetupsWithCompactImage = [];
   const workshops = [];
 
   result.data.allMeetupEvent.nodes.forEach((node) => {
     if (node.info) {
       if (node.isMeetup) {
-        meetups.push({
+        const getMeetupBaseInfo = () => ({
           title: node.name.replace(
             /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
             ''
@@ -158,30 +165,69 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
           slug: node.info.name,
           dateTime: node.dateTime,
           venue: node.venueName,
-          talks: node.info.schedule
-            .filter((s) => s.type === 'talk')
-            .map((s) => {
-              const nameParts = s.talk.speaker.name.split(' ');
-              const displayName =
-                nameParts.length > 2
-                  ? nameParts
-                      .map((part, i, allParts) =>
-                        i === 0 || i === allParts.length - 1
-                          ? part
-                          : `${part[0]}.`
-                      )
-                      .join(' ')
-                  : s.talk.speaker.name;
-
-              return {
-                title: s.talk.title,
-                speakerImage: s.talk.speaker.image,
-                speakerName: displayName,
-              };
-            }),
-          icon:
-            'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
+          icon: 'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
         });
+
+        if (node.info.ogImage === 'compact') {
+          const formatter = new Intl.ListFormat('en-US', {
+            style: 'short',
+            type: 'conjunction',
+          });
+
+          meetupsWithCompactImage.push({
+            ...getMeetupBaseInfo(),
+            talks: node.info.schedule
+              .filter((s) => s.type === 'talk')
+              .map(({ talk }) => {
+                return {
+                  title: talk.title,
+                  speakerName: talk.speaker
+                    ? talk.speaker.name
+                    : Array.isArray(talk.speakers)
+                    ? formatter.format(talk.speakers.map((s) => s.name))
+                    : 'TBD',
+                  speakerImages: talk.speaker
+                    ? talk.speaker.image && [talk.speaker.image]
+                    : Array.isArray(talk.speakers)
+                    ? talk.speakers.map((s) => s.image).filter(Boolean)
+                    : undefined,
+                };
+              }),
+          });
+        } else {
+          meetups.push({
+            ...getMeetupBaseInfo(),
+            talks: node.info.schedule
+              .filter((s) => s.type === 'talk')
+              .map((s) => {
+                const speakerNameParts = s.talk.speaker
+                  ? s.talk.speaker.name.split(' ')
+                  : Array.isArray(s.talk.speakers)
+                  ? s.talk.speakers
+                      .map((speaker) => speaker.name.split(' '))
+                      .flat()
+                  : [];
+
+                const nameParts = speakerNameParts;
+                const displayName =
+                  nameParts.length > 2
+                    ? nameParts
+                        .map((part, i, allParts) =>
+                          i === 0 || i === allParts.length - 1
+                            ? part
+                            : `${part[0]}.`
+                        )
+                        .join(' ')
+                    : speakerNameParts.join(' ');
+
+                return {
+                  title: s.talk.title,
+                  speakerImage: s.talk.speaker?.image,
+                  speakerName: displayName,
+                };
+              }),
+          });
+        }
       } else {
         workshops.push({
           title: node.name,
@@ -189,8 +235,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
           dateTime: node.dateTime,
           venue: node.venueName,
           instructors: node.info.instructor,
-          icon:
-            'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
+          icon: 'https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/durian-react.png',
         });
       }
     }
@@ -206,6 +251,19 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
         template: path.resolve(__dirname, 'og-image-template', 'meetup.html'),
       }
     );
+    const meetupCompactScreenshotTask = screenshot(
+      {
+        nodes: meetupsWithCompactImage,
+        reporter,
+      },
+      {
+        template: path.resolve(
+          __dirname,
+          'og-image-template',
+          'meetup-compact.html'
+        ),
+      }
+    );
     const workshopScreenshotTask = screenshot(
       {
         nodes: workshops,
@@ -215,7 +273,11 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
         template: path.resolve(__dirname, 'og-image-template', 'workshop.html'),
       }
     );
-    await Promise.all([meetupScreenshotTask, workshopScreenshotTask]);
+    await Promise.all([
+      meetupScreenshotTask,
+      meetupCompactScreenshotTask,
+      workshopScreenshotTask,
+    ]);
   } catch (e) {
     reporter.error(`caught error`);
     reporter.error(e);

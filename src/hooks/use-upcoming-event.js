@@ -36,6 +36,9 @@ export function useUpcomingEvent() {
               speaker {
                 ...SpeakerCard
               }
+              speakers {
+                ...SpeakerCard
+              }
             }
           }
           instructor {

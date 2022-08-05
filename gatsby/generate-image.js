@@ -3,10 +3,10 @@ const fs = require('fs');
 const path = require('path');
 const mustache = require('mustache');
 
-mustache.escape = x => x;
+mustache.escape = (x) => x;
 
 exports.screenshot = async function screenshot(
-  { nodes, reporter },
+  { nodes, reporter, skipIfExists = true },
   { template }
 ) {
   const browser = await puppeteer.launch({
@@ -22,7 +22,7 @@ exports.screenshot = async function screenshot(
     const filePath = path.resolve(`public/og_image/${node.slug}.png`);
     ensureDirectoryExistence(filePath);
 
-    if (fs.existsSync(filePath)) continue;
+    if (skipIfExists && fs.existsSync(filePath)) continue;
 
     try {
       const html = mustache.render(htmlTemplate, node);

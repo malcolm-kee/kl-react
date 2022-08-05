@@ -1,3 +1,19 @@
+- id: journey-in-scaling-frontend-applications
+  title: My journey in scaling frontend applications
+  speaker: nereus-eng
+  description: A brief sharing about how I overcame the challenges when rolling out the frontend application to different markets and regions, and what I learnt from this journey.
+- id: microfrontend-with-react
+  title: Micro-frontend with React
+  speakers:
+    - khairulnizam
+    - faisal-arba
+- id: microservices-in-real-world
+  title: 'Microservices in the real world: Pitfalls and patterns'
+  speaker: timothy-teoh
+- id: package-setup-and-workflow
+  title: 'My setup and workflow for a npm package'
+  speaker: malcolm
+  description: Creating and maintaining a npm package is a useful technique to share code across projects. This talk will shares my setup and workflow for npm packages that I am currently using in work.
 - id: ssr-spa-and-prerendering
   title: Making sense of SSR, SPA, and Pre-rendering
   speaker: amirul-abu

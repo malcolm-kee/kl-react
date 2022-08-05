@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import React from 'react';
+import * as React from 'react';
 
 //#region CSS
 const personStyle = css`

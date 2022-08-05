@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
 import { Banner } from '../components/banner';
+import { CodelabSummary } from '../components/codelab-summary';
 import { CTA } from '../components/cta';
 import { Layout } from '../components/layout';
 import { Schedule } from '../components/schedule';
@@ -8,7 +9,6 @@ import { Section } from '../components/section';
 import { Seo } from '../components/seo';
 import { Speakers } from '../components/speakers';
 import { VideoPlayer } from '../components/video-player';
-import { CodelabSummary } from '../components/codelab-summary';
 import { WebcastSummary } from '../components/webcast-summary';
 import { WorkshopSummary } from '../components/workshop-summary';
 import { useUpcomingEvent } from '../hooks/use-upcoming-event';
@@ -28,12 +28,25 @@ const getSpeakersForMeetups = (meetups) => {
   outer: for (let meetup of meetups) {
     for (let schedule of meetup.info.schedule) {
       if (schedule.type === 'talk') {
-        if (
-          !speakers.some((speaker) => speaker.id === schedule.talk.speaker.id)
-        ) {
-          speakers.push(schedule.talk.speaker);
-          if (speakers.length >= 6) {
-            break outer;
+        if (schedule.talk.speaker) {
+          if (
+            !speakers.some((speaker) => speaker.id === schedule.talk.speaker.id)
+          ) {
+            speakers.push(schedule.talk.speaker);
+            if (speakers.length >= 6) {
+              break outer;
+            }
+          }
+        } else if (Array.isArray(schedule.talk.speakers)) {
+          for (const scheduleSpeaker of schedule.talk.speakers) {
+            if (
+              !speakers.some((speaker) => speaker.id === scheduleSpeaker.id)
+            ) {
+              speakers.push(scheduleSpeaker);
+              if (speakers.length >= 6) {
+                break outer;
+              }
+            }
           }
         }
       }
@@ -57,9 +70,15 @@ export default function HomePage({ data }) {
         upcomingEventSchedule
           .filter(
             (item) =>
-              !!(item && item.type === 'talk' && item.talk && item.talk.speaker)
+              !!(
+                item &&
+                item.type === 'talk' &&
+                item.talk &&
+                (item.talk.speaker || item.talk.speakers)
+              )
           )
-          .map((item) => item.talk.speaker)
+          .map((item) => item.talk.speaker || item.talk.speakers)
+          .flat()
           .sort(sortSpeaker)
     : getSpeakersForMeetups(last3Meetups).sort(sortSpeaker);
 
@@ -137,6 +156,9 @@ export const pageQuery = graphql`
             talk {
               title
               speaker {
+                ...SpeakerCard
+              }
+              speakers {
                 ...SpeakerCard
               }
             }
