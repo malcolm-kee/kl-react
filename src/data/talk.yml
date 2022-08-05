@@ -1,6 +1,7 @@
 - id: journey-in-scaling-frontend-applications
   title: My journey in scaling frontend applications
-  speaker: nereus-eng
+  speakers:
+    - nereus-eng
   description: A brief sharing about how I overcame the challenges when rolling out the frontend application to different markets and regions, and what I learnt from this journey.
 - id: microfrontend-with-react
   title: Micro-frontend with React
@@ -9,21 +10,26 @@
     - faisal-arba
 - id: microservices-in-real-world
   title: 'Microservices in the real world: Pitfalls and patterns'
-  speaker: timothy-teoh
+  speakers:
+    - timothy-teoh
+  description: Microservices have evolved from a buzzword to a default in many organizations.
 - id: package-setup-and-workflow
   title: 'My setup and workflow for a npm package'
-  speaker: malcolm
+  speakers:
+    - malcolm
   description: Creating and maintaining a npm package is a useful technique to share code across projects. This talk will shares my setup and workflow for npm packages that I am currently using in work.
 - id: ssr-spa-and-prerendering
   title: Making sense of SSR, SPA, and Pre-rendering
-  speaker: amirul-abu
+  speakers:
+    - amirul-abu
   description: How to make architecture decision between server-side rendering, single page application, and pre-rendering. The talk will touch on what options does nextjs and nuxtjs provides, what are the pros and cons, what type of web application is suitable for each types, and what are the compromises. Will also demonstrate live websites with this characteristic.
   materials:
     - type: slide
       url: https://hackmd.io/@amirulabu/Hky8aYY1O#/
 - id: graphql-apollo-server
   title: Introduction to GraphQL and Apollo Server
-  speaker: wai-hong
+  speakers:
+    - wai-hong
   description: This talk gives a brief overview about GraphQL (including differences as compared to RESTful APIs) and its implementation via Apollo Server.
   materials:
     - type: slide
@@ -32,7 +38,8 @@
       url: https://github.com/waihong87/graphql-apollo-tutorial
 - id: react-in-angular
   title: 'React in Angular: A Migration Approach'
-  speaker: malcolm
+  speakers:
+    - malcolm
   description: Sharing of how to incrementally migrate your frontend application from Angular to React by putting React inside Angular application.
   materials:
     - type: slide
@@ -41,7 +48,8 @@
       url: https://github.com/malcolm-kee/u07-angular-movie-app
 - id: module-federation
   title: Scalable Micro Frontend with Module Federation
-  speaker: malcolm
+  speakers:
+    - malcolm
   description: Learn how the module federation feature (available in webpack 5) enables a scalable micro frontend architecture that improves your development and deployment workflow without sacrificing user experience.
   materials:
     - type: slide
@@ -54,7 +62,8 @@
       url: https://github.com/malcolm-kee/federation-career-app
 - id: test-promise
   title: Test Your Promises
-  speaker: abhishek
+  speakers:
+    - abhishek
   description: A brief talk about JS promises, making it as complicated as possible(along with async/await) and how to test it out in JS.
   materials:
     - type: slide
@@ -63,7 +72,8 @@
       url: https://github.com/abhishek71994/KL-react-promises-october-talk
 - id: testing-library
   title: 'Integration UI Testing Made Easier with @testing-library'
-  speaker: khairul
+  speakers:
+    - khairul
   description: Integration testing shouldn't be hard. @testing-library allows you to write integration tests as how users interact with your React web pages. Learn the basics and discuss a few practical examples.
   materials:
     - type: slide
@@ -74,7 +84,8 @@
       url: https://github.com/jongthechemist/testing-ng
 - id: accessibility-first
   title: Accessibility First
-  speaker: abhishek
+  speakers:
+    - abhishek
   description: Looking into how we can design websites for people with physical disabilities, situational disabilities, and socio-economic restrictions. Thereby, taking care of the entire spectrum of our users.
   materials:
     - type: slide
@@ -83,7 +94,8 @@
       url: https://github.com/abhishek71994/kl-react-june-accessibility
 - id: effective-typescript
   title: 'Effective TypeScript: 7 Ways to Improve Your TypeScript'
-  speaker: malcolm
+  speakers:
+    - malcolm
   description: TypeScript is getting traction in recent years as it provides type safety to the dynamic JavaScript without causing runtime overhead. However, as TypeScript keep evolving, the yesterday best practices may becomes obsolete and should be replaced with something more idiomatic and powerful features. This talk will covers 7 concrete and actionable tips to improve your TypeScript code.
   materials:
     - type: slide
@@ -92,7 +104,8 @@
       url: https://github.com/malcolm-kee/effective-typescript
 - id: additional-react-hooks
   title: Exploring React Additional Hooks
-  speaker: aymen
+  speakers:
+    - aymen
   description: Learn when to use React additional hooks and how it can enhance your application performance and usability.
   materials:
     - type: slide
@@ -101,21 +114,24 @@
       url: https://github.com/ayox/react-kl-talk-hooks
 - id: prop-types
   title: PropTypes
-  speaker: burhan
+  speakers:
+    - burhan
   description: Usage, benefits and why need to use PropTypes
   materials:
     - type: slide
       url: https://docs.google.com/presentation/d/1uYpLSEDWW23nMjrhYsRHnMYpPNJGrmxUV7pS9Y8jCSA/edit?usp=sharing
 - id: code-from-swagger
   title: Code Generation with Swagger
-  speaker: mohsen
+  speakers:
+    - mohsen
   description: Learn how to generate api calls code from Swagger for your React application.
   materials:
     - type: repo
       url: https://github.com/swagger-api/swagger-codegen
 - id: concurrent-react
   title: React Concurrent Mode
-  speaker: malcolm
+  speakers:
+    - malcolm
   description: An overview of the next major React feature - Concurrent Mode. Understand how concurrent mode could improves user experience by unlocking new UI patterns that was not possible previously.
   materials:
     - type: repo
@@ -124,28 +140,32 @@
       url: https://react-suspense-pokemon.netlify.com/
 - id: template-literals
   title: Hidden Powers of Template Literals
-  speaker: pushkin
+  speakers:
+    - pushkin
   description: "People usually think that backticks (` `) are yet another quote for strings. But that's much more to string literal in JavaScript than normal single and double quotes. I'll talk about how string literals can be used a in CSS in JS, Web Component and how `Literal Tag` functions works."
   materials:
     - type: slide
       url: https://drive.google.com/file/d/0B3utoAAc1O8BQlZXVUhfSE50amZ4c1lld21adnBBQmhpc1dB/view?usp=sharing
 - id: why-css-in-js
   title: Why We Should Write CSS in JS
-  speaker: azizi
+  speakers:
+    - azizi
   description: In this talk we will walk through on the advantages of writing CSS in JS and why its the right time to end the Global style-sheet for Local style-sheet using CSS-in-JS.
   materials:
     - type: slide
       url: https://speakerdeck.com/aziziyazit/why-we-should-write-css-in-js
 - id: intro-to-ts-in-react
   title: Introduction to TypeScript Features in React
-  speaker: lewis
+  speakers:
+    - lewis
   description: Introduction to features of TypeSript that developers can use to benefit their work flow.
   materials:
     - type: slide
       url: https://docs.google.com/presentation/d/1-LKxfMos-slU78xXtqpn9NgN_pDsxgV-bzce02Ri2Yw/mobilepresent
 - id: productive-react-codebase
   title: A Productive React Codebase
-  speaker: aymen
+  speakers:
+    - aymen
   description: We will be looking into the next step in React learning and utilising its abstraction power to extract stateful logic and convert a working component into a reusable component that can be implemented in different parts in the application easily and smoothly. We will be using Hooks and HOC to achieve this and to have a much readable and elegant code.
   materials:
     - type: slide
@@ -154,21 +174,24 @@
       url: https://github.com/ayox/react-kl-productive-codebase
 - id: css-animations-in-react
   title: Creating CSS Animations in React
-  speaker: wendy
+  speakers:
+    - wendy
   description: CSS animations (when used correctly) can add life to your website and engage users. In this talk we will explore a simple animation built on pure CSS and HTML, and how to make the code cleaner and more extensible using React and Emotion.
   materials:
     - type: slide
       url: https://speakerdeck.com/wendko/creating-css-animations-in-react
 - id: deploy-react-native-to-web
   title: Deploying React Native to Web
-  speaker: joel
+  speakers:
+    - joel
   description: With Expo you can deploy to iOS and Android with ease. Now you can use Expo for web as well 🤯
   materials:
     - type: slide
       url: https://docs.google.com/presentation/d/1rMumju5l71WD7_xQ6M0W21MEC2AxvZMCEsr7IT09shg/edit
 - id: why-the-hook
   title: 'Why The Hook: Evolution of Stateful Logic Composition in React'
-  speaker: malcolm
+  speakers:
+    - malcolm
   description: A brief history of how stateful logic in React evolved from mixin, to HOC/Render Props, and finally to hooks today. You would understand why hooks is a better patterns in React.
   materials:
     - type: repo
@@ -177,7 +200,8 @@
       url: https://pokemon-infinity.netlify.com
 - id: gatsby-mdx
   title: Using MDX in Gatsby site
-  speaker: matt
+  speakers:
+    - matt
   description: Ever wanted to use React together with markdown in your projects? Now you can with gatsby-plugin-mdx. Write markdown for your pages while importing React components in the same file.
   materials:
     - type: repo
@@ -186,14 +210,16 @@
       url: https://gatsby-plugin-mdx.netlify.com/
 - id: boost-dx-with-graphql
   title: Boost your developer experience with GraphQL
-  speaker: yongshean
+  speakers:
+    - yongshean
   description: Managing data fetching and UI rendering logics when dealing with API calls are the most challenging and often frustrating for most developers. This talk presents the benefits that GraphQL offers for enhancing developer experience.
   materials:
     - type: slide
       url: https://docs.google.com/presentation/d/18Jrz9drlAcPG-XrZ2AOtqB-wnELc0Wj9uJbMrcpWV8M/edit?usp=sharing
 - id: peeking-inside-react
   title: 'Peeking inside React: The Background Magic'
-  speaker: abhishek
+  speakers:
+    - abhishek
   description: Looking into how react is rendered and what are the processes that they follow, VDom, Reconciliation, Memoization.
   materials:
     - type: slide

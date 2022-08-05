@@ -76,7 +76,6 @@ exports.createSchemaCustomization = function createSchemaCustomization({
     }
     `,
     `type TalkYaml implements Node {
-        speaker: SpeakerYaml @link
         speakers: [SpeakerYaml] @link
     }`,
     schema.buildObjectType({
@@ -200,7 +199,11 @@ exports.createSchemaCustomization = function createSchemaCustomization({
           resolve: (source, _, context) => {
             return context.nodeModel
               .getAllNodes({ type: 'TalkYaml' })
-              .filter((talk) => talk.speaker === source.id);
+              .filter(
+                (talk) =>
+                  Array.isArray(talk.speakers) &&
+                  talk.speakers.includes(source.id)
+              );
           },
         },
         workshop: {

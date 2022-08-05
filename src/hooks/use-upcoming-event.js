@@ -33,9 +33,6 @@ export function useUpcomingEvent() {
             talk {
               title
               description
-              speaker {
-                ...SpeakerCard
-              }
               speakers {
                 ...SpeakerCard
               }

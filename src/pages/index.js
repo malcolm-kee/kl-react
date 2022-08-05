@@ -28,16 +28,7 @@ const getSpeakersForMeetups = (meetups) => {
   outer: for (let meetup of meetups) {
     for (let schedule of meetup.info.schedule) {
       if (schedule.type === 'talk') {
-        if (schedule.talk.speaker) {
-          if (
-            !speakers.some((speaker) => speaker.id === schedule.talk.speaker.id)
-          ) {
-            speakers.push(schedule.talk.speaker);
-            if (speakers.length >= 6) {
-              break outer;
-            }
-          }
-        } else if (Array.isArray(schedule.talk.speakers)) {
+        if (Array.isArray(schedule.talk.speakers)) {
           for (const scheduleSpeaker of schedule.talk.speakers) {
             if (
               !speakers.some((speaker) => speaker.id === scheduleSpeaker.id)
@@ -74,10 +65,10 @@ export default function HomePage({ data }) {
                 item &&
                 item.type === 'talk' &&
                 item.talk &&
-                (item.talk.speaker || item.talk.speakers)
+                Array.isArray(item.talk.speakers)
               )
           )
-          .map((item) => item.talk.speaker || item.talk.speakers)
+          .map((item) => item.talk.speakers)
           .flat()
           .sort(sortSpeaker)
     : getSpeakersForMeetups(last3Meetups).sort(sortSpeaker);
@@ -155,9 +146,6 @@ export const pageQuery = graphql`
             type
             talk {
               title
-              speaker {
-                ...SpeakerCard
-              }
               speakers {
                 ...SpeakerCard
               }

@@ -26,6 +26,7 @@
   github: malcolm-kee
   twitter: Malcolm_Kee
   website: https://malcolmkee.com
+  linkedin: https://www.linkedin.com/in/malcolmkee/
 - id: wendy
   name: Wendy Kong
   bio: >
@@ -103,7 +104,11 @@
 - id: timothy-teoh
   name: Timothy Teoh
   github: chalcedonyt
+  bio: Tim is an AWS and Google Cloud professionally certified architect with experience across the full stack of frontend, backend, and infrastructure. Currently with Maxis, he previously worked in iProperty and YTL.
+  linkedin: https://www.linkedin.com/in/timothyteoh/
 - id: khairulnizam
   name: Mohd Khairulnizam
+  github: kayrules
 - id: faisal-arba
   name: "Faisal Arba'in"
+  github: faisalarbain
