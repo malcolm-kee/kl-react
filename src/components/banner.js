@@ -13,7 +13,7 @@ export function Banner({ upcomingEvent, className, ...props }) {
   const { title, description } = useSiteMetadata();
 
   return (
-    <div className={cx('relative md:h-screen banner', className)}>
+    <div className={cx('relative md:h-[600px] banner', className)}>
       <Header flat />
       <div className="relative mx-auto max-w-5xl px-4 sm:mt-12 sm:px-6 md:mt-10 lg:mt-16">
         <div className="py-12" {...props}>
@@ -59,7 +59,12 @@ export function Banner({ upcomingEvent, className, ...props }) {
               (upcomingEvent.venue.directions ||
                 upcomingEvent.venue.mapURL) && (
                 <IconLink
-                  sx={{ p: 3, mx: 3 }}
+                  sx={{
+                    p: 3,
+                    mx: 3,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                  }}
                   href={
                     upcomingEvent.venue.directions || upcomingEvent.venue.mapURL
                   }
@@ -70,14 +75,19 @@ export function Banner({ upcomingEvent, className, ...props }) {
                     }}
                     css={(theme) => ({
                       display: 'inline-block',
-                      [`@media screen and (max-width: ${theme.breakpoints[0]})`]: {
-                        display: 'none',
-                      },
+                      [`@media screen and (max-width: ${theme.breakpoints[0]})`]:
+                        {
+                          display: 'none',
+                        },
                     })}
                   >
                     Getting There
                   </span>
-                  {upcomingEvent.venue.directions ? <Map /> : <Navigation2 />}
+                  {upcomingEvent.venue.directions ? (
+                    <Map className="w-6 h-6" />
+                  ) : (
+                    <Navigation2 className="w-6 h-6" />
+                  )}
                 </IconLink>
               )}
           </div>

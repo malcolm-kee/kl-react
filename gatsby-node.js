@@ -127,11 +127,6 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
               type
               talk {
                 title
-                speaker {
-                  id
-                  name
-                  image
-                }
                 speakers {
                   id
                   name
@@ -181,14 +176,10 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
               .map(({ talk }) => {
                 return {
                   title: talk.title,
-                  speakerName: talk.speaker
-                    ? talk.speaker.name
-                    : Array.isArray(talk.speakers)
+                  speakerName: Array.isArray(talk.speakers)
                     ? formatter.format(talk.speakers.map((s) => s.name))
                     : 'TBD',
-                  speakerImages: talk.speaker
-                    ? talk.speaker.image && [talk.speaker.image]
-                    : Array.isArray(talk.speakers)
+                  speakerImages: Array.isArray(talk.speakers)
                     ? talk.speakers.map((s) => s.image).filter(Boolean)
                     : undefined,
                 };
@@ -200,9 +191,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
             talks: node.info.schedule
               .filter((s) => s.type === 'talk')
               .map((s) => {
-                const speakerNameParts = s.talk.speaker
-                  ? s.talk.speaker.name.split(' ')
-                  : Array.isArray(s.talk.speakers)
+                const speakerNameParts = Array.isArray(s.talk.speakers)
                   ? s.talk.speakers
                       .map((speaker) => speaker.name.split(' '))
                       .flat()
@@ -222,7 +211,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
 
                 return {
                   title: s.talk.title,
-                  speakerImage: s.talk.speaker?.image,
+                  speakerImage: s.talk.speakers[0]?.image,
                   speakerName: displayName,
                 };
               }),

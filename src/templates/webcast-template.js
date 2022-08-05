@@ -59,7 +59,7 @@ export const pageQuery = graphql`
         talk {
           title
           description
-          speaker {
+          speakers {
             ...SpeakerCard
           }
         }

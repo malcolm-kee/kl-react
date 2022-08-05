@@ -27,7 +27,7 @@ const iconStyle = {
 
 const titleStyle = {
   flex: 'none',
-  width: ['60%', 192],
+  width: ['60%', 250],
   py: 2,
   pr: [0, 2],
   textAlign: ['right', 'left'],
@@ -100,19 +100,6 @@ export function ScheduleItem({ time, type, talk, desc, speakersOnSamePage }) {
             >
               {talk.title}
             </Styled.h4>
-            {talk.speaker &&
-              (speakersOnSamePage ? (
-                <a
-                  href={`#${talk.speaker.id}`}
-                  className="text-primary-700 hover:underline"
-                >
-                  {talk.speaker.name}
-                </a>
-              ) : (
-                <NLink to={`/speakers/#${talk.speaker.id}`} primary>
-                  {talk.speaker.name}
-                </NLink>
-              ))}
             {Array.isArray(talk.speakers) && talk.speakers.length > 0 && (
               <ul>
                 {talk.speakers.map((speaker) => (
@@ -192,10 +179,6 @@ export const query = graphql`
     talk {
       title
       description
-      speaker {
-        id
-        name
-      }
       speakers {
         id
         name
