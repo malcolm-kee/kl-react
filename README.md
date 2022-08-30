@@ -17,7 +17,7 @@ Repo for website of [KL React Meetup][kl-react-meetup].
 
 The image of the speaker is retrieved from the speaker's GitHub/Twitter account.
 
-To update your image/details, make a PR to update [speakers.yml](src/data/speakers.yml)
+To update your image/details, make a PR to update [speakers.yml](src/data/speaker.yml)
 
 ### Add/Update Talk Details
 

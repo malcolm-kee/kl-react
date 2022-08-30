@@ -3,21 +3,33 @@
   speakers:
     - nereus-eng
   description: A brief sharing about how I overcame the challenges when rolling out the frontend application to different markets and regions, and what I learnt from this journey.
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/1NspDr6T90iQwEqUTd2Michn4OE9NYWIGSJvuJQSzUeg/view?usp=sharing
 - id: microfrontend-with-react
   title: Micro-frontend with React
   speakers:
     - khairulnizam
     - faisal-arba
+  materials:
+    - type: slide
+      url: https://drive.google.com/file/d/1_MT7VPBI60qLYcrNXQSq0xFO3BhCqjJG/view?usp=sharing
 - id: microservices-in-real-world
   title: 'Microservices in the real world: Pitfalls and patterns'
   speakers:
     - timothy-teoh
   description: Microservices have evolved from a buzzword to a default in many organizations.
+  materials:
+    - type: slide
+      url: https://docs.google.com/presentation/d/1z-sYptOeVBI1ksNvlyg6QDDkgetHfuOq/edit?usp=sharing&ouid=101278039312191869663&rtpof=true&sd=true
 - id: package-setup-and-workflow
   title: 'My setup and workflow for a npm package'
   speakers:
     - malcolm
   description: Creating and maintaining a npm package is a useful technique to share code across projects. This talk will shares my setup and workflow for npm packages that I am currently using in work.
+  materials:
+    - type: repo
+      url: https://github.com/malcolm-kee/npm-pkg-setup
 - id: ssr-spa-and-prerendering
   title: Making sense of SSR, SPA, and Pre-rendering
   speakers:
