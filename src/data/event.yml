@@ -1,4 +1,7 @@
 - name: aug-2022
+  displayName: KL React 2022 August Meetup
+  date: '2022-08-23T18:30:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/287631901/
   type: meetup
   meetup: 287631901
   ogImage: compact
@@ -23,6 +26,9 @@
       type: announcement
       desc: Hiring shoutout
 - name: jan-2021
+  displayName: KL React Jan Online Meetup
+  date: '2021-01-26T20:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/275642025/
   type: meetup
   meetup: 275642025
   schedule:
@@ -42,6 +48,9 @@
       type: announcement
       desc: Company hiring or developer looking for opportunity
 - name: codelab-oct-2020
+  displayName: 'Codelab: React Fundamentals (Epic React)'
+  date: '2020-10-24T10:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/273915428/
   type: codelab
   meetup: 273915428
   site: https://github.com/kentcdodds/react-fundamentals
@@ -50,6 +59,9 @@
 
     Learn everything you need to be effective with the fundamental building block of React applications. When you’re finished, you’ll be prepared to create React components to build excellent experiences for your app's users.
 - name: oct-2020
+  displayName: KL React October Online Meetup
+  date: '2020-10-07T20:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/273289572/
   type: meetup
   meetup: 273289572
   schedule:
@@ -69,6 +81,9 @@
       type: announcement
       desc: Company hiring or developer looking for opportunity
 - name: june-2020
+  displayName: KL React June Online Meetup
+  date: '2020-06-23T20:30:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/271372247/
   type: meetup
   meetup: 271372247
   videoUrl: https://youtu.be/_dGwqpk8434
@@ -88,6 +103,9 @@
     - url: https://overreacted.io/
       label: Overreacted - personal blog by Dan Abramov
 - name: e2e-testing-using-cypress
+  displayName: End-to-End Testing Using Cypress
+  date: '2020-06-02T20:30:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/271015260/
   type: webcast
   meetup: 271015260
   instructor:
@@ -101,6 +119,9 @@
     - test file upload
     - mock API calls
 - name: jest-do-it
+  displayName: 'Jest Do It: JavaScript Testing Fundamentals'
+  date: '2020-05-09T21:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/270463527/
   type: webcast
   meetup: 270463527
   instructor:
@@ -113,6 +134,9 @@
     - how to mock API calls or non-deterministic code using mock
     - how to utilize snapshot testing effectively
 - name: testing-react
+  displayName: 'Automated Testing: Testing React Application'
+  date: '2020-05-02T10:30:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/270352991/
   type: webcast
   meetup: 270352991
   instructor:
@@ -125,6 +149,9 @@
     - Test asynchronous behavior of React component (API calls)
     - Test Redux-connected React component
 - name: testing-benefits-and-costs
+  displayName: 'Automated Testing: Benefits and Costs'
+  date: '2020-04-29T21:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/270307163/
   type: webcast
   meetup: 270307163
   instructor:
@@ -132,6 +159,9 @@
   videoUrl: https://youtu.be/l1iyrIyWTcU
   description: Short sharing about the benefits and costs of automated testing from perspective of developer
 - name: feb-2020
+  displayName: React KL February Meetup
+  date: '2020-02-11T19:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/267928159/
   type: meetup
   meetup: 267928159
   rsvpLink: https://www.facebook.com/events/464091987860254/
@@ -159,6 +189,9 @@
       type: home
       desc: Go home
 - name: typescript-for-react-developer
+  displayName: TypeScript for React Developer
+  date: '2019-12-14T09:30:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/266720026/
   type: workshop
   rsvpLink: https://www.facebook.com/events/2338556746456503/
   meetup: 266720026
@@ -173,6 +206,9 @@
   site: https://malcolmkee.com/typescript-for-react-developer
   icon: https://malcolm-misc.s3-ap-southeast-1.amazonaws.com/react-typescript.png
 - name: nov-2019
+  displayName: 'KL React Meetup November: Talks & Clinic'
+  date: '2019-11-20T19:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/266045344/
   type: meetup
   meetup: 266045344
   venue: surialab
@@ -190,6 +226,9 @@
       type: home
       desc: Go home.
 - name: oct-2019
+  displayName: 'KL React Meetup October: Talks & Clinic'
+  date: '2019-10-24T19:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/265309818/
   type: meetup
   meetup: 265309818
   venue: supahands
@@ -212,6 +251,9 @@
       type: home
       desc: Go home.
 - name: sept-2019
+  displayName: 'KL React Meetup #2: Talks & Clinic'
+  date: '2019-09-26T19:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/264208460/
   type: meetup
   meetup: 264208460
   venue: fave
@@ -231,6 +273,9 @@
       type: home
       desc: Nothing else to see here.
 - name: august-2019
+  displayName: KL React Meetup August
+  date: '2019-08-21T19:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/263797889/
   type: meetup
   meetup: 263797889
   venue: inscale
@@ -263,6 +308,10 @@
       type: home
       desc: Nothing else to see here. Aren't you busy?
 - name: fast-site-with-gatsbyjs
+  displayName: 'Create a Fast Site with GatsbyJS: A Hands-on Workshop'
+  date: '2019-07-13T10:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/261886708/
+  venue: colabsstarling
   type: workshop
   meetup: 261886708
   instructor:
@@ -270,11 +319,19 @@
   site: https://malcolmkee.com/fast-site-with-gatsby-js
   description: Learn how to build blog with GatsbyJS, which automatically optimize your site to make it fast without sacrificing developer usability or accessibility.
 - name: how-to-react
+  displayName: 'How to React: An Introduction to React JS'
+  date: '2019-06-29T10:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/262361421/
+  venue: worqklgateway
   type: workshop
   meetup: 262361421
   instructor:
     - malcolm
 - name: js-the-react-parts
+  displayName: 'Javascript: The React Parts'
+  date: '2019-06-08T10:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/261500896/
+  venue: magic
   type: workshop
   meetup: 261500896
   instructor:
@@ -286,6 +343,10 @@
     - 'new JavaScript features: block scope declaration, Array methods, ES modules'
     - 'advanced concepts in JavaScript: closure and functional programming'
 - name: intro-to-web-dev
+  displayName: Intro to Web Development - HTML/CSS/JS
+  date: '2019-03-30T09:30:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/259839134/
+  venue: sols
   type: workshop
   meetup: 259839134
   instructor:
@@ -293,6 +354,10 @@
     - matt
   site: https://intro-to-web-dev.netlify.com
 - name: project-component
+  displayName: React JS Workshop - Project Component Library
+  date: '2019-03-17T09:30:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/259665881/
+  venue: colabsstarling
   type: workshop
   meetup: 259665881
   instructor:
@@ -300,12 +365,20 @@
   site: https://react-component-lib.netlify.com/14
   description: Learn how to create a component library for your React projects with React styleguidist.
 - name: intro-to-react-v2
+  displayName: Intro to React JS v2 (Collaboration with SOLS 24/7)
+  date: '2019-02-23T09:30:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/258755070/
+  venue: sols
   type: workshop
   meetup: 258755070
   instructor:
     - malcolm
   site: https://malcolmkee.com/intro-to-react-js-v2
 - name: intro-to-react
+  displayName: Introduction to React JS - Full-day Workshop
+  date: '2019-01-26T09:30:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/257458735/
+  venue: colabsstarling
   type: workshop
   meetup: 257458735
   instructor:

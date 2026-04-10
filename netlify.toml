@@ -1,0 +1,9 @@
+[build]
+  command = "pnpm run build"
+  publish = "out"
+
+[[redirects]]
+  from = "https://kl-react.netlify.com/*"
+  to = "https://kl-react.com/:splat"
+  status = 301
+  force = true

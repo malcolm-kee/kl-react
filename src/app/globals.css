@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary-100: #E6FFFA;
+  --color-primary-200: #B2F5EA;
+  --color-primary-300: #81E6D9;
+  --color-primary-400: #4FD1C5;
+  --color-primary-500: #38B2AC;
+  --color-primary-600: #319795;
+  --color-primary-700: #2C7A7B;
+  --color-primary-800: #285E61;
+  --color-primary-900: #234E52;
+}

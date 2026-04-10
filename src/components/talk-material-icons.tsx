@@ -1,0 +1,43 @@
+import {
+  FiCast as Cast,
+  FiCode as Code,
+  FiPlayCircle as PlayCircle,
+} from "react-icons/fi";
+import { IconLink } from "./icon-link";
+
+interface TalkMaterialIconsProps {
+  type: string;
+  url: string;
+}
+
+export function TalkMaterialIcons({ type, url }: TalkMaterialIconsProps) {
+  switch (type) {
+    case "repo":
+      return (
+        <IconLink
+          href={url}
+          aria-label="See code repository"
+          title="See code repository"
+        >
+          <Code className="w-5 h-5" />
+        </IconLink>
+      );
+
+    case "demo":
+      return (
+        <IconLink href={url} aria-label="See live demo" title="See live demo">
+          <PlayCircle className="w-5 h-5" />
+        </IconLink>
+      );
+
+    case "slide":
+      return (
+        <IconLink href={url} aria-label="See slides" title="See slides">
+          <Cast className="w-5 h-5" />
+        </IconLink>
+      );
+
+    default:
+      return null;
+  }
+}
