@@ -1,6 +1,6 @@
 # kl-react
 
-![Build Site and Deploy](https://github.com/malcolm-kee/kl-react/workflows/Build%20Site%20and%20Deploy/badge.svg?branch=master)
+![Build Site and Deploy](https://github.com/kl-react/kl-react/workflows/Build%20Site%20and%20Deploy/badge.svg?branch=master)
 
 Repo for website of [KL React Meetup][kl-react-meetup].
 

@@ -28,4 +28,4 @@ Go to our repo to look for [issues tagged with "good first issue"][good-first-is
 
 Don't worry if you not familiar with the workflow and what to change, we will guide you through the process.
 
-[good-first-issue]: https://github.com/malcolm-kee/kl-react/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22
+[good-first-issue]: https://github.com/kl-react/kl-react/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22
