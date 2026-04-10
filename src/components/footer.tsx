@@ -1,15 +1,15 @@
-import { FaMeetup as Meetup } from "react-icons/fa";
-import { FiFacebook as Facebook, FiGithub as GitHub } from "react-icons/fi";
-import { siteMetadata } from "@/lib/site";
-import { Container } from "./container";
-import { Icon } from "./icon";
-import { NLink } from "./nav-link";
+import { FaMeetup as Meetup } from 'react-icons/fa';
+import { FiFacebook as Facebook, FiGithub as GitHub } from 'react-icons/fi';
+import { siteMetadata } from '@/lib/site';
+import { Container } from './container';
+import { Icon } from './icon';
+import { NLink } from './nav-link';
 
 function formatBuildDate(): string {
-  return new Date().toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
+  return new Date().toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
   });
 }
 
@@ -27,7 +27,7 @@ export function Footer() {
             </p>
             <div className="flex mt-8">
               <NLink
-                to="https://github.com/malcolm-kee/kl-react"
+                to="https://github.com/kl-react/kl-react"
                 className="text-gray-400 hover:text-gray-500"
               >
                 <span className="sr-only">GitHub</span>
