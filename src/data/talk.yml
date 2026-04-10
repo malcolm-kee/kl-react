@@ -1,3 +1,35 @@
+- id: effective-git-branching
+  title: Effective Git Branching Strategies for Rapid UI Development
+  speakers:
+    - azizi
+- id: data-fetching-and-mutations
+  title: 'Data Fetching and Mutations: From Basics to Advanced Techniques'
+  speakers:
+    - kwan-jun-wen
+- id: art-of-react-abstraction
+  title: The Art of React Abstraction
+  speakers:
+    - malcolm
+  materials:
+    - type: slide
+      url: https://malcolmkee.com/note/the-art-of-react-abstraction/
+- id: making-apps-fast
+  title: 'Making Apps Fast: Perception vs Reality'
+  description: Principles and techniques of improving the perceived and actual performance based on the works in RytBank.
+  speakers:
+    - zoe-tay
+    - xian-jun-leong
+  materials:
+    - type: slide
+      url: https://canva.link/h00z9m00i1zmgzl
+- id: react-youre-missing
+  title: React You're Missing
+  description: The hidden features of React that many React engineers are unaware of - how to useOptimistic and ViewTransition to polish the user experience.
+  speakers:
+    - malcolm
+  materials:
+    - type: repo
+      url: https://github.com/malcolm-kee/use-optimistic
 - id: journey-in-scaling-frontend-applications
   title: My journey in scaling frontend applications
   speakers:

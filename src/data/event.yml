@@ -1,3 +1,40 @@
+- name: apr-2026
+  displayName: KL React March 2026 Meetup
+  date: '2026-04-09T19:00:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/313939849/
+  type: meetup
+  meetup: 313939849
+  venue: rytbank
+  schedule:
+    - time: 7.00pm
+      type: networking
+      desc: Get to know each other + eating
+    - time: 8.00pm
+      type: talk
+      talk: making-apps-fast
+    - time: 8.45pm
+      type: talk
+      talk: react-youre-missing
+- name: nov-2024
+  displayName: 'Reactivate: KL React at Xendit'
+  date: '2024-11-19T19:30:00+08:00'
+  meetupUrl: https://www.meetup.com/kl-react/events/303780399/
+  type: meetup
+  meetup: 303780399
+  venue: xendit
+  schedule:
+    - time: 7.30pm
+      type: networking
+      desc: Get to know each other + eating
+    - time: 8.00pm
+      type: talk
+      talk: effective-git-branching
+    - time: 8.30pm
+      type: talk
+      talk: data-fetching-and-mutations
+    - time: 9.00pm
+      type: talk
+      talk: art-of-react-abstraction
 - name: aug-2022
   displayName: KL React 2022 August Meetup
   date: '2022-08-23T18:30:00+08:00'

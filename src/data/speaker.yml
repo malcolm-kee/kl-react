@@ -22,7 +22,7 @@
     A software engineer making web applications functional and accessible.
 
     He conducted workshops to teach others on React and web development.
-  company: Stashaway
+  company: Canva
   github: malcolm-kee
   twitter: Malcolm_Kee
   website: https://malcolmkee.com
@@ -112,3 +112,21 @@
 - id: faisal-arba
   name: "Faisal Arba'in"
   github: faisalarbain
+- id: kwan-jun-wen
+  name: Kwan Jun Wen
+  github: junwen-k
+  linkedin: https://www.linkedin.com/in/junwen-k/
+  website: https://cv.junwen-k.dev/
+- id: zoe-tay
+  name: Zoe Tay
+  github: NiftyCoffee
+  linkedin: https://www.linkedin.com/in/zoe-tay-209455235/
+  website: https://www.zoetay.dev/
+  company: Ryt Bank
+  bio: Zoe is a frontend engineer at Ryt Bank
+- id: xian-jun-leong
+  name: Xian Jun Leong
+  github: LeongXianJun
+  linkedin: https://www.linkedin.com/in/joneleong/
+  company: Ryt Bank
+  bio: Xian Jun is a senior frontend engineer in frontend platform at Ryt Bank
